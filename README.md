@@ -92,3 +92,6 @@
   - LINE Messaging API
   　LINE Messaging API SDK for Ruby
   　line-bot-sdk-ruby
+
+### 画面遷移図
+Figma：https://www.figma.com/design/lFd2OYHDfzMORIIZEBwt0Q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%E3%80%80%E6%B8%85%E6%9B%B8?node-id=38-1881&t=8kibtZcWwFSQPAt8-0
