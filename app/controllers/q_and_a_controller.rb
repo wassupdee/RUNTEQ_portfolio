@@ -17,6 +17,7 @@ class QAndAController < ApplicationController
   
   def answer3
     save_in_session(q_and_a_params)
+    redirect_to openai_path
   end
 
   private

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post 'answer1', to: 'q_and_a#answer1'
   post 'answer2', to: 'q_and_a#answer2'
   post 'answer3', to: 'q_and_a#answer3'
+  get 'openai', to: 'openai_api#chat'
 end
