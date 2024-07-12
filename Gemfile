@@ -70,6 +70,7 @@ group :development do
 
   # To find bug
   gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :test do
