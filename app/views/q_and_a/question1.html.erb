@@ -1,13 +1,18 @@
 <%= form_with url: answer1_path, method: :post, data: { turbo: false } do |form| %>
-  <%= form.radio_button 'answer[question1]', 'friend' %>
-  <%= form.label :answer_question1_friend, '友だち' %><br>
+  <%= form.radio_button 'answer[question1]', 'friend', required: true %>
+  <%= form.label 'answer[question1]_friend', '友だち' %><br>
+
   <%= form.radio_button 'answer[question1]', 'family' %>
-  <%= form.label :answer_question1_family, '家族' %><br>
+  <%= form.label 'answer[question1]_family', '家族' %><br>
+
   <%= form.radio_button 'answer[question1]', 'work' %>
-  <%= form.label :answer_question1_work, '仕事関係' %><br>
+  <%= form.label 'answer[question1]_work', '仕事関係' %><br>
+
   <%= form.radio_button 'answer[question1]', 'acquaintance' %>
-  <%= form.label :answer_question1_acquaintance, 'ちょっとした知り合い' %><br>
+  <%= form.label 'answer[question1]_acquaintance', 'ちょっとした知り合い' %><br>
+
   <%= form.radio_button 'answer[question1]', 'others' %>
-  <%= form.label :answer_question1_others, 'そのほか' %><br>
+  <%= form.label 'answer[question1]_others', 'そのほか' %><br>
+  
   <%= form.submit '次へ' %>
 <% end %>
