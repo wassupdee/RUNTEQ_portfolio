@@ -6,30 +6,26 @@ class QAndAController < ApplicationController
   def question3;end
 
   def answer1
-    key = q_and_a_params.keys.first.to_sym
-    value = q_and_a_params.values.join
-    session[key] = value
+    save_in_session(q_and_a_params)
     redirect_to question2_path
   end
   
   def answer2
-    key = q_and_a_params.keys.first.to_sym
-    value = q_and_a_params.values.join
-    session[key] = value
+    save_in_session(q_and_a_params)
     redirect_to question3_path
   end
   
   def answer3
-    key = q_and_a_params.keys.first.to_sym
-    value = q_and_a_params.values.join
-    session[key] = value
+    save_in_session(q_and_a_params)
   end
 
   private
 
-  # def set_q_and_a_form
-  #   @q_and_a_form = QAndAForm.new(session)
-  # end
+  def save_in_session(q_and_a)
+    q_and_a.each do |key, value|
+      session[key.to_sym] = value
+    end
+  end
 
   def q_and_a_params
     params.require(:answer).permit(:question1, :question2, :question3)
