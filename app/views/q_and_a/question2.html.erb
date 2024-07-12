@@ -1,0 +1,15 @@
+<%= form_with url: answer2_path, method: :post, data: { turbo: false } do |form| %>
+  <%= form.radio_button 'answer[question2]', 'select2_1' %>
+  <%= form.label :answer_question2_select2_1, '最近どうしてる？' %><br>
+  <%= form.radio_button 'answer[question2]', 'select2_2' %>
+  <%= form.label :answer_question2_select2_2, '仕事は順調？' %><br>
+  <%= form.radio_button 'answer[question2]', 'select2_3' %>
+  <%= form.label :answer_question2_select2_3, '今どこに住んでいるの？' %><br>
+  <%= form.radio_button 'answer[question2]', 'select2_4' %>
+  <%= form.label :answer_question2_select2_4, '久しぶりに会いたい' %><br>
+  <%= form.radio_button 'answer[question2]', 'select2_5' %>
+  <%= form.label :answer_question2_select2_5, 'ご飯でもいこう' %><br>
+  <%= form.radio_button 'answer[question2]', 'select2_6' %>
+  <%= form.label :answer_question2_select2_6, '遊びにいこう' %><br>
+  <%= form.submit '次へ' %>
+<% end %>

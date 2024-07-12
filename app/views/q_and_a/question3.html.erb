@@ -1,0 +1,11 @@
+<%= form_with url: answer3_path, method: :post, data: { turbo: false } do |form| %>
+  <%= form.radio_button 'answer[question3]', 'select3_1' %>
+  <%= form.label :answer_question3_select3_1, '男性' %><br>
+  <%= form.radio_button 'answer[question3]', 'select3_2' %>
+  <%= form.label :answer_question3_select3_2, '女性' %><br>
+  <%= form.radio_button 'answer[question3]', 'select3_3' %>
+  <%= form.label :answer_question3_select3_3, 'そのほか' %><br>
+  <%= form.radio_button 'answer[question3]', 'select3_4' %>
+  <%= form.label :answer_question3_select3_4, '答えたくない' %><br>
+  <%= form.submit '次へ' %>
+<% end %>
