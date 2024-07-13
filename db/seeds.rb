@@ -1,9 +1,26 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+question1,question2,question3 = Question.create!(text: "メッセージを送りたい相手は？", number: "1"),
+                                Question.create!(text: "メッセージに含めたい内容は？", number: "2"),
+                                Question.create!(text: "あなたの性別を教えてください", number: "3")
+
+
+Answer.create!(
+  [
+    { text: "友だち", value: "friend", number: "1", question: question1 },
+    { text: "家族", value: "family", number: "2", question: question1 },
+    { text: "仕事関係", value: "work", number: "3", question: question1 },
+    { text: "ちょっとした知り合い", value: "acquaintance", number: "4", question: question1 },
+    { text: "そのほか", value: "others", number: "5", question: question1 },
+
+    { text: "最近どうしてる？", value: "life", number: "1", question: question2 },
+    { text: "仕事は順調？", value: "work", number: "2", question: question2 },
+    { text: "今どこに住んでいるの？", value: "place", number: "3", question: question2 },
+    { text: "久しぶりに会いたい", value: "meet", number: "4", question: question2 },
+    { text: "ご飯でもいこう", value: "eat", number: "5", question: question2 },
+    { text: "遊びにいこう", value: "play", number: "6", question: question2 },
+
+    { text: "男性", value: "male", number: "1", question: question3 },
+    { text: "女性", value: "female", number: "2", question: question3 },
+    { text: "そのほか", value: "others", number: "3", question: question3 },
+    { text: "答えたくない", value: "no_comment", number: "4", question: question3 },
+  ]
+)
