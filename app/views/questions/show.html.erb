@@ -1,0 +1,9 @@
+<%= @question.text %>
+
+  <%= form_with url: questions_path, method: :post, data: { turbo: false } do |form| %>
+    <% @answers.each do |answer| %>
+      <%= form.radio_button "answer[question#{@question.number}]", answer.value, required: :true %>
+      <%= form.label "answer[#{@question.number}]_#{answer.value}", answer.text %>
+    <% end %>
+    <%= form.submit '次へ' %>
+  <% end %>
