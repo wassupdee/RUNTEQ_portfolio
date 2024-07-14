@@ -1,0 +1,6 @@
+<%= render "introduction#{@page_number}" %>
+<% if @page_number.to_i > 1 %>
+  <%= link_to '次へ', question_path(1) %>
+<% else %>
+  <%= link_to '次へ', introduction_path(@page_number.to_i + 1) %>
+<% end %>
