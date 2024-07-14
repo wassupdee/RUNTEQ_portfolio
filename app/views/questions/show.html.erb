@@ -1,9 +1,17 @@
 <%= @question.text %>
 
-  <%= form_with url: answers_path, method: :post, data: { turbo: false } do |form| %>
+<%= form_with url: answers_path, method: :post, data: { turbo: false } do |form| %>
+  <% if @question.number.to_i == 2 %>
+    <% @answers.each do |answer| %>
+      <%= form.check_box "answer[question#{@question.number}]", { multiple: true }, answer.value, nil %>
+      <%= form.label "answer[question#{@question.number}]_#{answer.value}", answer.text %>
+    <% end %>
+    <%= form.submit '次へ' %>
+  <% else %>
     <% @answers.each do |answer| %>
       <%= form.radio_button "answer[question#{@question.number}]", answer.value, required: :true %>
       <%= form.label "answer[question#{@question.number}]_#{answer.value}", answer.text %>
     <% end %>
     <%= form.submit '次へ' %>
   <% end %>
+<% end %>
