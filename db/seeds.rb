@@ -20,7 +20,7 @@ Answer.create!(
 
     { text: "男性", value: "male", number: "1", question: question3 },
     { text: "女性", value: "female", number: "2", question: question3 },
-    { text: "そのほか", value: "others", number: "3", question: question3 },
+    { text: "そのほか", value: "other_gender", number: "3", question: question3 },
     { text: "答えたくない", value: "no_comment", number: "4", question: question3 },
   ]
 )
