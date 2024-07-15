@@ -12,7 +12,7 @@ Answer.create!(
     { text: "そのほか", value: "others", number: "5", question: question1 },
 
     { text: "最近どうしてる？", value: "life", number: "1", question: question2 },
-    { text: "仕事は順調？", value: "work", number: "2", question: question2 },
+    { text: "仕事は順調？", value: "job", number: "2", question: question2 },
     { text: "今どこに住んでいるの？", value: "place", number: "3", question: question2 },
     { text: "久しぶりに会いたい", value: "meet", number: "4", question: question2 },
     { text: "ご飯でもいこう", value: "eat", number: "5", question: question2 },
