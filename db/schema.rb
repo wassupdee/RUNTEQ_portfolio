@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_16_100844) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_16_101301) do
   create_table "albums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "date"
     t.string "title"
@@ -45,6 +45,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_100844) do
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_groups_profiles_on_group_id"
     t.index ["profile_id"], name: "index_groups_profiles_on_profile_id"
+  end
+
+  create_table "notes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "content"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_notes_on_profile_id"
   end
 
   create_table "profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -86,5 +94,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_100844) do
   add_foreign_key "groups", "users"
   add_foreign_key "groups_profiles", "groups"
   add_foreign_key "groups_profiles", "profiles"
+  add_foreign_key "notes", "profiles"
   add_foreign_key "profiles", "users"
 end

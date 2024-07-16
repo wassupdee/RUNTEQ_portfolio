@@ -3,4 +3,5 @@ class Profile < ApplicationRecord
   has_many :groups_profiles, dependent: :destroy
   has_many :groups, through :groups_profiles
   has_many :albums, dependent: :destroy
+  has_one :note, dependent: :destroy
 end
