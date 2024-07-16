@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
-  validates :line_user_id, uniqueness: true
+  validates :line_user_id, uniqueness: true, allow_blank: true
   validates :notification_enabled, presence: true
 
   enum notification_enabled: { off: false, on: true }
