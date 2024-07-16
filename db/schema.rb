@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_16_095603) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_16_100844) do
+  create_table "albums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "date"
+    t.string "title"
+    t.text "diary"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_albums_on_profile_id"
+  end
+
   create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "text", null: false
     t.string "value", null: false
@@ -71,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_095603) do
     t.index ["line_user_id"], name: "index_users_on_line_user_id", unique: true
   end
 
+  add_foreign_key "albums", "profiles"
   add_foreign_key "answers", "questions"
   add_foreign_key "groups", "users"
   add_foreign_key "groups_profiles", "groups"
