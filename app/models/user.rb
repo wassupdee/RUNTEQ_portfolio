@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :line_user_id, uniqueness: true
   validates :notification_enabled, presence: true
+
+  enum notification_enabled: { off: false, on: true }
 end
