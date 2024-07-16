@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
       flash[:success] = 'ログインしました'
       redirect_to root_path
     else
-      flash.now[:danger] = 'ログインに失敗しました'
+      flash.now[:danger] = 'メールアドレスまたはパスワードが正しくありません'
       render :new, status: :unprocessable_entity
     end
   end
