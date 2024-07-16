@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  skip_before_action :require_login
+
   def create
     save_in_session(answer_params)
     
