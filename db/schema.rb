@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_16_092954) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_16_094904) do
   create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "text", null: false
     t.string "value", null: false
@@ -18,6 +18,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_092954) do
     t.bigint "question_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["value"], name: "index_answers_on_value", unique: true
+  end
+
+  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -55,5 +63,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_092954) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "groups", "users"
   add_foreign_key "profiles", "users"
 end
