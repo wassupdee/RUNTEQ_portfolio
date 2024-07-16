@@ -1,8 +1,13 @@
 <%= @message %>
 
-<%= form_with url: "#", local: true do |form| %>
-  <div>
-    <%= form.label :message, "編集する" %><br>
-    <%= form.text_area :message, value: @message, rows: 2, cols: 100 %>
-  </div>
-<% end %>
+<div data-controller="clipboard" >
+  <%= form_with url: "#", local: true do |form| %>
+    <div>
+      <%= form.label :message, "編集する" %><br>
+      <%= form.text_area :message, value: @message, rows: 2, cols: 100, data: { clipboard_target: "source" } %>
+    </div>
+  <% end %>
+  <button type="button", data-action= "clipboard#copy", data-clipboard-target= "copy_button" >
+  コピーする
+  </button>
+</div>
