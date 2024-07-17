@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_16_055008) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_17_031319) do
+  create_table "albums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "date"
+    t.string "title"
+    t.text "diary"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_albums_on_profile_id"
+  end
+
   create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "text", null: false
     t.string "value", null: false
@@ -18,6 +28,57 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_055008) do
     t.bigint "question_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["value"], name: "index_answers_on_value", unique: true
+  end
+
+  create_table "events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.date "date"
+    t.integer "notification_timing"
+    t.boolean "notification_enabled", default: true, null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_events_on_profile_id"
+  end
+
+  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "groups_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_groups_profiles_on_group_id"
+    t.index ["profile_id"], name: "index_groups_profiles_on_profile_id"
+  end
+
+  create_table "notes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "content"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_notes_on_profile_id"
+  end
+
+  create_table "profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "furigana"
+    t.string "phone"
+    t.string "email"
+    t.string "line_name"
+    t.string "birthplace"
+    t.string "address"
+    t.string "occupation"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -39,5 +100,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_055008) do
     t.index ["line_user_id"], name: "index_users_on_line_user_id", unique: true
   end
 
+  add_foreign_key "albums", "profiles"
   add_foreign_key "answers", "questions"
+  add_foreign_key "events", "profiles"
+  add_foreign_key "groups", "users"
+  add_foreign_key "groups_profiles", "groups"
+  add_foreign_key "groups_profiles", "profiles"
+  add_foreign_key "notes", "profiles"
+  add_foreign_key "profiles", "users"
 end
