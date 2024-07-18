@@ -10,6 +10,7 @@
       <% profile.events.each do |event| %>
         <td><%= event.date %></td>
       <% end %>
+      <td><%= link_to '詳細', profile_path(profile) %></td>
     </tr>
   <% end %>
 </table>
