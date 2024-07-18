@@ -8,10 +8,10 @@ class ProfilesController < ApplicationController
   def show
     @profile = current_user.profiles.find(params[:id])
   end
-
+  
   def create
     @profile = current_user.profiles.new(profile_params)
-
+    
     if @profile.save
       flash[:success] = '連絡先を登録しました'
       redirect_to profile_path(@profile)
@@ -19,6 +19,12 @@ class ProfilesController < ApplicationController
       flash[:danger] = '連絡先を登録できませんでした'
       render :new, status: :unprocessable_entity
     end
+  end
+  
+  def destroy
+    @profile = current_user.profiles.find(params[:id])
+    @profile.destroy!
+    redirect_to profiles_path, status: :see_other
   end
 
   private
