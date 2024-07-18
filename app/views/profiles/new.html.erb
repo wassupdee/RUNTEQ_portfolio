@@ -1,4 +1,6 @@
 <%= form_with model: @profile, method: :post, data: { turbo: false } do |profile_form| %>
+  <%= render 'shared/error_messages', model: profile_form.object %>
+
   <%= profile_form.label :name, '名前' %>
   <%= profile_form.text_field :name %>
 
