@@ -5,8 +5,8 @@
   <%= profile_form.label :furigana, 'フリガナ' %>
   <%= profile_form.text_field :furigana %>
 
-  <% @profile.events.each_with_index do |event, index| %>
-    <%= profile_form.fields_for :events, event, index: index do |event_form| %>
+  <% @profile.events.each do |event| %>
+    <%= profile_form.fields_for :events, event do |event_form| %>
       <% if event.name == '誕生日' %>
         <%= event_form.label :date, event.name %>
         <%= event_form.date_field :date %>
