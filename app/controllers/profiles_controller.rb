@@ -21,6 +21,21 @@ class ProfilesController < ApplicationController
     end
   end
   
+  def edit
+    @profile = current_user.profiles.find(params[:id])
+  end
+  
+  def update
+    @profile = current_user.profiles.find(params[:id])
+    if @profile.update(profile_params)
+      flash[:success] = '連絡先を更新しました'
+      redirect_to profile_path(@profile)
+    else
+      flash[:danger] = '連絡先を更新できませんでした'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @profile = current_user.profiles.find(params[:id])
     @profile.destroy!
