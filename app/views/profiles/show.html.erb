@@ -1,0 +1,12 @@
+名前: <%= @profile.name %><br>
+ふりがな: <%= @profile.furigana %><br>
+<% @profile.events.each do |event| %>
+  <%= event.name %>
+  <%= event.date %><br>
+<% end %>
+電話番号: <%= @profile.phone %><br>
+メールアドレス: <%= @profile.email %><br>
+LINE名: <%= @profile.line_name %><br>
+出身地: <%= @profile.birthplace %><br>
+住所: <%= @profile.address %><br>
+職業: <%= @profile.occupation %><br>

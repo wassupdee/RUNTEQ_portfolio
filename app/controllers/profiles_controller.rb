@@ -5,6 +5,10 @@ class ProfilesController < ApplicationController
     @profile.events.build(name: '大切な日')
   end
 
+  def show
+    @profile = current_user.profiles.find(params[:id])
+  end
+
   def create
     @profile = current_user.profiles.new(profile_params)
 
