@@ -1,0 +1,17 @@
+<%= link_to '連絡先を作成', new_profile_path %>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>誕生日</th>
+    <th>大切な日</th>
+  </tr>
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.name %></td>
+      <% profile.events.each do |event| %>
+        <td><%= event.date %></td>
+      <% end %>
+      <td><%= link_to '詳細', profile_path(profile) %></td>
+    </tr>
+  <% end %>
+</table>
