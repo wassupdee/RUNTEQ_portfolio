@@ -8,6 +8,10 @@ class ProfilesController < ApplicationController
   def show
     @profile = current_user.profiles.find(params[:id])
   end
+
+  def index
+    @profiles = current_user.profiles.all.order(created_at: :desc)
+  end
   
   def create
     @profile = current_user.profiles.new(profile_params)
