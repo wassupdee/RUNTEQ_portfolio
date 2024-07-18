@@ -5,12 +5,16 @@ class ProfilesController < ApplicationController
     @profile.events.build(name: '大切な日')
   end
 
+  def show
+    @profile = current_user.profiles.find(params[:id])
+  end
+
   def create
     @profile = current_user.profiles.new(profile_params)
 
     if @profile.save
       flash[:success] = '連絡先を登録しました'
-      redirect_to root_path # profile_path(@profile)
+      redirect_to profile_path(@profile)
     else
       flash[:danger] = '連絡先を登録できませんでした'
       render :new, status: :unprocessable_entity
