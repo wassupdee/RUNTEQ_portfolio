@@ -6,11 +6,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = current_user.profiles.find(params[:id])
+    @profile = current_user.profiles.includes(:events).find(params[:id])
   end
 
   def index
-    @profiles = current_user.profiles.all.order(created_at: :desc)
+    @profiles = current_user.profiles.includes(:events).order(created_at: :desc)
   end
   
   def create
@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
   end
   
   def edit
-    @profile = current_user.profiles.find(params[:id])
+    @profile = current_user.profiles.includes(:events).find(params[:id])
   end
   
   def update
