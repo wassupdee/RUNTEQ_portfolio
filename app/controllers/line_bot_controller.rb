@@ -10,15 +10,15 @@ class LineBotController < ApplicationController
     
     events.each do |event|
       case event
-      when Line::Bot::Event::Message # eventのtype(message, follow, unfollow)の内、messageを指定する
+      when Line::Bot::Event::Message
         case event.type
-        when Line::Bot::Event::MessageType::Text # massageの中身がテキストだったとき
+        when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: event.message['text']
+            text: event.message['text'].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
           }
           client.reply_message(event['replyToken'], message)
-
+          
           # @email = event.message['text'].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
           # @line_id = event.source['userId']
           # @user = User.find_by(email: @email)
