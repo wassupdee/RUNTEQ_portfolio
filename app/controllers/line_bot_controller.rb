@@ -1,17 +1,13 @@
 class LineBotController < ApplicationController
-  # アクションのCSRFトークン認証を無効
+  skip_before_action :require_login
+
   protect_from_forgery :except => [:line_id_registration]
     
-  # LINEから呼び出されるアクション
   def line_id_registration
-    # リクエストのbody（StringIOクラス）を文字列（Stringクラス）に変更
     body = request.body.read
 
-    # parse_events_fromはline-bot-apiのオリジナルメソッド
-    # clientは以下で定義したプライベートアクション（が返したインスタンス）
     events = client.parse_events_from(body)
     
-    # eventsは配列に入っているので、eachでアクセス。events[0]でもだいたい同じ。
     events.each do |event|
       case event
       when Line::Bot::Event::Message # eventのtype(message, follow, unfollow)の内、messageを指定する
