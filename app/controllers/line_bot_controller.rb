@@ -15,7 +15,7 @@ class LineBotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: event.message['text'].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
+            text: event.source['userId']
           }
           client.reply_message(event['replyToken'], message)
           
