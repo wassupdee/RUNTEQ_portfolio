@@ -131,6 +131,7 @@ GEM
       railties (>= 6.0.0)
     jwt (2.8.2)
       base64
+    line-bot-api (1.29.0)
     logger (1.6.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -316,6 +317,7 @@ DEPENDENCIES
   dotenv
   jbuilder
   jsbundling-rails
+  line-bot-api
   mysql2 (~> 0.5)
   pry-byebug
   pry-rails
