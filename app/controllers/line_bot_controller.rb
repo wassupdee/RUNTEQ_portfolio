@@ -17,21 +17,27 @@ class LineBotController < ApplicationController
       when Line::Bot::Event::Message # eventのtype(message, follow, unfollow)の内、messageを指定する
         case event.type
         when Line::Bot::Event::MessageType::Text # massageの中身がテキストだったとき
-          @email = event.message['text'].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
-          @line_id = event.source['userId']
-          @user = User.find_by(email: @email)
+          message = {
+            type: 'text',
+            text: event.message['text']
+          }
+          client.reply_message(event['replyToken'], message)
 
-          if  @user && @user.update(line_user_id: @line_id)
-            client.reply_message(event['replyToken'], { 
-              type: 'text',
-              text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
-            })
-          else
-            client.reply_message(event['replyToken'], {
-              type: 'text',
-              text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
-            })
-          end
+          # @email = event.message['text'].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
+          # @line_id = event.source['userId']
+          # @user = User.find_by(email: @email)
+
+          # if  @user && @user.update(line_user_id: @line_id)
+          #   client.reply_message(event['replyToken'], { 
+          #     type: 'text',
+          #     text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
+          #   })
+          # else
+          #   client.reply_message(event['replyToken'], {
+          #     type: 'text',
+          #     text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
+          #   })
+          # end
         end
       end
     end
