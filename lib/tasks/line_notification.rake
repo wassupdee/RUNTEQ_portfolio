@@ -6,9 +6,7 @@ namespace :push_line do
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
 
-    # @users = User.where.not(line_user_id: nil).where(notification_enabled: true).includes(:events)
-    # @events = Event.where(user: @users).where.not(date: nil, notification_timing: nil).where(notification_enabled: :on)
-
+    
     # @events.each do |event|
     #   if event.date - notification_timing == today # 日付だけ比較したい
     #     @line_user_ids << event.user.line_user_id
@@ -16,24 +14,31 @@ namespace :push_line do
     # end
     
     # message = {
-    #   type: 'text',
-    #   text: "明日は大切な日です！"
-    # }
+      #   type: 'text',
+      #   text: "明日は大切な日です！"
+      # }
+      
+      # @line_user_ids.each do |line_user_id|
+      #   hash = { line_user_id, message }
+      # end
+      
+      # user = User.find(4)
+      # profile = Profile.find(4)
+      # event = Event.find(10)
+      
+    users = User.where.not(line_user_id: nil).where(notification_enabled: :on).includes(:events)
+    events = Event.where(user: @users).where.not(date: nil, notification_timing: nil).where(notification_enabled: :on)
 
-    # @line_user_ids.each do |line_user_id|
-    #   hash = { line_user_id, message }
-    # end
-
-    user = User.find(4)
-    profile = Profile.find(4)
-    event = Event.find(10)
-
-    client.push_message(
-      user.line_user_id,
-    {
-      type: 'text',
-      text: "#{profile.name}さんの#{event.name}の#{event.notification_timing}日前です！"
-    }
-      )
+    users.each do |user|
+      user.events.each do |event|       
+        client.push_message(
+          user.line_user_id,
+        {
+          type: 'text',
+          text: "#{event.profile.name}さんの#{event.name}の#{event.notification_timing}日前です！"
+        }
+          )
+      end
+    end
   end
 end
