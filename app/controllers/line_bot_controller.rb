@@ -13,12 +13,7 @@ class LineBotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          # message = {
-          #   type: 'text',
-          #   text: event['source']['userId']
-          # }
-          # client.reply_message(event['replyToken'], message)
-          
+
           @email = event.message['text'].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
           @line_id = event['source']['userId']
           @user = User.find_by(email: @email)
