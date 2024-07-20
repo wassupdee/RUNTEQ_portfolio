@@ -26,18 +26,20 @@ namespace :push_line do
       # profile = Profile.find(4)
       # event = Event.find(10)
       
-    users = User.where.not(line_user_id: nil).where(notification_enabled: :on).includes(:events)
-    events = Event.where(user: @users).where.not(date: nil, notification_timing: nil).where(notification_enabled: :on)
+      # events = Event.where(user: @users).where.not(date: nil, notification_timing: nil).where(notification_enabled: :on)
+    users = User.where.not(line_user_id: nil).where(notification_enabled: :on).includes(profiles: :events)
 
     users.each do |user|
-      user.events.each do |event|       
-        client.push_message(
-          user.line_user_id,
-        {
-          type: 'text',
-          text: "#{event.profile.name}さんの#{event.name}の#{event.notification_timing}日前です！"
-        }
-          )
+      user.events.each do |event|
+        if event.date.present? && event.notification_timing.present? && event.notification_enabled.on?
+          client.push_message(
+            user.line_user_id,
+          {
+            type: 'text',
+            text: "#{event.profile.name}さんの#{event.name}の#{event.notification_timing}日前です！"
+          }
+            )
+        end
       end
     end
   end
