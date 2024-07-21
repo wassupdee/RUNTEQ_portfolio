@@ -7,18 +7,9 @@ namespace :push_line do
     }
 
     users = User.where.not(line_user_id: nil).where(notification_enabled: :on).includes(profiles: :events)
-    # users.each do |user|
-    #   user.events.each do |event|
-    #     if event.date.present? && event.notification_timing.present? && event.notification_enabled?
-    #       puts 'yes!'
-    #     else
-    #       puts 'no!'
-    #     end
-    #   end
-    # end
     users.each do |user|
       user.events.each do |event|
-        if event.ready_to_notify?
+        if event.is_ready_to_notify? && event.is_to_be_sent_today?
           client.push_message(
             user.line_user_id,
           {
