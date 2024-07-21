@@ -18,7 +18,7 @@ namespace :push_line do
     # end
     users.each do |user|
       user.events.each do |event|
-        if event.date.present? && event.notification_timing.present? && event.notification_enabled?
+        if event.ready_to_notify?
           client.push_message(
             user.line_user_id,
           {
