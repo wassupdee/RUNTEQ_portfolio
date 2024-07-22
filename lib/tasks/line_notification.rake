@@ -1,6 +1,6 @@
 namespace :push_line do
-  desc "LINEBOT：大切な日のリマインダー"
-  task push_line_message_important_day: :environment do
+  desc "LINEBOT：イベントのリマインダー"
+  task event_notification: :environment do
     client = Line::Bot::Client.new { |config|
         config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
