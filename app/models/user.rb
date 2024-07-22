@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :profiles, dependent: :destroy
   has_many :groups, dependent: :destroy
+  has_many :events, through: :profiles
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -14,4 +15,8 @@ class User < ApplicationRecord
   validates :notification_enabled, presence: true
 
   enum notification_enabled: { off: false, on: true }
+
+  def self.get_only_ready_to_notify
+    where.not(line_user_id: nil).where(notification_enabled: :on)
+  end
 end
