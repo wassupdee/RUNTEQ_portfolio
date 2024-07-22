@@ -15,4 +15,8 @@ class User < ApplicationRecord
   validates :notification_enabled, presence: true
 
   enum notification_enabled: { off: false, on: true }
+
+  def self.get_only_ready_to_notify
+    where.not(line_user_id: nil).where(notification_enabled: :on)
+  end
 end

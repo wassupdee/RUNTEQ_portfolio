@@ -6,7 +6,7 @@ namespace :push_line do
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
 
-    users = User.where.not(line_user_id: nil).where(notification_enabled: :on).includes(profiles: :events)
+    users = User.get_only_ready_to_notify.includes(profiles: :events)
     users.each do |user|
       user.events.each do |event|
         if event.is_ready_to_notify? && event.is_scheduled_to_notify_today?
