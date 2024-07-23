@@ -5,9 +5,7 @@ class Form::EventCollection < Form::Base
   def initialize(attributes = {})
     super attributes
 
-    if attributes[:events]
-      self.events = FORM_COUNT.times.map { Event.new() } unless self.events.present?
-    end
+    self.events = FORM_COUNT.times.map { Event.new() } unless self.events.present?
   end
 
   def events_attributes=(attributes)
