@@ -9,7 +9,10 @@ class Form::EventCollection < Form::Base
   end
 
   def events_attributes=(attributes)
-    self.events= attributes.map { |_, v| Event.new(v) }
+    self.events = attributes.map do |_, v|
+      v[:notification_enabled] = ActiveRecord::Type::Boolean.new.cast(v[:notification_enabled])
+      Event.new(v)
+    end
   end
 
   def update
