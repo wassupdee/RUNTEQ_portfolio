@@ -1,0 +1,18 @@
+<%= form_with model: @form, url: update_all_profile_events_path, method: :patch, data: { turbo: false } do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <%= f.fields_for :events do |i| %>
+    <%= "#{i.object.name}の" %>
+    <%=i.select :notification_timing, [0,1,3,7,14,30,60], selected: i.object.notification_timing %>日前に、<br>
+    <%# 通知<%=i.check_box :notification_enabled %>
+    <%= i.hidden_field :date, value: i.object.date %>
+    <%= i.hidden_field :name, value: i.object.name %>
+  <% end %>
+
+  <%= f.submit '登録する' %>
+<% end %>
+
+<div>
+※通知機能を使うためには、LINEの友達登録が必要です。<br>
+友達登録はこちらから
+</div>
