@@ -7,6 +7,7 @@
     <%# 通知<%=i.check_box :notification_enabled %>
     <%= i.hidden_field :date, value: i.object.date %>
     <%= i.hidden_field :name, value: i.object.name %>
+    <%= i.hidden_field :profile_id, value: i.object.profile_id %>
   <% end %>
 
   <%= f.submit '登録する' %>

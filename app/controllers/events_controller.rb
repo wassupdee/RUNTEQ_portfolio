@@ -7,8 +7,7 @@ class EventsController < ApplicationController
 
   def update_all
     @form = Form::EventCollection.new(event_params)
-    binding.pry
-    if @form.save
+    if @form.update
       flash[:success] = '保存しました'
       redirect_to root_path
     else
@@ -20,6 +19,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:form_event_collection).permit(events_attributes: [:id, :name, :date, :notification_timing, :notification_enabled])
+    params.require(:form_event_collection).permit(events_attributes: [:id, :name, :date, :notification_timing, :notification_enabled, :profile_id])
   end
 end
