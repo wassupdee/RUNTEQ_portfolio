@@ -1,11 +1,8 @@
 class Form::EventCollection < Form::Base
   attr_accessor :events
-  FORM_COUNT = 2
 
   def initialize(attributes = {})
     super attributes
-
-    self.events = FORM_COUNT.times.map { Event.new() } unless self.events.present?
   end
 
   def events_attributes=(attributes)
