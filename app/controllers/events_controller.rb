@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @form = Form::EventCollection.new(event_params)
     if @form.update
       flash[:success] = '保存しました'
-      redirect_to root_path
+      redirect_to profile_events_path(@form.events.first.profile_id)
     else
       flash.now[:success] = '保存できませんでした'
       render :index, status: :unprocessable_entity
