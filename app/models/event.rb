@@ -3,7 +3,7 @@ class Event < ApplicationRecord
 
   enum notification_enabled: { off: false, on: true }
 
-  validate :check_number_of_events
+  validate :check_number_of_events, on: :create
 
   def is_ready_to_notify?
     date.present? && notification_timing.present? && notification_enabled?
@@ -22,7 +22,7 @@ class Event < ApplicationRecord
   end
 
   def check_number_of_events
-    if profile&.events.count > 1
+    if profile&.events.count == 2
       errors.add(:events, "大切な日は１つまでしか登録できません")
     end
   end
