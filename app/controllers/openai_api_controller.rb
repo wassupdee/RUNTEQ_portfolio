@@ -6,7 +6,7 @@ class OpenaiApiController < ApplicationController
   def chat
     response = @openai.chat(
       parameters: {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
         messages: set_prompt
         # temperature: 0.7, # 応答のランダム性を指定
         # max_tokens: 20,  # 応答の長さを指定
