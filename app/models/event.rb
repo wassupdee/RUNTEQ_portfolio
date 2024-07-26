@@ -3,6 +3,8 @@ class Event < ApplicationRecord
 
   enum notification_enabled: { off: false, on: true }
 
+  validate :check_number_of_events
+
   def is_ready_to_notify?
     date.present? && notification_timing.present? && notification_enabled?
   end
@@ -17,5 +19,11 @@ class Event < ApplicationRecord
 
   def change_utc_to_jst(datetime)
     datetime + 9.hours
+  end
+
+  def check_number_of_events
+    if profile&.events.count > 1
+      errors.add(:events, "大切な日は１つまでしか登録できません")
+    end
   end
 end
