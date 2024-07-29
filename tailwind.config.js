@@ -5,5 +5,12 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js'
   ],
+  theme: {
+    extend: {
+      colors: {
+        'golden': '#FFD700'
+      }
+    }
+  },
   plugins: [require("daisyui")],
 }
