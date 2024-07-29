@@ -1,13 +1,20 @@
 <% content_for(:tab_title, 'Reconnect') %>
 
 <div class="bg-[url('/assets/top_first_bg.jpg')] min-h-screen bg-cover">
-  <div>
-    <h1>また、つながろう。<br>
-        私の大切なともだちと</h1>
-      <p>昔のともだちに、連絡を取ってみませんか？<br>
-         ３つの質問に答えるだけで、あなたに最適なメッセージを提案します</p>
-  </div>
+  <div class="flex">
+    <div class="w-1/2 flex flex-col justify-center items-center text-white text-center">
+      <div>
+        <h1 class="text-5xl sm:text-7xl mb-12 mt-44">また、つながろう。</h1>
+        <h1 class="text-5xl sm:text-7xl mb-20">私の大切なともだちと</h1>
+        <p class="text-xl mb-10 text-center">昔のともだちに、連絡を取ってみませんか？<br>３つの質問に答えるだけで、あなたに最適なメッセージを提案します</p>
+      </div>
+      <div>
+        <%= link_to introduction_path(1) do %>
+          <button class="btn btn-lg">メッセージを作成する</button>
+        <% end %>
+      </div>
+    </div>
+    <div class="w-1/2"></div>
+  </div> 
 </div>
-<%= link_to introduction_path(1) do %>
-  <button class="btn btn-lg">メッセージを作成する</button>
-<% end %>
+
