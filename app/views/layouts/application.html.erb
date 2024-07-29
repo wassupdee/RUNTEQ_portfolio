@@ -11,16 +11,18 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <div class="bg-[url('/assets/top_first_bg.jpg')] min-h-screen bg-cover">
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
 
-    <%= render 'shared/flash_message' %>
+      <%= render 'shared/flash_message' %>
 
-    <%= yield %>
+      <%= yield %>
 
-    <%= render 'shared/footer' %>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
