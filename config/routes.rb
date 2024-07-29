@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'top#index'
+  root 'static_pages#top'
   resources :introductions, only: [:show]
   resources :questions, only: [:show]
   resources :answers, only: [:create]
