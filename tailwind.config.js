@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'golden': '#FFD700'
+        'golden': '#FFD700',
+        'peach': '#FF6F61'
       }
     }
   },
