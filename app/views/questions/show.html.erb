@@ -4,14 +4,12 @@
       <%= @question.text %>
     </div>
 
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex items-center justify-center">
       <%= form_with url: answers_path, method: :post, data: { turbo: false } do |form| %>
         <% if @question.number.to_i == 2 %>
           <% @answers.each do |answer| %>
-            <div class="hidden">
+            <div class="flex items-center mb-2 text-white text-xl gap-2">
               <%= form.check_box "answer[question#{@question.number}]", { multiple: true }, answer.value, nil %>
-            </div>
-            <div class="btn bg-peach flex items-center justify-center mb-2 text-white">
               <%= form.label "answer[question#{@question.number}]_#{answer.value}", answer.text %>
             </div>
           <% end %>
@@ -21,10 +19,8 @@
           </div>
         <% else %>
           <% @answers.each do |answer| %>
-            <div class="hidden">
+            <div class="flex items-center mb-2 text-white text-xl gap-2">
               <%= form.radio_button "answer[question#{@question.number}]", answer.value, required: :true %>
-            </div>
-            <div class="btn bg-peach flex items-center justify-center mb-2 text-white">
               <%= form.label "answer[question#{@question.number}]_#{answer.value}", answer.text %>
             </div>
           <% end %>
