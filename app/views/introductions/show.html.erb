@@ -1,6 +1,14 @@
-<%= render "introduction#{@page_number}" %>
-<% if @page_number.to_i > 1 %>
-  <%= link_to '次へ', question_path(1) %>
-<% else %>
-  <%= link_to '次へ', introduction_path(@page_number.to_i + 1) %>
-<% end %>
+<div class="flex flex-col justify-center min-h-screen">
+  <div class="mx-auto border-white border-2 rounded-md p-10 text-2xl">
+    <%= render "introduction#{@page_number}" %>
+
+    <div class="text-center mt-5">
+      <% if @page_number.to_i > 1 %>
+        <%= link_to '次へ', question_path(1) %>
+      <% else %>
+        <%= link_to '次へ', introduction_path(@page_number.to_i + 1) %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
