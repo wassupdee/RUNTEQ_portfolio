@@ -1,19 +1,38 @@
-<%= form_with model: @form, url: update_all_profile_events_path, method: :patch, data: { turbo: false } do |f| %>
-  <%= render 'shared/error_messages', model: f.object %>
+<div class="pt-40 max-w-md mx-auto text-white text-2xl">
+  <%= form_with model: @form, url: update_all_profile_events_path, method: :patch, data: { turbo: false } do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
 
-  <%= f.fields_for :events do |i| %>
-    <%= "#{i.object.name}の" %>
-    <%=i.select :notification_timing, [0,1,3,7,14,30,60], selected: i.object.notification_timing %>日前に、
-    通知<%=i.check_box :notification_enabled, checked: i.object.notification_enabled == "on" %><br>
-    <%= i.hidden_field :date, value: i.object.date %>
-    <%= i.hidden_field :name, value: i.object.name %>
-    <%= i.hidden_field :profile_id, value: i.object.profile_id %>
+    <%= f.fields_for :events do |i| %>
+      <div class="grid grid-cols-3 items-center gap-2 mb-4">
+        <div class="col-span-1">
+          <%= "#{i.object.name}の" %>
+        </div>
+        <div class="col-span-1">
+          <%= i.select :notification_timing, [0,1,3,7,14,30,60], selected: i.object.notification_timing, class: "text-black w-full" %>日前に、
+        </div>
+        <div class="col-span-1 flex items-center">
+          通知
+          <%= i.check_box :notification_enabled, checked: i.object.notification_enabled == "on", class: "mr-2 ml-2" %>
+        </div>
+        <div>
+          <%= i.hidden_field :date, value: i.object.date %>
+          <%= i.hidden_field :name, value: i.object.name %>
+          <%= i.hidden_field :profile_id, value: i.object.profile_id %>
+        </div>
+      </div>
+    <% end %>
+    <div class="flex justify-center">
+      <%= f.submit '登録する', class: "bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" %>
+    </div>
   <% end %>
+</div>
 
-  <%= f.submit '登録する' %>
-<% end %>
-
-<div>
-※通知機能を使うためには、LINEの友達登録が必要です。<br>
-友達登録は<%= link_to 'こちらから', line_qr_code_path	%>
+<div class="flex flex-col items-center mt-10 text-xl">
+  <p>※通知機能を使うためには、LINEの友達登録が必要です。</p>
+  <div>
+    友達登録は
+    <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
+      こちらから
+    <% end %>
+  </div>
 </div>
