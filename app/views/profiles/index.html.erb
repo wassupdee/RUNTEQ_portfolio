@@ -1,28 +1,30 @@
 <div class="pt-16">
-  <h1 class="text-2xl text-white pt-10 pl-10">れんらく帳</h1>
-  <div class="flex justify-end pt-2">
+  <h1 class="text-2xl text-white pt-10 pl-48">れんらく帳</h1>
+  <div class="flex justify-end pt-2 pr-48">
     <%= link_to new_profile_path do %>
       <button class="btn bg-peach text-black border-none shadow-2xl">連絡先を作成</button>
     <% end %>
   </div>
-  <table class="table bg-white text-black text-center mt-2">
-    <tr>
-      <th>名前</th>
-      <th>誕生日</th>
-      <th>大切な日</th>
-    </tr>
-    <% @profiles.each do |profile| %>
+  <div class="px-48">
+    <table class="table bg-white text-black text-center mt-2">
       <tr>
-        <td><%= profile.name %></td>
-        <% profile.events.each do |event| %>
-          <td><%= event.date %></td>
-        <% end %>
-        <td>
-          <%= link_to profile_path(profile) do %>
-            <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
-          <% end %>
-        </td>
+        <th>名前</th>
+        <th>誕生日</th>
+        <th>大切な日</th>
       </tr>
-    <% end %>
-  </table>
+      <% @profiles.each do |profile| %>
+        <tr>
+          <td><%= profile.name %></td>
+          <% profile.events.each do |event| %>
+            <td><%= event.date %></td>
+          <% end %>
+          <td>
+            <%= link_to profile_path(profile) do %>
+              <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
