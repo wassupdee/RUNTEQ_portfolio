@@ -1,35 +1,33 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-lg-8 mx-auto">
-      <h1>ユーザー登録</h1>
-      <%= form_with model: @user do |f| %>
-      	<%= render 'shared/error_messages', model: f.object %>
+<div class="flex flex-col justify-center items-center mt-5">
+  <h1 class="text-3xl mb-3">ユーザー登録</h1>
+  <%= form_with model: @user do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
 
-        <div class="mb-3">
-          <%= f.label :last_name, class: "form-label" %>
-          <%= f.text_field :last_name, class: "form-control" %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :first_name, class: "form-label" %>
-          <%= f.text_field :first_name, class: "form-control" %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :password, class: "form-label" %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :password_confirmation, class: "form-label" %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
-        <%= f.submit "登録", class: "btn btn-primary" %>
-      <% end %>
-      <div class='text-center'>
-        <%= link_to 'ログインページへ', login_path %>
-      </div>
+    <div class="mb-3">
+      <%= f.label :last_name, "姓", class: "form-label" %>
+      <%= f.text_field :last_name, class: "form-control" %>
     </div>
+    <div class="mb-3">
+      <%= f.label :first_name, "名", class: "form-label" %>
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :email, "メールアドレス", class: "form-label" %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :password, "パスワード", class: "form-label" %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :password_confirmation, "パスワード再入力", class: "form-label" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    <div class="flex justify-center">
+      <%= f.submit "登録", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <div class='mt-5'>
+    <%= link_to 'ログインページへ', login_path %>
   </div>
 </div>
