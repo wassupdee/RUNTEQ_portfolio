@@ -14,8 +14,7 @@
             </div>
           <% end %>
           <div class="w-full flex justify-center">
-            <div class="btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white">
-            <%= form.submit '次へ' %>
+            <%= form.submit '次へ', class:"btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white" %>
           </div>
         <% else %>
           <% @answers.each do |answer| %>
@@ -25,9 +24,7 @@
             </div>
           <% end %>
           <div class="w-full flex justify-center">
-            <div class="btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white">
-              <%= form.submit '次へ' %>
-            </div>
+            <%= form.submit '次へ', class:"btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white" %>
           </div>
         <% end %>
       <% end %>
