@@ -1,5 +1,5 @@
-<header class="fixed bg-opacity-20 bg-black w-full">
-  <nav class="flex justify-between container mx-auto items-center p-4 text-white">
+<header class="sticky top-0 bg-opacity-20 bg-black w-full">
+  <nav class="flex justify-between container mx-auto items-center text-white">
     <div class="text-3xl">
       <%= link_to "Reconnect　～ともだちと再びつながるアプリ～", root_path %>
     </div>
@@ -9,7 +9,7 @@
       <%# <%= link_to "カレンダー", '#' %>
       <%= link_to "ログイン", login_path %>
       <%= link_to new_user_path do %>
-        <button class="btn btn-lg bg-black bg-opacity-60 text-white border-none shadow-2xl">新規登録</button>
+        <button class="btn btn-lg bg-black bg-opacity-60 text-white border border-white	shadow-2xl">新規登録</button>
       <% end %>
     </div>
   </nav>
