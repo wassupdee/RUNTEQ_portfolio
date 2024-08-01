@@ -1,9 +1,10 @@
-<div>
-  QRコードを読み込むか、ID検索をして友達登録してね！<br>
-  登録した誕生日や大切な日にLINE通知を受けとることができるよ！
+<div class="flex items-center flex-col mt-40">
+  <p class="text-2xl mb-10">
+    QRコードを読み込むか、ID検索をして友達登録してね！<br>
+    登録した誕生日や大切な日にLINE通知を受けとることができるよ！
+  </p>
+  <%= image_tag 'line_qr_code.png' %>
+  <p class="text-xl mt-2">LINE公式アカウントID:@589vljjq</p>
+
+  <%= link_to '前の画面に戻る', request.referer, class:"mt-5" %>
 </div>
-
-<%= image_tag 'line_qr_code.png' %>
-<p>LINE公式アカウントID:@589vljjq</p>
-
-<%= link_to '前の画面に戻る', request.referer %>
