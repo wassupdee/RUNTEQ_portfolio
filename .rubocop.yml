@@ -11,3 +11,6 @@ AllCops:
 
   # 新ルールを有効化
   NewCops: enable
+
+  Style/StringLiterals:
+    EnforcedStyle: double_quotes
