@@ -5,7 +5,7 @@
     </div>
 
     <div class="flex items-center justify-center">
-      <%= form_with url: answers_path, method: :post, data: { turbo: false } do |form| %>
+      <%= form_with url: answers_path, method: :post, data: { turbo: false }, id: 'ai_questions' do |form| %>
         <% if @question.number.to_i == 2 %>
           <% @answers.each do |answer| %>
             <div class="flex items-center mb-2 text-white text-xl gap-2">
