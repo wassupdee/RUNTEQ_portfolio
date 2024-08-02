@@ -64,7 +64,8 @@ group :development, :test do
   gem 'dotenv'
 
   #lint check
-  gem 'rubocop', require: false 
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
