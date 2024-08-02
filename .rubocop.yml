@@ -1,0 +1,13 @@
+AllCops:
+  # 除外するディレクトリ（自動生成されるファイル）
+  Exclude:
+    - "vendor/**/*"
+    - "db/**/*"
+    - "config/**/*"
+    - "bin/*"
+    - "node_modules/**/*"
+    - "Gemfile"
+    - "test/**/*"
+
+  # 新ルールを有効化
+  NewCops: enable
