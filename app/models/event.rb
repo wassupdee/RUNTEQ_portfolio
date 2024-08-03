@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   end
 
   def scheduled_to_notify_today?
-    change_to_current_year - (change_utc_to_jst(DateTime.now)).to_date == notification_timing
+    change_to_current_year - change_utc_to_jst(DateTime.now).to_date == notification_timing
   end
 
   def change_to_current_year
