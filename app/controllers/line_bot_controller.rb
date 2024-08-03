@@ -1,8 +1,8 @@
 class LineBotController < ApplicationController
   skip_before_action :require_login
 
-  protect_from_forgery :except => [:line_id_registration]
- 
+  protect_from_forgery except: [:line_id_registration]
+
   def line_id_registration
     body = request.body.read
 
