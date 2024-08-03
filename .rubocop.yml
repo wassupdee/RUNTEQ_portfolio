@@ -1,16 +1,31 @@
 AllCops:
-  # 除外するディレクトリ（自動生成されるファイル）
   Exclude:
-    - "vendor/**/*"
-    - "db/**/*"
-    - "config/**/*"
     - "bin/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "log/**/*"
     - "node_modules/**/*"
+    - "storage/**/*"
+    - "temp/**/*"
+    - "vendor/**/*"
     - "Gemfile"
-    - "test/**/*"
+    - "config.ru"
+
 
   # 新ルールを有効化
   NewCops: enable
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Lint/SymbolConversion:
+  Enabled: false
