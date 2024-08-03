@@ -78,7 +78,7 @@ class OpenaiApiController < ApplicationController
   def text_answers
     @text_answers = []
     @values.each do |value|
-      @text_answers << Answer.find_by(value: value)&.text
+      @text_answers << Answer.find_by(value:)&.text
     end
   end
 
