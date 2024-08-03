@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
 
   def create
     save_in_session(answer_params)
-    
+
     if last_question?(current_question_number)
       redirect_to openai_path
     else
@@ -24,11 +24,11 @@ class AnswersController < ApplicationController
   def current_question_number
     answer_params.keys.first.match(/\d+/)[0].to_i
   end
-  
+
   def last_question?(question_number)
     question_number == 3
   end
-  
+
   def answer_params
     params.require(:answer).permit(:question1, :question3, question2: [])
   end
