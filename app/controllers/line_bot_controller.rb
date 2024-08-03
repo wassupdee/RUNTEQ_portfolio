@@ -14,28 +14,16 @@ class LineBotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
 
-          @email = event.message["text"].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
+          # @email = event.message["text"].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
           @line_id = event["source"]["userId"]
-          @user = User.find_by(email: @email)
+          # @user = User.find_by(email: @email)
+          
+          @user = find_user_by_email(event.message["text"])
 
           if @user && @user.update(line_user_id: @line_id)
             send_success_message(event["replyToken"])
-            # client.reply_message(
-            #   event["replyToken"],
-            #   {
-            #     type: "text",
-            #     text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
-            #   }
-            # )
           else
             send_failure_message(event["replyToken"])
-            # client.reply_message(
-            #   event["replyToken"],
-            #   {
-            #     type: "text",
-            #     text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
-            #   }
-            # )
           end
         end
       end
@@ -69,5 +57,10 @@ class LineBotController < ApplicationController
         text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
       }
     )
+  end
+
+  def find_user_by_email(text)
+    email = text.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
+    User.find_by(email:)
   end
 end
