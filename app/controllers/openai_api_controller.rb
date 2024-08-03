@@ -63,7 +63,7 @@ class OpenaiApiController < ApplicationController
   end
 
   def change_raw_session_values_to_array
-    @values =[]
+    @values = []
     @raw_session_values.each do |value|
       if value.is_a?(Array)
         value.each do |n|
