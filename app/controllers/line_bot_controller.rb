@@ -1,31 +1,35 @@
 class LineBotController < ApplicationController
   skip_before_action :require_login
 
-  protect_from_forgery except: [:line_id_registration]
+  protect_from_forgery except: [:save_line_id]
 
-  def line_id_registration
+  def save_line_id
     body = request.body.read
     events = client.parse_events_from(body)
 
     events.each do |event|
-      text_message?(event)
-      # case event
-      # when Line::Bot::Event::Message
-      #   case event.type
-      #   when Line::Bot::Event::MessageType::Text
+      next unless text_message?(event)
 
-      @line_id = event["source"]["userId"]
-      @user = find_user_by_email(event.message["text"])
-
-      if @user && @user.update(line_user_id: @line_id)
-        send_success_message(event["replyToken"])
-      else
-        send_failure_message(event["replyToken"])
-      end
+      line_id = event["source"]["userId"]
+      user = find_user_by_email(event.message["text"])
+      update(user, line_id, event["replyToken"])
+      # if @user && @user.update(line_user_id: @line_id)
+      #   send_success_message(event["replyToken"])
+      # else
+      #   send_failure_message(event["replyToken"])
+      # end
     end
   end
 
   private
+
+  def update(user, line_id, reply_token)
+    if user&.update(line_user_id: line_id)
+      send_success_message(reply_token)
+    else
+      send_failure_message(reply_token)
+    end
+  end
 
   def client
     @client ||= Line::Bot::Client.new do |config|
