@@ -15,7 +15,7 @@ module Form
 
     def update
       Event.transaction do
-        self.events.each do |event|
+        events.each do |event|
           existing_event = Event.find(event.id)
           existing_event.update!(event.attributes.except("created_at", "updated_at"))
         end
