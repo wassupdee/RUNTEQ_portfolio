@@ -13,11 +13,6 @@ class LineBotController < ApplicationController
       line_id = event["source"]["userId"]
       user = find_user_by_email(event.message["text"])
       update(user, line_id, event["replyToken"])
-      # if @user && @user.update(line_user_id: @line_id)
-      #   send_success_message(event["replyToken"])
-      # else
-      #   send_failure_message(event["replyToken"])
-      # end
     end
   end
 
