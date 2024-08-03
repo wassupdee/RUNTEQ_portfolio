@@ -2,8 +2,8 @@ namespace :push_line do
   desc "LINEBOT：イベントのリマインダー"
   task event_notification: :environment do
     client = Line::Bot::Client.new { |config|
-        config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-        config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
 
     users = User.only_ready_to_notify.includes(profiles: :events)
@@ -12,11 +12,11 @@ namespace :push_line do
         if event.is_ready_to_notify? && event.is_scheduled_to_notify_today?
           client.push_message(
             user.line_user_id,
-          {
-            type: 'text',
-            text: "#{event.profile.name}さんの#{event.name}の#{event.notification_timing}日前です！"
-          }
-            )
+            {
+              type: "text",
+              text: "#{event.profile.name}さんの#{event.name}の#{event.notification_timing}日前です！"
+            }
+          )
         end
       end
     end
