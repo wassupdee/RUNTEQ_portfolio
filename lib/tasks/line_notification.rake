@@ -9,7 +9,7 @@ namespace :push_line do
     users = User.only_ready_to_notify.includes(profiles: :events)
     users.each do |user|
       user.events.each do |event|
-        if event.is_ready_to_notify? && event.is_scheduled_to_notify_today?
+        next unless event.is_ready_to_notify? && event.is_scheduled_to_notify_today?
           client.push_message(
             user.line_user_id,
             {
