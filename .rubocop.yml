@@ -26,6 +26,3 @@ Style/FrozenStringLiteralComment:
 
 Layout/LineLength:
   Enabled: false
-
-Lint/SymbolConversion:
-  Enabled: false
