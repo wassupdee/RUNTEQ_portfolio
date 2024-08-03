@@ -10,7 +10,7 @@ class OpenaiApiController < ApplicationController
         messages: set_prompt
         # temperature: 0.7, # 応答のランダム性を指定
         # max_tokens: 20,  # 応答の長さを指定
-      },
+      }
     )
     @message = response.dig("choices", 0, "message", "content")
   end
