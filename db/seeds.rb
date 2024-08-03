@@ -22,36 +22,6 @@ answers_data = [
   { text: "答えたくない", value: "no_comment", number: "4", question: question3 },
 ]
 
-# answers_data.each do |answer_data|
-#   Answer.find_or_create_by!(answer_data)
-# end
-
-# user1 = User.find_or_create_by!(
-#   email: "後で入れる",
-#   password: "test",
-#   password_confirmation: "test",
-#   first_name: "test",
-#   last_name: "test",
-#   line_user_id: "後で入れる",
-#   notification_enabled: :on,
-# )
-
-# profile1 = Profile.find_or_create_by!(
-#   name: "test",
-#   furigana: "test",
-#   phone: "test",
-#   email: "test",
-#   line_name: "test",
-#   birthplace: "test",
-#   address: "test",
-#   occupation: "test",
-#   user: user1
-# ) 
-
-# event1 = Event.find_or_create_by!(
-#   name: "test",
-#   date: Date.new(2024,7,20),
-#   notification_timing: 0,
-#   notification_enabled: :on,
-#   profile: profile1
-# )
+answers_data.each do |answer_data|
+  Answer.find_or_create_by!(answer_data)
+end
