@@ -36,7 +36,7 @@ class OpenaiApiController < ApplicationController
   def set_answers
     raw_session_values
     change_raw_session_values_to_array
-    get_text_answers
+    text_answers
     combine_multiple_answers_into_one_array(@text_answers)
   end
 
@@ -75,7 +75,7 @@ class OpenaiApiController < ApplicationController
     end
   end
 
-  def get_text_answers
+  def text_answers
     @text_answers = []
     @values.each do |value|
       @text_answers << Answer.find_by(value: value)&.text
