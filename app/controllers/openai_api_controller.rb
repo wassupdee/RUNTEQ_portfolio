@@ -42,8 +42,10 @@ class OpenaiApiController < ApplicationController
 
   def set_q_and_a_pairs
     @q_and_a_pairs = (0..2).flat_map do |i|
-      [{ "role": "assistant", "content": @questions[i] },
-      { "role": "user", "content": @final_text_answers[i].to_s }]
+      [
+        { "role": "assistant", "content": @questions[i] },
+        { "role": "user", "content": @final_text_answers[i].to_s }
+      ]
     end
   end
 
