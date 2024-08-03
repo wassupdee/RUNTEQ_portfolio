@@ -3,7 +3,7 @@ module Form
     attr_accessor :events
 
     def initialize(attributes = {})
-      super attributes
+      super
     end
 
     def events_attributes=(attributes)
