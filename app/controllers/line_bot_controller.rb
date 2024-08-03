@@ -19,21 +19,23 @@ class LineBotController < ApplicationController
           @user = User.find_by(email: @email)
 
           if @user && @user.update(line_user_id: @line_id)
-            client.reply_message(
-              event["replyToken"],
-              {
-                type: "text",
-                text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
-              }
-            )
+            send_success_message(event["replyToken"])
+            # client.reply_message(
+            #   event["replyToken"],
+            #   {
+            #     type: "text",
+            #     text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
+            #   }
+            # )
           else
-            client.reply_message(
-              event["replyToken"],
-              {
-                type: "text",
-                text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
-              }
-            )
+            send_failure_message(event["replyToken"])
+            # client.reply_message(
+            #   event["replyToken"],
+            #   {
+            #     type: "text",
+            #     text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
+            #   }
+            # )
           end
         end
       end
@@ -47,5 +49,25 @@ class LineBotController < ApplicationController
       config.channel_secret = ENV.fetch("LINE_CHANNEL_SECRET")
       config.channel_token = ENV.fetch("LINE_CHANNEL_TOKEN")
     end
+  end
+
+  def send_success_message(reply_token)
+    client.reply_message(
+      replyToken,
+      {
+        type: "text",
+        text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
+      }
+    )
+  end
+
+  def send_failure_message(reply_token)
+    client.reply_message(
+      reply_token,
+      {
+        type: "text",
+        text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
+      }
+    )
   end
 end
