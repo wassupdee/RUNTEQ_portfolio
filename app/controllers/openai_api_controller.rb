@@ -28,8 +28,8 @@ class OpenaiApiController < ApplicationController
 
   def context
     {
-      "role": "system",
-      "content": "しばらく会っていない人に連絡を取りたいです。質問と回答を元に最適な文を作成し、本文だけを返して（「こちらの文をどうぞ」というようなGPTが話す文は除いて）。文は、「久しぶり！元気にしている？ふと思って連絡しました！」から始めて（ただし、この文のトーンは回答に合わせて変更して）。顔文字も使ってよいです。過去のGPTとのやりとりは参考にしないでください。仕事関係の相手には敬語を使った文にして。"
+      role: "system",
+      content: "しばらく会っていない人に連絡を取りたいです。質問と回答を元に最適な文を作成し、本文だけを返して（「こちらの文をどうぞ」というようなGPTが話す文は除いて）。文は、「久しぶり！元気にしている？ふと思って連絡しました！」から始めて（ただし、この文のトーンは回答に合わせて変更して）。顔文字も使ってよいです。過去のGPTとのやりとりは参考にしないでください。仕事関係の相手には敬語を使った文にして。"
     }
   end
 
@@ -43,8 +43,8 @@ class OpenaiApiController < ApplicationController
   def set_q_and_a_pairs
     @q_and_a_pairs = (0..2).flat_map do |i|
       [
-        { "role": "assistant", "content": @questions[i] },
-        { "role": "user", "content": @final_text_answers[i].to_s }
+        { role: "assistant", content: @questions[i] },
+        { role: "user", content: @final_text_answers[i].to_s }
       ]
     end
   end
@@ -58,7 +58,7 @@ class OpenaiApiController < ApplicationController
 
   def raw_session_values
     @raw_session_values = (1..3).map do |i|
-      session["question#{i}".to_sym]
+      session[:"question#{i}"]
     end
   end
 
