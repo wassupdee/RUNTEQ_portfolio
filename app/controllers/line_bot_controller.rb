@@ -53,7 +53,7 @@ class LineBotController < ApplicationController
 
   def send_success_message(reply_token)
     client.reply_message(
-      replyToken,
+      reply_token,
       {
         type: "text",
         text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
