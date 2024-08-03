@@ -5,27 +5,22 @@ class LineBotController < ApplicationController
 
   def line_id_registration
     body = request.body.read
-
     events = client.parse_events_from(body)
 
     events.each do |event|
-      case event
-      when Line::Bot::Event::Message
-        case event.type
-        when Line::Bot::Event::MessageType::Text
+      text_message?(event)
+      # case event
+      # when Line::Bot::Event::Message
+      #   case event.type
+      #   when Line::Bot::Event::MessageType::Text
 
-          # @email = event.message["text"].match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
-          @line_id = event["source"]["userId"]
-          # @user = User.find_by(email: @email)
-          
-          @user = find_user_by_email(event.message["text"])
+      @line_id = event["source"]["userId"]
+      @user = find_user_by_email(event.message["text"])
 
-          if @user && @user.update(line_user_id: @line_id)
-            send_success_message(event["replyToken"])
-          else
-            send_failure_message(event["replyToken"])
-          end
-        end
+      if @user && @user.update(line_user_id: @line_id)
+        send_success_message(event["replyToken"])
+      else
+        send_failure_message(event["replyToken"])
       end
     end
   end
@@ -37,6 +32,10 @@ class LineBotController < ApplicationController
       config.channel_secret = ENV.fetch("LINE_CHANNEL_SECRET")
       config.channel_token = ENV.fetch("LINE_CHANNEL_TOKEN")
     end
+  end
+
+  def text_message?(event)
+    event.is_a?(Line::Bot::Event::Message) && event.type == Line::Bot::Event::MessageType::Text
   end
 
   def send_success_message(reply_token)
