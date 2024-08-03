@@ -19,15 +19,21 @@ class LineBotController < ApplicationController
           @user = User.find_by(email: @email)
 
           if @user && @user.update(line_user_id: @line_id)
-            client.reply_message(event["replyToken"], {
-              type: "text",
-              text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
-            })
+            client.reply_message(
+              event["replyToken"],
+              {
+                type: "text",
+                text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
+              }
+            )
           else
-            client.reply_message(event["replyToken"], {
-              type: "text",
-              text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
-            })
+            client.reply_message(
+              event["replyToken"],
+              {
+                type: "text",
+                text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
+              }
+            )
           end
         end
       end
