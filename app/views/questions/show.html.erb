@@ -3,7 +3,7 @@
 
     <div class="flex items-center justify-center">
       <%= form_with url: answers_path, method: :post, data: { turbo: false }, id: 'ai_questions' do |form| %>
-        <% if @question.number.to_i == 2 %>
+        <% if @question.number.to_i == Settings.question_type.multiple_choice %>
           <div class="flex flex-col text-center mb-5 text-2xl text-white">
             <h1><%= @question.text %></h1>
             <h2 class="text-base mt-2">※複数選択可</h2>

@@ -22,6 +22,6 @@ class Event < ApplicationRecord
   end
 
   def check_number_of_events
-    errors.add(:events, "大切な日は１つまでしか登録できません") if profile&.events&.count == 2
+    errors.add(:events, "大切な日は１つまでしか登録できません") if profile&.events&.count == Settings.event_count.max_count
   end
 end
