@@ -8,7 +8,7 @@ class LineBotController < ApplicationController
     events = client.parse_events_from(body)
     registration_service = LineIdRegistrationService.new(events)
     
-    registration_service.save!
+    registration_service.save
 
     # events.each do |event|
     #   next unless text_message?(event)
