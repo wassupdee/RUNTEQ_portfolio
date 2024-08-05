@@ -21,5 +21,9 @@ module Form
         end
       end
     end
+
+    def profile_id
+      self.events.first.profile_id
+    end
   end
 end
