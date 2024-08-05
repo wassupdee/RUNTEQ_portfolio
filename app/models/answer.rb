@@ -15,6 +15,6 @@ class Answer < ApplicationRecord
   end
 
   def self.last_question?(question_number)
-    question_number == 3
+    question_number == Settings.question_count.max_count
   end
 end
