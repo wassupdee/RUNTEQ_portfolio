@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
-  get 'openai', to: 'openai_api#chat'
+  get 'ai_message', to: 'openai_api#show'
   post '/' => 'line_bot#save_line_id'
 
   get 'line_qr_code', to: 'static_pages#line_qr_code'

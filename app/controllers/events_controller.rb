@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @form = Form::EventCollection.new(event_params)
     if @form.update
       flash[:success] = "保存しました"
-      redirect_to profile_events_path(@form.events.first.profile_id)
+      redirect_to profile_events_path(@form.profile_id)
     else
       flash.now[:success] = "保存できませんでした"
       render :index, status: :unprocessable_entity
@@ -18,6 +18,10 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:form_event_collection).permit(events_attributes: %i[id name date notification_timing notification_enabled profile_id])
+    params.require(:form_event_collection).permit(
+      events_attributes: %i[
+        id name date notification_timing notification_enabled profile_id
+      ]
+    )
   end
 end
