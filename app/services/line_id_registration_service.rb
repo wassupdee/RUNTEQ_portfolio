@@ -30,7 +30,7 @@ class LineIdRegistrationService
   def text_message?(event)
     event.is_a?(Line::Bot::Event::Message) && event.type == Line::Bot::Event::MessageType::Text
   end
-  
+
   def find_user_by_email(text)
     email = text.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i)&.to_s
     User.find_by(email:)
