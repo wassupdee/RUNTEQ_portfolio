@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
 
     current_question_number = Answer.current_question_number(answer_params)
     if Answer.last_question?(current_question_number)
-      redirect_to openai_path
+      redirect_to ai_message_path
     else
       redirect_to question_path(current_question_number + 1)
     end
