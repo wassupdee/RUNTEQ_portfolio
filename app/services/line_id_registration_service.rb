@@ -20,6 +20,13 @@ class LineIdRegistrationService
 
   private
 
+  def client
+    @client ||= Line::Bot::Client.new do |config|
+      config.channel_secret = ENV.fetch("LINE_CHANNEL_SECRET")
+      config.channel_token = ENV.fetch("LINE_CHANNEL_TOKEN")
+    end
+  end
+
   def text_message?(event)
     event.is_a?(Line::Bot::Event::Message) && event.type == Line::Bot::Event::MessageType::Text
   end
