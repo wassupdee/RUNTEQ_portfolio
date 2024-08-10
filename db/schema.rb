@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_17_031319) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_10_231347) do
   create_table "albums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "date"
     t.string "title"
@@ -28,6 +28,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_031319) do
     t.bigint "question_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["value"], name: "index_answers_on_value", unique: true
+  end
+
+  create_table "authentications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
   create_table "events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
