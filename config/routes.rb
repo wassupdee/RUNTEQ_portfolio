@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   post '/' => 'line_bot#save_line_id'
 
   get 'line_qr_code', to: 'static_pages#line_qr_code'
+
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 end
