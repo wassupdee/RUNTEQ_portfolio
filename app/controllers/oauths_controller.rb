@@ -17,8 +17,6 @@ class OauthsController < ApplicationController
       begin
         @user = create_from(provider)
         # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
-        Rails.logger.debug "User created: #{@user.inspect}"
-
         reset_session # protect from session fixation attack
         auto_login(@user)
         redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
