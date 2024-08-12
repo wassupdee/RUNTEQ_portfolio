@@ -11,17 +11,6 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
 
-    if provider.nil?
-      logger.error "Provider is nil!"
-      redirect_to root_path, alert: "Invalid provider"
-      return
-    end
-
-    if @user.nil?
-      logger.error "User not found from provider: #{provider}"
-      redirect_to root_path, alert: "Failed to login from #{provider.titleize}!"
-      return
-    end
     if @user = login_from(provider)
       redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
     else
