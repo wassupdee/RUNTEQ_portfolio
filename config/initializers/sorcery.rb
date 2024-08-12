@@ -221,8 +221,8 @@ Rails.application.config.sorcery.configure do |config|
 
   config.line.key = ENV.fetch("LINE_CHANNEL_ID_LOGIN")
   config.line.secret = ENV.fetch("LINE_CHANNEL_SECRET_LOGIN")
-  # config.line.callback_url = "https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/oauth/callback"
-  config.line.scope = "profile"
+  config.line.callback_url = "https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/oauth/callback"
+  config.line.scope = "profile%20openid"
   config.line.bot_prompt = "aggressive"
   config.line.user_info_mapping = {first_name: 'name', email: "email", line_user_id: "sub" }
 
