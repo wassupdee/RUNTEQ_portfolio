@@ -221,10 +221,10 @@ Rails.application.config.sorcery.configure do |config|
 
   config.line.key = ENV.fetch("LINE_CHANNEL_ID_LOGIN")
   config.line.secret = ENV.fetch("LINE_CHANNEL_SECRET_LOGIN")
-  config.line.callback_url = "https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/oauth/callback?provider=line"
+  config.line.callback_url = Settings.sorcery[:line_callback_url]
   config.line.scope = "profile openid"
   config.line.bot_prompt = "aggressive"
-  config.line.user_info_mapping = {first_name: 'name', email: "email", line_user_id: "sub" }
+  config.line.user_info_mapping = { first_name: 'displayName', line_user_id: "userId" }
 
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2
