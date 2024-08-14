@@ -32,6 +32,15 @@ services:
     depends_on:
       db:
         condition: service_healthy
+  ngrok:
+    image: ngrok/ngrok:latest
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTH}
+    command: ["http", "web:3000"]
+    depends_on:
+      - web
+    ports:
+      - "4040:4040"
 volumes:
   mysql_data:
   bundle_data:
