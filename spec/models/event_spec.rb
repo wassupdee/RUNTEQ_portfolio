@@ -26,6 +26,14 @@ RSpec.describe Event, type: :model do
       expect(jst).to eq(DateTime.new(2024,8,16,8,0,0))
     end
 
+    it "特定の日付の「年」を今年に変更する" do
+      date = Date.new(2000,8,15)
+      event = create(:event, profile: profile, date: date)
+      new_date = event.change_to_current_year
+
+      expect(new_date).to eq(Date.new(Date.today.year,8,15))
+    end
+
     # it "通知日は今日か確認する" do
     #   event = create(
     #     :event,
