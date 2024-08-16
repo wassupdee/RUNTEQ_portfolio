@@ -75,4 +75,25 @@ RSpec.describe Profile, type: :model do
       end
     end
   end
+  describe "accepts_nested_attributes_for" do
+    it "profileモデルが更新される際、ネストされたeventsの属性も保存する" do
+      event_attributes = {
+        name: "event_name",
+        date: Date.today,
+        notification_timing: 1,
+        notification_enabled: true
+      }
+      profile_attributes = { events_attributes: [event_attributes] }
+
+      expect {
+        profile.update(profile_attributes)
+      }.to change { profile.events.count }.by(1)
+
+      event = profile.events.last
+      expect(event.name).to eq("event_name")
+      expect(event.date).to eq(Date.today)
+      expect(event.notification_timing).to eq(1)
+      expect(event.notification_enabled).to eq("on")
+    end
+  end
 end
