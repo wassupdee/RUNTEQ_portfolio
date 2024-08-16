@@ -6,6 +6,12 @@ RSpec.describe Profile, type: :model do
 
   describe "アソシエーションチェック" do
 
+    describe "userとのアソシエーション" do
+      it "userと1対多の関係にある" do
+        expect(profile.user).to eq(user)
+      end
+    end
+
     describe "albumsとのアソシエーション" do
       let!(:album1) { create(:album, profile: profile) }
       let!(:album2) { create(:album, profile: profile) }
