@@ -37,5 +37,15 @@ RSpec.describe Answer, type: :model do
       question_number = Answer.current_question_number(answer_params)
       expect(question_number).to eq(1)
     end
+
+    it "現在の質問が最後か確認する" do
+      first_q_and_a = { question1: "question1_answer" }
+      first_question_number = Answer.current_question_number(first_q_and_a)
+      expect(Answer.last_question?(first_question_number)).to eq(false)
+
+      last_q_and_a = { question3: "question3_answer" }
+      last_question_number = Answer.current_question_number(last_q_and_a)
+      expect(Answer.last_question?(last_question_number)).to eq(true)
+    end
   end
 end
