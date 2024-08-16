@@ -34,15 +34,22 @@ RSpec.describe Event, type: :model do
       expect(new_date).to eq(Date.new(Date.today.year,8,15))
     end
 
-    # it "通知日は今日か確認する" do
-    #   event = create(
-    #     :event,
-    #     profile: profile,
-    #     notification_timing: 1,
-    #     date: Date.tomorrow
-    #   )
+    it "通知日は今日か確認する" do
+      event_date = DateTime.now + 24.hours
+      # change_utc_to_jstメソッドにより、event_dateと比較対象である現在時刻が+9時間となる為、
+      # event_dateも+9時間とし基準を揃える
+      adjusted_event_date = (event_date + 9.hours).to_date
 
-    #   expect(event.scheduled_to_notify_today?).to eq(true)
-    # end
+      days_before_event = 1
+
+      event = create(
+        :event,
+        profile: profile,
+        notification_timing: days_before_event,
+        date: adjusted_event_date
+      )
+
+      expect(event.scheduled_to_notify_today?).to eq(true)
+    end
   end
 end
