@@ -158,4 +158,14 @@ RSpec.describe User, type: :model do
       expect(authentication.uid).to eq("uid")
     end
   end
+
+  describe "メソッドのテスト" do
+    it "LINE通知の対象ユーザーを取得する" do
+      user_to_notify = create(:user, line_user_id: "aaa", notification_enabled: true)
+      user_without_line_id= create(:user, line_user_id: "", notification_enabled: true)
+      user_notification_off= create(:user, line_user_id: "bbb", notification_enabled: false)
+
+      expect(User.only_ready_to_notify).to include(user_to_notify)
+    end
+  end
 end
