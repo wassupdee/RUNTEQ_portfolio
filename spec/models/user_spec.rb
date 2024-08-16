@@ -69,5 +69,12 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:line_user_id]).not_to include("has already been taken")
     end
+
+    it "notification_enabledがenumで定義されている" do
+      user1 = create(:user, notification_enabled: true)
+      user2 = create(:user, notification_enabled: false)
+      expect(user1.notification_enabled).to eq("on")
+      expect(user2.notification_enabled).to eq("off")
+    end
   end
 end
