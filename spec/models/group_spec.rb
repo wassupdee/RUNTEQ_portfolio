@@ -11,21 +11,21 @@ RSpec.describe Group, type: :model do
       end
     end
 
-    # describe "groups_profilesとのアソシエーション" do
-    #   let!(:group1) { create(:group, user: user) }
-    #   let!(:group2) { create(:group, user: user) }
-    #   let!(:groups_profiles1) { create(:groups_profile, profile: profile, group: group1) }
-    #   let!(:groups_profiles2) { create(:groups_profile, profile: profile, group: group2) }
+    describe "groups_profilesとのアソシエーション" do
+      let!(:profile1) { create(:profile, user: user) }
+      let!(:profile2) { create(:profile, user: user) }
+      let!(:groups_profiles1) { create(:groups_profile, profile: profile1, group: group) }
+      let!(:groups_profiles2) { create(:groups_profile, profile: profile2, group: group) }
 
-    #   it "groups_profilesと1対多の関係にある" do
-    #     expect(profile.groups_profiles).to include(groups_profiles1, groups_profiles2)
-    #   end
+      it "groups_profilesと1対多の関係にある" do
+        expect(group.groups_profiles).to include(groups_profiles1, groups_profiles2)
+      end
 
-    #   it '関連するgroups_profilesがあっても、profileを削除でき、groups_profilesも削除される' do
-    #     expect{ profile.destroy }.to change { Profile.count }.by(-1)
-    #     expect(GroupsProfile.where(id: [groups_profiles1.id, groups_profiles2.id])).to be_empty
-    #   end
-    # end
+      it '関連するgroups_profilesがあっても、profileを削除でき、groups_profilesも削除される' do
+        expect{ group.destroy }.to change { Group.count }.by(-1)
+        expect(GroupsProfile.where(id: [groups_profiles1.id, groups_profiles2.id])).to be_empty
+      end
+    end
 
     describe "profilesとのアソシエーション" do
       let!(:profile1) { create(:profile, user: user) }
@@ -33,7 +33,7 @@ RSpec.describe Group, type: :model do
       let!(:groups_profiles1) { create(:groups_profile, profile: profile1, group: group) }
       let!(:groups_profiles2) { create(:groups_profile, profile: profile2, group: group) }
 
-      it "groupsと1対多の関係にある" do
+      it "profilesと1対多の関係にある" do
         expect(group.profiles).to include(profile1, profile2)
       end
     end
