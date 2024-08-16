@@ -21,4 +21,14 @@ RSpec.describe Answer, type: :model do
       expect(duplicated_answer).to be_invalid
     end
   end
+
+  describe "ロジックチェック" do
+    it "セッションに各問の回答を保存する" do
+      session = {}
+      q_and_a = { question1: "question1_answer"}
+
+      Answer.save_answers_to_session(session, q_and_a)
+      expect(session[:question1]).to eq("question1_answer")
+    end
+  end
 end
