@@ -30,5 +30,12 @@ RSpec.describe Answer, type: :model do
       Answer.save_answers_to_session(session, q_and_a)
       expect(session[:question1]).to eq("question1_answer")
     end
+
+    it "パラメーターから現在の質問番号を取得する" do
+      answer_params = { question1: "question1_answer" }
+
+      question_number = Answer.current_question_number(answer_params)
+      expect(question_number).to eq(1)
+    end
   end
 end
