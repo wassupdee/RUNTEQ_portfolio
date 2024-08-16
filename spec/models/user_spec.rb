@@ -77,4 +77,65 @@ RSpec.describe User, type: :model do
       expect(user2.notification_enabled).to eq("off")
     end
   end
+
+  describe "アソシエーションチェック" do
+    let(:user) { create(:user) }
+
+    describe "profilesとのアソシエーション" do
+      let!(:profile1) { create(:profile, user: user) }
+      let!(:profile2) { create(:profile, user: user) }
+
+      it "profilesと1対多の関係にある" do
+        expect(user.profiles).to include(profile1, profile2)
+      end
+
+      it '関連するprofilesがあっても、userを削除でき、profilesも削除される' do
+        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect(Profile.where(id: [profile1.id, profile2.id])).to be_empty
+      end
+    end
+
+    describe "groupsとのアソシエーション" do
+      let!(:group1) { create(:group, user: user) }
+      let!(:group2) { create(:group, user: user) }
+
+      it "groupsと1対多の関係にある" do
+        expect(user.groups).to include(group1, group2)
+      end
+
+      it '関連するgroupsがあっても、userを削除でき、groupsも削除される' do
+        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect(Group.where(id: [group1.id, group2.id])).to be_empty
+      end
+    end
+
+    describe "authenticationsとのアソシエーション" do
+      let!(:authentication1) { create(:authentication, user: user) }
+      let!(:authentication2) { create(:authentication, user: user) }
+
+      it "authenticationsと1対多の関係にある" do
+        expect(user.authentications).to include(authentication1, authentication2)
+      end
+
+      it '関連するauthenticationsがあっても、userを削除でき、authenticationsも削除される' do
+        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect(Authentication.where(id: [authentication1.id, authentication2.id])).to be_empty
+      end
+    end
+
+    describe "eventsとのアソシエーション" do
+      let!(:profile) { create(:profile, user: user) }
+      let!(:event1) { create(:event, profile: profile) }
+      let!(:event2) { create(:event, profile: profile) }
+
+      it "eventsと1対多の関係にある" do
+        expect(user.events).to include(event1, event2)
+      end
+
+      it '関連するeventsがあっても、userを削除でき、eventsも削除される' do
+        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect(Event.where(id: [event1.id, event2.id])).to be_empty
+      end
+    end
+  end
 end
