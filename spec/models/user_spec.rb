@@ -138,4 +138,24 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "accepts_nested_attributes_for" do
+    let(:user) { create(:user) }
+
+    it "userモデルが更新される際、ネストされたauthenticationsの属性も保存する" do
+      authentication_attributes = {
+        provider: "provider",
+        uid: "uid",
+      }
+      user_attributes = { authentications_attributes: [authentication_attributes] }
+
+      expect {
+        user.update(user_attributes)
+      }.to change { user.authentications.count }.by(1)
+
+      authentication = user.authentications.last
+      expect(authentication.provider).to eq("provider")
+      expect(authentication.uid).to eq("uid")
+    end
+  end
 end
