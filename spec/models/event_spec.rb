@@ -51,5 +51,15 @@ RSpec.describe Event, type: :model do
 
       expect(event.scheduled_to_notify_today?).to eq(true)
     end
+
+    it "1profileあたりの登録できるイベント数を2つまでに制限する" do
+      event1 = create(:event, profile: profile)
+      event2 = create(:event, profile: profile)
+      event3 = build(:event, profile: profile)
+
+      event3.valid?
+
+      expect(event3.errors[:events]).to include("大切な日は１つまでしか登録できません")
+    end
   end
 end
