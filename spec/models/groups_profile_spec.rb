@@ -13,5 +13,11 @@ RSpec.describe GroupsProfile, type: :model do
         expect(groups_profile.group).to eq(group)
       end
     end
+
+    describe "profileとのアソシエーション" do
+      it "profileと1対多の関係にある" do
+        expect(groups_profile.profile).to eq(profile)
+      end
+    end
   end
 end
