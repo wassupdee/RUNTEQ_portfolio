@@ -12,4 +12,10 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  describe "ロジックチェック" do
+    it "通知の条件を満たしているか確認する" do
+      expect(event.ready_to_notify?).to eq(true)
+    end
+  end
 end
