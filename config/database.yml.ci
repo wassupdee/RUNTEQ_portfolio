@@ -9,3 +9,4 @@ default: &default
 test:
   <<: *default
   database: myapp_ci_test
+  port: 3307
