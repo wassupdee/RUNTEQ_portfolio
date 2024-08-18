@@ -44,7 +44,9 @@ jobs:
           bundle install
       - name: Set environment variables
         run: echo "OPENAI_ACCESS_TOKEN=${{ secrets.OPENAI_ACCESS_TOKEN }}" >> $GITHUB_ENV
-          
+        run: echo "LINE_CHANNEL_ID_LOGIN=${{ secrets.LINE_CHANNEL_ID_LOGIN }}" >> $GITHUB_ENV
+        run: echo "LINE_CHANNEL_SECRET_LOGIN=${{ secrets.LINE_CHANNEL_SECRET_LOGIN }}" >> $GITHUB_ENV
+
       - name: Precompile assets
         run: bundle exec rails assets:precompile RAILS_ENV=test
 
