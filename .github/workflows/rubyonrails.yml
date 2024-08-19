@@ -56,6 +56,12 @@ jobs:
           bundle exec rails db:create RAILS_ENV=test
           bundle exec rails db:migrate RAILS_ENV=test
 
+      - name: Check Chrome version
+        run: google-chrome --version
+
+      - name: Check Chromedriver version
+        run: chromedriver --version
+
       - name: Run rspec
         run: bundle exec rspec
 
