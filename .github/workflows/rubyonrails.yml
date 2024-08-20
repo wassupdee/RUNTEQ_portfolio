@@ -50,6 +50,9 @@ jobs:
       - name: Yarn install
         run: yarn install --check-files
 
+      - name: Precompile assets
+        run: bundle exec rails assets:precompile RAILS_ENV=test
+
       - name: Database create and migrate
         run: |
           cp config/database.yml.ci config/database.yml
