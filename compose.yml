@@ -45,7 +45,7 @@ services:
   chrome:
     image: selenium/standalone-chrome:latest
     ports:
-    - '4444:4444'
+      - '4444:4444'
 volumes:
   mysql_data:
   bundle_data:
