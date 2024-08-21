@@ -7,4 +7,6 @@ class Profile < ApplicationRecord
   has_many :events, dependent: :destroy
 
   accepts_nested_attributes_for :events
+
+  has_one_attached :avatar
 end
