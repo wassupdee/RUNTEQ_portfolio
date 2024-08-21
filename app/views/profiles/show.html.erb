@@ -55,6 +55,12 @@
           <td class="px-4 py-2 border-r border-white font-bold">職業</td>
           <td class="px-4 py-2 border-white"><%= @profile.occupation %></td>
         </tr>
+        <tr class="border-b border-white">
+          <% if @profile.avatar.attached? %>
+            <td class="px-4 py-2 border-r border-white font-bold">プロフィール画像</td>
+            <td class="px-4 py-2 border-white"><%= @profile.avatar %></td>
+          <% end %>
+        </tr>
       </tbody>
     </table>
   </div>
