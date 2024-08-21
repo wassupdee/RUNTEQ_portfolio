@@ -55,6 +55,11 @@
       <%= profile_form.text_field :occupation, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
     </div>
 
+    <div class="mb-4">
+      <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium mb-1 text-orange-300" %>
+      <%= profile_form.file_field :avatar, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
+    </div>
+
     <div class="flex justify-center">
       <%= profile_form.submit '登録する', class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
     </div>
