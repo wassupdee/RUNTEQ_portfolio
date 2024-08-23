@@ -50,7 +50,7 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:date, :title, :diary, images:[])
+    params.require(:album).permit(:date, :title, :diary, images: [])
   end
 
   def set_profile
