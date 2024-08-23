@@ -5,7 +5,6 @@ RSpec.describe Profile, type: :model do
   let(:profile) { create(:profile, user:) }
 
   describe "アソシエーションチェック" do
-
     describe "userとのアソシエーション" do
       it "userと1対多の関係にある" do
         expect(profile.user).to eq(user)

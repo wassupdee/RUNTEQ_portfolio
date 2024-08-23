@@ -7,7 +7,6 @@ RSpec.describe GroupsProfile, type: :model do
   let(:groups_profile) { create(:groups_profile, group:, profile:) }
 
   describe "アソシエーションチェック" do
-
     describe "groupとのアソシエーション" do
       it "groupと1対多の関係にある" do
         expect(groups_profile.group).to eq(group)

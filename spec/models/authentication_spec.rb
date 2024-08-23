@@ -5,7 +5,6 @@ RSpec.describe Authentication, type: :model do
   let(:authentication) { create(:authentication, user:) }
 
   describe "アソシエーションチェック" do
-
     describe "userとのアソシエーション" do
       it "userと1対多の関係にある" do
         expect(authentication.user).to eq(user)

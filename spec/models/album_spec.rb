@@ -6,7 +6,6 @@ RSpec.describe Album, type: :model do
   let(:album) { create(:album, profile:) }
 
   describe "アソシエーションチェック" do
-
     describe "profileとのアソシエーション" do
       it "profileと1対多の関係にある" do
         expect(album.profile).to eq(profile)
