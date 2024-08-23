@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_profile
-  before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_album, only: %i[show edit update destroy]
 
   def new
     @album = @profile.albums.new
