@@ -23,7 +23,7 @@ module Form
     end
 
     def profile_id
-      self.events.first.profile_id
+      events.first.profile_id
     end
   end
 end
