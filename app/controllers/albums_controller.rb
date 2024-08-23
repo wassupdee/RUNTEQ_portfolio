@@ -8,6 +8,8 @@ class AlbumsController < ApplicationController
   end
 
   def index
+    @profile = current_user.profiles.find(params[:profile_id])
+    @albums = @profile.albums.order(created_at: :desc)
   end
 
   def create
@@ -16,7 +18,7 @@ class AlbumsController < ApplicationController
 
     if @album.save
       flash[:success] = "アルバムを登録しました"
-      redirect_to profile_albums_path(@profile)
+      redirect_to profile_albums_path(@album.profile_id)
     else
       flash[:danger] = "登録に失敗しました"
       render :new, status: :unprocessable_entity

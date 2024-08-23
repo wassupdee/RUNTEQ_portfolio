@@ -1,0 +1,25 @@
+<table class="table bg-white text-black text-center mt-2">
+  <tr>
+    <th>日付</th>
+    <th>タイトル</th>
+    <th>写真</th>
+  </tr>
+  <% @albums.each do |album| %>
+    <tr>
+      <td><%= album.date %></td>
+      <td><%= album.title %></td>
+      <td>
+        <% if album.images.attached? %>
+          <% album.images.each do |image| %>
+            <%= image_tag image %>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to profile_album_path(@profile, album) do %>
+          <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
