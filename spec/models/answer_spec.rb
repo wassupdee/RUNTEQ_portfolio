@@ -1,9 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Answer, type: :model do
   let(:user) { create(:user) }
   let(:question) { create(:question) }
-  let(:answer) { create(:answer, question: question) }
+  let(:answer) { create(:answer, question:) }
 
   describe "アソシエーションチェック" do
     describe "questionとのアソシエーション" do
@@ -15,8 +15,8 @@ RSpec.describe Answer, type: :model do
 
   describe "バリデーションチェック" do
     it "valueがユニークであること" do
-      answer = create(:answer, question: question, value: "unique_value")
-      duplicated_answer = build(:answer, question: question, value: "unique_value")
+      create(:answer, question:, value: "unique_value")
+      duplicated_answer = build(:answer, question:, value: "unique_value")
 
       expect(duplicated_answer).to be_invalid
     end
@@ -25,7 +25,7 @@ RSpec.describe Answer, type: :model do
   describe "ロジックチェック" do
     it "セッションに各問の回答を保存する" do
       session = {}
-      q_and_a = { question1: "question1_answer"}
+      q_and_a = { question1: "question1_answer" }
 
       Answer.save_answers_to_session(session, q_and_a)
       expect(session[:question1]).to eq("question1_answer")

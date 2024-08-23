@@ -1,21 +1,18 @@
 class AlbumsController < ApplicationController
+  before_action :set_profile
+  before_action :set_album, only: %i[show edit update destroy]
+
   def new
-    @profile = current_user.profiles.find(params[:profile_id])
     @album = @profile.albums.new
   end
 
-  def show
-    @profile = current_user.profiles.find(params[:profile_id])
-    @album = @profile.albums.find(params[:id])
-  end
+  def show; end
 
   def index
-    @profile = current_user.profiles.find(params[:profile_id])
     @albums = @profile.albums.order(created_at: :desc)
   end
 
   def create
-    @profile = current_user.profiles.find(params[:profile_id])
     @album = @profile.albums.new(album_params)
 
     if @album.save
@@ -27,21 +24,11 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def edit
-    @profile = current_user.profiles.find(params[:profile_id])
-    @album = @profile.albums.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @profile = current_user.profiles.find(params[:profile_id])
-    @album = @profile.albums.find(params[:id])
-
-    if @album.update(album_params.reject { |k| k["images"] })
-      if album_params[:images].present?
-        album_params[:images].each do |image|
-          @album.images.attach(image)
-        end
-      end
+    if @album.update(album_params.except(:images))
+      attach_images if album_params[:images].present?
       flash[:success] = "アルバムを更新しました"
       redirect_to profile_albums_path(@album.profile_id)
     else
@@ -51,8 +38,6 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @profile = current_user.profiles.find(params[:profile_id])
-    @album = @profile.albums.find(params[:id])
     @album.destroy!
     flash[:success] = "削除しました"
     redirect_to profile_albums_path(@album.profile_id), status: :see_other
@@ -61,6 +46,18 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:date, :title, :diary, images:[])
+    params.require(:album).permit(:date, :title, :diary, images: [])
+  end
+
+  def set_profile
+    @profile = current_user.profiles.find(params[:profile_id])
+  end
+
+  def set_album
+    @album = @profile.albums.find(params[:id])
+  end
+
+  def attach_images
+    album_params[:images].each { |image| @album.images.attach(image) }
   end
 end

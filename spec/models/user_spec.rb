@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   describe "バリデーション" do
@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
     end
 
     it "line_user_idがblankの場合、重複していても有効である" do
-      other_user = create(:user, line_user_id: "")
+      create(:user, line_user_id: "")
       user = build(:user, line_user_id: "")
       user.valid?
       expect(user.errors[:line_user_id]).not_to include("has already been taken")
@@ -82,58 +82,58 @@ RSpec.describe User, type: :model do
     let(:user) { create(:user) }
 
     describe "profilesとのアソシエーション" do
-      let!(:profile1) { create(:profile, user: user) }
-      let!(:profile2) { create(:profile, user: user) }
+      let!(:profile1) { create(:profile, user:) }
+      let!(:profile2) { create(:profile, user:) }
 
       it "profilesと1対多の関係にある" do
         expect(user.profiles).to include(profile1, profile2)
       end
 
-      it '関連するprofilesがあっても、userを削除でき、profilesも削除される' do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+      it "関連するprofilesがあっても、userを削除でき、profilesも削除される" do
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Profile.where(id: [profile1.id, profile2.id])).to be_empty
       end
     end
 
     describe "groupsとのアソシエーション" do
-      let!(:group1) { create(:group, user: user) }
-      let!(:group2) { create(:group, user: user) }
+      let!(:group1) { create(:group, user:) }
+      let!(:group2) { create(:group, user:) }
 
       it "groupsと1対多の関係にある" do
         expect(user.groups).to include(group1, group2)
       end
 
-      it '関連するgroupsがあっても、userを削除でき、groupsも削除される' do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+      it "関連するgroupsがあっても、userを削除でき、groupsも削除される" do
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Group.where(id: [group1.id, group2.id])).to be_empty
       end
     end
 
     describe "authenticationsとのアソシエーション" do
-      let!(:authentication1) { create(:authentication, user: user) }
-      let!(:authentication2) { create(:authentication, user: user) }
+      let!(:authentication1) { create(:authentication, user:) }
+      let!(:authentication2) { create(:authentication, user:) }
 
       it "authenticationsと1対多の関係にある" do
         expect(user.authentications).to include(authentication1, authentication2)
       end
 
-      it '関連するauthenticationsがあっても、userを削除でき、authenticationsも削除される' do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+      it "関連するauthenticationsがあっても、userを削除でき、authenticationsも削除される" do
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Authentication.where(id: [authentication1.id, authentication2.id])).to be_empty
       end
     end
 
     describe "eventsとのアソシエーション" do
-      let!(:profile) { create(:profile, user: user) }
-      let!(:event1) { create(:event, profile: profile) }
-      let!(:event2) { create(:event, profile: profile) }
+      let!(:profile) { create(:profile, user:) }
+      let!(:event1) { create(:event, profile:) }
+      let!(:event2) { create(:event, profile:) }
 
       it "eventsと1対多の関係にある" do
         expect(user.events).to include(event1, event2)
       end
 
-      it '関連するeventsがあっても、userを削除でき、eventsも削除される' do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+      it "関連するeventsがあっても、userを削除でき、eventsも削除される" do
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Event.where(id: [event1.id, event2.id])).to be_empty
       end
     end
@@ -145,13 +145,11 @@ RSpec.describe User, type: :model do
     it "userモデルが更新される際、ネストされたauthenticationsの属性も保存する" do
       authentication_attributes = {
         provider: "provider",
-        uid: "uid",
+        uid: "uid"
       }
       user_attributes = { authentications_attributes: [authentication_attributes] }
 
-      expect {
-        user.update(user_attributes)
-      }.to change { user.authentications.count }.by(1)
+      expect { user.update(user_attributes) }.to change { user.authentications.count }.by(1)
 
       authentication = user.authentications.last
       expect(authentication.provider).to eq("provider")
@@ -162,8 +160,8 @@ RSpec.describe User, type: :model do
   describe "メソッドのテスト" do
     it "LINE通知の対象ユーザーを取得する" do
       user_to_notify = create(:user, line_user_id: "aaa", notification_enabled: true)
-      user_without_line_id= create(:user, line_user_id: "", notification_enabled: true)
-      user_notification_off= create(:user, line_user_id: "bbb", notification_enabled: false)
+      create(:user, line_user_id: "", notification_enabled: true)
+      create(:user, line_user_id: "bbb", notification_enabled: false)
 
       expect(User.only_ready_to_notify).to include(user_to_notify)
     end
