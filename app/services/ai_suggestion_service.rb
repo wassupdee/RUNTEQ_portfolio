@@ -46,26 +46,28 @@ class AiSuggestionService
     end
   end
 
-  def set_q_and_a_pairs
-    (0..2).flat_map do |i|
-      if answers[i].is_a?(Array)
-        [
-          { role: "assistant", content: questions[i] },
-          { role: "user", content: answers[i].join(", ") }
-        ]
-      else
-        [
-          { role: "assistant", content: questions[i] },
-          { role: "user", content: answers[i].to_s }
-        ]
-      end
-    end
-  end
-
   def context
     {
       role: "system",
       content: "しばらく会っていない人に連絡を取りたいです。質問と回答を元に最適な文を作成し、本文だけを返して（「こちらの文をどうぞ」というようなGPTが話す文は除いて）。文は、「久しぶり！元気にしている？ふと思って連絡しました！」から始めて（ただし、この文のトーンは回答に合わせて変更して）。顔文字も使ってよいです。過去のGPTとのやりとりは参考にしないでください。仕事関係の相手には敬語を使った文にして。"
     }
+  end
+
+  def set_q_and_a_pairs
+    (0..2).flat_map do |i|
+      generate_q_and_a_pair(questions[i], answers[i])
+    end
+  end
+
+  def generate_q_and_a_pair(_question, answer)
+    content = format_answer_content(answer)
+    [
+      { role: "assistant", content: },
+      { role: "user", content: }
+    ]
+  end
+
+  def format_answer_content(answer)
+    answer.is_a?(Array) ? answer.join(", ") : answer.to_s
   end
 end
