@@ -51,6 +51,11 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    @profile = current_user.profiles.find(params[:profile_id])
+    @album = @profile.albums.find(params[:id])
+    @album.destroy!
+    flash[:success] = "削除しました"
+    redirect_to profile_albums_path(@album.profile_id), status: :see_other
   end
 
   private
