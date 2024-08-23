@@ -145,7 +145,7 @@ RSpec.describe User, type: :model do
     it "userモデルが更新される際、ネストされたauthenticationsの属性も保存する" do
       authentication_attributes = {
         provider: "provider",
-        uid: "uid",
+        uid: "uid"
       }
       user_attributes = { authentications_attributes: [authentication_attributes] }
 
