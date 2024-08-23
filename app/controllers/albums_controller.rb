@@ -11,6 +11,16 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @profile = current_user.profiles.find(params[:profile_id])
+    @album = @profile.albums.new(album_params)
+
+    if @album.save
+      flash[:success] = "アルバムを登録しました"
+      redirect_to profile_albums_path(@profile)
+    else
+      flash[:danger] = "登録に失敗しました"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -22,9 +32,9 @@ class AlbumsController < ApplicationController
   def destroy
   end
 
-private
+  private
 
-  # def profile_params
-  #   params.require(:).permit(:)
-  # end
+  def album_params
+    params.require(:album).permit(:date, :title, :diary, images:[])
+  end
 end
