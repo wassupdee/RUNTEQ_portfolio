@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe Event, type: :model do
   let(:user) { create(:user) }
-  let(:profile) { create(:profile, user: user) }
-  let(:event) { create(:event, profile: profile) }
+  let(:profile) { create(:profile, user:) }
+  let(:event) { create(:event, profile:) }
 
   describe "アソシエーションチェック" do
     describe "profileとのアソシエーション" do
@@ -20,7 +20,7 @@ RSpec.describe Event, type: :model do
 
     it "日付をUTCからJSTへ変換する" do
       utc = DateTime.new(2024,8,15,23,0,0)
-      event = create(:event, profile: profile, date: utc)
+      event = create(:event, profile:, date: utc)
       jst = event.change_utc_to_jst(utc)
 
       expect(jst).to eq(DateTime.new(2024,8,16,8,0,0))
@@ -28,7 +28,7 @@ RSpec.describe Event, type: :model do
 
     it "特定の日付の「年」を今年に変更する" do
       date = Date.new(2000,8,15)
-      event = create(:event, profile: profile, date: date)
+      event = create(:event, profile:, date:)
       new_date = event.change_to_current_year
 
       expect(new_date).to eq(Date.new(Date.today.year,8,15))
@@ -44,7 +44,7 @@ RSpec.describe Event, type: :model do
 
       event = create(
         :event,
-        profile: profile,
+        profile:,
         notification_timing: days_before_event,
         date: adjusted_event_date
       )
@@ -53,9 +53,9 @@ RSpec.describe Event, type: :model do
     end
 
     it "1profileあたりの登録できるイベント数を2つまでに制限する" do
-      event1 = create(:event, profile: profile)
-      event2 = create(:event, profile: profile)
-      event3 = build(:event, profile: profile)
+      event1 = create(:event, profile:)
+      event2 = create(:event, profile:)
+      event3 = build(:event, profile:)
 
       event3.valid?
 

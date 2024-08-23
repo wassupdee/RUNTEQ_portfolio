@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe Note, type: :model do
   let(:user) { create(:user) }
-  let(:profile) { create(:profile, user: user) }
-  let(:note) { create(:note, profile: profile) }
+  let(:profile) { create(:profile, user:) }
+  let(:note) { create(:note, profile:) }
 
   describe "profileとのアソシエーション" do
 

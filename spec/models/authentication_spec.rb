@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Authentication, type: :model do
   let(:user) { create(:user) }
-  let(:authentication) { create(:authentication, user: user) }
+  let(:authentication) { create(:authentication, user:) }
 
   describe "アソシエーションチェック" do
 

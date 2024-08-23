@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe Album, type: :model do
   let(:user) { create(:user) }
-  let(:profile) { create(:profile, user: user) }
-  let(:album) { create(:album, profile: profile) }
+  let(:profile) { create(:profile, user:) }
+  let(:album) { create(:album, profile:) }
 
   describe "アソシエーションチェック" do
 

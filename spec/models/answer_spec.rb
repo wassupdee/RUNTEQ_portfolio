@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Answer, type: :model do
   let(:user) { create(:user) }
   let(:question) { create(:question) }
-  let(:answer) { create(:answer, question: question) }
+  let(:answer) { create(:answer, question:) }
 
   describe "アソシエーションチェック" do
     describe "questionとのアソシエーション" do
@@ -15,8 +15,8 @@ RSpec.describe Answer, type: :model do
 
   describe "バリデーションチェック" do
     it "valueがユニークであること" do
-      answer = create(:answer, question: question, value: "unique_value")
-      duplicated_answer = build(:answer, question: question, value: "unique_value")
+      answer = create(:answer, question:, value: "unique_value")
+      duplicated_answer = build(:answer, question:, value: "unique_value")
 
       expect(duplicated_answer).to be_invalid
     end

@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe GroupsProfile, type: :model do
   let(:user) { create(:user) }
-  let(:group) { create(:group, user: user) }
-  let(:profile) { create(:profile, user: user) }
-  let(:groups_profile) { create(:groups_profile, group: group, profile: profile) }
+  let(:group) { create(:group, user:) }
+  let(:profile) { create(:profile, user:) }
+  let(:groups_profile) { create(:groups_profile, group:, profile:) }
 
   describe "アソシエーションチェック" do
 

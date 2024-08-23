@@ -82,8 +82,8 @@ RSpec.describe User, type: :model do
     let(:user) { create(:user) }
 
     describe "profilesとのアソシエーション" do
-      let!(:profile1) { create(:profile, user: user) }
-      let!(:profile2) { create(:profile, user: user) }
+      let!(:profile1) { create(:profile, user:) }
+      let!(:profile2) { create(:profile, user:) }
 
       it "profilesと1対多の関係にある" do
         expect(user.profiles).to include(profile1, profile2)
@@ -96,8 +96,8 @@ RSpec.describe User, type: :model do
     end
 
     describe "groupsとのアソシエーション" do
-      let!(:group1) { create(:group, user: user) }
-      let!(:group2) { create(:group, user: user) }
+      let!(:group1) { create(:group, user:) }
+      let!(:group2) { create(:group, user:) }
 
       it "groupsと1対多の関係にある" do
         expect(user.groups).to include(group1, group2)
@@ -110,8 +110,8 @@ RSpec.describe User, type: :model do
     end
 
     describe "authenticationsとのアソシエーション" do
-      let!(:authentication1) { create(:authentication, user: user) }
-      let!(:authentication2) { create(:authentication, user: user) }
+      let!(:authentication1) { create(:authentication, user:) }
+      let!(:authentication2) { create(:authentication, user:) }
 
       it "authenticationsと1対多の関係にある" do
         expect(user.authentications).to include(authentication1, authentication2)
@@ -124,9 +124,9 @@ RSpec.describe User, type: :model do
     end
 
     describe "eventsとのアソシエーション" do
-      let!(:profile) { create(:profile, user: user) }
-      let!(:event1) { create(:event, profile: profile) }
-      let!(:event2) { create(:event, profile: profile) }
+      let!(:profile) { create(:profile, user:) }
+      let!(:event1) { create(:event, profile:) }
+      let!(:event2) { create(:event, profile:) }
 
       it "eventsと1対多の関係にある" do
         expect(user.events).to include(event1, event2)
