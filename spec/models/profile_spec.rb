@@ -21,7 +21,7 @@ RSpec.describe Profile, type: :model do
       end
 
       it "関連するalbumsがあっても、profileを削除でき、albumsも削除される" do
-        expect{ profile.destroy }.to change { Profile.count }.by(-1)
+        expect { profile.destroy }.to change { Profile.count }.by(-1)
         expect(Album.where(id: [album1.id, album2.id])).to be_empty
       end
     end
@@ -35,7 +35,7 @@ RSpec.describe Profile, type: :model do
       end
 
       it "関連するeventsがあっても、profileを削除でき、eventsも削除される" do
-        expect{ profile.destroy }.to change { Profile.count }.by(-1)
+        expect { profile.destroy }.to change { Profile.count }.by(-1)
         expect(Event.where(id: [event1.id, event2.id])).to be_empty
       end
     end
@@ -51,7 +51,7 @@ RSpec.describe Profile, type: :model do
       end
 
       it "関連するgroups_profilesがあっても、profileを削除でき、groups_profilesも削除される" do
-        expect{ profile.destroy }.to change { Profile.count }.by(-1)
+        expect { profile.destroy }.to change { Profile.count }.by(-1)
         expect(GroupsProfile.where(id: [groups_profiles1.id, groups_profiles2.id])).to be_empty
       end
     end

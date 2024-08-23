@@ -90,7 +90,7 @@ RSpec.describe User, type: :model do
       end
 
       it "関連するprofilesがあっても、userを削除でき、profilesも削除される" do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Profile.where(id: [profile1.id, profile2.id])).to be_empty
       end
     end
@@ -104,7 +104,7 @@ RSpec.describe User, type: :model do
       end
 
       it "関連するgroupsがあっても、userを削除でき、groupsも削除される" do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Group.where(id: [group1.id, group2.id])).to be_empty
       end
     end
@@ -118,7 +118,7 @@ RSpec.describe User, type: :model do
       end
 
       it "関連するauthenticationsがあっても、userを削除でき、authenticationsも削除される" do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Authentication.where(id: [authentication1.id, authentication2.id])).to be_empty
       end
     end
@@ -133,7 +133,7 @@ RSpec.describe User, type: :model do
       end
 
       it "関連するeventsがあっても、userを削除でき、eventsも削除される" do
-        expect{ user.destroy }.to change { User.count }.by(-1)
+        expect { user.destroy }.to change { User.count }.by(-1)
         expect(Event.where(id: [event1.id, event2.id])).to be_empty
       end
     end

@@ -22,7 +22,7 @@ RSpec.describe Group, type: :model do
       end
 
       it "関連するgroups_profilesがあっても、profileを削除でき、groups_profilesも削除される" do
-        expect{ group.destroy }.to change { Group.count }.by(-1)
+        expect { group.destroy }.to change { Group.count }.by(-1)
         expect(GroupsProfile.where(id: [groups_profiles1.id, groups_profiles2.id])).to be_empty
       end
     end

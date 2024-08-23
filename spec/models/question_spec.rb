@@ -14,7 +14,7 @@ RSpec.describe Question, type: :model do
       answer1 = create(:answer, question:)
       answer2 = create(:answer, question:)
 
-      expect{ question.destroy }.to change { Question.count }.by(-1)
+      expect { question.destroy }.to change { Question.count }.by(-1)
       expect(Answer.where(id: [answer1.id, answer2.id])).to be_empty
     end
   end
