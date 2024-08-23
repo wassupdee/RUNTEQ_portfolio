@@ -30,3 +30,6 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
+
+Style/BlockComments:
+  Enabled: false
