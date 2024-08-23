@@ -149,9 +149,7 @@ RSpec.describe User, type: :model do
       }
       user_attributes = { authentications_attributes: [authentication_attributes] }
 
-      expect {
-        user.update(user_attributes)
-      }.to change { user.authentications.count }.by(1)
+      expect { user.update(user_attributes) }.to change { user.authentications.count }.by(1)
 
       authentication = user.authentications.last
       expect(authentication.provider).to eq("provider")

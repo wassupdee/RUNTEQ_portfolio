@@ -85,9 +85,7 @@ RSpec.describe Profile, type: :model do
       }
       profile_attributes = { events_attributes: [event_attributes] }
 
-      expect {
-        profile.update(profile_attributes)
-      }.to change { profile.events.count }.by(1)
+      expect { profile.update(profile_attributes) }.to change { profile.events.count }.by(1)
 
       event = profile.events.last
       expect(event.name).to eq("event_name")
