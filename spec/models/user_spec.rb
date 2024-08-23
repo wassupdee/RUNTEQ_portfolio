@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
     end
 
     it "line_user_idがblankの場合、重複していても有効である" do
-      other_user = create(:user, line_user_id: "")
+      create(:user, line_user_id: "")
       user = build(:user, line_user_id: "")
       user.valid?
       expect(user.errors[:line_user_id]).not_to include("has already been taken")
@@ -160,8 +160,8 @@ RSpec.describe User, type: :model do
   describe "メソッドのテスト" do
     it "LINE通知の対象ユーザーを取得する" do
       user_to_notify = create(:user, line_user_id: "aaa", notification_enabled: true)
-      user_without_line_id= create(:user, line_user_id: "", notification_enabled: true)
-      user_notification_off= create(:user, line_user_id: "bbb", notification_enabled: false)
+      create(:user, line_user_id: "", notification_enabled: true)
+      create(:user, line_user_id: "bbb", notification_enabled: false)
 
       expect(User.only_ready_to_notify).to include(user_to_notify)
     end

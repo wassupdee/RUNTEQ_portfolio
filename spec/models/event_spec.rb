@@ -53,8 +53,8 @@ RSpec.describe Event, type: :model do
     end
 
     it "1profileあたりの登録できるイベント数を2つまでに制限する" do
-      event1 = create(:event, profile:)
-      event2 = create(:event, profile:)
+      create(:event, profile:)
+      create(:event, profile:)
       event3 = build(:event, profile:)
 
       event3.valid?
