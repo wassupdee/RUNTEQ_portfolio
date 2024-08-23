@@ -1,0 +1,12 @@
+<%= @album.title %>
+<%= @album.date %>
+<%= @album.diary %>
+<% @album.images.each do |image| %>
+  <%= image_tag image %>
+<% end %>
+<%= link_to edit_profile_album_path(@profile, @album) do %>
+  <button class="btn bg-slate-300 text-black border-none shadow-2xl">編集</button>
+<% end %>
+<%= link_to profile_album_path(@profile, @album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+  <button class="btn bg-slate-300 text-black border-none shadow-2xl">削除</button>
+<% end %>

@@ -5,6 +5,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @profile = current_user.profiles.find(params[:profile_id])
+    @album = @profile.albums.find(params[:id])
   end
 
   def index
