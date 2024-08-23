@@ -26,3 +26,7 @@ Style/FrozenStringLiteralComment:
 
 Layout/LineLength:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
