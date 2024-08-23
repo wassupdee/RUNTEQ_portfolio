@@ -19,19 +19,19 @@ RSpec.describe Event, type: :model do
     end
 
     it "日付をUTCからJSTへ変換する" do
-      utc = DateTime.new(2024,8,15,23,0,0)
+      utc = DateTime.new(2024, 8, 15, 23, 0, 0)
       event = create(:event, profile:, date: utc)
       jst = event.change_utc_to_jst(utc)
 
-      expect(jst).to eq(DateTime.new(2024,8,16,8,0,0))
+      expect(jst).to eq(DateTime.new(2024, 8, 16, 8, 0, 0))
     end
 
     it "特定の日付の「年」を今年に変更する" do
-      date = Date.new(2000,8,15)
+      date = Date.new(2000, 8, 15)
       event = create(:event, profile:, date:)
       new_date = event.change_to_current_year
 
-      expect(new_date).to eq(Date.new(Date.today.year,8,15))
+      expect(new_date).to eq(Date.new(Date.today.year, 8, 15))
     end
 
     it "通知日は今日か確認する" do
