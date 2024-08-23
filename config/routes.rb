@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         patch :update_all
       end
     end
+    resources :albums
   end
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
