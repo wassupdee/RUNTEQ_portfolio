@@ -33,6 +33,21 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    @profile = current_user.profiles.find(params[:profile_id])
+    @album = @profile.albums.find(params[:id])
+
+    if @album.update(album_params.reject { |k| k["images"] })
+      if album_params[:images].present?
+        album_params[:images].each do |image|
+          @album.images.attach(image)
+        end
+      end
+      flash[:success] = "アルバムを更新しました"
+      redirect_to profile_albums_path(@album.profile_id)
+    else
+      flash[:danger] = "更新に失敗しました"
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
