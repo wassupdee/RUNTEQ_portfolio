@@ -26,12 +26,9 @@ class OauthsController < ApplicationController
     end
   end
 
-  # example for Rails 4: add private method below and use "auth_params[:provider]" in place of
-  # "params[:provider] above.
+  private
 
-    private
-
-    def auth_params
-        params.permit(:code, :provider, :error, :state)
-    end
+  def auth_params
+    params.permit(:code, :provider, :error, :state)
+  end
 end
