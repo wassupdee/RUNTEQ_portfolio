@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Album, type: :model do
   let(:user) { create(:user) }
