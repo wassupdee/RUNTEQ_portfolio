@@ -7,7 +7,7 @@ class OpenaiApiController < ApplicationController
 
     @message = ai_suggest_service.suggest
   end
-  
+
   private
 
   # config/initializerにAPI Keyを設定しているので、新しいインスタンスをつくるだけでKeyを読み込んでくれる

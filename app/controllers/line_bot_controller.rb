@@ -7,7 +7,7 @@ class LineBotController < ApplicationController
     body = request.body.read
     events = client.parse_events_from(body)
     registration_service = LineIdRegistrationService.new(events)
-    
+
     registration_service.save
   end
 

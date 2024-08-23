@@ -1,5 +1,4 @@
 class AiSuggestionService
-
   def initialize(client, session)
     @openai = client
     @session = session
