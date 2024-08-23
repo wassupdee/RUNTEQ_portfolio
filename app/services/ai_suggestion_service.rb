@@ -23,11 +23,11 @@ class AiSuggestionService
   def set_prompt
     [context, *set_q_and_a_pairs]
   end
-  
+
   def questions
     Question.order(number: :asc).pluck(:text)
   end
-  
+
   # セッションに保存された回答を、テキストに変換
   def answers
     fetch_session_values.map do |value|
@@ -40,13 +40,13 @@ class AiSuggestionService
       end
     end
   end
-  
+
   def fetch_session_values
     (1..3).map do |i|
       @session[:"question#{i}"]
     end
   end
-  
+
   def set_q_and_a_pairs
     (0..2).flat_map do |i|
       if answers[i].is_a?(Array)
@@ -62,7 +62,7 @@ class AiSuggestionService
       end
     end
   end
-  
+
   def context
     {
       role: "system",
