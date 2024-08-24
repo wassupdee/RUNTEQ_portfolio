@@ -10,6 +10,12 @@
   <%= form.label :diary, "ノート" %>
   <%= form.text_area :diary %>
 
+  <% if album.images.attached? %>
+    <% album.images.each do |image| %>
+      <%= image_tag image %>
+    <% end %>
+  <% end %>
+
   <%= form.label :image, "写真" %>
   <%= form.file_field :images, multiple: true %>
 
