@@ -12,7 +12,7 @@
 
   <% if album.images.attached? %>
     <% album.images.each do |image| %>
-      <%= image_tag image %>
+      <%= image_tag image, id: "#{dom_id(album)}-#{image.id}" %>
     <% end %>
   <% end %>
 
