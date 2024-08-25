@@ -18,7 +18,9 @@
 
 <% if album.images.attached? %>
   <% album.images.each do |image| %>
-    <%= image_tag image, id: "#{dom_id(album)}-#{image.id}" %>
-    <%= link_to "削除", image_path(image), data: { turbo_method: :delete } %>
+    <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
+      <%= image_tag image %>
+      <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+    </div>
   <% end %>
 <% end %>
