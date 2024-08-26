@@ -1,2 +1,3 @@
 sorcery:
-  line_callback_url: "https://41ec-111-188-249-157.ngrok-free.app/oauth/callback?provider=line"
+  # URL末尾に、/oauth/callback?provider=lineを付けること！
+  line_callback_url: "https://398f-111-188-249-255.ngrok-free.app/oauth/callback?provider=line"
