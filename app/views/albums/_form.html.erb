@@ -24,8 +24,6 @@
         <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
       </div>
     <% end %>
-    <%= image_tag "", data: { previews_target: "preview" } %>
-  <% else %>
-    <%= image_tag "", data: { previews_target: "preview" } %>
   <% end %>
+  <div data-previews-target="previewContainer"></div>
 </div>

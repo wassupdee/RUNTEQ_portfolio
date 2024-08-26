@@ -2,23 +2,31 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="previews"
 export default class extends Controller {
-  static targets = ["input", "preview"]
-  connect() {
-  }
+  static targets = ["input", "previewContainer"]
+
   preview() {
     let input = this.inputTarget;
-    let preview = this.previewTarget;
-    let file = input.files[0];
-    let reader = new FileReader();
+    let previewContainer = this.previewContainerTarget;
 
-    reader.onloadend = function(){
-      preview.src = reader.result;
-    };
+    // プレビューコンテナをクリア
+    previewContainer.innerHTML = "";
 
-    if(file) {
-      reader.readAsDataURL(file);
-    } else {
-      preview.src = "";
-    }
+    // すべてのファイルをループで処理
+    Array.from(input.files).forEach(file => {
+      let reader = new FileReader();
+
+      reader.onloadend = function() {
+        // 新しい画像要素を作成してプレビューコンテナに追加
+        let img = document.createElement("img");
+        img.src = reader.result;
+        img.style.width = "100px";
+        // img.style.marginRight = "10px";
+        previewContainer.appendChild(img);
+      };
+
+      if(file) {
+        reader.readAsDataURL(file);
+      }
+    });
   }
 }
