@@ -9,3 +9,6 @@ application.register("clipboard", ClipboardController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import PreviewsController from "./previews_controller"
+application.register("previews", PreviewsController)
