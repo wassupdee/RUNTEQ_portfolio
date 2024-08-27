@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :line_user_id, uniqueness: true, allow_blank: true
   validates :notification_enabled, presence: true
+  validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
   enum notification_enabled: { off: false, on: true }
 

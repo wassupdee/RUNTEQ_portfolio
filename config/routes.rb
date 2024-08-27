@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   root 'static_pages#top'
   resources :introductions, only: [:show]
   resources :questions, only: [:show]
   resources :answers, only: [:create]
   resources :users, only: [:new, :create]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   resources :profiles do
     resources :events do
       collection do
