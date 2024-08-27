@@ -78,4 +78,10 @@ Rails.application.configure do
   config.hosts.clear
 
   config.action_mailer.default_url_options = Settings.default_url_options.to_h
+
+  # メーラーの送信方法を指定
+  config.action_mailer.delivery_method = :letter_opener_web
+
+  # メールを実際に送信するかどうかを指定
+  config.action_mailer.perform_deliveries = true
 end
