@@ -1,2 +1,4 @@
 sorcery:
   line_callback_url: "https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/oauth/callback?provider=line"
+default_url_options:
+  host: "https://powerful-sands-04341-a27c5520cc0b.herokuapp.com"
