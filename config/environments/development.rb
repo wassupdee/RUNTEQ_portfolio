@@ -76,4 +76,6 @@ Rails.application.configure do
 
   #Allow ngrok
   config.hosts.clear
+
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
 end
