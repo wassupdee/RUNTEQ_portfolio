@@ -76,6 +76,9 @@ group :development, :test do
   #BDD
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+
+  #Send emails
+  gem 'letter_opener_web', '~> 3.0'
 end
 
 group :development do
