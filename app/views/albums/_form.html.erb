@@ -17,7 +17,7 @@
     <%= form.submit "保存する" %>
   <% end %>
 
-  <% if album.images.attached? %>
+  <% if album.images.attached? && album.persisted? %>
     <% album.images.each do |image| %>
       <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
         <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
