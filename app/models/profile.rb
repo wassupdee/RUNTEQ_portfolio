@@ -12,6 +12,6 @@ class Profile < ApplicationRecord
 
   validates :avatar, processable_image: true,
                      content_type: %i[png jpeg],
-                     size: { less_than: 1.megabytes , message: 'is too large' },
+                     size: { less_than: 1.megabytes, message: "is too large" },
                      limit: { max: 1 }
 end
