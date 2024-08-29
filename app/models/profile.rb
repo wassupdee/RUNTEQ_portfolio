@@ -14,4 +14,8 @@ class Profile < ApplicationRecord
                      content_type: %i[png jpeg],
                      size: { less_than: 1.megabytes, message: "is too large" },
                      limit: { max: 1 }
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name furigana line_name]
+  end
 end
