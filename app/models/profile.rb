@@ -15,7 +15,7 @@ class Profile < ApplicationRecord
                      size: { less_than: 1.megabytes, message: "is too large" },
                      limit: { max: 1 }
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["address", "birthplace", "created_at", "email", "furigana", "id", "id_value", "line_name", "name", "occupation", "phone", "updated_at", "user_id"]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name furigana line_name]
   end
 end
