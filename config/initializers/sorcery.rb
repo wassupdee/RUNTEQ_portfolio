@@ -222,9 +222,9 @@ Rails.application.config.sorcery.configure do |config|
   config.line.key = ENV.fetch("LINE_CHANNEL_ID_LOGIN")
   config.line.secret = ENV.fetch("LINE_CHANNEL_SECRET_LOGIN")
   config.line.callback_url = Settings.sorcery[:line_callback_url]
-  config.line.scope = "profile openid email"
+  config.line.scope = "profile"
   config.line.bot_prompt = "aggressive"
-  config.line.user_info_mapping = { name: 'displayName', line_user_id: "userId", email: "email" }
+  config.line.user_info_mapping = { name: 'displayName', email: "userId" }
 
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2
