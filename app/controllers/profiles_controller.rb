@@ -10,7 +10,9 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = current_user.profiles.includes(:events).order(created_at: :desc)
+    @q = current_user.profiles.ransack(params[:q])
+    @q.combinator = "or"
+    @profiles = @q.result(distinct: true).includes(:events).order(created_at: :desc)
   end
 
   def create
