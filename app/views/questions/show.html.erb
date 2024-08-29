@@ -1,36 +1,10 @@
 <div class="flex items-center justify-center min-h-screen">
   <div class="border-white border-2 rounded-md p-10">
-
     <div class="flex items-center justify-center">
-      <%= form_with url: answers_path, method: :post, data: { turbo: false }, id: 'ai_questions' do |form| %>
-        <% if @question.number.to_i == Settings.question_type.multiple_choice %>
-          <div class="flex flex-col text-center mb-5 text-2xl text-white">
-            <h1><%= @question.text %></h1>
-            <h2 class="text-base mt-2">※複数選択可</h2>
-          </div>
-          <% @answers.each do |answer| %>
-            <div class="flex items-center mb-2 text-white text-xl gap-2">
-              <%= form.check_box "answer[question#{@question.number}]", { multiple: true }, answer.value, nil %>
-              <%= form.label "answer[question#{@question.number}]_#{answer.value}", answer.text %>
-            </div>
-          <% end %>
-          <div class="w-full flex justify-center">
-            <%= form.submit '次へ', class:"btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white" %>
-          </div>
-        <% else %>
-          <div class="text-center mb-5 text-2xl text-white">
-            <%= @question.text %>
-          </div>
-          <% @answers.each do |answer| %>
-            <div class="flex items-center mb-2 text-white text-xl gap-2">
-              <%= form.radio_button "answer[question#{@question.number}]", answer.value, required: :true %>
-              <%= form.label "answer[question#{@question.number}]_#{answer.value}", answer.text %>
-            </div>
-          <% end %>
-          <div class="w-full flex justify-center">
-            <%= form.submit '次へ', class:"btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white" %>
-          </div>
-        <% end %>
+      <% if @question.number.to_i == Settings.question_type.multiple_choice %>
+        <%= render "question_multiple_choice", question: @question %>
+      <% else %>
+        <%= render "question_single_choice", question: @question %>
       <% end %>
     </div>
   </div>
