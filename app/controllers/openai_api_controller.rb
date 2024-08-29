@@ -6,6 +6,7 @@ class OpenaiApiController < ApplicationController
     ai_suggest_service = AiSuggestionService.new(@client, session)
 
     @message = ai_suggest_service.suggest
+    @last_question = Question.find_by(number: "3")
   end
 
   private
