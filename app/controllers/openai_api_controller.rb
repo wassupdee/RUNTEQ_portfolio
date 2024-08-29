@@ -6,6 +6,7 @@ class OpenaiApiController < ApplicationController
     ai_suggest_service = AiSuggestionService.new(@client, session)
 
     @message = ai_suggest_service.suggest
+    @last_question = Question.order(number: :desc).first
   end
 
   private

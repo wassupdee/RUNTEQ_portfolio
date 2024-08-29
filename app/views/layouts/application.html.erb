@@ -20,6 +20,7 @@
     <%= render 'shared/flash_message' %>
     <main class="flex-grow">
       <%= yield %>
+      <%= breadcrumbs separator: "&rsaquo;" %>
     </main>
     <%= render 'shared/footer' %>
   </body>
