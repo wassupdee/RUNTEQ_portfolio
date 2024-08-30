@@ -25,6 +25,7 @@ class OauthsController < ApplicationController
 
   def new_user_login(provider)
     @user = create_from(provider)
+    @user.update!(line_user_id: @user.email)
     # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
     reset_session # protect from session fixation attack
     auto_login(@user)

@@ -12,7 +12,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
-  validates :line_user_id, uniqueness: true, allow_blank: true
   validates :notification_enabled, presence: true
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
