@@ -1,6 +1,4 @@
 ユーザー名：<%= @user.name %><br>
 LINE通知設定：<%= @user.notification_enabled %><br>
 
-<% unless @user.authentications.exists? %>
-  <%= link_to "パスワードの変更はこちらから", new_password_reset_path %>
-<% end %>
+<%= link_to "編集", edit_user_path(@user) %>
