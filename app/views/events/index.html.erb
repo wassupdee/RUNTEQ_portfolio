@@ -12,7 +12,7 @@
         </div>
         <div class="col-span-1 flex items-center">
           通知
-          <%= i.check_box :notification_enabled, checked: i.object.notification_enabled == "on", class: "mr-2 ml-2" %>
+          <%= i.select :notification_enabled, [["する", "on"], ["しない", "off"]] %>
         </div>
         <div>
           <%= i.hidden_field :date, value: i.object.date %>
