@@ -2,9 +2,8 @@
   <%= f.label :name, "名前" %>
   <%= f.text_field :name %>
 
-  <%= f.label :notification_enabled, "LINE通知 ON" %>
-  <input type="hidden" name="user[notification_enabled]" value="off">
-  <input type="checkbox" name="user[notification_enabled]" id="user_notification_enabled" value="on" <%= "checked" if @user.notification_enabled == "on" %>>
+  <%= f.label :notification_enabled, "LINE通知" %>
+  <%= f.select :notification_enabled, [["ON", "on"], ["OFF", "off"]] %>
 
   <%= f.submit "更新" %>
 <% end %>
