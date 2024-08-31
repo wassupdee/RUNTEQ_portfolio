@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :introductions, only: [:show]
   resources :questions, only: [:show]
   resources :answers, only: [:create]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show, :edit, :update]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :profiles do
     resources :events do
