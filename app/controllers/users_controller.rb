@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  before_action :set_user, only: %i[show edit update]
 
   def new
     @user = User.new
@@ -17,9 +18,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def show; end
+
+  def edit; end
+
+  def update
+    if @user.update(user_params)
+      flash[:success] = "更新しました"
+      redirect_to user_path(@user)
+    else
+      flash[:danger] = "更新に失敗しました"
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :notification_enabled)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

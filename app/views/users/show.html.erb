@@ -1,0 +1,5 @@
+ユーザー名：<%= @user.name %><br>
+LINE通知設定：
+<%= @user.notification_enabled == "on" ? "ON" : "OFF" %>
+
+<%= link_to "編集", edit_user_path(@user) %>
