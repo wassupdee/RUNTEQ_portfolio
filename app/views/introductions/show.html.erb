@@ -1,17 +1,11 @@
 <div class="flex flex-col justify-center min-h-screen">
   <div class="mx-auto border-white border-2 rounded-md p-10 text-2xl">
-    <%= render "introduction#{@page_number}" %>
-
+    <p>久しぶりに連絡を取り合いたい人を<br>
+        １人思い浮かべてください・・・</p>
     <div class="text-center mt-5 flex justify-center">
-      <% if @page_number.to_i > 1 %>
-        <%= link_to question_path(1) do %>
-          <button class="btn btn-lg bg-white text-black border-none shadow-2xl hover:bg-white">次へ</button>
-        <% end %>
-      <% else %>
-        <%= link_to introduction_path(@page_number.to_i + 1) do %>
-          <button class="btn btn-lg bg-white text-black border-none shadow-2xl hover:bg-white">次へ</button>
-        <% end %>
+      <%= link_to question_path(1) do %>
+        <button class="btn btn-lg bg-white text-black border-none shadow-2xl hover:bg-white">次へ</button>
       <% end %>
-
+    </div>
   </div>
 </div>
