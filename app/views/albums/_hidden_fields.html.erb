@@ -1,0 +1,5 @@
+<% album.images.each do |image| %>
+  <% if image.persisted? %>
+    <%= hidden_field_tag "album[images][]", image.signed_id %>
+  <% end %>
+<% end %>

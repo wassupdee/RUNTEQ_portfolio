@@ -12,6 +12,13 @@
     <%= form.text_area :diary %>
 
     <%= form.label :image, "写真" %>
+    <turbo-frame id="album_hidden_fields">
+      <% album.images.each do |image| %>
+        <% if image.persisted? %>
+          <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+        <% end %>
+      <% end %>
+    </turbo-frame>
     <%= form.file_field :images, multiple: true, data: { previews_target: "input", action: "change->previews#preview" } %>
 
     <%= form.submit "保存する" %>
@@ -20,8 +27,10 @@
   <% if album.images.attached? && album.persisted? %>
     <% album.images.each do |image| %>
       <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
+      <% if image.persisted? %>
         <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
         <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+      <% end %>
       </div>
     <% end %>
   <% end %>
