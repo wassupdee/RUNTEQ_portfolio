@@ -27,8 +27,7 @@ class AlbumsController < ApplicationController
   def edit; end
 
   def update
-    if @album.update(album_params.except(:images))
-      attach_images if album_params[:images].present?
+    if @album.update(album_params)
       flash[:success] = "アルバムを更新しました"
       redirect_to profile_albums_path(@album.profile_id)
     else
@@ -55,9 +54,5 @@ class AlbumsController < ApplicationController
 
   def set_album
     @album = @profile.albums.find(params[:id])
-  end
-
-  def attach_images
-    album_params[:images].each { |image| @album.images.attach(image) }
   end
 end
