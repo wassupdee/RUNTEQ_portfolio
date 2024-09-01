@@ -15,7 +15,7 @@
     <%# <turbo-frame id="album_hidden_fields"> %>
       <% @album.images.each do |image| %>
         <% if image.persisted? %>
-          <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+          <%= form.hidden_field :images, value: image.signed_id %>
         <% end %>
       <% end %>
     <%# </turbo-frame> %>
