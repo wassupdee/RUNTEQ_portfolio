@@ -12,13 +12,13 @@
     <%= form.text_area :diary %>
 
     <%= form.label :image, "写真" %>
-    <%# <turbo-frame id="album_hidden_fields"> %>
+    <turbo-frame id="album_hidden_fields">
       <% @album.images.each do |image| %>
         <% if image.persisted? %>
           <%= form.hidden_field :images, value: image.signed_id %>
         <% end %>
       <% end %>
-    <%# </turbo-frame> %>
+    </turbo-frame>
     <%= form.file_field :images, multiple: true, data: { previews_target: "input", action: "change->previews#preview" } %>
 
     <%= form.submit "保存する" %>
