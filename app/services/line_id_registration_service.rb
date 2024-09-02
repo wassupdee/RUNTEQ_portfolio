@@ -10,8 +10,10 @@ class LineIdRegistrationService
       line_id = event["source"]["userId"]
       user = find_user_by_email(event.message["text"])
 
-      if user&.update(line_user_id: line_id) || User.exists?(line_user_id: line_id)
+      if user&.update(line_user_id: line_id)
         send_success_message(event["replyToken"])
+      elsif User.exists?(line_user_id: line_id)
+        send_line_login_account_exist_message(event["replyToken"])
       else
         send_failure_message(event["replyToken"])
       end
@@ -42,6 +44,16 @@ class LineIdRegistrationService
       {
         type: "text",
         text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
+      }
+    )
+  end
+
+  def send_line_login_account_exist_message(reply_token)
+    client.reply_message(
+      reply_token,
+      {
+        type: "text",
+        text: "アプリのLINEログインアカウントと連携済みです"
       }
     )
   end
