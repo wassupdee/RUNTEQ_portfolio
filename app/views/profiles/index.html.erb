@@ -10,12 +10,14 @@
   <div class="px-48">
     <table class="table bg-white text-black text-center mt-2">
       <tr>
+        <th></th>
         <th>名前</th>
         <th>誕生日</th>
         <th>大切な日</th>
       </tr>
       <% @profiles.each do |profile| %>
         <tr>
+          <td><%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) %></td>
           <td><%= profile.name %></td>
           <% profile.events.each do |event| %>
             <td><%= event.date %></td>
