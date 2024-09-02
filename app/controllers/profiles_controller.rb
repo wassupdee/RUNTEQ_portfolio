@@ -13,6 +13,10 @@ class ProfilesController < ApplicationController
     @q = current_user.profiles.ransack(params[:q])
     @q.combinator = "or"
     @profiles = @q.result(distinct: true).includes(:events).order(created_at: :desc)
+    @profiles_birthdays_this_month = Profile.with_birthday_this_month
+    @profiles_birthdays_next_month = Profile.with_birthday_next_month
+    @profiles_special_day_this_month = Profile.with_special_day_this_month
+    @profiles_special_day_next_month = Profile.with_special_day_next_month
   end
 
   def create
@@ -45,12 +49,16 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = current_user.profiles.find(params[:id])
     @profile.destroy!
-    redirect_to profiles_path, status: :see_other
+
+    respond_to do |format|
+      format.html { redirect_to profiles_path, status: :see_other }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("profile_#{@profile.id}") }
+    end
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:avatar, :name, :furigana, :phone, :email, :line_name, :birthplace, :address, :occupation, events_attributes: %i[name date id])
+    params.require(:profile).permit(:avatar, :contacted, :name, :furigana, :phone, :email, :line_name, :birthplace, :address, :occupation, events_attributes: %i[name date id])
   end
 end
