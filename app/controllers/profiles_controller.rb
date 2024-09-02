@@ -13,6 +13,10 @@ class ProfilesController < ApplicationController
     @q = current_user.profiles.ransack(params[:q])
     @q.combinator = "or"
     @profiles = @q.result(distinct: true).includes(:events).order(created_at: :desc)
+    @profiles_birthdays_this_month = Profile.with_birthday_this_month
+    @profiles_birthdays_next_month = Profile.with_birthday_next_month
+    @profiles_special_day_this_month = Profile.with_special_day_this_month
+    @profiles_special_day_next_month = Profile.with_special_day_next_month
   end
 
   def create
