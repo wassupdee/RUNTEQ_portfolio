@@ -45,7 +45,15 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = current_user.profiles.find(params[:id])
     @profile.destroy!
-    redirect_to profiles_path, status: :see_other
+
+    respond_to do |format|
+      format.html {
+        redirect_to profiles_path, status: :see_other
+      }
+      format.turbo_stream {
+        render turbo_stream: turbo_stream.remove("profile_#{@profile.id}")
+      }
+    end
   end
 
   private

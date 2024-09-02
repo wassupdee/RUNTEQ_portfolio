@@ -27,6 +27,11 @@
               <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
             <% end %>
           </td>
+          <td>
+            <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+              <button class="btn bg-slate-300 text-black border-none shadow-2xl">削除</button>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>
