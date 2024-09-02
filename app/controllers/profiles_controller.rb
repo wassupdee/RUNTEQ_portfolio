@@ -51,12 +51,8 @@ class ProfilesController < ApplicationController
     @profile.destroy!
 
     respond_to do |format|
-      format.html {
-        redirect_to profiles_path, status: :see_other
-      }
-      format.turbo_stream {
-        render turbo_stream: turbo_stream.remove("profile_#{@profile.id}")
-      }
+      format.html { redirect_to profiles_path, status: :see_other }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("profile_#{@profile.id}") }
     end
   end
 
