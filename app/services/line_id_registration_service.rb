@@ -1,4 +1,10 @@
 class LineIdRegistrationService
+  MESSAGES = {
+    success: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます",
+    account_exists: "アプリのLINEログインアカウントと連携済みです",
+    failure: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
+  }.freeze
+
   def initialize(events)
     @events = events
   end
@@ -10,13 +16,8 @@ class LineIdRegistrationService
       line_id = event["source"]["userId"]
       user = find_user_by_email(event.message["text"])
 
-      if user&.update(line_user_id: line_id)
-        send_success_message(event["replyToken"])
-      elsif User.exists?(line_user_id: line_id)
-        send_line_login_account_exist_message(event["replyToken"])
-      else
-        send_failure_message(event["replyToken"])
-      end
+      message_type = determine_message_type(user, line_id)
+      send_message(event["replyToken"], message_type)
     end
   end
 
@@ -38,32 +39,19 @@ class LineIdRegistrationService
     User.find_by(email:)
   end
 
-  def send_success_message(reply_token)
-    client.reply_message(
-      reply_token,
-      {
-        type: "text",
-        text: "アプリと連携ができました。大切な日に合わせてリマインド通知を受け取ることができます"
-      }
-    )
+  def determine_message_type(user, line_id)
+    return :success if user&.update(line_user_id: line_id)
+    return :account_exists if User.exists?(line_user_id: line_id)
+
+    :failure
   end
 
-  def send_line_login_account_exist_message(reply_token)
+  def send_message(reply_token, message_type)
     client.reply_message(
       reply_token,
       {
         type: "text",
-        text: "アプリのLINEログインアカウントと連携済みです"
-      }
-    )
-  end
-
-  def send_failure_message(reply_token)
-    client.reply_message(
-      reply_token,
-      {
-        type: "text",
-        text: "アプリ連携に失敗しました。アプリに登録しているメールアドレスと一致しているか確認してください"
+        text: MESSAGES[message_type]
       }
     )
   end
