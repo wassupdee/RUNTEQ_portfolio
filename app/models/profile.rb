@@ -14,6 +14,7 @@ class Profile < ApplicationRecord
                      content_type: %i[png jpeg],
                      size: { less_than: 1.megabytes, message: "is too large" },
                      limit: { max: 1 }
+  validates :contacted, presence: true
 
   scope :with_birthday_this_month, lambda {
     joins(:events).where("events.name LIKE ? AND MONTH(events.date) = ?", "誕生日", Date.today.month)
