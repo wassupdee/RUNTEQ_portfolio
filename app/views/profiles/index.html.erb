@@ -23,6 +23,10 @@
             <td><%= event.date %></td>
           <% end %>
           <td>
+            <% album = profile.albums.sample if profile.albums.any? %>
+            <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album.images.attached? %>
+          </td>
+          <td>
             <%= link_to profile_path(profile) do %>
               <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
             <% end %>
