@@ -10,7 +10,7 @@ class LineIdRegistrationService
       line_id = event["source"]["userId"]
       user = find_user_by_email(event.message["text"])
 
-      if User.exists?(line_user_id: line_id) || user&.update(line_user_id: line_id)
+      if user&.update(line_user_id: line_id) || User.exists?(line_user_id: line_id)
         send_success_message(event["replyToken"])
       else
         send_failure_message(event["replyToken"])
