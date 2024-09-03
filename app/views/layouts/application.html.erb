@@ -11,26 +11,20 @@
     <script src="https://kit.fontawesome.com/ba69a80073.js" crossorigin="anonymous" defer></script>
   </head>
 
-  <body class="bg-white text-black">
-    <div>
-      <% if logged_in? %>
-        <%= render 'shared/header' %>
-      <% else %>
-        <%= render 'shared/before_login_header' %>
-      <% end %>
-    </div>
+  <body class="flex flex-col min-h-screen bg-white text-black">
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
 
-    <div>
-      <%= render 'shared/flash_message' %>
-    </div>
+    <%= render 'shared/flash_message' %>
 
-    <main>
+    <main class="flex-grow">
       <%= yield %>
       <%= breadcrumbs separator: "&rsaquo;" %>
     </main>
 
-    <div>
-      <%= render 'shared/footer' %>
-    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
