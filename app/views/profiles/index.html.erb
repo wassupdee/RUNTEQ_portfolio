@@ -44,6 +44,11 @@
         <td>
           <div class="flex justify-around">
             <div>
+              <%= link_to profile_path(profile) do %>
+                <i class="fa-solid fa-circle-info fa-2x"></i>
+              <% end %>
+            </div>
+            <div>
               <%= link_to edit_profile_path(profile) do %>
                 <i class="fa-solid fa-pen-to-square fa-2x"></i>
               <% end %>
