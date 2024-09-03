@@ -12,17 +12,25 @@
   </head>
 
   <body class="bg-white text-black">
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <div>
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+    </div>
 
-    <%= render 'shared/flash_message' %>
+    <div>
+      <%= render 'shared/flash_message' %>
+    </div>
+
     <main>
       <%= yield %>
       <%= breadcrumbs separator: "&rsaquo;" %>
     </main>
-    <%= render 'shared/footer' %>
+
+    <div>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
