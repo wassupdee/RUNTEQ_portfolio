@@ -44,12 +44,13 @@
         </td>
         <td>
           <%= link_to profile_path(profile) do %>
-            <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
+          <i class="fa-solid fa-circle-info fa-2x"></i>
+
           <% end %>
         </td>
         <td>
           <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
-            <button class="btn bg-slate-300 text-black border-none shadow-2xl">削除</button>
+            <i class="fa-solid fa-trash fa-2x"></i>
           <% end %>
         </td>
       </tr>
