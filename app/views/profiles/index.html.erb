@@ -34,7 +34,7 @@
       <tr id="profile_<%= profile.id %>">
         <td><%= profile.contacted %>
         <td><%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) if profile.avatar.attached? %></td>
-        <td><%= profile.name %></td>
+        <td class="text-left"><%= profile.name %></td>
         <td><%= profile.events.first.date %></td>
         <td><%= profile.events.last.date %></td>
         <td>
