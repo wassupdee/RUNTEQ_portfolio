@@ -27,9 +27,8 @@
           <td><%= profile.contacted %>
           <td><%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) if profile.avatar.attached? %></td>
           <td><%= profile.name %></td>
-          <% profile.events.each do |event| %>
-            <td><%= event.date %></td>
-          <% end %>
+          <td><%= profile.events.first.date %></td>
+          <td><%= profile.events.last.date %></td>
           <td>
             <% album = profile&.albums.sample %>
             <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
