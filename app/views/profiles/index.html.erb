@@ -28,7 +28,6 @@
       <th class="w-2/12">大切な日</th>
       <th class="w-1/12"></th>
       <th class="w-1/12"></th>
-      <th class="w-1/12"></th>
     </tr>
 
     <% @profiles.each do |profile| %>
@@ -43,15 +42,18 @@
           <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
         </td>
         <td>
-          <%= link_to profile_path(profile) do %>
-          <i class="fa-solid fa-circle-info fa-2x"></i>
-
-          <% end %>
-        </td>
-        <td>
-          <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
-            <i class="fa-solid fa-trash fa-2x"></i>
-          <% end %>
+          <div class="flex justify-around">
+            <div>
+              <%= link_to profile_path(profile) do %>
+                <i class="fa-solid fa-circle-info fa-2x"></i>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+                <i class="fa-solid fa-trash fa-2x"></i>
+              <% end %>
+            </div>
+          </div>
         </td>
       </tr>
     <% end %>
