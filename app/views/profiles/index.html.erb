@@ -11,7 +11,7 @@
     <%= render "profiles/search", q: @q, url: profiles_path %>
   </div>
 
-  <div class="btn bg-peach text-black border-none shadow-2xl">
+  <div class="btn bg-peach text-black border-none shadow-lgl">
     <%= link_to new_profile_path do %>
       <button>連絡先を作成</button>
     <% end %>
@@ -45,17 +45,17 @@
           <div class="flex justify-around">
             <div>
               <%= link_to profile_path(profile) do %>
-                <i class="fa-solid fa-circle-info fa-2x"></i>
+                <i class="fa-solid fa-circle-info fa-lg"></i>
               <% end %>
             </div>
             <div>
               <%= link_to edit_profile_path(profile) do %>
-                <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                <i class="fa-solid fa-pen-to-square fa-lg"></i>
               <% end %>
             </div>
             <div>
               <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
-                <i class="fa-solid fa-trash fa-2x"></i>
+                <i class="fa-solid fa-trash fa-lg"></i>
               <% end %>
             </div>
           </div>
