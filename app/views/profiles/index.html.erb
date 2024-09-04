@@ -1,51 +1,66 @@
-<%= render "profiles/search", q: @q, url: profiles_path %>
+<div class="flex justify-around items-center">
+  <div class="border-2 border-black rounded-md p-2 m-4">
+    <%= render "event_notice",
+        profiles_birthdays_this_month: @profiles_birthdays_this_month,
+        profiles_birthdays_next_month: @profiles_birthdays_next_month,
+        profiles_special_day_this_month: @profiles_special_day_this_month,
+        profiles_special_day_next_month: @profiles_special_day_next_month %>
+  </div>
 
-<div class="pt-16">
-  <h1 class="text-2xl text-white pt-10 pl-48">れんらく帳</h1>
-  <%= render "event_notice",
-      profiles_birthdays_this_month: @profiles_birthdays_this_month,
-      profiles_birthdays_next_month: @profiles_birthdays_next_month,
-      profiles_special_day_this_month: @profiles_special_day_this_month,
-      profiles_special_day_next_month: @profiles_special_day_next_month %>
+  <div>
+    <%= render "profiles/search", q: @q, url: profiles_path %>
+  </div>
 
-  <div class="flex justify-end pt-2 pr-48">
+  <div class="btn bg-peach text-black border-none shadow-lgl">
     <%= link_to new_profile_path do %>
-      <button class="btn bg-peach text-black border-none shadow-2xl">連絡先を作成</button>
+      <button>連絡先を作成</button>
     <% end %>
   </div>
-  <div class="px-48">
-    <table class="table bg-white text-black text-center mt-2">
-      <tr>
-        <th>連絡済み</th>
-        <th></th>
-        <th>名前</th>
-        <th>誕生日</th>
-        <th>大切な日</th>
+</div>
+
+<div class="max-h-screen overflow-auto">
+  <table class="table table-fixed text-center">
+    <tr class="bg-white sticky top-0">
+      <th class="w-1/12">連絡済み</th>
+      <th class="w-1/12"></th>
+      <th class="w-3/12">名前</th>
+      <th class="w-2/12">誕生日</th>
+      <th class="w-2/12">大切な日</th>
+      <th class="w-1/12"></th>
+      <th class="w-1/12"></th>
+    </tr>
+
+    <% @profiles.each do |profile| %>
+      <tr id="profile_<%= profile.id %>">
+        <td><%= profile.contacted %>
+        <td><%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) if profile.avatar.attached? %></td>
+        <td class="text-left"><%= profile.name %></td>
+        <td><%= profile.events.first.date %></td>
+        <td><%= profile.events.last.date %></td>
+        <td>
+          <% album = profile&.albums.sample %>
+          <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
+        </td>
+        <td>
+          <div class="flex justify-around">
+            <div>
+              <%= link_to profile_path(profile) do %>
+                <i class="fa-solid fa-circle-info fa-lg"></i>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to edit_profile_path(profile) do %>
+                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+                <i class="fa-solid fa-trash fa-lg"></i>
+              <% end %>
+            </div>
+          </div>
+        </td>
       </tr>
-      <% @profiles.each do |profile| %>
-        <tr id="profile_<%= profile.id %>">
-          <td><%= profile.contacted %>
-          <td><%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) if profile.avatar.attached? %></td>
-          <td><%= profile.name %></td>
-          <% profile.events.each do |event| %>
-            <td><%= event.date %></td>
-          <% end %>
-          <td>
-            <% album = profile&.albums.sample %>
-            <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
-          </td>
-          <td>
-            <%= link_to profile_path(profile) do %>
-              <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
-              <button class="btn bg-slate-300 text-black border-none shadow-2xl">削除</button>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
+    <% end %>
+  </table>
 </div>

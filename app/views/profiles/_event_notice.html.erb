@@ -2,19 +2,31 @@
   <tr>
     <td>今月のイベント！</td>
     <% profiles_birthdays_this_month.each do |profile| %>
-      <td><%= profile.name %>さん</td>
+      <td>
+        <%= profile.name %>さん
+        <i class="fa-solid fa-cake-candles"></i>
+      </td>
     <% end %>
     <% profiles_special_day_this_month.each do |profile| %>
-      <td><%= profile.name %>さん</td>
+      <td>
+        <%= profile.name %>さん
+        <i class="fa-solid fa-calendar-check"></i>
+      </td>
     <% end %>
   </tr>
   <tr>
     <td>来月のイベント！</td>
     <% profiles_birthdays_next_month.each do |profile| %>
-      <td><%= profile.name %>さん</td>
+      <td>
+        <%= profile.name %>さん
+        <i class="fa-solid fa-cake-candles"></i>
+      </td>
     <% end %>
     <% profiles_special_day_next_month.each do |profile| %>
-      <td><%= profile.name %>さん</td>
+      <td>
+        <%= profile.name %>さん
+        <i class="fa-solid fa-calendar-check"></i>
+      </td>
     <% end %>
   </tr>
 </table>
