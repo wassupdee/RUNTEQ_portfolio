@@ -19,14 +19,14 @@
 </div>
 
 <div class="max-h-screen overflow-auto">
-  <table class="table table-fixed text-center">
+  <table class="table table-fixed text-center hidden sm:table">
     <tr class="bg-white sticky top-0">
-      <th class="w-1/12 whitespace-nowrap">連絡済み</th>
+      <th class="w-1/12">連絡済み</th>
       <th class="w-1/12"></th>
       <th class="w-3/12">名前</th>
       <th class="w-2/12">誕生日</th>
-      <th class="w-2/12 whitespace-nowrap">大切な日</th>
-      <th class="w-1/12 hidden sm:table-cell"></th>
+      <th class="w-2/12">大切な日</th>
+      <th class="w-1/12"></th>
       <th class="w-1/12"></th>
     </tr>
 
@@ -37,7 +37,7 @@
         <td class="text-left"><%= profile.name %></td>
         <td><%= profile.events.first.date %></td>
         <td><%= profile.events.last.date %></td>
-        <td class="hidden sm:table-cell">
+        <td>
           <% album = profile&.albums.sample %>
           <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
         </td>
