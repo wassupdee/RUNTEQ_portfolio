@@ -11,8 +11,8 @@
     <%= render "profiles/search", q: @q, url: profiles_path %>
   </div>
 
-  <div class="btn bg-peach text-black border-none shadow-lgl">
-    <%= link_to new_profile_path do %>
+  <div>
+    <%= link_to new_profile_path, class: "btn bg-peach text-black border-none shadow-lgl" do %>
       <button>連絡先を作成</button>
     <% end %>
   </div>
