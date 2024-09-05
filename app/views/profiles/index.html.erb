@@ -19,6 +19,53 @@
 </div>
 
 <div class="max-h-screen overflow-auto">
+<!---スマホ画面用のブロック--->
+  <div class="flex flex-col">
+    <% @profiles.each do |profile| %>
+      <div class="flex">
+        <div class="w-1/12">
+          <%= profile.contacted %>
+        </div>
+        <div class="w-2/12">
+          <%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) if profile.avatar.attached? %>
+        </div>
+        <div class="w-4/12">
+          <div>
+            <%= profile.name %>
+          </div>
+          <div>
+            <%= profile.events.first.date %>
+          </div>
+          <div>
+            <%= profile.events.last.date %>
+          </div>
+        </div>
+        <div class="w-3/12">
+          <% album = profile&.albums.sample %>
+          <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
+        </div>
+        <div class="w-2/12">
+          <div>
+            <%= link_to profile_path(profile) do %>
+              <i class="fa-solid fa-circle-info fa-lg"></i>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to edit_profile_path(profile) do %>
+              <i class="fa-solid fa-pen-to-square fa-lg"></i>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+              <i class="fa-solid fa-trash fa-lg"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<!---PC画面用のテーブル--->
   <table class="table table-fixed text-center hidden sm:table">
     <tr class="bg-white sticky top-0">
       <th class="w-1/12">連絡済み</th>
