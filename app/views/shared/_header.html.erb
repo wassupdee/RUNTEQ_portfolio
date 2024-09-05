@@ -1,9 +1,11 @@
 <header class="sticky top-0 bg-opacity-20 bg-black w-full">
-  <nav class="flex justify-between container mx-auto items-center text-white">
-    <div class="text-3xl">
-      <%= link_to "Reconnect　～ともだちと再びつながるアプリ～", root_path %>
+  <nav class="flex justify-center sm:justify-between container mx-auto items-center text-white">
+    <div class="text-center whitespace-nowrap">
+      <%= link_to root_path do %>
+        <span class="text-3xl sm:text-4xl">Reconnect</span><span class="text-lg sm:text-3xl">～ともだちと再びつながるアプリ～</span>
+      <% end %>
     </div>
-    <div class="font-bold space-x-8">
+    <div class="font-bold space-x-8 hidden sm:block">
       <%= link_to "AIメッセージ作成", introduction_path(1) %>
       <%= link_to "連絡帳", profiles_path %>
       <%= link_to "マイページ", user_path(current_user)  %>
