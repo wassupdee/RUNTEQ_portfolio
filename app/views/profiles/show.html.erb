@@ -1,56 +1,56 @@
   <div class="drawer lg:drawer-open">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content flex">
+    <div class="drawer-content flex justify-center">
       <!-- Page content here -->
-      <div class="flex items-center">
-        <div>
+      <div class="flex">
+        <div id="avatar" class="flex items-center">
           <% if @profile.avatar.attached? %>
             <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]) %>
           <% end %>
         </div>
-      </div>
-      <div class="flex flex-col flex-grow items-center justify-center">
-        <div class="flex">
-          <div>
+        <div id ="profile_info" class="flex flex-col flex-grow items-left justify-center">
+          <div class="flex">
             <div>
-              <%= @profile.furigana %>
+              <div>
+                <%= @profile.furigana %>
+              </div>
+              <div class="text-8xl">
+                <%= @profile.name %>
+              </div>
             </div>
-            <div class="text-8xl">
-              <%= @profile.name %>
+            <div class="flex flex-col justify-end">
+              <div>
+                <%= link_to edit_profile_path(@profile) do %>
+                  <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                <% end %>
+                <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+                  <i class="fa-regular fa-trash-can fa-lg"></i>
+                <% end %>
+              </div>
             </div>
           </div>
-          <div class="flex flex-col justify-end">
-            <div>
-              <%= link_to edit_profile_path(@profile) do %>
-                <i class="fa-solid fa-pen-to-square fa-lg"></i>
-              <% end %>
-              <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-                <i class="fa-regular fa-trash-can fa-lg"></i>
-              <% end %>
-            </div>
-          </div>
-        </div>
 
-        <div>
-          <div class="my-5">
-            <i class="fa-solid fa-phone fa-lg"></i>
-            <span class="text-2xl"><%= @profile.phone %></span>
-          </div>
-          <div class="my-5">
-            <i class="fa-regular fa-envelope fa-lg"></i>
-            <span class="text-2xl"><%= @profile.email %></span>
-          </div>
-          <div class="my-5">
-            <i class="fa-solid fa-location-dot fa-lg"></i>
-            <span class="text-2xl"><%= @profile.address %></span>
-          </div>
-          <div class="my-5">
-            <i class="fa-solid fa-cake-candles fa-lg"></i>
-            <span class="text-2xl"><%= @profile.events.first.date %></span>
-          </div>
-          <div class="my-5">
-            <i class="fa-solid fa-calendar-check fa-lg"></i>
-            <span class="text-2xl"><%= @profile.events.last.date %></span>
+          <div>
+            <div class="my-5">
+              <i class="fa-solid fa-phone fa-lg"></i>
+              <span class="text-2xl"><%= @profile.phone %></span>
+            </div>
+            <div class="my-5">
+              <i class="fa-regular fa-envelope fa-lg"></i>
+              <span class="text-2xl"><%= @profile.email %></span>
+            </div>
+            <div class="my-5">
+              <i class="fa-solid fa-location-dot fa-lg"></i>
+              <span class="text-2xl"><%= @profile.address %></span>
+            </div>
+            <div class="my-5">
+              <i class="fa-solid fa-cake-candles fa-lg"></i>
+              <span class="text-2xl"><%= @profile.events.first.date %></span>
+            </div>
+            <div class="my-5">
+              <i class="fa-solid fa-calendar-check fa-lg"></i>
+              <span class="text-2xl"><%= @profile.events.last.date %></span>
+            </div>
           </div>
         </div>
       </div>
