@@ -3,7 +3,7 @@
     <div class="drawer-content flex justify-center">
       <!-- Page content here -->
       <div class="flex">
-        <div id="avatar" class="flex items-center">
+        <div id="avatar" class="flex items-center pr-10">
           <% if @profile.avatar.attached? %>
             <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]) %>
           <% end %>
