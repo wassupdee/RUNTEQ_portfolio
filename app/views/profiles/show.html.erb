@@ -58,10 +58,13 @@
     <div class="drawer-side">
       <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-lg justify-center items-center text-3xl">
         <!-- Sidebar content here -->
-        <li class="m-3"><%= link_to "連絡先一覧", profiles_path %></li>
         <li class="m-3"><%= link_to "基本情報", profile_path(@profile) %></li>
         <li class="m-3"><%= link_to "アルバム", profile_albums_path(@profile) %></li>
         <li class="m-3"><%= link_to "通知設定", profile_events_path(@profile) %></li>
+        <li class="m-3"><%= link_to profiles_path do %>
+          <i class="fa-solid fa-backward"></i>連絡先一覧
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
