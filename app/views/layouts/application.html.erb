@@ -25,6 +25,10 @@
       <%= breadcrumbs separator: "&rsaquo;" %>
     </main>
 
-    <%= render 'shared/footer' %>
+    <% if logged_in? %>
+      <%= render 'shared/footer' %>
+    <% else %>
+      <%= render 'shared/before_login_footer' %>
+    <% end %>
   </body>
 </html>

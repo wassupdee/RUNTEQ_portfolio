@@ -18,20 +18,16 @@
       <div>連絡帳</div>
     </div>
     <div class="flex flex-col justify-center text-center">
-      <div>
-        <%= link_to user_path(current_user) do %>
-          <i class="fa-regular fa-user fa-lg"></i>
-        <% end %>
-      </div>
-      <div>マイページ</div>
+      <%= link_to login_path do %>
+        <i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>
+      <% end %>
+      <div>ログイン</div>
     </div>
     <div class="flex flex-col justify-center text-center">
-      <div>
-        <%= link_to logout_path, data: { turbo_method: :delete } do %>
-          <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
-        <% end %>
-      </div>
-      <div>ログアウト</div>
+      <%= link_to new_user_path do %>
+        <i class="fa-solid fa-user-plus fa-lg"></i>
+      <% end %>
+      <div>新規登録</div>
     </div>
   </div>
 </footer>
