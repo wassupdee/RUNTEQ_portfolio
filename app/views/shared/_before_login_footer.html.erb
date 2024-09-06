@@ -1,0 +1,43 @@
+<!---スマホ画面用のフッター--->
+<footer class="fixed bottom-0 bg-black w-full sm:hidden">
+  <div class="flex justify-center space-x-8 text-white my-4">
+    <div class="flex flex-col justify-center text-center">
+      <div>
+        <%= link_to introduction_path(1) do %>
+          <i class="fa-regular fa-message fa-lg"></i>
+        <% end %>
+      </div>
+      <div>AIメッセージ</div>
+    </div>
+    <div class="flex flex-col justify-center text-center">
+      <div>
+        <%= link_to profiles_path do %>
+          <i class="fa-regular fa-address-book fa-lg"></i>
+        <% end %>
+      </div>
+      <div>連絡帳</div>
+    </div>
+    <div class="flex flex-col justify-center text-center">
+      <%= link_to login_path do %>
+        <i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>
+      <% end %>
+      <div>ログイン</div>
+    </div>
+    <div class="flex flex-col justify-center text-center">
+      <%= link_to new_user_path do %>
+        <i class="fa-solid fa-user-plus fa-lg"></i>
+      <% end %>
+      <div>新規登録</div>
+    </div>
+  </div>
+</footer>
+
+
+<!---PC画面用のフッター--->
+<footer class="bottom-0 bg-opacity-20 bg-black w-full left-0 hidden sm:block">
+  <div class="flex justify-center space-x-8 text-white">
+    <%= link_to "利用規約", '#' %>
+    <%= link_to "プライバシーポリシー", '#' %>
+    <%= link_to "お問い合わせ", '#' %>
+  </div>
+</footer>
