@@ -1,79 +1,82 @@
-<div class="drawer lg:drawer-open">
-  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content flex flex-col items-center justify-center">
-    <!-- Page content here -->
-    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
-      Open drawer
-    </label>
+  <div class="drawer lg:drawer-open">
+    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex">
+      <!-- Page content here -->
+      <div class="flex flex-col flex-grow items-center justify-center">
+        <div class="flex">
+          <div>
+            <% if @profile.avatar.attached? %>
+              <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]) %>
+            <% end %>
+          </div>
+          <div>
+            <div>
+              <%= @profile.furigana %>
+            </div>
+            <div class="text-8xl">
+              <%= @profile.name %>
+            </div>
+          </div>
+          <div>
+            <%= link_to edit_profile_path(@profile) do %>
+              <i class="fa-solid fa-pen-to-square fa-lg"></i>
+            <% end %>
+            <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+              <i class="fa-regular fa-trash-can fa-lg"></i>
+            <% end %>
+          </div>
+        </div>
+
+        <div>
+          <div class="my-5">
+            <i class="fa-solid fa-phone fa-lg"></i>
+            <span class="text-2xl"><%= @profile.phone %></span>
+          </div>
+          <div class="my-5">
+            <i class="fa-regular fa-envelope fa-lg"></i>
+            <span class="text-2xl"><%= @profile.email %></span>
+          </div>
+          <div class="my-5">
+            <i class="fa-solid fa-location-dot fa-lg"></i>
+            <span class="text-2xl"><%= @profile.address %></span>
+          </div>
+          <div class="my-5">
+            <i class="fa-solid fa-cake-candles fa-lg"></i>
+            <span class="text-2xl"><%= @profile.events.first.date %></span>
+          </div>
+          <div class="my-5">
+            <i class="fa-solid fa-calendar-check fa-lg"></i>
+            <span class="text-2xl"><%= @profile.events.last.date %></span>
+          </div>
+        </div>
+      </div>
+      <label for="my-drawer-2" class="btn btn-primary drawer-button sm:hidden">
+        Open drawer
+      </label>
+    </div>
+    <div class="drawer-side">
+      <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+      <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-lg">
+        <!-- Sidebar content here -->
+        <li><%= link_to "連絡先一覧", profiles_path %></li>
+        <li><%= link_to "基本情報", profile_path(@profile) %></li>
+        <li><%= link_to "アルバム", profile_albums_path(@profile) %></li>
+        <li><%= link_to "通知設定", profile_events_path(@profile) %></li>
+      </ul>
+    </div>
   </div>
-  <div class="drawer-side">
-    <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-    <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-      <!-- Sidebar content here -->
-      <li><a>Sidebar Item 1</a></li>
-      <li><a>Sidebar Item 2</a></li>
-    </ul>
-  </div>
-</div>
-
-<div>
-  <% if @profile.avatar.attached? %>
-    <%= image_tag @profile.avatar.variant(resize_to_limit: [100, 100]) %>
-  <% end %>
-</div>
-
-<div>
-  <div>
-    <%= @profile.furigana %>
-  </div>
-  <div>
-    <%= @profile.name %>
-  </div>
-  <div>
-    <%= link_to edit_profile_path(@profile) do %>
-      <i class="fa-solid fa-pen-to-square fa-lg"></i>
-    <% end %>
-    <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-      <i class="fa-regular fa-trash-can fa-lg"></i>
-    <% end %>
-  </div>
-</div>
-
-<div>
-  <i class="fa-solid fa-phone fa-lg"></i>
-  <%= @profile.phone %>
-</div>
-<div>
-  <i class="fa-regular fa-envelope fa-lg"></i>
-  <%= @profile.email %>
-</div>
-<div>
-  <i class="fa-solid fa-location-dot fa-lg"></i>
-  <%= @profile.address %>
-</div>
-<div>
-  <i class="fa-solid fa-cake-candles fa-lg"></i>
-  <%= @profile.events.first.date %>
-</div>
-<div>
-  <i class="fa-solid fa-calendar-check fa-lg"></i>
-  <%= @profile.events.last.date %>
-</div>
 
 
-
-
+<!---
 <div class="pt-20">
   <h1 class="text-2xl text-white pt-10 text-center">れんらく帳(詳細)</h1>
   <div class="flex justify-center space-x-2 pl-96">
-  <!---
     <%= link_to '#' do %>
       <button class="btn bg-slate-300 text-black border-none shadow-2xl">アルバム</button>
     <% end %>
     <%= link_to '#' do %>
       <button class="btn bg-slate-300 text-black border-none shadow-2xl">メモ</button>
     <% end %>
-    --->
     <%= link_to profile_events_path(@profile) do %>
       <button class="btn bg-peach text-black border-none shadow-2xl">通知設定</button>
     <% end %>
@@ -140,3 +143,4 @@
   </div>
 
 </div>
+--->
