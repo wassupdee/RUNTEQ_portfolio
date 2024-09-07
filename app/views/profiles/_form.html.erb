@@ -1,67 +1,75 @@
-<div class="pt-20 pb-10 max-w-md mx-auto">
-  <%= form_with model: profile, data: { turbo: false } do |profile_form| %>
-    <%= render 'shared/error_messages', model: profile_form.object %>
+<div class="flex flex-col items-center">
+  <div>
+    <h1 class="text-2xl font-bold py-5">連絡先フォーム</h1>
+  </div>
+  <div>
+    <%= form_with model: profile, data: { turbo: false } do |profile_form| %>
+      <%= render 'shared/error_messages', model: profile_form.object %>
 
-    <div class="mb-4">
-      <%= profile_form.label :name, '名前', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :name, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
+      <div class="mb-4">
+        <%= profile_form.label :name, '名前', class: "block font-medium mb-1 text-black" %>
+        <%= profile_form.text_field :name, class: "w-full rounded p-2 bg-white border border-black" %>
+      </div>
 
-    <div class="mb-4">
-      <%= profile_form.label :furigana, 'フリガナ', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :furigana, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
+      <div class="mb-4">
+        <%= profile_form.label :furigana, 'フリガナ', class: "block font-medium mb-1 text-black" %>
+        <%= profile_form.text_field :furigana, class: "w-full rounded p-2 bg-white border border-black" %>
+      </div>
 
-    <% @profile.events.each do |event| %>
-      <%= profile_form.fields_for :events, event do |event_form| %>
-        <% if event.name == '誕生日' %>
-          <%= event_form.label :date, event.name, class: "block font-medium mb-1 text-orange-300" %>
-          <%= event_form.date_field :date, class: "block font-medium mb-5" %>
-          <%= event_form.hidden_field :name, value: event.name %>
-        <% else %>
-          <%= event_form.text_field :name, placeholder: event.name, class: "block font-medium mb-1 border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0 mb-1 text-orange-300" %>
-          <%= event_form.date_field :date, class: "block font-medium mb-5" %>
+      <% @profile.events.each do |event| %>
+        <%= profile_form.fields_for :events, event do |event_form| %>
+          <% if event.name == '誕生日' %>
+            <div class="flex mb-1 items-center">
+              <i class="fa-solid fa-cake-candles fa-sm"></i>
+              <%= event_form.label :date, event.name, class: "block font-medium text-black mx-1" %>
+            </div>
+            <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black rounded" %>
+            <%= event_form.hidden_field :name, value: event.name %>
+          <% else %>
+            <div class="flex mb-1 items-center">
+              <i class="fa-solid fa-calendar-check fa-sm"></i>
+              <%= event_form.text_field :name, placeholder: event.name, size: event.name.length, class: "block font-medium rounded pl-1 pr-7 mx-1 text-black bg-white border border-black " %>
+            </div>
+            <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black rounded" %>
+          <% end %>
         <% end %>
       <% end %>
+
+      <div class="mb-4">
+        <div class="flex mb-1 items-center">
+          <i class="fa-solid fa-phone fa-sm"></i>
+          <%= profile_form.label :phone, '電話番号', class: "block font-medium text-black mx-1" %>
+        </div>
+        <%= profile_form.text_field :phone, class: "w-full rounded p-2 bg-white border border-black" %>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex mb-1 items-center">
+          <i class="fa-regular fa-envelope fa-sm"></i>
+          <%= profile_form.label :email, 'メールアドレス', class: "block font-medium text-black mx-1" %>
+        </div>
+        <%= profile_form.text_field :email, class: "w-full rounded p-2 bg-white border border-black" %>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex mb-1 items-center">
+          <i class="fa-solid fa-location-dot fa-sm"></i>
+          <%= profile_form.label :address, '住所', class: "block font-medium text-black mx-1" %>
+        </div>
+        <%= profile_form.text_field :address, class: "w-full rounded p-2 bg-white border border-black" %>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex mb-1 items-center">
+          <i class="fa-regular fa-image fa-sm"></i>
+          <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium text-black mx-1" %>
+        </div>
+        <%= profile_form.file_field :avatar, class: "rounded p-2" %>
+      </div>
+
+      <div class="flex justify-center">
+        <%= profile_form.submit '登録する', class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
+      </div>
     <% end %>
-
-    <div class="mb-4">
-      <%= profile_form.label :phone, '電話番号', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :phone, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
-
-    <div class="mb-4">
-      <%= profile_form.label :email, 'メールアドレス', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :email, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
-
-    <div class="mb-4">
-      <%= profile_form.label :line_name, 'LINEの名前', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :line_name, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
-
-    <div class="mb-4">
-      <%= profile_form.label :birthplace, '出身地', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :birthplace, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
-
-    <div class="mb-4">
-      <%= profile_form.label :address, '住所', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :address, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
-
-    <div class="mb-4">
-      <%= profile_form.label :occupation, '職場', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.text_field :occupation, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
-
-    <div class="mb-4">
-      <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium mb-1 text-orange-300" %>
-      <%= profile_form.file_field :avatar, class: "w-full border-gray-300 rounded p-2 focus:border-blue-300 focus:ring-0" %>
-    </div>
-
-    <div class="flex justify-center">
-      <%= profile_form.submit '登録する', class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
-    </div>
-  <% end %>
+  </div>
 </div>
