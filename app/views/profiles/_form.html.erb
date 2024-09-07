@@ -19,33 +19,51 @@
       <% @profile.events.each do |event| %>
         <%= profile_form.fields_for :events, event do |event_form| %>
           <% if event.name == '誕生日' %>
-            <%= event_form.label :date, event.name, class: "block font-medium mb-1 text-black" %>
+            <div class="flex mb-1 items-center">
+              <i class="fa-solid fa-cake-candles fa-sm"></i>
+              <%= event_form.label :date, event.name, class: "block font-medium text-black mx-1" %>
+            </div>
             <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
             <%= event_form.hidden_field :name, value: event.name %>
           <% else %>
-            <%= event_form.text_field :name, placeholder: event.name, size: event.name.length, class: "block font-medium rounded pl-1 pr-7 mb-1 text-black bg-white border border-black" %>
+            <div class="flex mb-1 items-center">
+              <i class="fa-solid fa-calendar-check fa-sm"></i>
+              <%= event_form.text_field :name, placeholder: event.name, size: event.name.length, class: "block font-medium rounded pl-1 pr-7 mx-1 text-black bg-white border border-black " %>
+            </div>
             <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
           <% end %>
         <% end %>
       <% end %>
 
       <div class="mb-4">
-        <%= profile_form.label :phone, '電話番号', class: "block font-medium mb-1 text-black" %>
+        <div class="flex mb-1 items-center">
+          <i class="fa-solid fa-phone fa-sm"></i>
+          <%= profile_form.label :phone, '電話番号', class: "block font-medium text-black mx-1" %>
+        </div>
         <%= profile_form.text_field :phone, class: "w-full rounded p-2 bg-white border border-black" %>
       </div>
 
       <div class="mb-4">
-        <%= profile_form.label :email, 'メールアドレス', class: "block font-medium mb-1 text-black" %>
+        <div class="flex mb-1 items-center">
+          <i class="fa-regular fa-envelope fa-sm"></i>
+          <%= profile_form.label :email, 'メールアドレス', class: "block font-medium text-black mx-1" %>
+        </div>
         <%= profile_form.text_field :email, class: "w-full rounded p-2 bg-white border border-black" %>
       </div>
 
       <div class="mb-4">
-        <%= profile_form.label :address, '住所', class: "block font-medium mb-1 text-black" %>
+        <div class="flex mb-1 items-center">
+          <i class="fa-solid fa-location-dot fa-sm"></i>
+          <%= profile_form.label :address, '住所', class: "block font-medium text-black mx-1" %>
+        </div>
         <%= profile_form.text_field :address, class: "w-full rounded p-2 bg-white border border-black" %>
       </div>
 
       <div class="mb-4">
-        <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium mb-1 text-black" %>
+        <div class="flex mb-1 items-center">
+          <i class="fa-regular fa-image fa-sm"></i>
+          <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium text-black mx-1" %>
+        </div>
         <%= profile_form.file_field :avatar, class: "rounded p-2" %>
       </div>
 
