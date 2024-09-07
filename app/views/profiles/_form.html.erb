@@ -19,7 +19,7 @@
           <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
           <%= event_form.hidden_field :name, value: event.name %>
         <% else %>
-          <%= event_form.text_field :name, placeholder: event.name, class: "block font-medium mb-1 rounded p-2 mb-1 text-black bg-white border border-black" %>
+          <%= event_form.text_field :name, placeholder: event.name, size: event.name.length, class: "block font-medium rounded pl-1 pr-7 mb-1 text-black bg-white border border-black" %>
           <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
         <% end %>
       <% end %>
