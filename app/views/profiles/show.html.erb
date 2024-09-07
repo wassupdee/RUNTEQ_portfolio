@@ -1,77 +1,70 @@
-<div class="pt-20">
-  <h1 class="text-2xl text-white pt-10 text-center">れんらく帳(詳細)</h1>
-  <div class="flex justify-center space-x-2 pl-96">
-  <!---
-    <%= link_to '#' do %>
-      <button class="btn bg-slate-300 text-black border-none shadow-2xl">アルバム</button>
-    <% end %>
-    <%= link_to '#' do %>
-      <button class="btn bg-slate-300 text-black border-none shadow-2xl">メモ</button>
-    <% end %>
-    --->
-    <%= link_to profile_events_path(@profile) do %>
-      <button class="btn bg-peach text-black border-none shadow-2xl">通知設定</button>
-    <% end %>
-  </div>
-
-  <div class="px-4 mt-10 flex justify-center">
-    <table class="table-auto border-collapse w-auto border border-white">
-      <tbody>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">名前</td>
-          <td class="px-4 py-2 border-white"><%= @profile.name %></td>
-        </tr>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">ふりがな</td>
-          <td class="px-4 py-2 border-white"><%= @profile.furigana %></td>
-        </tr>
-        <% @profile.events.each do |event| %>
-          <tr class="border-b border-white">
-            <td class="px-4 py-2 border-r border-white font-bold"><%= event.name %></td>
-            <td class="px-4 py-2 border-white"><%= event.date %></td>
-          </tr>
-        <% end %>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">電話番号</td>
-          <td class="px-4 py-2 border-white"><%= @profile.phone %></td>
-        </tr>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">メールアドレス</td>
-          <td class="px-4 py-2 border-white"><%= @profile.email %></td>
-        </tr>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">LINE名</td>
-          <td class="px-4 py-2 border-white"><%= @profile.line_name %></td>
-        </tr>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">出身地</td>
-          <td class="px-4 py-2 border-white"><%= @profile.birthplace %></td>
-        </tr>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">住所</td>
-          <td class="px-4 py-2 border-white"><%= @profile.address %></td>
-        </tr>
-        <tr class="border-b border-white">
-          <td class="px-4 py-2 border-r border-white font-bold">職業</td>
-          <td class="px-4 py-2 border-white"><%= @profile.occupation %></td>
-        </tr>
-        <tr class="border-b border-white">
+  <div class="drawer lg:drawer-open">
+    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex justify-center">
+      <!-- Page content here -->
+      <div class="flex">
+        <div id="avatar" class="flex items-center pr-10">
           <% if @profile.avatar.attached? %>
-            <td class="px-4 py-2 border-r border-white font-bold">プロフィール画像</td>
-            <td class="px-4 py-2 border-white"><%= image_tag @profile.avatar.variant(resize_to_limit: [100, 100]) %></td>
+            <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]) %>
           <% end %>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        </div>
+        <div id ="profile_info" class="flex flex-col flex-grow items-left justify-center">
+          <div class="flex">
+            <div>
+              <div class="text-2xl tracking-widest">
+                <%= @profile.furigana %>
+              </div>
+              <div class="text-8xl">
+                <%= @profile.name %>
+              </div>
+            </div>
+            <div class="flex flex-col justify-end">
+              <div>
+                <%= link_to edit_profile_path(@profile) do %>
+                  <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                <% end %>
+                <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+                  <i class="fa-regular fa-trash-can fa-lg"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
 
-  <div class="flex justify-center space-x-2 pt-4">
-    <%= link_to edit_profile_path(@profile) do %>
-      <button class="btn bg-slate-300 text-black border-none shadow-2xl">編集</button>
-    <% end %>
-    <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-      <button class="btn bg-slate-300 text-black border-none shadow-2xl">削除</button>
-    <% end %>
+          <div>
+            <div class="my-5 pl-5">
+              <i class="fa-solid fa-phone fa-lg"></i>
+              <span class="text-2xl"><%= @profile.phone %></span>
+            </div>
+            <div class="my-5 pl-5">
+              <i class="fa-regular fa-envelope fa-lg"></i>
+              <span class="text-2xl"><%= @profile.email %></span>
+            </div>
+            <div class="my-5 pl-5">
+              <i class="fa-solid fa-location-dot fa-lg"></i>
+              <span class="text-2xl"><%= @profile.address %></span>
+            </div>
+            <div class="my-5 pl-5">
+              <i class="fa-solid fa-cake-candles fa-lg"></i>
+              <span class="text-2xl"><%= @profile.events.first.date %></span>
+            </div>
+            <div class="my-5 pl-5">
+              <i class="fa-solid fa-calendar-check fa-lg"></i>
+              <span class="text-2xl"><%= @profile.events.last.date %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-side">
+      <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-lg justify-center items-center text-3xl">
+        <!-- Sidebar content here -->
+        <li class="m-3"><%= link_to "基本情報", profile_path(@profile) %></li>
+        <li class="m-3"><%= link_to "アルバム", profile_albums_path(@profile) %></li>
+        <li class="m-3"><%= link_to "通知設定", profile_events_path(@profile) %></li>
+        <li class="m-3"><%= link_to profiles_path do %>
+          <i class="fa-solid fa-backward"></i>連絡先一覧
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
-
-</div>
