@@ -3,45 +3,45 @@
     <%= render 'shared/error_messages', model: profile_form.object %>
 
     <div class="mb-4">
-      <%= profile_form.label :name, '名前', class: "block font-medium mb-1 text-orange-300" %>
+      <%= profile_form.label :name, '名前', class: "block font-medium mb-1 text-black" %>
       <%= profile_form.text_field :name, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
 
     <div class="mb-4">
-      <%= profile_form.label :furigana, 'フリガナ', class: "block font-medium mb-1 text-orange-300" %>
+      <%= profile_form.label :furigana, 'フリガナ', class: "block font-medium mb-1 text-black" %>
       <%= profile_form.text_field :furigana, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
 
     <% @profile.events.each do |event| %>
       <%= profile_form.fields_for :events, event do |event_form| %>
         <% if event.name == '誕生日' %>
-          <%= event_form.label :date, event.name, class: "block font-medium mb-1 text-orange-300" %>
+          <%= event_form.label :date, event.name, class: "block font-medium mb-1 text-black" %>
           <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
           <%= event_form.hidden_field :name, value: event.name %>
         <% else %>
-          <%= event_form.text_field :name, placeholder: event.name, class: "block font-medium mb-1 rounded p-2 mb-1 text-orange-300 bg-white border border-black" %>
+          <%= event_form.text_field :name, placeholder: event.name, class: "block font-medium mb-1 rounded p-2 mb-1 text-black bg-white border border-black" %>
           <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
         <% end %>
       <% end %>
     <% end %>
 
     <div class="mb-4">
-      <%= profile_form.label :phone, '電話番号', class: "block font-medium mb-1 text-orange-300" %>
+      <%= profile_form.label :phone, '電話番号', class: "block font-medium mb-1 text-black" %>
       <%= profile_form.text_field :phone, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
 
     <div class="mb-4">
-      <%= profile_form.label :email, 'メールアドレス', class: "block font-medium mb-1 text-orange-300" %>
+      <%= profile_form.label :email, 'メールアドレス', class: "block font-medium mb-1 text-black" %>
       <%= profile_form.text_field :email, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
 
     <div class="mb-4">
-      <%= profile_form.label :address, '住所', class: "block font-medium mb-1 text-orange-300" %>
+      <%= profile_form.label :address, '住所', class: "block font-medium mb-1 text-black" %>
       <%= profile_form.text_field :address, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
 
     <div class="mb-4">
-      <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium mb-1 text-orange-300" %>
+      <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium mb-1 text-black" %>
       <%= profile_form.file_field :avatar, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
 
