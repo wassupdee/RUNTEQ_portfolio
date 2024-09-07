@@ -14,7 +14,7 @@
           <% end %>
         </div>
         <div id ="profile_info" class="flex flex-col flex-grow items-left justify-center">
-          <div class="flex">
+          <div class="sm:flex">
             <div>
               <div class="text-2xl tracking-widest">
                 <%= @profile.furigana %>
@@ -23,7 +23,7 @@
                 <%= @profile.name %>
               </div>
             </div>
-            <div class="flex flex-col justify-end">
+            <div class="flex flex-col items-center sm:justify-end">
               <div>
                 <%= link_to edit_profile_path(@profile) do %>
                   <i class="fa-solid fa-pen-to-square fa-lg"></i>
