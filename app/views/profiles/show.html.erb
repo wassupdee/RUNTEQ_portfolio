@@ -7,7 +7,7 @@
         <a role="tab" class="tab tab-active">Tab 2</a>
         <a role="tab" class="tab">Tab 3</a>
       </div>
-      <div class="flex">
+      <div class="sm:flex">
         <div id="avatar" class="flex items-center pr-10">
           <% if @profile.avatar.attached? %>
             <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]) %>
