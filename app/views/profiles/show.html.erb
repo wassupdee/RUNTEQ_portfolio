@@ -35,26 +35,28 @@
             </div>
           </div>
 
-          <div>
-            <div class="my-5 pl-5">
-              <i class="fa-solid fa-phone fa-lg"></i>
-              <span class="text-2xl"><%= @profile.phone %></span>
-            </div>
-            <div class="my-5 pl-5">
-              <i class="fa-regular fa-envelope fa-lg"></i>
-              <span class="text-2xl"><%= @profile.email %></span>
-            </div>
-            <div class="my-5 pl-5">
-              <i class="fa-solid fa-location-dot fa-lg"></i>
-              <span class="text-2xl"><%= @profile.address %></span>
-            </div>
-            <div class="my-5 pl-5">
-              <i class="fa-solid fa-cake-candles fa-lg"></i>
-              <span class="text-2xl"><%= @profile.events.first.date %></span>
-            </div>
-            <div class="my-5 pl-5">
-              <i class="fa-solid fa-calendar-check fa-lg"></i>
-              <span class="text-2xl"><%= @profile.events.last.date %></span>
+          <div class="flex justify-center">
+            <div>
+              <div class="my-5 text-left">
+                <i class="fa-solid fa-phone fa-lg"></i>
+                <span class="text-2xl"><%= @profile.phone %></span>
+              </div>
+              <div class="my-5 text-left">
+                <i class="fa-regular fa-envelope fa-lg"></i>
+                <span class="text-2xl"><%= @profile.email %></span>
+              </div>
+              <div class="my-5 text-left">
+                <i class="fa-solid fa-location-dot fa-lg"></i>
+                <span class="text-2xl"><%= @profile.address %></span>
+              </div>
+              <div class="my-5 text-left">
+                <i class="fa-solid fa-cake-candles fa-lg"></i>
+                <span class="text-2xl"><%= @profile.events.first.date %></span>
+              </div>
+              <div class="my-5 text-left">
+                <i class="fa-solid fa-calendar-check fa-lg"></i>
+                <span class="text-2xl"><%= @profile.events.last.date %></span>
+              </div>
             </div>
           </div>
         </div>
