@@ -1,7 +1,12 @@
   <div class="drawer lg:drawer-open">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content flex justify-center">
+    <div class="drawer-content sm:flex justify-center">
       <!-- Page content here -->
+      <div role="tablist" class="tabs tabs-bordered sm:hidden">
+        <a role="tab" class="tab">Tab 1</a>
+        <a role="tab" class="tab tab-active">Tab 2</a>
+        <a role="tab" class="tab">Tab 3</a>
+      </div>
       <div class="flex">
         <div id="avatar" class="flex items-center pr-10">
           <% if @profile.avatar.attached? %>
