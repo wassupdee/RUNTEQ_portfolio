@@ -7,13 +7,13 @@
         <a role="tab" class="tab tab-active">Tab 2</a>
         <a role="tab" class="tab">Tab 3</a>
       </div>
-      <div class="sm:flex">
+      <div class="mt-8 sm:flex">
         <div id="avatar" class="flex justify-center sm:items-center sm:pr-10">
           <% if @profile.avatar.attached? %>
             <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]) %>
           <% end %>
         </div>
-        <div id ="profile_info" class="flex flex-col flex-grow items-left justify-center">
+        <div id ="profile_info" class="flex flex-col flex-grow items-left justify-center mt-5">
           <div class="sm:flex">
             <div class="text-center">
               <div class="text-2xl tracking-widest">
@@ -23,7 +23,7 @@
                 <%= @profile.name %>
               </div>
             </div>
-            <div class="flex flex-col items-center mt-2 sm:justify-end">
+            <div class="flex flex-col items-center mt-4 sm:justify-end">
               <div>
                 <%= link_to edit_profile_path(@profile) do %>
                   <i class="fa-solid fa-pen-to-square fa-lg"></i>
