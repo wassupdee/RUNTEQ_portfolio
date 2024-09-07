@@ -23,14 +23,14 @@
               <i class="fa-solid fa-cake-candles fa-sm"></i>
               <%= event_form.label :date, event.name, class: "block font-medium text-black mx-1" %>
             </div>
-            <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
+            <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black rounded" %>
             <%= event_form.hidden_field :name, value: event.name %>
           <% else %>
             <div class="flex mb-1 items-center">
               <i class="fa-solid fa-calendar-check fa-sm"></i>
               <%= event_form.text_field :name, placeholder: event.name, size: event.name.length, class: "block font-medium rounded pl-1 pr-7 mx-1 text-black bg-white border border-black " %>
             </div>
-            <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black" %>
+            <%= event_form.date_field :date, class: "block font-medium mb-5 bg-white border border-black rounded" %>
           <% end %>
         <% end %>
       <% end %>
