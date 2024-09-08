@@ -2,40 +2,42 @@
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content sm:flex">
     <!-- Page content here -->
-    <table class="table table-fixed text-center mt-2">
-      <tr>
-        <th class="w-2/12">日付</th>
-        <th class="w-3/12">タイトル</th>
-        <th class="w-3/12">サムネイル</th>
-        <th class="w-2/12"></th>
-      </tr>
-      <% @albums.each do |album| %>
+    <div class="max-h-screen overflow-auto">
+      <table class="table table-fixed text-center mt-2">
         <tr>
-          <td><%= album.date %></td>
-          <td><%= album.title %></td>
-          <td class="flex justify-center">
-            <% if album.images.attached? %>
-              <% album.images.each do |image| %>
-                <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-              <% end %>
-            <% end %>
-          </td>
-          <td>
-            <div class="flex justify-around">
-              <%= link_to profile_album_path(@profile, album) do %>
-                <i class="fa-solid fa-circle-info fa-lg"></i>
-              <% end %>
-              <%= link_to edit_profile_album_path(@profile, album) do %>
-                <i class="fa-solid fa-pen-to-square fa-lg"></i>
-              <% end %>
-              <%= link_to profile_album_path(@profile, album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-                <i class="fa-solid fa-trash fa-lg"></i>
-              <% end %>
-            </div>
-          </td>
+          <th class="w-2/12">日付</th>
+          <th class="w-3/12">タイトル</th>
+          <th class="w-3/12">サムネイル</th>
+          <th class="w-2/12"></th>
         </tr>
-      <% end %>
-    </table>
+        <% @albums.each do |album| %>
+          <tr>
+            <td class="h-32"><%= album.date %></td>
+            <td class="h-32"><%= album.title %></td>
+            <td class="h-32" class="flex justify-center">
+              <% if album.images.attached? %>
+                <% album.images.each do |image| %>
+                  <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+                <% end %>
+              <% end %>
+            </td>
+            <td class="h-32">
+              <div class="flex justify-around">
+                <%= link_to profile_album_path(@profile, album) do %>
+                  <i class="fa-solid fa-circle-info fa-lg"></i>
+                <% end %>
+                <%= link_to edit_profile_album_path(@profile, album) do %>
+                  <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                <% end %>
+                <%= link_to profile_album_path(@profile, album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+                  <i class="fa-solid fa-trash fa-lg"></i>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
   <div class="drawer-side">
     <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-lg justify-center items-center text-3xl">
