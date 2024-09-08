@@ -1,4 +1,4 @@
-<div class="pt-40 max-w-md mx-auto text-white text-2xl">
+<div class="pt-40 max-w-md mx-auto text-black text-2xl">
   <%= form_with model: @form, url: update_all_profile_events_path, method: :patch, data: { turbo: false } do |f| %>
     <fieldset disabled="disabled">
       <%= render 'shared/error_messages', model: f.object %>
