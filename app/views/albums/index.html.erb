@@ -14,7 +14,7 @@
           <tr>
             <td class="h-32"><%= album.date %></td>
             <td class="h-32"><%= album.title %></td>
-            <td class="h-32" class="flex justify-center">
+            <td class="h-32">
               <% if album.images.attached? %>
                 <% album.images.each do |image| %>
                   <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
