@@ -13,12 +13,8 @@
           <tr>
             <td class="h-32"><%= album.date %></td>
             <td class="h-32"><%= album.title %></td>
-            <td class="h-32">
-              <% if album.images.attached? %>
-                <% album.images.each do |image| %>
-                  <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-                <% end %>
-              <% end %>
+            <td class="h-32 flex justify-center">
+              <%= image_tag album.images.first.variant(resize_to_limit: [100, 100]) if album.images.attached? %>
             </td>
             <td class="h-32">
               <div class="flex justify-around">
