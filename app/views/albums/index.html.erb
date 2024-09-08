@@ -1,8 +1,6 @@
-<div class="drawer lg:drawer-open">
-  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content sm:flex">
-    <!-- Page content here -->
-    <div class="max-h-screen overflow-auto">
+<div class="drawer lg:drawer-open h-full">
+  <div class="drawer-content bg-white flex flex-col sm:flex h-full">
+    <div>
       <table class="table table-fixed text-center mt-2">
         <tr>
           <th class="w-2/12">日付</th>
@@ -37,16 +35,15 @@
           </tr>
         <% end %>
       </table>
-      <div class="flex justify-center my-4">
-        <%= link_to new_profile_album_path, class: "btn bg-peach text-black border-none shadow-lgl" do %>
-          <button>アルバムを作成</button>
-        <% end %>
-      </div>
+    </div>
+    <div class="flex justify-center my-4">
+      <%= link_to new_profile_album_path, class: "btn bg-peach text-black border-none shadow-lgl" do %>
+        <button>アルバムを作成</button>
+      <% end %>
     </div>
   </div>
-  <div class="drawer-side">
+  <div class="drawer-side h-full">
     <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-lg justify-center items-center text-3xl">
-      <!-- Sidebar content here -->
       <li class="m-3"><%= link_to "基本情報", profile_path(@profile) %></li>
       <li class="m-3"><%= link_to "アルバム", profile_albums_path(@profile) %></li>
       <li class="m-3"><%= link_to "通知設定", profile_events_path(@profile) %></li>
@@ -56,6 +53,7 @@
       </li>
     </ul>
   </div>
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
 </div>
 
 
