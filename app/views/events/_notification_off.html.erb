@@ -28,5 +28,9 @@
     </fieldset>
   <% end %>
 </div>
-※マイページの通知設定がOFFになっているため、変更できません
-マイページは<%= link_to "こちら", edit_user_path(@profile.user) %>
+<div class="flex justify-center mt-4">
+  <div class="text-center">
+    <p>※マイページの通知設定がOFFになっているため、変更できません</p>
+    <p>マイページは<%= link_to "こちら", edit_user_path(@profile.user) %></p>
+  </div>
+</div>
