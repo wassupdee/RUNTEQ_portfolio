@@ -12,7 +12,7 @@
         <tr>
           <td><%= album.date %></td>
           <td><%= album.title %></td>
-          <td>
+          <td class="flex justify-center">
             <% if album.images.attached? %>
               <% album.images.each do |image| %>
                 <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
@@ -20,15 +20,17 @@
             <% end %>
           </td>
           <td>
-            <%= link_to profile_album_path(@profile, album) do %>
-              <button class="btn bg-slate-300 text-black border-none shadow-2xl">詳細</button>
-            <% end %>
-            <%= link_to edit_profile_album_path(@profile, album) do %>
-              <button class="btn bg-slate-300 text-black border-none shadow-2xl">編集</button>
-            <% end %>
-            <%= link_to profile_album_path(@profile, album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-              <button class="btn bg-slate-300 text-black border-none shadow-2xl">削除</button>
-            <% end %>
+            <div class="flex justify-around">
+              <%= link_to profile_album_path(@profile, album) do %>
+                <i class="fa-solid fa-circle-info fa-lg"></i>
+              <% end %>
+              <%= link_to edit_profile_album_path(@profile, album) do %>
+                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+              <% end %>
+              <%= link_to profile_album_path(@profile, album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+                <i class="fa-solid fa-trash fa-lg"></i>
+              <% end %>
+            </div>
           </td>
         </tr>
       <% end %>
