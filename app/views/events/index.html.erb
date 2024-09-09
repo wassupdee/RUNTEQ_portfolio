@@ -1,16 +1,30 @@
-<% if @profile.user.notification_enabled == "off" %>
-  <%= render "notification_off" %>
-<% else %>
-  <%= render "notification_on" %>
-<% end %>
-
-
-<div class="flex flex-col items-center mt-10 text-xl">
-  <p>※通知機能を使うためには、LINEの友達登録が必要です。</p>
-  <div>
-    友達登録は
-    <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
-      こちらから
+<div class="drawer lg:drawer-open h-full">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content bg-white flex flex-col sm:flex h-full">
+    <% if @profile.user.notification_enabled == "off" %>
+      <%= render "notification_off" %>
+    <% else %>
+      <%= render "notification_on" %>
     <% end %>
+    <div class="flex flex-col items-center mt-10 text-xl">
+      <p>※通知機能を使うためには、LINEの友達登録が必要です。</p>
+      <div>
+        友達登録は
+        <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
+          こちらから
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-side h-full">
+    <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-lg justify-center items-center text-3xl">
+      <li class="m-3"><%= link_to "基本情報", profile_path(@profile) %></li>
+      <li class="m-3"><%= link_to "アルバム", profile_albums_path(@profile) %></li>
+      <li class="m-3"><%= link_to "通知設定", profile_events_path(@profile) %></li>
+      <li class="m-3"><%= link_to profiles_path do %>
+        <i class="fa-solid fa-backward"></i>連絡先一覧
+        <% end %>
+      </li>
+    </ul>
   </div>
 </div>
