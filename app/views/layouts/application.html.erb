@@ -22,7 +22,7 @@
 
     <main class="flex-grow">
       <%= yield %>
-      <%= breadcrumbs separator: "&rsaquo;" %>
+      <%= breadcrumbs separator: "&rsaquo;", class: "breadcrumbs text-center mt-4" %>
     </main>
 
     <% if logged_in? %>
