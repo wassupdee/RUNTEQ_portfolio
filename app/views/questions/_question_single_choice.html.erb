@@ -5,7 +5,7 @@
 
   <% @answers.each do |answer| %>
     <div class="flex items-center mb-3 text-xl gap-2">
-      <%= form.radio_button "answer[question#{question.number}]", answer.value, required: :true %>
+      <%= form.radio_button "answer[question#{question.number}]", answer.value, required: :true, class: "radio radio-xs bg-white border border-black" %>
       <%= form.label "answer[question#{question.number}]_#{answer.value}", answer.text %>
     </div>
   <% end %>
