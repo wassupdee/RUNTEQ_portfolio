@@ -5,7 +5,7 @@
   <div id="edit_form" data-controller="clipboard", class="flex flex-col items-center" >
     <%= form_with url: "#", local: true do |form| %>
       <div>
-        <%= form.label :message, "メッセージを編集する" %><br>
+        <%= form.label :message, "メッセージを編集する", class: "block font-medium mb-1 text-black" %>
         <%= form.text_area :message, value: @message, rows: 2, cols: 100, data: { clipboard_target: "source" }, class: "bg-white" %>
       </div>
     <% end %>
