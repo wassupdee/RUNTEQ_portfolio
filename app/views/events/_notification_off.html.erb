@@ -1,4 +1,4 @@
-<div class="pt-40 max-w-md mx-auto text-white text-2xl">
+<div class="pt-40 max-w-md mx-auto text-black text-2xl">
   <%= form_with model: @form, url: update_all_profile_events_path, method: :patch, data: { turbo: false } do |f| %>
     <fieldset disabled="disabled">
       <%= render 'shared/error_messages', model: f.object %>
@@ -28,5 +28,9 @@
     </fieldset>
   <% end %>
 </div>
-※マイページの通知設定がOFFになっているため、変更できません
-マイページは<%= link_to "こちら", edit_user_path(@profile.user) %>
+<div class="flex justify-center mt-10 text-sm sm:text-xl">
+  <div class="text-center">
+    <p>※マイページの通知設定がOFFになっているため、変更できません</p>
+    マイページは<%= link_to "こちら", edit_user_path(@profile.user), class: "underline underline-offset-1" %>
+  </div>
+</div>
