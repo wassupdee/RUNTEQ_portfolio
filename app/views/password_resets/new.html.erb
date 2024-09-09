@@ -1,8 +1,12 @@
-<h3>パスワードリセット申請</h3>
-<%= form_with url: password_resets_path, local: true, method: :post do |form| %>
-  <div class="field">
-    <%= form.label :email %><br/>
-    <%= form.text_field :email %>
-    <%= form.submit "申請" %>
-  </div>
-<% end %>
+<div class="flex flex-col items-center">
+  <h3 class="text-2xl font-bold py-5">パスワードリセット申請</h3>
+  <%= form_with url: password_resets_path, local: true, method: :post do |form| %>
+    <div class="mb-4">
+      <%= form.label :email, class: "block font-medium mb-1 text-black" %>
+      <%= form.text_field :email, class: "w-full rounded p-2 bg-white border border-black" %>
+    </div>
+    <div class="flex justify-center">
+      <%= form.submit "申請", class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
+    </div>
+  <% end %>
+</div>
