@@ -1,11 +1,9 @@
-<div class="flex items-center justify-center min-h-screen">
-  <div class="border-white border-2 rounded-md p-10">
-    <div class="flex items-center justify-center">
-      <% if @question.number.to_i == Settings.question_type.multiple_choice %>
-        <%= render "question_multiple_choice", question: @question %>
-      <% else %>
-        <%= render "question_single_choice", question: @question %>
-      <% end %>
-    </div>
+<div class="flex flex-col items-center">
+  <div class="text-black border rounded-2xl border-black p-10 mt-20">
+    <% if @question.number.to_i == Settings.question_type.multiple_choice %>
+      <%= render "question_multiple_choice", question: @question %>
+    <% else %>
+      <%= render "question_single_choice", question: @question %>
+    <% end %>
   </div>
 </div>

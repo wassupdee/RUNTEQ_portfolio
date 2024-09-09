@@ -1,16 +1,18 @@
 <%= form_with url: answers_path, method: :post, data: { turbo: false }, id: 'ai_questions' do |form| %>
-  <div class="flex flex-col text-center mb-5 text-2xl text-white">
+  <div class="text-2xl font-bold mb-10 text-center">
     <h1><%= question.text %></h1>
     <h2 class="text-base mt-2">※複数選択可</h2>
   </div>
+
   <% @answers.each do |answer| %>
-    <div class="flex items-center mb-2 text-white text-xl gap-2">
-      <%= form.check_box "answer[question#{question.number}]", { multiple: true }, answer.value, nil %>
+    <div class="flex items-center mb-3 text-xl gap-2">
+      <%= form.check_box "answer[question#{question.number}]", { multiple: true, class: "checkbox checkbox-xs bg-white border border-black" }, answer.value, nil %>
       <%= form.label "answer[question#{question.number}]_#{answer.value}", answer.text %>
     </div>
   <% end %>
-  <div class="w-full flex justify-center">
-    <%= form.submit '次へ', class:"btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white" %>
+
+  <div class="flex justify-center mt-10">
+    <%= form.submit '次へ', class:"btn bg-slate-300 text-black border-none shadow-2xl" %>
   </div>
 <% end %>
 

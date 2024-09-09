@@ -1,29 +1,26 @@
-<div class="flex items-center justify-center min-h-screen flex-col">
-  <div class="border-white border-2 rounded-md p-10">
-    <div class="mb-10 text-2xl text-peach">
-      <%= @message %>
-    </div>
-    <div data-controller="clipboard", class="text-white" >
-      <%= form_with url: "#", local: true do |form| %>
-        <div>
-          <%= form.label :message, "編集する" %><br>
-          <%= form.text_area :message, value: @message, rows: 2, cols: 100, data: { clipboard_target: "source" } %>
-        </div>
-      <% end %>
-      <button type="button", data-action= "clipboard#copy", data-clipboard-target= "copy_button", class="btn bg-white rounded-md text-black border-none shadow-2xl hover:bg-white" >
-      コピーする
-      </button>
-    </div>
+<div class="flex flex-col items-center mt-20">
+  <div class="text-lg sm:text-2xl font-bold border rounded-2xl border-black p-10 mb-10 w-2/3">
+    <%= @message %>
+  </div>
+  <div id="edit_form" data-controller="clipboard", class="flex flex-col items-center" >
+    <%= form_with url: "#", class: "flex flex-col items-center w-full", local: true do |form| %>
+      <%= form.label :message, "メッセージを編集する", class: "block font-medium mb-1 text-black w-11/12" %>
+      <%= form.text_area :message, value: @message, rows: 2, cols: 100, data: { clipboard_target: "source" }, class: "textarea bg-white bg-slate-100 mb-3 w-11/12" %>
+    <% end %>
+    <button type="button", data-action= "clipboard#copy", data-clipboard-target= "copy_button", class="btn bg-slate-300 text-black border-none shadow-2xl" >
+    コピーする
+    </button>
+  </div>
+
+  <div class="mt-6 mb-10">
+    <%= link_to root_path do %>
+      <button>トップページに戻る</button>
+    <% end %>
+    ｜
+    <%= link_to profiles_path do %>
+      <button>連絡帳</button>
+    <% end %>
   </div>
 </div>
-<div>
-  <%= link_to root_path do %>
-    <button>トップページに戻る</button>
-  <% end %>
-</div>
-<div>
-  <%= link_to profiles_path do %>
-    <button>連絡帳へ</button>
-  <% end %>
-</div>
+
 <% breadcrumb :ai_message, @last_question %>
