@@ -1,26 +1,26 @@
-<div class="flex flex-col justify-center items-center mt-5">
-  <h1 class="text-3xl mb-3">ユーザー登録</h1>
+<div class="flex flex-col items-center">
+  <h1 class="text-2xl font-bold py-5">ユーザー登録</h1>
   <%= form_with model: @user do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="mb-3">
-      <%= f.label :name, "名前", class: "form-label" %>
-      <%= f.text_field :name, class: "form-control" %>
+    <div class="mb-4">
+      <%= f.label :name, "名前", class: "block font-medium mb-1 text-black" %>
+      <%= f.text_field :name, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
-    <div class="mb-3">
-      <%= f.label :email, "メールアドレス", class: "form-label" %>
-      <%= f.email_field :email, class: "form-control" %>
+    <div class="mb-4">
+      <%= f.label :email, "メールアドレス", class: "block font-medium mb-1 text-black" %>
+      <%= f.email_field :email, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
-    <div class="mb-3">
-      <%= f.label :password, "パスワード", class: "form-label" %>
-      <%= f.password_field :password, class: "form-control" %>
+    <div class="mb-4">
+      <%= f.label :password, "パスワード", class: "block font-medium mb-1 text-black" %>
+      <%= f.password_field :password, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
-    <div class="mb-3">
-      <%= f.label :password_confirmation, "パスワード再入力", class: "form-label" %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
+    <div class="mb-4">
+      <%= f.label :password_confirmation, "パスワード再入力", class: "block font-medium mb-1 text-black" %>
+      <%= f.password_field :password_confirmation, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
     <div class="flex justify-center">
-      <%= f.submit "登録", class: "btn btn-primary" %>
+      <%= f.submit "登録", class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
     </div>
   <% end %>
   <div class='mt-5'>
