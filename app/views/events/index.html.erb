@@ -22,10 +22,10 @@
   </div>
   <div class="drawer-side h-full">
     <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-lg justify-center items-center text-3xl">
-      <li class="m-3"><%= link_to "基本情報", profile_path(@profile) %></li>
-      <li class="m-3"><%= link_to "アルバム", profile_albums_path(@profile) %></li>
-      <li class="m-3"><%= link_to "通知設定", profile_events_path(@profile) %></li>
-      <li class="m-3"><%= link_to profiles_path do %>
+      <li class="m-3"><%= link_to "基本情報", profile_path(@profile), class: (current_page?(profile_path(@profile)) ? "text-red-400 underline underline-offset-8" : "") %></li>
+      <li class="m-3"><%= link_to "アルバム", profile_albums_path(@profile), class: (current_page?(profile_albums_path(@profile)) ? "text-red-400 underline underline-offset-8" : "") %></li>
+      <li class="m-3"><%= link_to "通知設定", profile_events_path(@profile), class: (current_page?(profile_events_path(@profile)) ? "text-red-400 underline underline-offset-8" : "") %></li>
+      <li class="m-3"><%= link_to profiles_path, class: (current_page?(profiles_path) ? "text-red-400 underline underline-offset-8" : "") do %>
         <i class="fa-solid fa-backward"></i>連絡先一覧
         <% end %>
       </li>
