@@ -27,5 +27,7 @@
     <%= link_to 'ログインページへ', login_path %>
   </div>
 
-  <%= link_to 'Login with Line', auth_at_provider_path(provider: :line) %>
+  <%= link_to auth_at_provider_path(provider: :line) do %>
+    <%= image_tag "btn_login_base.png", class:"w-32 h-auto"%>
+  <% end %>
 </div>
