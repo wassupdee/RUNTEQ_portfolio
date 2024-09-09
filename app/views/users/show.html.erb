@@ -1,5 +1,18 @@
-ユーザー名：<%= @user.name %><br>
-LINE通知設定：
-<%= @user.notification_enabled == "on" ? "ON" : "OFF" %>
+<div class="flex flex-col items-center">
+  <h1 class="text-2xl font-bold py-5">マイページ</h1>
+  <div>
+    <div class="mb-4">
+      <p class="block font-medium mb-1 text-black">ユーザー名</p>
+      <%= @user.name %>
+    </div>
 
-<%= link_to "編集", edit_user_path(@user) %>
+    <div class="mb-4">
+      <p class="block font-medium mb-1 text-black">LINE通知設定</p>
+      <%= @user.notification_enabled == "on" ? "ON" : "OFF" %>
+    </div>
+
+  </div>
+  <div class="mt-6">
+    <%= link_to "編集", edit_user_path(@user), class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
+  </div>
+</div>
