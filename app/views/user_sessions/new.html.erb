@@ -1,21 +1,25 @@
-<div class="flex flex-col justify-center items-center mt-5">
-  <h1 class="text-3xl">ログイン</h1>
+<div class="flex flex-col items-center">
+  <h1 class="text-3xl font-bold pt-20 pb-10">ログイン</h1>
   <%= form_with url: login_path do |f| %>
-    <div class="mb-3">
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: "form-control" %>
+    <div class="mb-4">
+      <%= f.label :email, "メールアドレス", class: "block font-medium mb-1 text-black" %>
+      <%= f.email_field :email, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
-    <div class="mb-3">
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: "form-control" %>
+    <div class="mb-4">
+      <%= f.label :password, "パスワード", class: "block font-medium mb-1 text-black" %>
+      <%= f.password_field :password, class: "w-full rounded p-2 bg-white border border-black" %>
     </div>
     <div class="flex justify-center">
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <%= f.submit "ログイン", class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
     </div>
   <% end %>
-  <div class="mt-5">
-    <%= link_to '新規登録', new_user_path %>
+
+  <%= link_to auth_at_provider_path(provider: :line) do %>
+    <%= image_tag "btn_login_base.png", class:"w-32 h-auto mt-6"%>
+  <% end %>
+
+  <div class="mt-6">
+    <%= link_to '新規登録', new_user_path %>｜
     <%= link_to 'パスワードをお忘れの方はこちら', new_password_reset_path %>
   </div>
-  <%= link_to 'Login with Line', auth_at_provider_path(provider: :line) %>
 </div>
