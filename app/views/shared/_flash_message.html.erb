@@ -1,5 +1,5 @@
 <% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %> border border-2 border-white">
+  <div class="alert alert-<%= message_type %> border border-2 border-white <%= "absolute top-14" if current_page?(root_path) %>">
     <%= message %>
   </div>
 <% end %>
