@@ -6,6 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta property="og:title" content="Stay Friends ～ともだちと再びつながるアプリ～" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/" />
+    <meta property="og:image" content="<%= asset_url('ogp.png') %>" />
+    <meta property="og:description" content="昔仲良かった友達と、再び連絡を取り合うことをサポートするサービスです" />
+    <meta property="og:site_name" content="Stay_Friends" />
+
     <%= favicon_link_tag "favicon.ico"%>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
