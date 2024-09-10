@@ -1,33 +1,88 @@
 <% content_for(:tab_title, 'Reconnect') %>
 
-<div class="first-view h-screen bg-[url('top_first_bg.jpg')] bg-cover flex">
-  <div class="w-1/2 flex-col justify-center items-center text-white text-center">
-    <div>
-      <h1 class="text-5xl sm:text-7xl mb-12 mt-44">また、つながろう。</h1>
-      <h1 class="text-5xl sm:text-7xl mb-20">私の大切なともだちと</h1>
+<div class="h-screen bg-[url('top_second_bg.jpg')] bg-cover flex">
+  <div id="left-side" class="w-1/2 flex flex-col justify-center">
+    <div id="left-text">
+      <div class="text-white text-center pt-32">
+        <h1 class="text-5xl sm:text-5xl mb-10">また、つながろう。</h1>
+        <h1 class="text-5xl sm:text-5xl mb-12">私の大切なともだちと</h1>
+        <p class="text-xl mb-10">昔のともだちに、連絡を取ってみませんか？<br>３つの質問に答えるだけで、最適なメッセージを提案します</p>
+      </div>
+      <div class="flex justify-center">
+        <%= link_to introduction_path(1) do %>
+          <button class="btn bg-slate-300 text-black border-none shadow-2xl">メッセージを作成する</button>
+        <% end %>
+      </div>
+    </div>
+    <div id="left-image">
+    </div>
+  </div>
+  <div id="right-side" class="w-1/2 flex flex-col justify-center">
+    <div id="right-image" class= "flex justify-center items-center">
+      <div>
+        <%= image_tag "top_image_1.jpg", class: "w-96 h-auto rounded"%>
+      </div>
+    </div>
+    <div id="right-text">
+      <div class="text-white text-center">
+        <h1 class="text-5xl sm:text-5xl mb-10">つながりつづけよう</h1>
+        <h1 class="text-5xl sm:text-5xl mb-12">これからも、ずっと</h1>
+        <p class="text-xl mb-10 text-center">ともだちの大切な日を登録して<br>リマインダー通知を受け取ろう</p>
+      </div>
+      <div class="flex justify-center">
+        <%= link_to profiles_path do %>
+          <button class="btn bg-slate-300 text-black border-none shadow-2xl">ともだち帳をひらく</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!---
+  <div class="w-1/2 flex-col items-center ">
+    <div class="justify-center text-white text-center">
+      <h1 class="text-5xl sm:text-5xl mb-12 mt-44">また、つながろう。</h1>
+      <h1 class="text-5xl sm:text-5xl mb-20">私の大切なともだちと</h1>
       <p class="text-xl mb-10 text-center">昔のともだちに、連絡を取ってみませんか？<br>３つの質問に答えるだけで、あなたに最適なメッセージを提案します</p>
     </div>
     <div>
       <%= link_to introduction_path(1) do %>
-        <button class="btn btn-lg bg-golden text-black border-none shadow-2xl">メッセージを作成する</button>
+        <button class="btn bg-slate-300 text-black border-none shadow-2xl">メッセージを作成する</button>
+      <% end %>
+    </div>
+    <div class="bg-white">
+      写真
+    </div>
+  </div>
+  <div id="right-side" class="w-1/2 flex-col justify-center items-center text-white text-center">
+    <div class="bg-white">
+      写真
+    </div>
+    <div>
+      <h1 class="text-5xl sm:text-5xl mb-12 mt-44">つながりつづけよう</h1>
+      <h1 class="text-5xl sm:text-5xl mb-20">これからも、ずっと</h1>
+      <p class="text-xl mb-10 text-center">ともだちの大切な日を登録して<br>リマインダー通知を受け取ろう</p>
+    </div>
+    <div>
+      <%= link_to profiles_path do %>
+        <button class="btn bg-slate-300 text-black border-none shadow-2xl">ともだち帳をひらく</button>
       <% end %>
     </div>
   </div>
-  <div class="w-1/2"></div>
 </div>
 
 <div class="second-view h-screen bg-[url('top_second_bg.jpg')] bg-cover flex">
   <div class="w-1/2"></div>
   <div class="w-1/2 flex-col justify-center items-center text-white text-center">
     <div>
-      <h1 class="text-5xl sm:text-7xl mb-12 mt-44">つながりつづけよう</h1>
-      <h1 class="text-5xl sm:text-7xl mb-20">これからも、ずっと</h1>
+      <h1 class="text-5xl sm:text-5xl mb-12 mt-44">つながりつづけよう</h1>
+      <h1 class="text-5xl sm:text-5xl mb-20">これからも、ずっと</h1>
       <p class="text-xl mb-10 text-center">ともだちの大切な日を登録して<br>リマインダー通知を受け取ろう</p>
     </div>
     <div>
       <%= link_to profiles_path do %>
-        <button class="btn btn-lg bg-peach text-black border-none shadow-2xl">ともだち帳をひらく</button>
+        <button class="btn bg-slate-300 text-black border-none shadow-2xl">ともだち帳をひらく</button>
       <% end %>
     </div>
   </div>
 </div>
+--->

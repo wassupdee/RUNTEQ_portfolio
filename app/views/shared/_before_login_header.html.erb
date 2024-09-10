@@ -1,15 +1,16 @@
-<header class="sticky top-0 bg-opacity-20 bg-black w-full h-11">
-  <nav class="flex justify-between container mx-auto items-center text-white">
-    <div class="text-3xl">
-      <%= link_to "Reconnect　～ともだちと再びつながるアプリ～", root_path %>
+<header class="<%= "absolute bg-white bg-opacity-30" if current_page?(root_path) %> top-0 left-0 w-full h-fit hidden sm:block">
+  <nav class="flex justify-between items-center justify-center">
+    <div class="ml-10">
+      <%= link_to root_path do %>
+        <span class="text-3xl sm:text-4xl">Reconnect</span><span class="text-lg sm:text-xl">～ともだちと再びつながるアプリ～</span>
+      <% end %>
     </div>
-    <div class="font-bold space-x-8">
+    <div class="font-bold space-x-8 mr-10">
       <%= link_to "AIメッセージ作成", introduction_path(1) %>
       <%= link_to "連絡帳", profiles_path %>
-      <%# <%= link_to "カレンダー", '#' %>
       <%= link_to "ログイン", login_path %>
       <%= link_to new_user_path do %>
-        <button class="btn btn-lg bg-black bg-opacity-60 text-white border border-white	shadow-2xl">新規登録</button>
+        <button class="btn bg-black text-white my-1">新規登録</button>
       <% end %>
     </div>
   </nav>
