@@ -1,35 +1,39 @@
 <% content_for(:tab_title, 'Reconnect') %>
 
-<div class="h-screen bg-[url('top_second_bg.jpg')] bg-cover grid grid-cols-2">
-  <div id="grid-1">
-    <div class="text-white text-center pt-32">
-      <h1 class="text-5xl sm:text-5xl mb-10">また、つながろう。</h1>
-      <h1 class="text-5xl sm:text-5xl mb-12">私の大切なともだちと</h1>
-      <p class="text-xl mb-10">昔のともだちに、連絡を取ってみませんか？<br>３つの質問に答えるだけで、最適なメッセージを提案します</p>
+<div class="h-screen bg-[url('top_second_bg.jpg')] bg-cover flex">
+  <div id="left-side" class="w-1/2 flex flex-col justify-center">
+    <div id="left-text">
+      <div class="text-white text-center pt-32">
+        <h1 class="text-5xl sm:text-5xl mb-10">また、つながろう。</h1>
+        <h1 class="text-5xl sm:text-5xl mb-12">私の大切なともだちと</h1>
+        <p class="text-xl mb-10">昔のともだちに、連絡を取ってみませんか？<br>３つの質問に答えるだけで、最適なメッセージを提案します</p>
+      </div>
+      <div class="flex justify-center">
+        <%= link_to introduction_path(1) do %>
+          <button class="btn bg-slate-300 text-black border-none shadow-2xl">メッセージを作成する</button>
+        <% end %>
+      </div>
     </div>
-    <div class="flex justify-center">
-      <%= link_to introduction_path(1) do %>
-        <button class="btn bg-slate-300 text-black border-none shadow-2xl">メッセージを作成する</button>
-      <% end %>
+    <div id="left-image">
     </div>
   </div>
-  <div id="grid-2" class= "flex justify-center items-center">
-    <div>
-      <%= image_tag "top_image_1", class: "w-96 h-auto rounded"%>
+  <div id="right-side" class="w-1/2 flex flex-col justify-center">
+    <div id="right-image" class= "flex justify-center items-center">
+      <div>
+        <%= image_tag "top_image_1", class: "w-96 h-auto rounded"%>
+      </div>
     </div>
-  </div>
-  <div id="grid-3">
-  </div>
-  <div id="grid-4">
-    <div class="text-white text-center">
-      <h1 class="text-5xl sm:text-5xl mb-10">つながりつづけよう</h1>
-      <h1 class="text-5xl sm:text-5xl mb-12">これからも、ずっと</h1>
-      <p class="text-xl mb-10 text-center">ともだちの大切な日を登録して<br>リマインダー通知を受け取ろう</p>
-    </div>
-    <div class="flex justify-center">
-      <%= link_to profiles_path do %>
-        <button class="btn bg-slate-300 text-black border-none shadow-2xl">ともだち帳をひらく</button>
-      <% end %>
+    <div id="right-text">
+      <div class="text-white text-center">
+        <h1 class="text-5xl sm:text-5xl mb-10">つながりつづけよう</h1>
+        <h1 class="text-5xl sm:text-5xl mb-12">これからも、ずっと</h1>
+        <p class="text-xl mb-10 text-center">ともだちの大切な日を登録して<br>リマインダー通知を受け取ろう</p>
+      </div>
+      <div class="flex justify-center">
+        <%= link_to profiles_path do %>
+          <button class="btn bg-slate-300 text-black border-none shadow-2xl">ともだち帳をひらく</button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
