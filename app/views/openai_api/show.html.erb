@@ -1,7 +1,7 @@
 <% content_for(:tab_title, "AIメッセージ") %>
 
-<div class="flex flex-col items-center mt-10 sm:mt-20">
-  <div class="text-lg sm:text-2xl font-bold border rounded-3xl border-slate-100 bg-opacity-10 shadow-2xl p-10 mb-10 w-2/3">
+<div class="flex flex-col items-center mt-6 sm:mt-20">
+  <div class="text-lg sm:text-2xl font-bold border rounded-3xl border-slate-100 bg-opacity-10 shadow-2xl p-10 mb-10 w-2/3 max-h-1/3 overflow-auto sm:h-fit">
     <%= @message %>
   </div>
   <div id="edit_form" data-controller="clipboard", class="flex flex-col items-center" >
@@ -14,7 +14,7 @@
     </button>
   </div>
 
-  <div class="flex mt-6 ml-2 mb-10 w-40">
+  <div class="flex mt-10 ml-2 sm:mb-10 w-40">
     <%= link_to "トップページ", root_path %>
     ｜
     <%= link_to "連絡帳", profiles_path %>
