@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get 'line_qr_code', to: 'static_pages#line_qr_code'
   get 'line_policy', to: 'static_pages#line_policy'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
