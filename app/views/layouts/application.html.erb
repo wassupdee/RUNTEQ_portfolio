@@ -38,7 +38,7 @@
 
     <main class="flex-grow">
       <%= yield %>
-      <%= breadcrumbs separator: "&rsaquo;", class: "breadcrumbs text-center mt-4 sm:mt-10" %>
+      <%= breadcrumbs separator: "&rsaquo;", class: "breadcrumbs text-center mt-4 sm:mt-10 #{'hidden sm:block' if current_page?(ai_message_path)}" %>
     </main>
 
     <% if logged_in? %>
