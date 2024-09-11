@@ -1,5 +1,11 @@
 <% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %> border border-2 border-white <%= "absolute top-14" if current_page?(root_path) %>">
-    <%= message %>
+  <div role= alert class="alert bg-ivory-white border border-4
+    <%= case message_type
+        when "success" then "alert-success border-green-600"
+        when "warning" then "alert-warning border-orange-600"
+        when "danger" then "alert-danger border-red-600"
+        end %>
+    <%= "absolute top-14" if current_page?(root_path) %>">
+    <div class="text-black font-bold"><%= message %></div>
   </div>
 <% end %>
