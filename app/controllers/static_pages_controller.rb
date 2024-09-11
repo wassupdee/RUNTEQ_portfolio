@@ -8,4 +8,6 @@ class StaticPagesController < ApplicationController
   def line_policy; end
 
   def privacy_policy; end
+
+  def terms; end
 end
