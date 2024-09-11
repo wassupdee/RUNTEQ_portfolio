@@ -1,17 +1,17 @@
-<header class="<%= "absolute bg-white bg-opacity-30" if current_page?(root_path) %> top-0 left-0 w-full h-fit hidden sm:block">
-  <nav class="flex justify-between items-center justify-center">
-    <div class="flex ml-10">
+<header class="<%= "absolute bg-white bg-opacity-30" if current_page?(root_path) %> top-0 left-0 w-full h-14 md:block flex justify-center bg-peach-light">
+  <nav class="flex justify-between items-center justify-center h-14">
+    <div class="flex items-center md:ml-10">
       <%= image_tag "logo.png", class:"w-10 h-auto mr-2"%>
       <%= link_to root_path do %>
-        <span class="text-3xl sm:text-4xl">Stay Friends</span><span class="text-lg sm:text-xl">～ともだちと再びつながるアプリ～</span>
+        <span class="text-xl md:text-4xl">Stay Friends</span><span class="md:text-xl"> ～ともだちと再びつながるアプリ～</span>
       <% end %>
     </div>
-    <div class="font-bold space-x-8 mr-10">
+    <div class="font-bold space-x-8 mr-10 hidden md:block">
       <%= link_to "AIメッセージ作成", introduction_path(1) %>
       <%= link_to "連絡帳", profiles_path %>
       <%= link_to "ログイン", login_path %>
       <%= link_to new_user_path do %>
-        <button class="btn bg-black text-white my-1">新規登録</button>
+        <button class="btn bg-ivory-white text-black border-none hover:bg-peach-red <%= "hover:bg-slate-300" if current_page?(root_path) %>">新規登録</button>
       <% end %>
     </div>
   </nav>

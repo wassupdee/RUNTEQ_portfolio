@@ -21,7 +21,7 @@
     </turbo-frame>
     <%= form.file_field :images, multiple: true, data: { previews_target: "input", action: "change->previews#preview" } %>
 
-    <%= form.submit "保存する" %>
+    <%= form.submit "保存する", class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
   <% end %>
 
   <% if album.images.attached? && album.persisted? %>

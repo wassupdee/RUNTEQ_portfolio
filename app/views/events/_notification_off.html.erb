@@ -23,12 +23,12 @@
         </div>
       <% end %>
       <div class="flex justify-center">
-        <%= f.submit '登録する', class: "btn bg-slate-300 text-black border-none shadow-2xl" %>
+        <%= f.submit '登録する', class: "btn bg-slate-300 text-black border-none" %>
       </div>
     </fieldset>
   <% end %>
 </div>
-<div class="flex justify-center mt-10 text-sm sm:text-xl">
+<div class="flex justify-center mt-10 text-sm md:text-xl">
   <div class="text-center">
     <p>※マイページの通知設定がOFFになっているため、変更できません</p>
     マイページは<%= link_to "こちら", edit_user_path(@profile.user), class: "underline underline-offset-1" %>

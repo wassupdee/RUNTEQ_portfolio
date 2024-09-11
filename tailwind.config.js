@@ -9,8 +9,11 @@ module.exports = {
     extend: {
       colors: {
         'golden': '#FFD700',
-        'peach': '#FF6F61',
-        'ivory': '#FFFFF0'
+        'peach-red': '#ff6f61',
+        'peach-light': '#FFCFC4',
+        'ivory-white': '#FFFFF7',
+        'almond': '#FFEBCD',
+        'cream-pink': '#FFF1ED'
       }
     }
   },
