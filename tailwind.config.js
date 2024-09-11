@@ -10,7 +10,8 @@ module.exports = {
       colors: {
         'golden': '#FFD700',
         'peach': '#FF6F61',
-        'ivory': '#FFFFF0'
+        'ivory-white': '#FFFFF7',
+        'almond': '#FFEBCD'
       }
     }
   },
