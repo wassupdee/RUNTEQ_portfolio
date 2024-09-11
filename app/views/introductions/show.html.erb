@@ -1,13 +1,20 @@
 <% content_for(:tab_title, "AIメッセージ") %>
 
 <div class="flex flex-col items-center">
-  <div class="text-2xl text-black border rounded-2xl border-black p-10 mt-20">
-    <p>久しぶりに連絡を取り合いたい人を<br>
-        １人思い浮かべてください・・・</p>
-    <div class="text-center mt-5 flex justify-center">
-      <%= link_to question_path(1) do %>
-        <button class="btn bg-golden text-black border-none hover:bg-yellow-500">次へ</button>
-      <% end %>
-    </div>
+  <div class="text-center text-lg sm:text-2xl font-medium border rounded-3xl border-slate-100	p-8 sm:p-10 sm:mt-20 bg-opacity-10 shadow-2xl">
+    <p class="mb-10 sm:mb-14">むかしは仲が良かった。</p>
+    <p class="mb-2 sm:mb-3">でも、卒業・就職・引っ越しで、</p>
+    <p class="mb-2 sm:mb-3">いつの間にか、</p>
+    <p class="mb-10 sm:mb-14">連絡が途絶えてしまった。</p>
+    <p class="mb-2 sm:mb-3">そんなともだちを、</p>
+    <p class="mb-10 sm:mb-14">頭に１人思い浮かべてください・・・</p>
+    <p class="mb-2 sm:mb-3">今こそ、</p>
+    <p class="mb-2 sm:mb-3">あなたの大切なともだちに、</p>
+    <p>メッセージを送りましょう。</p>
+  </div>
+  <div class="text-center mt-4 sm:mt-10 flex justify-center">
+    <%= link_to question_path(1) do %>
+      <button class="btn bg-golden text-black border-none hover:bg-yellow-500">質問にすすむ</button>
+    <% end %>
   </div>
 </div>
