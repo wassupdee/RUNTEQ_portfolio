@@ -1,20 +1,20 @@
 <% content_for(:tab_title, "AIメッセージ") %>
 
-<div class="flex flex-col items-center mt-6 sm:mt-20">
-  <div class="text-lg sm:text-2xl font-bold border rounded-3xl border-slate-100 bg-opacity-10 shadow-2xl p-10 mb-10 w-2/3 max-h-1/3 overflow-auto sm:h-fit">
+<div class="flex flex-col items-center mt-6 md:mt-20">
+  <div class="text-lg md:text-2xl font-bold border rounded-3xl border-slate-100 bg-opacity-10 shadow-2xl p-10 mb-10 w-2/3 max-h-1/3 overflow-auto md:h-fit">
     <%= @message %>
   </div>
   <div id="edit_form" data-controller="clipboard", class="flex flex-col items-center" >
     <%= form_with url: "#", class: "flex flex-col items-center w-full", local: true do |form| %>
       <%= form.label :message, "メッセージを編集する", class: "block font-medium mb-1 text-black w-11/12" %>
-      <%= form.text_area :message, value: @message, rows: 2, cols: 100, data: { clipboard_target: "source" }, class: "textarea sm:text-lg bg-slate-100 mb-3 w-11/12" %>
+      <%= form.text_area :message, value: @message, rows: 2, cols: 100, data: { clipboard_target: "source" }, class: "textarea md:text-lg bg-slate-100 mb-3 w-11/12" %>
     <% end %>
     <button type="button", data-action= "clipboard#copy", data-clipboard-target= "copy_button", class="btn bg-golden text-black border-none hover:bg-yellow-500" >
     コピーする
     </button>
   </div>
 
-  <div class="flex mt-10 ml-2 sm:mb-10 w-40">
+  <div class="flex mt-10 ml-2 md:mb-10 w-40">
     <%= link_to "トップページ", root_path %>
     ｜
     <%= link_to "連絡帳", profiles_path %>

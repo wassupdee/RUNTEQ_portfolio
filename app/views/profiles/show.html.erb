@@ -2,30 +2,30 @@
 
   <div class="drawer lg:drawer-open">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content sm:flex justify-center">
+    <div class="drawer-content md:flex justify-center">
       <!-- Page content here -->
-      <div role="tablist" class="tabs tabs-bordered mt-3 sm:hidden">
+      <div role="tablist" class="tabs tabs-bordered mt-3 md:hidden">
         <%= link_to "基本情報", profile_path(@profile), role: "tab", class: "tab #{"tab-active" if current_page?(profile_path(@profile))}" %>
         <%= link_to "アルバム", profile_albums_path(@profile), role: "tab #{"tab-active" if current_page?(profile_path(@profile))}", class: "tab" %>
         <%= link_to "通知設定", profile_events_path(@profile), role: "tab #{"tab-active" if current_page?(profile_path(@profile))}", class: "tab" %>
       </div>
-      <div class="mt-8 sm:flex">
-        <div id="avatar" class="flex justify-center sm:items-center sm:pr-10">
+      <div class="mt-8 md:flex">
+        <div id="avatar" class="flex justify-center md:items-center md:pr-10">
           <% if @profile.avatar.attached? %>
             <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]) %>
           <% end %>
         </div>
         <div id ="profile_info" class="flex flex-col flex-grow items-left justify-center mt-5">
-          <div class="sm:flex">
+          <div class="md:flex">
             <div class="text-center">
               <div class="text-2xl tracking-widest">
                 <%= @profile.furigana %>
               </div>
-              <div class="text-6xl sm:text-8xl">
+              <div class="text-6xl md:text-8xl">
                 <%= @profile.name %>
               </div>
             </div>
-            <div class="flex flex-col items-center mt-4 sm:justify-end">
+            <div class="flex flex-col items-center mt-4 md:justify-end">
               <div>
                 <%= link_to edit_profile_path(@profile) do %>
                   <i class="fa-solid fa-pen-to-square fa-lg"></i>
@@ -41,23 +41,23 @@
             <div>
               <div class="my-5 text-left">
                 <i class="fa-solid fa-phone fa-lg"></i>
-                <span class="text-xl sm:text-2xl"><%= @profile.phone %></span>
+                <span class="text-xl md:text-2xl"><%= @profile.phone %></span>
               </div>
               <div class="my-5 text-left">
                 <i class="fa-regular fa-envelope fa-lg"></i>
-                <span class="text-xl sm:text-2xl"><%= @profile.email %></span>
+                <span class="text-xl md:text-2xl"><%= @profile.email %></span>
               </div>
               <div class="my-5 text-left">
                 <i class="fa-solid fa-location-dot fa-lg"></i>
-                <span class="text-xl sm:text-2xl"><%= @profile.address %></span>
+                <span class="text-xl md:text-2xl"><%= @profile.address %></span>
               </div>
               <div class="my-5 text-left">
                 <i class="fa-solid fa-cake-candles fa-lg"></i>
-                <span class="text-xl sm:text-2xl"><%= @profile.events.first.date %></span>
+                <span class="text-xl md:text-2xl"><%= @profile.events.first.date %></span>
               </div>
               <div class="my-5 text-left">
                 <i class="fa-solid fa-calendar-check fa-lg"></i>
-                <span class="text-xl sm:text-2xl"><%= @profile.events.last.date %></span>
+                <span class="text-xl md:text-2xl"><%= @profile.events.last.date %></span>
               </div>
             </div>
           </div>
