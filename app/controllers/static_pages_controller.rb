@@ -6,4 +6,6 @@ class StaticPagesController < ApplicationController
   def line_qr_code; end
 
   def line_policy; end
+
+  def privacy_policy; end
 end
