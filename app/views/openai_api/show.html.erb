@@ -9,7 +9,7 @@
       <%= form.label :message, "メッセージを編集する", class: "block font-medium mb-1 text-black w-11/12" %>
       <%= form.text_area :message, value: @message, rows: 2, cols: 100, data: { clipboard_target: "source" }, class: "textarea bg-white bg-slate-100 mb-3 w-11/12" %>
     <% end %>
-    <button type="button", data-action= "clipboard#copy", data-clipboard-target= "copy_button", class="btn bg-slate-300 text-black border-none shadow-2xl" >
+    <button type="button", data-action= "clipboard#copy", data-clipboard-target= "copy_button", class="btn bg-golden text-black border-none hover:bg-yellow-500" >
     コピーする
     </button>
   </div>
