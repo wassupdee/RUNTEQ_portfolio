@@ -1,5 +1,5 @@
-<header class="<%= "absolute bg-white bg-opacity-30" if current_page?(root_path) %> top-0 left-0 w-full h-fit hidden sm:block">
-  <nav class="flex justify-between items-center justify-center">
+<header class="<%= "absolute bg-white bg-opacity-30" if current_page?(root_path) %> top-0 left-0 w-full h-14 hidden sm:block">
+  <nav class="flex justify-between items-center justify-center h-14 <%= "mt-2" if current_page?(root_path) %>">
     <div class="flex ml-10">
       <%= image_tag "logo.png", class:"w-10 h-auto mr-2"%>
       <%= link_to root_path do %>
