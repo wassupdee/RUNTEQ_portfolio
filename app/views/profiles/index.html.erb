@@ -1,23 +1,38 @@
 <% content_for(:tab_title, "連絡帳") %>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
+<div class="md:flex md:justify-around md:items-center">
+  <div class="border-2 border-black rounded-md p-2 m-4">
+    <%= render "event_notice",
+        profiles_birthdays_this_month: @profiles_birthdays_this_month,
+        profiles_birthdays_next_month: @profiles_birthdays_next_month,
+        profiles_special_day_this_month: @profiles_special_day_this_month,
+        profiles_special_day_next_month: @profiles_special_day_next_month %>
+  </div>
+
+  <div>
+    <%= render "profiles/search", q: @q, url: profiles_path %>
+  </div>
+</div>
+
+<div class="relative overflow-x-auto sm:rounded-lg flex justify-center">
+  <div class="w-11/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
+    <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white">
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
-            <input type="text" id="table-search-users" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for users">
+            <input type="text" id="table-search-users" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for users">
         </div>
     </div>
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-gray-700 uppercase bg-gray-100">
             <tr>
                 <th scope="col" class="p-4">
                     <div class="flex items-center">
-                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
                         <label for="checkbox-all-search" class="sr-only">連絡とった！</label>
                     </div>
                 </th>
@@ -36,27 +51,27 @@
         </thead>
         <tbody>
           <% @profiles.each do |profile| %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr class="bg-white border-b hover:bg-gray-50 ">
               <td class="w-4 p-4">
                   <div class="flex items-center">
-                      <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                      <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
                       <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                   </div>
               </td>
-              <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+              <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
                   <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) if profile.avatar.attached? %>
                   <div class="ps-3">
                       <div class="text-base font-semibold"><%= profile.name %></div>
                       <div class="font-normal text-gray-500"><%= profile.email %></div>
                   </div>
               </th>
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 font-semibold">
                   <%= profile.events.first.date %>
               </td>
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 font-semibold">
                   <%= profile.events.last.date %>
               </td>
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 font-semibold">
                 <div class="flex justify-around">
                   <div>
                     <%= link_to profile_path(profile) do %>
@@ -79,30 +94,17 @@
           <% end %>
         </tbody>
     </table>
+  </div>
+</div>
+<div class="flex justify-center my-4">
+  <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
+    <button>連絡先を作成</button>
+  <% end %>
 </div>
 
 
-<!---
-<div class="md:flex md:justify-around md:items-center">
-  <div class="border-2 border-black rounded-md p-2 m-4">
-    <%= render "event_notice",
-        profiles_birthdays_this_month: @profiles_birthdays_this_month,
-        profiles_birthdays_next_month: @profiles_birthdays_next_month,
-        profiles_special_day_this_month: @profiles_special_day_this_month,
-        profiles_special_day_next_month: @profiles_special_day_next_month %>
-  </div>
 
-  <div>
-    <%= render "profiles/search", q: @q, url: profiles_path %>
-  </div>
 
-  <div class="flex justify-center my-4">
-    <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
-      <button>連絡先を作成</button>
-    <% end %>
-  </div>
-</div>
--->
 
 <!---スマホ画面用のブロック
 <div class="flex flex-col md:hidden pb-20">
@@ -146,54 +148,5 @@
       </div>
     </div>
   <% end %>
-</div>
---->
-
-<!---PC画面用のテーブル
-<div class="max-h-screen overflow-auto">
-  <table class="table table-fixed text-center hidden md:table">
-    <tr class="bg-white sticky top-0">
-      <th class="w-1/12">連絡済み</th>
-      <th class="w-1/12"></th>
-      <th class="w-3/12">名前</th>
-      <th class="w-2/12">誕生日</th>
-      <th class="w-2/12">大切な日</th>
-      <th class="w-1/12"></th>
-      <th class="w-1/12"></th>
-    </tr>
-
-    <% @profiles.each do |profile| %>
-      <tr id="profile_<%= profile.id %>">
-        <td><%= profile.contacted %>
-        <td><%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) if profile.avatar.attached? %></td>
-        <td class="text-left"><%= profile.name %></td>
-        <td><%= profile.events.first.date %></td>
-        <td><%= profile.events.last.date %></td>
-        <td>
-          <% album = profile&.albums.sample %>
-          <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
-        </td>
-        <td>
-          <div class="flex justify-around">
-            <div>
-              <%= link_to profile_path(profile) do %>
-                <i class="fa-solid fa-circle-info fa-lg"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= link_to edit_profile_path(profile) do %>
-                <i class="fa-solid fa-pen-to-square fa-lg"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
-                <i class="fa-solid fa-trash fa-lg"></i>
-              <% end %>
-            </div>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </table>
 </div>
 --->
