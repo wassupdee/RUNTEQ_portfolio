@@ -1,26 +1,291 @@
 <% content_for(:tab_title, "連絡帳") %>
 
-<div class="md:flex md:justify-around md:items-center">
-  <div class="border-2 border-black rounded-md p-2 m-4">
-    <%= render "event_notice",
-        profiles_birthdays_this_month: @profiles_birthdays_this_month,
-        profiles_birthdays_next_month: @profiles_birthdays_next_month,
-        profiles_special_day_this_month: @profiles_special_day_this_month,
-        profiles_special_day_next_month: @profiles_special_day_next_month %>
+<!---PC画面用--->
+<div class="hidden sm:block">
+  <div id="sticky-banner-pc" tabindex="-1" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
+      <div class="flex items-center mx-auto">
+          <p class="flex items-center text-sm">
+              <span class="inline-flex p-1 me-3 bg-yellow-200 rounded-full w-6 h-6 items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                      <path d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z"/>
+                  </svg>
+                  <span class="sr-only">Light bulb</span>
+              </span>
+                <div class="flex space-x-3">
+                  <span>今月のイベント</span>
+                  <% @profiles_birthdays_this_month.each do |profile| %>
+                    <div>
+                      <%= profile.name %>さん
+                      <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                  <% end %>
+                  <% @profiles_special_day_this_month.each do |profile| %>
+                    <div>
+                      <%= profile.name %>さん
+                      <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                  <% end %>
+                </div>
+          </p>
+      </div>
+      <div class="flex items-center">
+          <button data-dismiss-target="#sticky-banner-pc" type="button" class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5">
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+              <span class="sr-only">Close banner</span>
+          </button>
+      </div>
   </div>
 
-  <div>
-    <%= render "profiles/search", q: @q, url: profiles_path %>
-  </div>
 
-  <div class="flex justify-center my-4">
-    <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
-      <button>連絡先を作成</button>
-    <% end %>
+
+  <div class="relative overflow-x-auto sm:rounded-lg flex justify-center pb-4">
+    <div class="w-11/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
+      <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 px-4 py-2 bg-white">
+          <div class="relative">
+              <%= search_form_for @q, url: profiles_path, class: "flex items-center space-x-2" do |f| %>
+                <div>
+                  <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                </div>
+                <div>
+                  <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                </div>
+                <div>
+                  <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
+                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                      </svg>
+                  </button>
+                </div>
+              <% end %>
+          </div>
+          <div class="flex justify-center px-4 py-2">
+            <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
+              <button>連絡先を作成</button>
+            <% end %>
+          </div>
+      </div>
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+          <thead class="text-gray-700 uppercase bg-gray-100">
+              <tr>
+                  <th scope="col" class="p-4">
+                      <div class="flex items-center">
+                          <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                          <label for="checkbox-all-search" class="sr-only">連絡とった！</label>
+                      </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      名前
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      メール
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                      電話番号
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center space-x-2">
+                      <i class="fa-solid fa-cake-candles"></i>
+                      <div>誕生日</div>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center space-x-2">
+                      <i class="fa-solid fa-calendar-check"></i>
+                      <div>大切な日</div>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @profiles.each do |profile| %>
+              <tr class="bg-white border-b hover:bg-gray-50 ">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
+                    <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) if profile.avatar.attached? %>
+                    <div class="ps-3">
+                        <div class="font-normal text-gray-500"><%= profile.furigana %></div>
+                        <div class="text-lg font-semibold"><%= profile.name %></div>
+                    </div>
+                </th>
+                <td class="px-6 py-4 font-semibold">
+                    <%= profile.email %>
+                </td>
+                <td class="px-6 py-4 font-semibold">
+                    <%= profile.phone %>
+                </td>
+                <td class="px-6 py-4 font-semibold">
+                    <%= l profile.events.first.date if profile.events.first&.date.present? %>
+                </td>
+                <td class="px-6 py-4 font-semibold">
+                    <%= l profile.events.last.date if profile.events.last&.date.present? %>
+                </td>
+                <td class="px-6 py-4 font-semibold">
+                  <div class="flex justify-around">
+                    <div>
+                      <%= link_to profile_path(profile) do %>
+                        <i class="fa-solid fa-circle-info fa-lg"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= link_to edit_profile_path(profile) do %>
+                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-<!---スマホ画面用のブロック--->
+<!---スマホ画面用--->
+<div class="md:hidden mb-20">
+  <div id="sticky-banner-mb" tabindex="-1" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 md:hidden <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
+      <div class="flex items-center mx-auto">
+        <p class="flex items-center text-sm">
+          <div class="flex flex-col h-full">
+            <span class="inline-flex p-1 bg-yellow-200 rounded-full w-6 h-6 items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                    <path d="M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z"/>
+                </svg>
+                <span class="sr-only">Light bulb</span>
+            </span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="font-bold mb-2">今月のイベント</div>
+            <div>
+              <% @profiles_birthdays_this_month.each do |profile| %>
+                <div class="text-sm">
+                  <%= profile.name %>さん
+                  <i class="fa-solid fa-cake-candles"></i>
+                </div>
+              <% end %>
+              <% @profiles_special_day_this_month.each do |profile| %>
+                <div class="text-sm">
+                  <%= profile.name %>さん
+                  <i class="fa-solid fa-calendar-check"></i>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </p>
+      </div>
+      <div class="flex items-center">
+          <button data-dismiss-target="#sticky-banner-mb" type="button" class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5">
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+              <span class="sr-only">Close banner</span>
+          </button>
+      </div>
+  </div>
+
+
+
+  <div class="relative overflow-x-auto sm:rounded-lg flex justify-center pb-4">
+    <div class="w-11/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
+      <div class="flex items-center justify-center flex-column flex-wrap md:flex-row md:space-y-0 py-2 bg-white">
+          <div class="relative">
+              <%= search_form_for @q, url: profiles_path, class: "flex items-center space-x-2" do |f| %>
+                <div>
+                  <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-40 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                </div>
+                <div>
+                  <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-40 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                </div>
+                <div>
+                  <button type="submit" class="p-2.5 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
+                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                      </svg>
+                  </button>
+                </div>
+              <% end %>
+          </div>
+      </div>
+    <div class="flex justify-center px-4 py-2">
+      <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
+        <button>連絡先を作成</button>
+      <% end %>
+    </div>
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+          <tbody>
+            <% @profiles.each do |profile| %>
+              <tr class="bg-white border-b hover:bg-gray-50 ">
+                <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td>
+                <th scope="row" class="flex items-center p-1 text-gray-900 whitespace-nowrap">
+                    <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) if profile.avatar.attached? %>
+                    <div>
+                        <div class="font-normal text-gray-500"><%= profile.furigana %></div>
+                        <div class="text-lg font-semibold"><%= profile.name %></div>
+                        <div class="font-normal text-gray-500">
+                          <i class="fa-regular fa-envelope fa-sm"></i>
+                          <%= profile.email %>
+                        </div>
+                        <div class="font-normal text-gray-500">
+                          <i class="fa-solid fa-phone fa-sm"></i>
+                          <%= profile.phone %>
+                        </div>
+                        <div class="font-normal text-gray-500">
+                          <i class="fa-solid fa-cake-candles"></i>
+                          <%= l profile.events.first.date if profile.events.first&.date.present? %>
+                        </div>
+                        <div class="font-normal text-gray-500">
+                          <i class="fa-solid fa-calendar-check"></i>
+                          <%= l profile.events.last.date if profile.events.last&.date.present? %>
+                        </div>
+                    </div>
+                </th>
+                <td class="px-1 font-semibold">
+                  <div class="flex justify-center space-x-2">
+                    <div>
+                      <%= link_to profile_path(profile) do %>
+                        <i class="fa-solid fa-circle-info fa-lg"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= link_to edit_profile_path(profile) do %>
+                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!---
 <div class="flex flex-col md:hidden pb-20">
   <% @profiles.each do |profile| %>
     <div class="flex h-24 my-5">
@@ -63,52 +328,4 @@
     </div>
   <% end %>
 </div>
-
-
-<!---PC画面用のテーブル--->
-<div class="max-h-screen overflow-auto">
-  <table class="table table-fixed text-center hidden md:table">
-    <tr class="bg-white sticky top-0">
-      <th class="w-1/12">連絡済み</th>
-      <th class="w-1/12"></th>
-      <th class="w-3/12">名前</th>
-      <th class="w-2/12">誕生日</th>
-      <th class="w-2/12">大切な日</th>
-      <th class="w-1/12"></th>
-      <th class="w-1/12"></th>
-    </tr>
-
-    <% @profiles.each do |profile| %>
-      <tr id="profile_<%= profile.id %>">
-        <td><%= profile.contacted %>
-        <td><%= image_tag profile.avatar.variant(resize_to_limit: [100, 100]) if profile.avatar.attached? %></td>
-        <td class="text-left"><%= profile.name %></td>
-        <td><%= profile.events.first.date %></td>
-        <td><%= profile.events.last.date %></td>
-        <td>
-          <% album = profile&.albums.sample %>
-          <%= image_tag album.images.sample.variant(resize_to_limit: [100, 100]) if album&.images&.attached? %>
-        </td>
-        <td>
-          <div class="flex justify-around">
-            <div>
-              <%= link_to profile_path(profile) do %>
-                <i class="fa-solid fa-circle-info fa-lg"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= link_to edit_profile_path(profile) do %>
-                <i class="fa-solid fa-pen-to-square fa-lg"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
-                <i class="fa-solid fa-trash fa-lg"></i>
-              <% end %>
-            </div>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+--->
