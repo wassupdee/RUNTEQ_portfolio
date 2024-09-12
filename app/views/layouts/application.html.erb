@@ -36,7 +36,7 @@
 
     <%= render 'shared/flash_message' %>
 
-    <main class="flex-grow">
+    <main class="flex-grow overflow-y-auto">
       <%= yield %>
       <%= breadcrumbs separator: "&rsaquo;", class: "breadcrumbs text-center mt-4 md:mt-10 #{'hidden md:block' if current_page?(ai_message_path)}" %>
     </main>
