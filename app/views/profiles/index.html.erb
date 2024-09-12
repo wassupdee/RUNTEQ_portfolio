@@ -106,10 +106,10 @@
                   </div>
               </th>
               <td class="px-6 py-4 font-semibold">
-                  <%= profile.events.first.date %>
+                  <%= l profile.events.first.date if profile.events.first&.date.present? %>
               </td>
               <td class="px-6 py-4 font-semibold">
-                  <%= profile.events.last.date %>
+                  <%= l profile.events.last.date if profile.events.last&.date.present? %>
               </td>
               <td class="px-6 py-4 font-semibold">
                 <div class="flex justify-around">
