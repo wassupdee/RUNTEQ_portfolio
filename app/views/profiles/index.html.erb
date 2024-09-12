@@ -80,6 +80,12 @@
                     名前
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    メール
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    電話番号
+                </th>
+                <th scope="col" class="px-6 py-3">
                     誕生日
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -101,10 +107,16 @@
               <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
                   <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) if profile.avatar.attached? %>
                   <div class="ps-3">
-                      <div class="text-base font-semibold"><%= profile.name %></div>
-                      <div class="font-normal text-gray-500"><%= profile.email %></div>
+                      <div class="font-normal text-gray-500"><%= profile.furigana %></div>
+                      <div class="text-lg font-semibold"><%= profile.name %></div>
                   </div>
               </th>
+              <td class="px-6 py-4 font-semibold">
+                  <%= profile.email %>
+              </td>
+              <td class="px-6 py-4 font-semibold">
+                  <%= profile.phone %>
+              </td>
               <td class="px-6 py-4 font-semibold">
                   <%= l profile.events.first.date if profile.events.first&.date.present? %>
               </td>
