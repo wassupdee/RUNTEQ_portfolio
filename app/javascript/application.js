@@ -18,3 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+document.querySelector('[data-dismiss-target="#sticky-banner"]').addEventListener('click', function() {
+  var banner = document.getElementById('sticky-banner');
+  if (banner) {
+      banner.style.display = 'none';
+  }
+});
