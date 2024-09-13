@@ -102,7 +102,7 @@
             <% @profiles.each do |profile| %>
               <tr class="bg-white border-b hover:bg-gray-50 ">
                 <td class="font-semibold">
-                    <div class="flex items-center">
+                    <div class="flex justify-center items-center">
                         <%= form_with model: profile, data: { controller: "form" } do |f|%>
                           <%= f.select :last_contacted, Profile.last_contacteds_i18n.map { |key, value| [value, key] },  { include_blank: true }, class: "w-28 text-sm rounded p-2 bg-white border border-gray-400", data: { action: "change->form#submit" } %>
                         <% end %>
