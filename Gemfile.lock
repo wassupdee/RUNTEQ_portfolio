@@ -134,6 +134,8 @@ GEM
     diff-lcs (1.5.1)
     dotenv (3.1.2)
     drb (2.2.1)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.13.0)
     event_stream_parser (1.0.0)
     factory_bot (6.4.6)
@@ -430,6 +432,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   dotenv
+  enum_help
   factory_bot_rails
   gretel
   image_processing (~> 1.2)
