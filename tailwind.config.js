@@ -13,7 +13,8 @@ module.exports = {
         'peach-light': '#FFCFC4',
         'ivory-white': '#FFFFF7',
         'almond': '#FFEBCD',
-        'cream-pink': '#FFF1ED'
+        'cream-pink': '#FFF1ED',
+        'button-gray': '#6B6B6B'
       }
     }
   },
