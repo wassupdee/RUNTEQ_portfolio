@@ -69,11 +69,9 @@
       <table class="w-full text-sm text-left rtl:text-right text-gray-500">
           <thead class="text-gray-700 uppercase bg-gray-100">
               <tr>
-                  <th scope="col" class="p-4">
-                      <div class="flex items-center">
-                          <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
-                          <label for="checkbox-all-search" class="sr-only">連絡とった！</label>
-                      </div>
+                  <th scope="col" class="px-1 py-3 w-32">
+                      <i class="fa-solid fa-check fa-sm"></i>
+                      最後に連絡した日
                   </th>
                   <th scope="col" class="px-6 py-3">
                       名前
@@ -103,10 +101,11 @@
           <tbody>
             <% @profiles.each do |profile| %>
               <tr class="bg-white border-b hover:bg-gray-50 ">
-                <td class="w-4 p-4">
+                <td class="font-semibold">
                     <div class="flex items-center">
-                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
-                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                        <%= form_with model:@profile do |f|%>
+                          <%= f.select :last_contacted, Profile.last_contacteds_i18n.map { |key, value| [value, key] },  { include_blank: true }, class: "w-28 text-sm rounded p-2 bg-white border border-gray-400" %>
+                        <% end %>
                     </div>
                 </td>
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
