@@ -62,6 +62,30 @@
 
         <div class="mb-4">
           <div class="flex mb-1 items-center">
+            <i class="fa-brands fa-line fa-sm"></i>
+            <%= profile_form.label :line_name, 'LINEの名前', class: "block font-medium text-black mx-1" %>
+          </div>
+          <%= profile_form.text_field :line_name, class: "w-full rounded p-2 bg-white border border-gray-400" %>
+        </div>
+
+        <div class="mb-4">
+          <div class="flex mb-1 items-center">
+            <i class="fa-solid fa-check fa-sm"></i>
+            <%= profile_form.label :last_contacted, '最後に連絡した日', class: "block font-medium text-black mx-1" %>
+          </div>
+          <%= profile_form.select :last_contacted, options_for_select(Profile.last_contacteds.keys), class: "w-full rounded p-2 border border-gray-400" %>
+        </div>
+
+        <div class="mb-4">
+          <div class="flex mb-1 items-center">
+            <i class="fa-solid fa-pencil fa-sm"></i>
+            <%= profile_form.label :note, 'メモ', class: "block font-medium text-black mx-1" %>
+          </div>
+          <%= profile_form.text_area :note, class: "w-full rounded p-2 bg-white border border-gray-400" %>
+        </div>
+
+        <div class="mb-4">
+          <div class="flex mb-1 items-center">
             <i class="fa-regular fa-image fa-sm"></i>
             <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium text-black mx-1" %>
           </div>
