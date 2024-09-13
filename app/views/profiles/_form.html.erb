@@ -73,7 +73,7 @@
             <i class="fa-solid fa-check fa-sm"></i>
             <%= profile_form.label :last_contacted, '最後に連絡した日', class: "block font-medium text-black mx-1" %>
           </div>
-          <%= profile_form.select :last_contacted, options_for_select(Profile.last_contacteds.keys), class: "w-full rounded p-2 border border-gray-400" %>
+          <%= profile_form.select :last_contacted, Profile.last_contacteds_i18n.map { |key, value| [value, key] }, class: "w-full rounded p-2 border border-gray-400" %>
         </div>
 
         <div class="mb-4">
