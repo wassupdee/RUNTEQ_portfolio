@@ -10,6 +10,8 @@ class Profile < ApplicationRecord
 
   has_one_attached :avatar
 
+  enum last_contacted: { within_one_month: 0, within_one_year: 1, within_three_years: 2, more_than_three_years: 3 }
+
   validates :avatar, processable_image: true,
                      content_type: %i[png jpeg],
                      size: { less_than: 1.megabytes, message: "is too large" },
