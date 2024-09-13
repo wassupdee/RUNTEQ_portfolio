@@ -32,8 +32,11 @@
         <% end %>
           <div class="flex flex-col p-2">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 truncate ..."><%= album.title %></h5>
-            <div class="flex justify-end">
-              <%= album.date %>
+            <div class="flex justify-end space-x-2">
+              <div><%= album.date %></div>
+              <%= link_to profile_album_path(@profile, album) do %>
+                <i class="fa-solid fa-circle-info fa-lg"></i>
+              <% end %>
               <%= link_to edit_profile_album_path(@profile, album) do %>
                 <i class="fa-solid fa-pen-to-square fa-lg"></i>
               <% end %>
