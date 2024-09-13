@@ -100,7 +100,7 @@
           </thead>
           <tbody>
             <% @profiles.each do |profile| %>
-              <tr class="bg-white border-b hover:bg-gray-50 ">
+              <tr id="profile_<%= profile.id %>" class="bg-white border-b hover:bg-gray-50">
                 <td class="font-semibold">
                     <div class="flex justify-center items-center">
                         <%= form_with model: profile, data: { controller: "form" } do |f|%>
