@@ -3,26 +3,29 @@
   <%= render "shared/sidebar", profile: @profile%>
 
   <div id="right-section" class="h-full w-full flex md:items-center justify-center">
-    <div id="card" class="md:flex md:flex-col md:items-center md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl w-2/3 mb-20 md:mb-0">
-    <div id="title" class="flex flex-col mt-5">
-      <div class="text-3xl w-full"><%= @album.title %></div>
-      <div class="text-center w-full"><%= @album.date %></div>
+    <div id="card" class="flex flex-col items-center md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl w-2/3 mb-20 md:mb-0">
+      <div id="title" class="flex flex-col mt-5">
+        <div class="text-3xl text-center w-full"><%= @album.title %></div>
+        <div class="text-center w-full"><%= @album.date %></div>
+      </div>
+      <div id="icon" class="flex justify-center space-x-2">
+        <%= link_to edit_profile_album_path(@profile, @album) do %>
+          <i class="fa-solid fa-pen-to-square fa-lg"></i>
+        <% end %>
+        <%= link_to profile_album_path(@profile, @album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+          <i class="fa-solid fa-trash fa-lg"></i>
+        <% end %>
+      </div>
+      <div id="grid" class="h-2/3 grid grid-cols-1 md:grid-cols-3 gap-4 w-full p-5 overflow-auto">
+        <% @album.images.each do |image| %>
+          <div class="h-fit rounded-lg shadow">
+            <%= image_tag image.variant(resize_to_limit: [100, 100]), class: "w-full h-fit md:h-48 object-cover rounded-t-lg" %>
+          </div>
+        <% end %>
+      </div>
+      <div id="diary" class="h-20 w-11/12 rounded bg-white md:m-5 border border-gray-200 border-2 p-2">
+        <%= @album.diary %>
+      </div>
     </div>
-    <div id="icon" class="flex space-x-2">
-      <%= link_to edit_profile_album_path(@profile, @album) do %>
-        <i class="fa-solid fa-circle-info fa-lg"></i>
-      <% end %>
-      <%= link_to profile_album_path(@profile, @album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-      <% end %>
-    </div>
-    <div id="grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full overflow-auto p-5 flex-grow">
-      <% @album.images.each do |image| %>
-        <div class="h-fit rounded-lg shadow">
-          <%= image_tag image.variant(resize_to_limit: [100, 100]), class: "w-full h-24 md:h-48 object-cover rounded-t-lg" %>
-        </div>
-      <% end %>
-    </div>
-    <div id="diary" class="w-11/12 rounded bg-white m-5 border border-gray-200 border-2 p-4"><%= @album.diary %></div>
   </div>
 </div>
