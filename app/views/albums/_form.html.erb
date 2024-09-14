@@ -1,11 +1,11 @@
 <% content_for(:tab_title, "アルバム") %>
 
-<div class="flex h-full flex-col md:flex-row">
+<div id="outer-frame" class="flex h-full flex-col md:flex-row">
   <%= render "shared/sidebar", profile: @profile%>
   <%= render "shared/top_tab", profile: @profile%>
 
-  <div class="flex flex-col w-full items-center mt-5 md:mt-10 mb-20 md:mb-10">
-    <div class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl">
+  <div id="right-section" class="flex flex-col w-full items-center mt-5 md:mt-10 mb-20 md:mb-10">
+    <div id="card" class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl">
       <div data-controller="previews" class="flex flex-col">
         <%= form_with(model: [profile, album], data: { turbo: false }) do |form| %>
           <%= render 'shared/error_messages', model: form.object %>
