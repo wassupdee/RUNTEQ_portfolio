@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center mb-20 md:mb-10">
+<div class="flex flex-col items-center mt-10 mb-20 md:mb-10">
   <div class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl">
     <div data-controller="previews" class="flex flex-col">
       <%= form_with(model: [profile, album], data: { turbo: false }) do |form| %>
@@ -37,8 +37,10 @@
             <% album.images.each do |image| %>
               <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
                 <% if image.persisted? %>
-                  <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-                  <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+                  <div class="flex flex-col text-center">
+                    <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+                    <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+                  </div>
                 <% end %>
               </div>
             <% end %>
