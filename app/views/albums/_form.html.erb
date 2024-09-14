@@ -31,22 +31,28 @@
           <%= form.file_field :images, multiple: true, data: { previews_target: "input", action: "change->previews#preview" } %>
         </div>
 
+        <!--DBに保存済みの写真を表示する-->
+        <div class="flex justify-center space-x-4 mb-4">
+          <% if album.images.attached? && album.persisted? %>
+            <% album.images.each do |image| %>
+              <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
+                <% if image.persisted? %>
+                  <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+                  <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <!--アップロードした写真を表示する-->
+        <div data-previews-target="previewContainer" class="flex justify-center space-x-4 mb-4" ></div>
+
         <div class="flex justify-center">
           <%= form.submit "保存する", class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
         </div>
       <% end %>
 
-      <% if album.images.attached? && album.persisted? %>
-        <% album.images.each do |image| %>
-          <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
-          <% if image.persisted? %>
-            <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-            <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
-          <% end %>
-          </div>
-        <% end %>
-      <% end %>
-      <div data-previews-target="previewContainer"></div>
     </div>
   </div>
 </div>
