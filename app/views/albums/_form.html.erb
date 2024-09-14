@@ -1,62 +1,90 @@
 <% content_for(:tab_title, "アルバム") %>
 
-<div class="flex flex-col items-center mt-10 mb-20 md:mb-10">
-  <div class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl">
-    <div data-controller="previews" class="flex flex-col">
-      <%= form_with(model: [profile, album], data: { turbo: false }) do |form| %>
-        <%= render 'shared/error_messages', model: form.object %>
+<div class="flex h-full flex-col md:flex-row">
+  <aside id="default-sidebar" class="w-64 h-full transition-transform -translate-x-full sm:translate-x-0 hidden md:block" aria-label="Sidebar">
+    <div class="h-full py-14 px-4  overflow-y-auto bg-stone-200 text-gray-900">
+        <ul class="space-y-10 font-medium text-lg">
+          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
+            <%= link_to "基本情報", profile_path(@profile), class: "block w-full h-full" %>
+          </li>
+          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
+            <%= link_to "アルバム", profile_albums_path(@profile), class: "block w-full h-full" %>
+          </li>
+          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
+            <%= link_to "通知設定", profile_events_path(@profile), class: "block w-full h-full" %>
+          </li>
+          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
+            <%= link_to profiles_path, class: "block w-full h-full" do %>
+              連絡先一覧
+            <% end %>
+          </li>
+        </ul>
+    </div>
+  </aside>
 
-        <div class="mb-4">
-          <%= form.label :date, "日付", class: "block font-medium mb-1 text-black" %>
-          <%= form.date_field :date, class: "block font-medium mb-5 bg-button-gray text-white border border-gray-400 rounded" %>
-        </div>
+  <div role="tablist" class="tabs tabs-bordered mt-3 md:hidden">
+    <%= link_to "基本情報", profile_path(@profile), role: "tab", class: "tab #{"tab-active" if current_page?(profile_path(@profile))}" %>
+    <%= link_to "アルバム", profile_albums_path(@profile), role: "tab #{"tab-active" if current_page?(profile_path(@profile))}", class: "tab" %>
+    <%= link_to "通知設定", profile_events_path(@profile), role: "tab #{"tab-active" if current_page?(profile_path(@profile))}", class: "tab" %>
+  </div>
 
-        <div class="mb-4">
-          <%= form.label :title, "タイトル", class: "block font-medium mb-1 text-black" %>
-          <%= form.text_field :title, class: "w-full rounded p-2 bg-white border border-gray-400" %>
-        </div>
+  <div class="flex flex-col w-full items-center mt-5 mb-20 md:mb-10">
+    <div class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl">
+      <div data-controller="previews" class="flex flex-col">
+        <%= form_with(model: [profile, album], data: { turbo: false }) do |form| %>
+          <%= render 'shared/error_messages', model: form.object %>
 
-        <div class="mb-4">
-          <%= form.label :diary, "ノート", class: "block font-medium mb-1 text-black" %>
-          <%= form.text_area :diary, class: "w-full rounded p-2 bg-white border border-gray-400" %>
-        </div>
+          <div class="mb-4">
+            <%= form.label :date, "日付", class: "block font-medium mb-1 text-black" %>
+            <%= form.date_field :date, class: "block font-medium mb-5 bg-button-gray text-white border border-gray-400 rounded" %>
+          </div>
 
-        <div class="mb-4">
-          <%= form.label :image, "写真", class: "block font-medium mb-1 text-black" %>
-          <turbo-frame id="album_hidden_fields">
-            <% album.images.each do |image| %>
-              <% if image.persisted? %>
-                <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+          <div class="mb-4">
+            <%= form.label :title, "タイトル", class: "block font-medium mb-1 text-black" %>
+            <%= form.text_field :title, class: "w-full rounded p-2 bg-white border border-gray-400" %>
+          </div>
+
+          <div class="mb-4">
+            <%= form.label :diary, "ノート", class: "block font-medium mb-1 text-black" %>
+            <%= form.text_area :diary, class: "w-full rounded p-2 bg-white border border-gray-400" %>
+          </div>
+
+          <div class="mb-4">
+            <%= form.label :image, "写真", class: "block font-medium mb-1 text-black" %>
+            <turbo-frame id="album_hidden_fields">
+              <% album.images.each do |image| %>
+                <% if image.persisted? %>
+                  <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+                <% end %>
+              <% end %>
+            </turbo-frame>
+            <%= form.file_field :images, multiple: true, data: { previews_target: "input", action: "change->previews#preview" } %>
+          </div>
+
+          <!--DBに保存済みの写真を表示する-->
+          <div class="flex justify-center space-x-4 mb-4">
+            <% if album.images.attached? && album.persisted? %>
+              <% album.images.each do |image| %>
+                <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
+                  <% if image.persisted? %>
+                    <div class="flex flex-col text-center">
+                      <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
+                      <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+                    </div>
+                  <% end %>
+                </div>
               <% end %>
             <% end %>
-          </turbo-frame>
-          <%= form.file_field :images, multiple: true, data: { previews_target: "input", action: "change->previews#preview" } %>
-        </div>
+          </div>
 
-        <!--DBに保存済みの写真を表示する-->
-        <div class="flex justify-center space-x-4 mb-4">
-          <% if album.images.attached? && album.persisted? %>
-            <% album.images.each do |image| %>
-              <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
-                <% if image.persisted? %>
-                  <div class="flex flex-col text-center">
-                    <%= image_tag image.variant(resize_to_limit: [100, 100]) %>
-                    <%= link_to "削除", image_path(image), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
+          <!--アップロードした写真を表示する-->
+          <div data-previews-target="previewContainer" class="flex justify-center space-x-4 mb-4" ></div>
 
-        <!--アップロードした写真を表示する-->
-        <div data-previews-target="previewContainer" class="flex justify-center space-x-4 mb-4" ></div>
-
-        <div class="flex justify-center">
-          <%= form.submit "保存する", class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
-        </div>
-      <% end %>
-
+          <div class="flex justify-center mb-20">
+            <%= form.submit "保存する", class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
