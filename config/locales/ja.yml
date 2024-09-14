@@ -5,11 +5,10 @@ ja:
   date:
     formats:
       default: "%Y/%m/%d"
-  activerecord:
-    attributes:
-      profile:
-        last_contacted:
-          within_one_month: "～１ヵ月"
-          within_one_year: "～１年"
-          within_three_years: "～３年"
-          more_than_three_years: "３年～"
+  enums:
+    profile:
+      last_contacted:
+        within_one_month: １ヵ月以内
+        within_one_year: １年前
+        within_three_years: ３年前
+        more_than_three_years: ３年より前

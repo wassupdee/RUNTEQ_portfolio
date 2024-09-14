@@ -14,9 +14,7 @@ class ProfilesController < ApplicationController
     @q.combinator = "or"
     @profiles = @q.result(distinct: true).includes(:events).order(created_at: :desc)
     @profiles_birthdays_this_month = Profile.with_birthday_this_month
-    @profiles_birthdays_next_month = Profile.with_birthday_next_month
     @profiles_special_day_this_month = Profile.with_special_day_this_month
-    @profiles_special_day_next_month = Profile.with_special_day_next_month
   end
 
   def create
@@ -38,8 +36,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profiles.find(params[:id])
     if @profile.update(profile_params)
-      flash[:success] = "連絡先を更新しました"
-      redirect_to profile_path(@profile)
+      update_success
     else
       flash[:danger] = "連絡先を更新できませんでした"
       render :edit, status: :unprocessable_entity
@@ -59,6 +56,16 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:avatar, :contacted, :name, :furigana, :phone, :email, :line_name, :birthplace, :address, :occupation, events_attributes: %i[name date id])
+    params.require(:profile).permit(:avatar, :name, :furigana, :phone, :email, :line_name, :address, :last_contacted, :note, events_attributes: %i[name date id])
+  end
+
+  def update_success
+    respond_to do |format|
+      format.html do
+        flash[:success] = "連絡先を更新しました"
+        redirect_to profile_path(@profile)
+      end
+      format.turbo_stream
+    end
   end
 end
