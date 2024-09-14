@@ -1,26 +1,7 @@
 <% content_for(:tab_title, "アルバム") %>
 
 <div class="flex h-full flex-col md:flex-row">
-  <aside id="default-sidebar" class="w-64 h-full transition-transform -translate-x-full sm:translate-x-0 hidden md:block" aria-label="Sidebar">
-    <div class="h-full py-14 px-4  overflow-y-auto bg-stone-200 text-gray-900">
-        <ul class="space-y-10 font-medium text-lg">
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "基本情報", profile_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "アルバム", profile_albums_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "通知設定", profile_events_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to profiles_path, class: "block w-full h-full" do %>
-              連絡先一覧
-            <% end %>
-          </li>
-        </ul>
-    </div>
-  </aside>
+  <%= render "shared/sidebar", profile: @profile%>
 
   <div role="tablist" class="tabs tabs-bordered mt-3 md:hidden">
     <%= link_to "基本情報", profile_path(@profile), role: "tab", class: "tab #{"tab-active" if current_page?(profile_path(@profile))}" %>
@@ -28,7 +9,7 @@
     <%= link_to "通知設定", profile_events_path(@profile), role: "tab #{"tab-active" if current_page?(profile_path(@profile))}", class: "tab" %>
   </div>
 
-  <div class="flex flex-col w-full items-center mt-5 mb-20 md:mb-10">
+  <div class="flex flex-col w-full items-center mt-5 md:mt-10 mb-20 md:mb-10">
     <div class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl">
       <div data-controller="previews" class="flex flex-col">
         <%= form_with(model: [profile, album], data: { turbo: false }) do |form| %>

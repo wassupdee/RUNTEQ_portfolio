@@ -1,27 +1,7 @@
 <% content_for(:tab_title, "アルバム") %>
 
 <div class="flex h-full flex-col md:flex-row">
-  <aside id="default-sidebar" class="w-64 h-full transition-transform -translate-x-full sm:translate-x-0 hidden md:block" aria-label="Sidebar">
-    <div class="h-full py-14 px-4  overflow-y-auto bg-stone-200 text-gray-900">
-        <ul class="space-y-10 font-medium text-lg">
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "基本情報", profile_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "アルバム", profile_albums_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "通知設定", profile_events_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to profiles_path, class: "block w-full h-full" do %>
-              連絡先一覧
-            <% end %>
-          </li>
-        </ul>
-    </div>
-  </aside>
-
+  <%= render "shared/sidebar", profile: @profile%>
 
 <div class="flex w-full items-center flex-col">
   <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full overflow-auto p-5 flex-grow">
