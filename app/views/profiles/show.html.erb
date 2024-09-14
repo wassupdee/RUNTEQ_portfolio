@@ -1,101 +1,74 @@
 <% content_for(:tab_title, "連絡帳") %>
 
 
-<div class="flex h-full flex-col md:flex-row">
-  <aside id="default-sidebar" class="w-64 h-full transition-transform -translate-x-full sm:translate-x-0 hidden md:block" aria-label="Sidebar">
-    <div class="h-full py-14 px-4  overflow-y-auto bg-stone-200 text-gray-900">
-        <ul class="space-y-10 font-medium text-lg">
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "基本情報", profile_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "アルバム", profile_albums_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "通知設定", profile_events_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to profiles_path, class: "block w-full h-full" do %>
-              連絡先一覧
-            <% end %>
-          </li>
-        </ul>
-    </div>
-  </aside>
+<div id="outer-frame" class="flex h-full flex-col md:flex-row">
+  <%= render "shared/sidebar", profile: @profile%>
+  <%= render "shared/top_tab", profile: @profile%>
 
-  <div role="tablist" class="tabs tabs-bordered mt-3 md:hidden">
-    <%= link_to "基本情報", profile_path(@profile), role: "tab", class: "tab #{"tab-active" if current_page?(profile_path(@profile))}" %>
-    <%= link_to "アルバム", profile_albums_path(@profile), role: "tab #{"tab-active" if current_page?(profile_path(@profile))}", class: "tab" %>
-    <%= link_to "通知設定", profile_events_path(@profile), role: "tab #{"tab-active" if current_page?(profile_path(@profile))}", class: "tab" %>
-  </div>
-
-  <div class="h-full w-full flex md:items-center justify-center">
-      <div class="flex justify-center w-full h-full md:items-center mt-5 md:mt-0">
-        <div class="md:flex md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl w-2/3 mb-20 md:mb-0">
-          <div id ="profile_info" class="flex flex-col flex-grow items-left justify-center md:mt-5">
-            <div class="md:flex md:mb-16 justify-center">
-              <div class="flex items-center ">
-                <div id="avatar" class="mt-7">
-                  <% if @profile.avatar.attached? %>
-                    <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]), class: "w-20 h-auto" %>
-                  <% end %>
-                </div>
-                <div class="flex flex-col">
-                  <div class="text-xl tracking-widest">
-                    <%= @profile.furigana %>
-                  </div>
-                  <div class="text-4xl md:text-6xl">
-                    <%= @profile.name %>
-                  </div>
-                </div>
+  <div id="right-section" class="h-full w-full flex md:items-center justify-center">
+    <div id="card" class="md:flex md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl w-2/3 mb-20 md:mb-0">
+      <div id ="profile" class="flex flex-col flex-grow items-left justify-center md:mt-5">
+        <div class="md:flex md:mb-16 justify-center">
+          <div id="name" class="flex items-center ">
+            <div id="avatar" class="mt-7">
+              <% if @profile.avatar.attached? %>
+                <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]), class: "w-20 h-auto" %>
+              <% end %>
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl tracking-widest">
+                <%= @profile.furigana %>
               </div>
-              <div class="flex flex-col items-center md:justify-end mx-2">
-                <div>
-                  <%= link_to edit_profile_path(@profile) do %>
-                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                  <% end %>
-                  <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-                    <i class="fa-regular fa-trash-can fa-lg"></i>
-                  <% end %>
-                </div>
+              <div class="text-4xl md:text-6xl">
+                <%= @profile.name %>
               </div>
             </div>
+          </div>
+          <div id="icon" class="flex flex-col items-center md:justify-end mx-2">
+            <div>
+              <%= link_to edit_profile_path(@profile) do %>
+                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+              <% end %>
+              <%= link_to profile_path(@profile), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+                <i class="fa-regular fa-trash-can fa-lg"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
-            <div class="flex md:px-44 py-4 md:py-2">
-              <div>
-                <div class="my-3 text-left">
-                  <i class="fa-solid fa-phone fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.phone %></span>
-                </div>
-                <div class="my-3 text-left">
-                  <i class="fa-regular fa-envelope fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.email %></span>
-                </div>
-                <div class="my-3 text-left">
-                  <i class="fa-solid fa-location-dot fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.address %></span>
-                </div>
-                <div class="my-3 text-left">
-                  <i class="fa-brands fa-line fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.line_name %></span>
-                </div>
-                <div class="my-3 text-left">
-                  <i class="fa-solid fa-check fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.last_contacted_i18n %></span>
-                </div>
-                <div class="my-3 text-left">
-                  <i class="fa-solid fa-cake-candles fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.events.first.date %></span>
-                </div>
-                <div class="my-3 text-left">
-                  <i class="fa-solid fa-calendar-check fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.events.last.date %></span>
-                </div>
-                <div class="my-3 text-left w-full md:h-40 overflow-auto">
-                  <i class="fa-solid fa-pencil fa-lg mr-2"></i>
-                  <span class="text-base md:text-lg"><%= @profile.note %></span>
-                </div>
-              </div>
+        <div id="info" class="flex md:px-44 py-4 md:py-2">
+          <div>
+            <div class="my-3 text-left">
+              <i class="fa-solid fa-phone fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.phone %></span>
+            </div>
+            <div class="my-3 text-left">
+              <i class="fa-regular fa-envelope fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.email %></span>
+            </div>
+            <div class="my-3 text-left">
+              <i class="fa-solid fa-location-dot fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.address %></span>
+            </div>
+            <div class="my-3 text-left">
+              <i class="fa-brands fa-line fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.line_name %></span>
+            </div>
+            <div class="my-3 text-left">
+              <i class="fa-solid fa-check fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.last_contacted_i18n %></span>
+            </div>
+            <div class="my-3 text-left">
+              <i class="fa-solid fa-cake-candles fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.events.first.date %></span>
+            </div>
+            <div class="my-3 text-left">
+              <i class="fa-solid fa-calendar-check fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.events.last.date %></span>
+            </div>
+            <div class="my-3 text-left w-full md:h-40 overflow-auto">
+              <i class="fa-solid fa-pencil fa-lg mr-2"></i>
+              <span class="text-base md:text-lg"><%= @profile.note %></span>
             </div>
           </div>
         </div>

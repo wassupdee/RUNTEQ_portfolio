@@ -1,116 +1,33 @@
 <% content_for(:tab_title, "アルバム") %>
 
-<div class="flex h-full flex-col md:flex-row">
-  <aside id="default-sidebar" class="w-64 h-full transition-transform -translate-x-full sm:translate-x-0 hidden md:block" aria-label="Sidebar">
-    <div class="h-full py-14 px-4  overflow-y-auto bg-stone-200 text-gray-900">
-        <ul class="space-y-10 font-medium text-lg">
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "基本情報", profile_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "アルバム", profile_albums_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to "通知設定", profile_events_path(@profile), class: "block w-full h-full" %>
-          </li>
-          <li class="px-4 py-2 rounded-lg hover:bg-gray-100">
-            <%= link_to profiles_path, class: "block w-full h-full" do %>
-              連絡先一覧
-            <% end %>
-          </li>
-        </ul>
-    </div>
-  </aside>
+<div id="outer-frame" class="flex h-full flex-col md:flex-row">
+  <%= render "shared/sidebar", profile: @profile%>
+  <%= render "shared/top_tab", profile: @profile%>
 
-
-<div class="flex w-full items-center flex-col">
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full overflow-auto p-5 flex-grow">
-    <% @albums.each do |album| %>
-      <div class="h-44 md:h-72 bg-white border border-gray-200 rounded-lg shadow">
-        <% if album.images.attached? %>
-          <%= image_tag album.images.first, class: "w-full h-24 md:h-48 object-cover rounded-t-lg" %>
-        <% end %>
-          <div class="flex flex-col p-2">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 truncate ..."><%= album.title %></h5>
-            <div class="flex justify-end space-x-2">
-              <div><%= album.date %></div>
-              <%= link_to profile_album_path(@profile, album) do %>
-                <i class="fa-solid fa-circle-info fa-lg"></i>
-              <% end %>
-              <%= link_to edit_profile_album_path(@profile, album) do %>
-                <i class="fa-solid fa-pen-to-square fa-lg"></i>
-              <% end %>
+  <div id="right-section" class="flex w-full items-center flex-col">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full overflow-auto p-5 flex-grow">
+      <% @albums.each do |album| %>
+        <div class="h-44 md:h-72 bg-white border border-gray-200 rounded-lg shadow">
+          <% if album.images.attached? %>
+            <%= image_tag album.images.first, class: "w-full h-24 md:h-48 object-cover rounded-t-lg" %>
+          <% end %>
+            <div class="flex flex-col p-2">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 truncate ..."><%= album.title %></h5>
+              <div class="flex justify-end space-x-2">
+                <div><%= album.date %></div>
+                <%= link_to profile_album_path(@profile, album) do %>
+                  <i class="fa-solid fa-circle-info fa-lg"></i>
+                <% end %>
+                <%= link_to edit_profile_album_path(@profile, album) do %>
+                  <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                <% end %>
+              </div>
             </div>
-          </div>
-      </div>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to new_profile_album_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500 mb-16 md:mb-5" do %>
+      <button>アルバムを作成</button>
     <% end %>
   </div>
-  <%= link_to new_profile_album_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500 mb-16 md:mb-5" do %>
-    <button>アルバムを作成</button>
-  <% end %>
 </div>
-
-
-<!---
-  <div class="flex w-full justify-center">
-    <div class="w-8/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
-      <div class="flex justify-center my-4">
-        <%= link_to new_profile_album_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
-          <button>アルバムを作成</button>
-        <% end %>
-      </div>
-      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-          <thead class="text-gray-700 uppercase bg-gray-100">
-              <tr>
-                  <th scope="col" class="px-1 py-3 w-32">
-                      日付
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                      タイトル
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                      サムネイル
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                  </th>
-              </tr>
-          </thead>
-          <tbody>
-            <% @albums.each do |album| %>
-              <tr id="album_<%= album.id %>" class="bg-white border-b hover:bg-gray-50">
-                <td class="px-6 py-4 font-semibold">
-                    <%= album.date %>
-                </td>
-                <td class="px-6 py-4 font-semibold">
-                    <%= album.title %>
-                </td>
-                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
-                  <%= image_tag album.images.first.variant(resize_to_limit: [100, 100]) if album.images.attached? %>
-                </th>
-                <td class="px-6 py-4 font-semibold">
-                  <div class="flex justify-around">
-                    <div>
-                      <%= link_to profile_album_path(@profile, album) do %>
-                        <i class="fa-solid fa-circle-info fa-lg"></i>
-                      <% end %>
-                    </div>
-                    <div>
-                      <%= link_to edit_profile_album_path(@profile, album) do %>
-                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                      <% end %>
-                    </div>
-                    <div>
-                        <%= link_to profile_album_path(@profile, album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-                        <i class="fa-solid fa-trash fa-lg"></i>
-                      <% end %>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-      </table>
-    </div>
-  </div>
-</div>
---->
