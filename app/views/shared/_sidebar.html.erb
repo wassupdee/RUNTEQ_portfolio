@@ -4,7 +4,7 @@
         <li class="px-4 py-2 rounded-lg hover:bg-gray-100 <%= "bg-stone-500 text-white hover:bg-gray-100 hover:text-black" if current_page?(profile_path(profile))%>">
           <%= link_to "基本情報", profile_path(profile), class: "block w-full h-full" %>
         </li>
-        <li class="px-4 py-2 rounded-lg hover:bg-gray-100 <%= "bg-stone-500 text-white hover:bg-gray-100 hover:text-black" if current_page?( profile_albums_path(profile))%>">
+        <li class="px-4 py-2 rounded-lg hover:bg-gray-100 <%= "bg-stone-500 text-white hover:bg-gray-100 hover:text-black" if current_page?(profile_albums_path(profile))%>">
           <%= link_to "アルバム", profile_albums_path(profile), class: "block w-full h-full" %>
         </li>
         <li class="px-4 py-2 rounded-lg hover:bg-gray-100 <%= "bg-stone-500 text-white hover:bg-gray-100 hover:text-black" if current_page?(profile_events_path(profile))%>">
