@@ -36,13 +36,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profiles.find(params[:id])
     if @profile.update(profile_params)
-      respond_to do |format|
-        format.html do
-          flash[:success] = "連絡先を更新しました"
-          redirect_to profile_path(@profile)
-        end
-        format.turbo_stream
-      end
+      update_success
     else
       flash[:danger] = "連絡先を更新できませんでした"
       render :edit, status: :unprocessable_entity
@@ -63,5 +57,15 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:avatar, :name, :furigana, :phone, :email, :line_name, :address, :last_contacted, :note, events_attributes: %i[name date id])
+  end
+
+  def update_success
+    respond_to do |format|
+      format.html do
+        flash[:success] = "連絡先を更新しました"
+        redirect_to profile_path(@profile)
+      end
+      format.turbo_stream
+    end
   end
 end
