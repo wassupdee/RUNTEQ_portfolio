@@ -12,6 +12,7 @@
             <%= sidebar_active_class(profile_albums_path(profile)) %>
             <%= sidebar_active_class(profile_album_path(profile, album)) if defined?(album) && album.persisted? %>
             <%= sidebar_active_class(edit_profile_album_path(profile, album)) if defined?(album) && album.persisted? %>
+            <%= sidebar_active_class(new_profile_album_path(profile, album)) if defined?(album) %>
           ">
           <%= link_to "アルバム", profile_albums_path(profile), class: "block w-full h-full" %>
         </li>
