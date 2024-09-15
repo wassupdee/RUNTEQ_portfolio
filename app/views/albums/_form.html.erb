@@ -1,7 +1,5 @@
-<% content_for(:tab_title, "アルバム") %>
-
 <div id="outer-frame" class="flex h-full flex-col md:flex-row">
-  <%= render "shared/sidebar", profile: @profile%>
+  <%= render "shared/sidebar", profile: profile, album: album %>
   <%= render "shared/top_tab", profile: @profile%>
 
   <div id="right-section" class="flex flex-col w-full items-center mt-5 md:mt-10 mb-20 md:mb-10">
