@@ -19,14 +19,14 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-document.querySelector('[data-dismiss-target="#sticky-banner-pc"]').addEventListener('click', function() {
+document.getElementById('close-banner-btn-pc').addEventListener('click', function() {
   var banner = document.getElementById('sticky-banner-pc');
   if (banner) {
       banner.style.display = 'none';
   }
 });
 
-document.querySelector('[data-dismiss-target="#sticky-banner-mb"]').addEventListener('click', function() {
+document.getElementById('close-banner-btn-mb').addEventListener('click', function() {
   var banner = document.getElementById('sticky-banner-mb');
   if (banner) {
       banner.style.display = 'none';
