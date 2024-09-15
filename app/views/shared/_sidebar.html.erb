@@ -3,21 +3,21 @@
       <ul class="space-y-10 font-medium text-lg">
         <li class=
             "px-4 py-2 rounded-lg hover:bg-gray-100
-            <%= active_class(profile_path(profile))%>
+            <%= sidebar_active_class(profile_path(profile))%>
           ">
           <%= link_to "基本情報", profile_path(profile), class: "block w-full h-full" %>
         </li>
         <li class=
             "px-4 py-2 rounded-lg hover:bg-gray-100
-            <%= active_class(profile_albums_path(profile)) %>
-            <%= active_class(profile_album_path(profile, album)) if defined?(album) && album.persisted? %>
-            <%= active_class(edit_profile_album_path(profile, album)) if defined?(album) && album.persisted? %>
+            <%= sidebar_active_class(profile_albums_path(profile)) %>
+            <%= sidebar_active_class(profile_album_path(profile, album)) if defined?(album) && album.persisted? %>
+            <%= sidebar_active_class(edit_profile_album_path(profile, album)) if defined?(album) && album.persisted? %>
           ">
           <%= link_to "アルバム", profile_albums_path(profile), class: "block w-full h-full" %>
         </li>
         <li class=
             "px-4 py-2 rounded-lg hover:bg-gray-100
-            <%= active_class(profile_events_path(profile)) %>
+            <%= sidebar_active_class(profile_events_path(profile)) %>
           ">
           <%= link_to "通知設定", profile_events_path(profile), class: "block w-full h-full" %>
         </li>
