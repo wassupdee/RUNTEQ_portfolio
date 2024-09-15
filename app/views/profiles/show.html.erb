@@ -13,6 +13,8 @@
             <div id="avatar" class="mt-7">
               <% if @profile.avatar.attached? %>
                 <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]), class: "w-20 h-auto" %>
+              <% else %>
+                <%= image_tag "default_avatar.png", class: "w-20 h-auto" %>
               <% end %>
             </div>
             <div class="flex flex-col">

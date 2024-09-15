@@ -109,7 +109,11 @@
                     </div>
                 </td>
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
-                    <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) if profile.avatar.attached? %>
+                    <% if profile.avatar.attached? %>
+                      <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
+                    <% else %>
+                      <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
+                    <% end %>
                     <div class="ps-3">
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
@@ -229,7 +233,13 @@
             <% @profiles.each do |profile| %>
               <tr class="bg-white border-b hover:bg-gray-50 ">
                 <th scope="row" class="flex items-center p-1 text-gray-900 whitespace-nowrap">
-                    <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) if profile.avatar.attached? %>
+                    <div id="avatar" class="w-50 h-50">
+                      <% if profile.avatar.attached? %>
+                        <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
+                      <% else %>
+                        <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
+                      <% end %>
+                    </div>
                     <div>
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
