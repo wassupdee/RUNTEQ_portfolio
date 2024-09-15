@@ -2,13 +2,18 @@
   <%= link_to "基本情報",
               profile_path(profile),
               role: "tab",
-              class: "tab text-black rounded #{"bg-stone-500 text-white font-medium" if current_page?(profile_path(profile))}" %>
+              class: "tab text-black rounded #{top_tab_active_class(profile_path(profile))}" %>
   <%= link_to "アルバム",
               profile_albums_path(profile),
               role: "tab",
-              class: "tab text-black rounded #{"bg-stone-500 text-white font-medium" if current_page?(profile_albums_path(profile))}" %>
+              class:
+                "tab text-black rounded
+                #{top_tab_active_class(profile_albums_path(profile))}
+                #{top_tab_active_class(profile_album_path(profile, album)) if defined?(album) && album.persisted?}
+                #{top_tab_active_class(edit_profile_album_path(profile, album)) if defined?(album) && album.persisted?}
+              " %>
   <%= link_to "通知設定",
               profile_events_path(profile),
               role: "tab",
-              class: "tab text-black rounded #{"bg-stone-500 text-white font-medium" if current_page?(profile_events_path(profile))}" %>
+              class: "tab text-black rounded #{top_tab_active_class(profile_events_path(profile))}" %>
 </div>
