@@ -112,7 +112,7 @@
                     <% if profile.avatar.attached? %>
                       <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
                     <% else %>
-                      <%= image_tag "default_avatar", style: "width: 50px; height: 50px;" %>
+                      <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
                     <% end %>
                     <div class="ps-3">
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
@@ -237,7 +237,7 @@
                       <% if profile.avatar.attached? %>
                         <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
                       <% else %>
-                        <%= image_tag "default_avatar", style: "width: 50px; height: 50px;" %>
+                        <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
                       <% end %>
                     </div>
                     <div>
