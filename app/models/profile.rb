@@ -20,16 +20,8 @@ class Profile < ApplicationRecord
     joins(:events).where("events.name LIKE ? AND MONTH(events.date) = ?", "誕生日", Date.today.month)
   }
 
-  scope :with_birthday_next_month, lambda {
-    joins(:events).where("events.name LIKE ? AND MONTH(events.date) = ?", "誕生日", Date.today.next_month.month)
-  }
-
   scope :with_special_day_this_month, lambda {
     joins(:events).where("events.name NOT LIKE ? AND MONTH(events.date) = ?", "誕生日", Date.today.month)
-  }
-
-  scope :with_special_day_next_month, lambda {
-    joins(:events).where("events.name NOT LIKE ? AND MONTH(events.date) = ?", "誕生日", Date.today.next_month.month)
   }
 
   def self.ransackable_attributes(_auth_object = nil)
