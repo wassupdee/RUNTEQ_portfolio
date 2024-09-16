@@ -1,6 +1,8 @@
 <div id="outer-frame" class="flex h-full flex-col md:flex-row">
-  <%= render "shared/sidebar", profile: profile %>
-  <%= render "shared/top_tab", profile: profile %>
+  <% if defined?(profile) && profile.persisted? %>
+    <%= render "shared/sidebar", profile: profile %>
+    <%= render "shared/top_tab", profile: profile %>
+  <% end %>
 
   <div id="right-section" class="flex flex-col w-full items-center mt-5 md:mt-10 mb-20 md:mb-10">
     <div id="card" class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl h-full overflow-auto">
