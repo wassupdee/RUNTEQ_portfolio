@@ -13,9 +13,11 @@ class OauthsController < ApplicationController
     if @user = current_user
       get_line_id(provider)
       if @user.update(line_user_id: @user_hash[:uid])
-        redirect_back_or_to root_path, notice: "ラインIDを登録しました"
+        flash[:success] = "ラインIDを登録しました"
+        redirect_back_or_to root_path
       else
-        redirect_back_or_to root_path, notice: "ラインID登録に失敗しました"
+        flash[:danger] = "ラインID登録に失敗しました"
+        redirect_back_or_to root_path
       end
     elsif (@user = login_from(provider))
       redirect_back_or_to root_path, notice: "Logged in from #{provider.titleize}!"
