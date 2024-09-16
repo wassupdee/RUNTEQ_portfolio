@@ -10,15 +10,15 @@ class Event < ApplicationRecord
   end
 
   def scheduled_to_notify_today?
-    change_to_current_year - change_utc_to_jst(DateTime.now).to_date == notification_timing
+    event_date_this_year - utc_today_to_jst.to_date == notification_timing
   end
 
-  def change_to_current_year
+  def event_date_this_year
     Date.new(Date.today.year, date.mon, date.mday)
   end
 
-  def change_utc_to_jst(datetime)
-    datetime + 9.hours
+  def utc_today_to_jst
+    DateTime.now + 9.hours
   end
 
   def check_number_of_events

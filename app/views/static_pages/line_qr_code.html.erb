@@ -8,5 +8,9 @@
   <%= image_tag 'line_qr_code.png' %>
   <p class="text-xl mt-2">LINE公式アカウントID:@589vljjq</p>
 
+  <%= link_to auth_at_provider_path(provider: :line) do %>
+    <%= image_tag "btn_login_base.png", class:"w-32 h-auto mt-6"%>
+  <% end %>
+
   <%= link_to '前の画面に戻る', request.referer, class:"mt-5" %>
 </div>
