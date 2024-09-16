@@ -16,13 +16,13 @@ class Profile < ApplicationRecord
                      size: { less_than: 1.megabytes, message: "is too large" },
                      limit: { max: 1 }
 
-  scope :with_birthday_this_month, lambda {
-    joins(:events).where("events.name LIKE ? AND MONTH(events.date) = ?", "誕生日", Date.today.month)
-  }
+  def birthdays_this_month
+    events.first.date.month == Date.today.month
+  end
 
-  scope :with_special_day_this_month, lambda {
-    joins(:events).where("events.name NOT LIKE ? AND MONTH(events.date) = ?", "誕生日", Date.today.month)
-  }
+  def special_days_this_month
+    events.last.date.month == Date.today.month
+  end
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[name furigana line_name]
