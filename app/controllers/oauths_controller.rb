@@ -10,7 +10,14 @@ class OauthsController < ApplicationController
 
   def callback
     provider = auth_params[:provider]
-    if (@user = login_from(provider))
+    if @user = current_user
+      get_line_id(provider)
+      if @user.update(line_user_id: @user_hash[:uid])
+        redirect_back_or_to root_path, notice: "ラインIDを登録しました"
+      else
+        redirect_back_or_to root_path, notice: "ラインID登録に失敗しました"
+      end
+    elsif (@user = login_from(provider))
       redirect_back_or_to root_path, notice: "Logged in from #{provider.titleize}!"
     else
       new_user_login(provider)
@@ -32,5 +39,9 @@ class OauthsController < ApplicationController
     redirect_back_or_to root_path, notice: "Logged in from #{provider.titleize}!"
   rescue StandardError
     redirect_to root_path, alert: "Failed to login from #{provider.titleize}!"
+  end
+
+  def get_line_id(provider_name, should_remember = false)
+    sorcery_fetch_user_hash provider_name
   end
 end
