@@ -1,5 +1,5 @@
 sorcery:
   # URL末尾に、/oauth/callback?provider=lineを付けること！
-  line_callback_url: "https://398f-111-188-249-255.ngrok-free.app/oauth/callback?provider=line"
+  line_callback_url: "https://23be-111-188-250-245.ngrok-free.app/oauth/callback?provider=line"
 default_url_options:
   host: "localhost:3000"
