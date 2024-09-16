@@ -10,14 +10,14 @@ class Event < ApplicationRecord
   end
 
   def scheduled_to_notify_today?
-    event_date_this_year - today_utc_to_jst.to_date == notification_timing
+    event_date_this_year - utc_today_to_jst.to_date == notification_timing
   end
 
   def event_date_this_year
     Date.new(Date.today.year, date.mon, date.mday)
   end
 
-  def today_utc_to_jst
+  def utc_today_to_jst
     DateTime.now + 9.hours
   end
 
