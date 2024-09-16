@@ -20,5 +20,47 @@ module.exports = {
   },
   plugins: [require("daisyui"),
     require('@tailwindcss/forms'),
+    function({ addUtilities }) {
+      const newUtilities = {
+        ".text-shadow-gray": {
+          textShadow: "0px 2px 3px darkgrey"
+        },
+        ".text-shadow-gray-md": {
+          textShadow: "0px 3px 3px darkgrey"
+        },
+        ".text-shadow-gray-lg": {
+          textShadow: "0px 5px 3px darkgrey"
+        },
+        ".text-shadow-gray-xl": {
+          textShadow: "0px 7px 3px darkgrey"
+        },
+        ".text-shadow-gray-2xl": {
+          textShadow: "0px 10px 3px darkgrey"
+        },
+        ".text-shadow-gray-none": {
+          textShadow: "none"
+        },
+        ".text-shadow-white": {
+          textShadow: "0px 2px 3px white"
+        },
+        ".text-shadow-white-md": {
+          textShadow: "0px 3px 3px white"
+        },
+        ".text-shadow-white-lg": {
+          textShadow: "0px 5px 3px white"
+        },
+        ".text-shadow-white-xl": {
+          textShadow: "0px 7px 3px white"
+        },
+        ".text-shadow-white-2xl": {
+          textShadow: "0px 10px 3px white"
+        },
+        ".text-shadow-white-none": {
+          textShadow: "none"
+        }
+      };
+
+      addUtilities(newUtilities);
+    }
   ]
 }
