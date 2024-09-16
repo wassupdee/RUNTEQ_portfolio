@@ -17,11 +17,11 @@ class Profile < ApplicationRecord
                      limit: { max: 1 }
 
   def birthdays_this_month
-    events.first.date.month == Date.today.month
+    events.first.date&.month == Date.today.month
   end
 
   def special_days_this_month
-    events.last.date.month == Date.today.month
+    events.last.date&.month == Date.today.month
   end
 
   def self.ransackable_attributes(_auth_object = nil)
