@@ -1,16 +1,24 @@
 <% content_for(:tab_title, "LINE QRコード") %>
 
-<div class="flex items-center flex-col mt-40">
-  <p class="text-2xl mb-10">
-    QRコードを読み込むか、ID検索をして友達登録してね！<br>
-    登録した誕生日や大切な日にLINE通知を受けとることができるよ！
-  </p>
-  <%= image_tag 'line_qr_code.png' %>
-  <p class="text-xl mt-2">LINE公式アカウントID:@589vljjq</p>
-
-  <%= link_to auth_at_provider_path(provider: :line) do %>
-    <%= image_tag "btn_login_base.png", class:"w-32 h-auto mt-6"%>
-  <% end %>
-
-  <%= link_to '前の画面に戻る', request.referer, class:"mt-5" %>
+<h1 class="text-2xl md:text-4xl font-semibold text-center mt-10">LINE通知を受けとる設定</h1>
+<div id="main" class="flex w-full h-fit mt-20">
+  <div id="left-side" class="flex w-1/2 items-center flex-col h-1/2 p-2">
+    <h2 class="text-xl md:text-3xl font-semibold text-center mb-16">設定①</h2>
+    <p class="text-md md:text-2xl text-center mb-4">Stay FriendsのLINE公式アカウントに、友達登録をしてね！</p>
+    <%= image_tag "line_qr_code.png", class:"w-24 h-auto md:w-48 md:mb-8" %>
+    <p class="text-xs md:text-xl">LINE公式アカウントID: @589vljjq</p>
+  </div>
+  <div id="right-side" class="flex w-1/2 items-center flex-col h-1/2 p-2">
+    <h2 class="text-xl md:text-3xl font-semibold text-center mb-16">設定②</h2>
+    <p class="text-md md:text-2xl text-center">LINEログインをしてね！</p>
+    <p class="text-sm md:text-lg text-center mb-16">※メールアドレスでアカウント登録した人のみ</p>
+    <div class="flex justify-center">
+      <%= link_to auth_at_provider_path(provider: :line) do %>
+        <%= image_tag "btn_login_base.png", class:"w-24 md:w-32 h-auto"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="flex justify-center w-full mt-10">
+  <%= link_to '前の画面に戻る', request.referer, class:"text-center" %>
 </div>

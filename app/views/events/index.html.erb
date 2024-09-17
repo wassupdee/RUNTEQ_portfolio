@@ -4,21 +4,22 @@
   <%= render "shared/sidebar", profile: @profile%>
   <%= render "shared/top_tab", profile: @profile%>
 
-  <div id="right-section" class="h-full w-full flex md:items-center justify-center">
-    <div id="card" class="w-full mt-5 md:p-10 md:flex flex-col md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl md:w-2/3 mb-20 md:mb-0">
+  <div id="right-section" class="h-full w-full flex justify-center">
+    <div id="card" class="w-full h-fit mt-20 md:p-10 md:flex flex-col md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl md:w-2/3 mb-20 md:mb-0">
       <% if @profile.user.notification_enabled == "off" %>
         <%= render "notification_off" %>
       <% else %>
         <%= render "notification_on" %>
       <% end %>
       <div id="notice" class="flex flex-col items-center mt-10 md:text-xl text-sm">
-        <p>※通知機能を使うためには、LINEの友達登録が必要です。</p>
+        <p>※LINE通知機能を使うためには、LINE友達登録が必要です。</p>
         <div>
           友達登録は
           <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
             こちらから
           <% end %>
         </div>
+      </div>
     </div>
   </div>
 </div>

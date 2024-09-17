@@ -1,30 +1,43 @@
 <% content_for(:tab_title, "マイページ") %>
-
 <div class="flex flex-col items-center">
-  <h1 class="text-3xl font-bold pt-20 pb-10">マイページ</h1>
-  <%= form_with model: @user, data: { turbo: false } do |f| %>
-    <div class="mb-4">
-      <%= f.label :name, "名前", class: "block font-medium mb-1 text-black" %>
-      <%= f.text_field :name, class: "w-full rounded p-2 bg-white border border-black" %>
-    </div>
+  <div id="card" class="md:border md:rounded-3xl md:border-slate-100 md:p-10 md:mt-10 md:bg-opacity-10 md:shadow-2xl h-full overflow-auto">
+    <div class="flex flex-col items-center">
+      <h1 class="text-3xl font-bold pt-10 md:pt-0 pb-10">マイページ</h1>
+      <%= form_with model: @user, data: { turbo: false } do |f| %>
+        <div class="mb-4">
+          <%= f.label :name, "名前", class: "block font-medium mb-1 text-black" %>
+          <%= f.text_field :name, class: "w-full rounded p-2 bg-white border border-black" %>
+        </div>
 
-    <div class="mb-4">
-      <%= f.label :notification_enabled, "LINE通知", class: "block font-medium mb-1 text-black" %>
-      <div class="col-span-1 flex items-center text-white">
-        <%= f.select :notification_enabled, [["ON", "on"], ["OFF", "off"]] %>
+        <div class="mb-4">
+          <%= f.label :notification_enabled, "LINE通知", class: "block font-medium mb-1 text-black" %>
+          <div class="col-span-1 flex items-center">
+            <%= f.select :notification_enabled, [["ON", "on"], ["OFF", "off"]] %>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <%= f.submit "更新", class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
+        </div>
+      <% end %>
+
+      <div class="mt-6">
+        <% unless @user.authentications.exists? %>
+          <%= link_to new_password_reset_path do %>
+            パスワードの変更は<span class="underline underline-offset-1">こちら</span>から
+          <% end %>
+        <% end %>
+      </div>
+      <div id="notice" class="flex flex-col items-center mt-6 text-center">
+        <p>※LINE通知機能を使うためには、</p>
+        <p>LINE友達登録が必要です。</p>
+        <div>
+          友達登録は
+          <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
+            こちらから
+          <% end %>
+        </div>
       </div>
     </div>
-
-    <div class="flex justify-center">
-      <%= f.submit "更新", class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
-    </div>
-  <% end %>
-
-  <div class="mt-6">
-    <% unless @user.authentications.exists? %>
-      <%= link_to new_password_reset_path do %>
-        パスワードの変更は<span class="underline underline-offset-1">こちら</span>から
-      <% end %>
-    <% end %>
-</div>
+  </div>
 </div>

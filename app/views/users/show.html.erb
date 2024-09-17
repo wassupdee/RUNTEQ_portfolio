@@ -1,20 +1,22 @@
 <% content_for(:tab_title, "マイページ") %>
 
 <div class="flex flex-col items-center">
-  <h1 class="text-3xl font-bold pt-20 pb-10">マイページ</h1>
-  <div>
-    <div class="mb-4">
-      <p class="block font-medium mb-1 text-black">ユーザー名</p>
-      <%= @user.name %>
-    </div>
+  <div id="card" class="md:border md:rounded-3xl md:border-slate-100 md:px-28 py-20 md:mt-10 md:bg-opacity-10 md:shadow-2xl h-full overflow-auto">
+    <h1 class="text-3xl font-bold pt-10 md:pt-0 pb-10">マイページ</h1>
+    <div>
+      <div class="mb-4">
+        <p class="block font-medium mb-1 text-black">ユーザー名</p>
+        <%= @user.name %>
+      </div>
 
-    <div class="mb-4">
-      <p class="block font-medium mb-1 text-black">LINE通知設定</p>
-      <%= @user.notification_enabled == "on" ? "ON" : "OFF" %>
-    </div>
+      <div class="mb-4">
+        <p class="block font-medium mb-1 text-black">LINE通知設定</p>
+        <%= @user.notification_enabled == "on" ? "ON" : "OFF" %>
+      </div>
 
-  </div>
-  <div class="mt-6">
-    <%= link_to "編集", edit_user_path(@user), class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
+    </div>
+    <div class="mt-6 flex justify-center">
+      <%= link_to "編集", edit_user_path(@user), class: "btn bg-golden text-black border-none hover:bg-yellow-500" %>
+    </div>
   </div>
 </div>
