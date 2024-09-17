@@ -9,6 +9,10 @@
     <div class="font-bold space-x-8 mr-10 hidden md:block">
       <%= link_to "AIメッセージ作成", introduction_path(1) %>
       <%= link_to "連絡帳", profiles_path %>
+      <%= link_to how_to_use_path do %>
+        使い方
+        <i class="fa-regular fa-circle-question"></i>
+      <% end %>
       <%= link_to "ログイン", login_path %>
       <%= link_to new_user_path do %>
         <button class="btn bg-ivory-white text-black border-none hover:bg-peach-red <%= "hover:bg-slate-300" if current_page?(root_path) %>">新規登録</button>
