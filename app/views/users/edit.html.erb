@@ -26,5 +26,14 @@
         パスワードの変更は<span class="underline underline-offset-1">こちら</span>から
       <% end %>
     <% end %>
-</div>
+  </div>
+  <div id="notice" class="flex flex-col items-center mt-6">
+    <p>※LINE通知機能を使うためには、LINE友達登録が必要です。</p>
+    <div>
+      友達登録は
+      <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
+        こちらから
+      <% end %>
+    </div>
+  </div>
 </div>
