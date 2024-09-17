@@ -232,7 +232,7 @@
           <tbody>
             <% @profiles.each do |profile| %>
               <tr class="bg-white border-b hover:bg-gray-50 ">
-                <th scope="row" class="flex items-center p-1 text-gray-900 whitespace-nowrap">
+                <th scope="row" class="flex items-center p-1 text-gray-900">
                     <div id="avatar" class="w-50 h-50">
                       <% if profile.avatar.attached? %>
                         <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>

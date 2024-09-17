@@ -91,6 +91,9 @@ group :development, :test do
 
   #Send emails
   gem 'letter_opener_web', '~> 3.0'
+
+  # generate data
+  gem 'faker'
 end
 
 group :development do

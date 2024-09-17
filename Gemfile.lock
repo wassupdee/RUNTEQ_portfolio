@@ -143,6 +143,8 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
     faraday (2.10.0)
       faraday-net_http (>= 2.0, < 3.2)
       logger
@@ -434,6 +436,7 @@ DEPENDENCIES
   dotenv
   enum_help
   factory_bot_rails
+  faker
   gretel
   image_processing (~> 1.2)
   jbuilder

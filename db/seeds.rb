@@ -25,3 +25,36 @@ answers_data = [
 answers_data.each do |answer_data|
   Answer.find_or_create_by!(answer_data)
 end
+
+user = User.create!(
+  email: "seed@example.com",
+  name: "Seed User",
+  password: "password123",
+  password_confirmation: "password123",
+  notification_enabled: true
+)
+
+10.times do |n|
+  profile = user.profiles.create!(
+      name: Faker::Name.unique.name,
+      furigana: "てすと",
+      phone: Faker::PhoneNumber.unique.phone_number,
+      email: Faker::Internet.unique.email,
+      line_name: "てすと",
+      address: "東京都中央区123-456",
+      last_contacted: Profile.last_contacteds.keys.sample,
+      note: "久しぶりに連絡を取った！元気そうでよかった！"
+    )
+  profile.events.create!(
+    name: "誕生日",
+    date: Faker::Date.backward(days: 30),
+    notification_timing: [0,1,3,7,14,30,60].sample,
+    notification_enabled: true
+  )
+  profile.events.create!(
+    name: "大切な日",
+    date: Faker::Date.backward(days: 30),
+    notification_timing: [0,1,3,7,14,30,60].sample,
+    notification_enabled: true
+  )
+end
