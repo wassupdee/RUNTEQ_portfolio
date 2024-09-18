@@ -36,6 +36,7 @@
               <% end %>
             </turbo-frame>
             <%= form.file_field :images, multiple: true, data: { previews_target: "input", action: "change->previews#preview" } %>
+            <p class="text-center p-4">※写真は３枚まで保存できます</p>
           </div>
 
           <!--DBに保存済みの写真を表示する-->
