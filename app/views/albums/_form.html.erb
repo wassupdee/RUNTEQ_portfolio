@@ -8,7 +8,7 @@
         <h1 class="text-3xl font-bold pt-10 md:pt-0 pb-10">アルバムフォーム</h1>
       </div>
       <div data-controller="previews" class="flex flex-col">
-        <%= form_with(model: [profile, album], data: { turbo: false }) do |form| %>
+        <%= form_with(model: [profile, album]) do |form| %>
           <%= render 'shared/error_messages', model: form.object %>
 
           <div class="mb-4">
