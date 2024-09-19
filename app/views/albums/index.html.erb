@@ -9,7 +9,7 @@
       <% @albums.each do |album| %>
         <div class="h-44 md:h-72 bg-white border border-gray-200 rounded-lg shadow">
           <% if album.images.attached? %>
-            <%= image_tag album.images.first, class: "w-full h-24 md:h-48 object-cover rounded-t-lg" %>
+            <%= image_tag album.images.first.variant(resize_to_fill: [446, 192]), class: "rounded-t-lg" %>
           <% end %>
             <div class="flex flex-col p-2">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 truncate ..."><%= album.title %></h5>
