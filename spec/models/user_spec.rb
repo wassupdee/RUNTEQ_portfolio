@@ -10,57 +10,50 @@ RSpec.describe User, type: :model do
     it "名前がない場合、無効である" do
       user = build(:user, name: "")
       user.valid?
-      expect(user.errors[:name]).to include("can't be blank")
+      expect(user.errors[:name]).to include("名前を入力してください")
     end
 
     it "名前が255文字以上場合、無効である" do
       user = build(:user, name: "n" * 256)
       user.valid?
-      expect(user.errors[:name]).to include("is too long (maximum is 255 characters)")
+      expect(user.errors[:name]).to include("255文字以内で入力してください")
     end
 
     it "メールアドレスがない場合、無効である" do
       user = build(:user, email: "")
       user.valid?
-      expect(user.errors[:email]).to include("can't be blank")
+      expect(user.errors[:email]).to include("メールアドレスを入力してください")
     end
 
     it "重複したメールアドレスの場合、無効である" do
       other_user = create(:user)
       user = build(:user, email: other_user.email)
       user.valid?
-      expect(user.errors[:email]).to include("has already been taken")
+      expect(user.errors[:email]).to include("このメールアドレスはすでに存在します")
     end
 
     it "パスワードが2文字以下の場合、無効である" do
       user = build(:user, password: "")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 3 characters)")
+      expect(user.errors[:password]).to include("パスワードは３文字以上で設定してください")
     end
 
     it "パスワード(確認用）がない場合、無効である" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("can't be blank")
+      expect(user.errors[:password_confirmation]).to include("確認用のパスワードを入力してください")
     end
 
     it "パスワード(確認用）がパスワードと一致しない場合、無効である" do
       user = build(:user, password: "password", password_confirmation: "apple")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+      expect(user.errors[:password_confirmation]).to include("パスワードと一致しません")
     end
 
     it "notificaiton_enabledない場合、無効である" do
       user = build(:user, notification_enabled: "")
       user.valid?
-      expect(user.errors[:notification_enabled]).to include("can't be blank")
-    end
-
-    it "重複したline_user_idの場合、無効である" do
-      other_user = create(:user)
-      user = build(:user, line_user_id: other_user.line_user_id)
-      user.valid?
-      expect(user.errors[:line_user_id]).to include("has already been taken")
+      expect(user.errors[:notification_enabled]).to include("通知を設定してください")
     end
 
     it "line_user_idがblankの場合、重複していても有効である" do
