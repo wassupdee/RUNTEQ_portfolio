@@ -62,4 +62,10 @@ RSpec.describe Event, type: :model do
       expect(event3.errors[:events]).to include("大切な日は１つまでしか登録できません")
     end
   end
+
+  describe "enumチェック" do
+    it "boolean型のnotification_enabledが、off/onに対応している" do
+      expect(described_class.notification_enableds).to eq({"off" => false, "on" => true})
+    end
+  end
 end
