@@ -123,5 +123,11 @@ RSpec.describe Profile, type: :model do
         expect(profile.special_days_this_month).to be_falsey
       end
     end
+
+    context "ransack" do
+      it "検索のための属性を定義する" do
+        expect(described_class.ransackable_attributes).to eq(["name", "furigana", "line_name"])
+      end
+    end
   end
 end
