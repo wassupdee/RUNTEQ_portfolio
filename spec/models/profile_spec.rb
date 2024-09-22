@@ -3,6 +3,9 @@ require "rails_helper"
 RSpec.describe Profile, type: :model do
   let(:user) { create(:user) }
   let(:profile) { create(:profile, user:) }
+  let(:valid_image) { fixture_file_upload("valid_image.jpg") }
+  let(:large_image) { fixture_file_upload("large_image.jpg") }
+  let(:invalide_content_type) { fixture_file_upload("invalid_content_type.xlsx") }
 
   describe "アソシエーションチェック" do
     describe "userとのアソシエーション" do
@@ -126,6 +129,26 @@ RSpec.describe Profile, type: :model do
   describe "enumチェック" do
     it "last_contactedにenumが付いている" do
       expect(described_class.last_contacteds).to eq({"within_one_month" => 0, "within_one_year" => 1, "within_three_years" => 2, "more_than_three_years" => 3 })
+    end
+  end
+
+  describe "バリデーションチェック" do
+    context "無効なデータの場合" do
+      it "無効なファイル形式はアップロードできない" do
+        profile.avatar.attach(invalide_content_type)
+        expect(profile).to be_invalid
+      end
+      it "１MB以上のファイルはアップロードできない" do
+        profile.avatar.attach(large_image)
+        expect(profile).to be_invalid
+      end
+    end
+
+    context "有効なデータの場合" do
+      it "正常に画像が保存される" do
+        profile.avatar.attach(valid_image)
+        expect(profile).to be_valid
+      end
     end
   end
 end
