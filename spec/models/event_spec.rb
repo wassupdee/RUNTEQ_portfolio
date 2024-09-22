@@ -18,18 +18,18 @@ RSpec.describe Event, type: :model do
       expect(event.ready_to_notify?).to eq(true)
     end
 
-    it "日付をUTCからJSTへ変換する" do
-      utc = DateTime.new(2024, 8, 15, 23, 0, 0)
-      event = create(:event, profile:, date: utc)
-      jst = event.change_utc_to_jst(utc)
+    it "日付をUTCからJSTへ変換する（９時間先に進める）" do
+      utc = DateTime.now
+      event = create(:event, profile:, date: DateTime.now)
+      jst = event.utc_today_to_jst
 
-      expect(jst).to eq(DateTime.new(2024, 8, 16, 8, 0, 0))
+      expect(jst.change(sec: 0)).to eq((utc + 9.hours).change(sec: 0))
     end
 
     it "特定の日付の「年」を今年に変更する" do
       date = Date.new(2000, 8, 15)
       event = create(:event, profile:, date:)
-      new_date = event.change_to_current_year
+      new_date = event.event_date_this_year
 
       expect(new_date).to eq(Date.new(Date.today.year, 8, 15))
     end
@@ -51,7 +51,9 @@ RSpec.describe Event, type: :model do
 
       expect(event.scheduled_to_notify_today?).to eq(true)
     end
+  end
 
+  describe "バリデーションチェック" do
     it "1profileあたりの登録できるイベント数を2つまでに制限する" do
       create(:event, profile:)
       create(:event, profile:)
@@ -60,6 +62,12 @@ RSpec.describe Event, type: :model do
       event3.valid?
 
       expect(event3.errors[:events]).to include("大切な日は１つまでしか登録できません")
+    end
+  end
+
+  describe "enumチェック" do
+    it "boolean型のnotification_enabledが、off/onに対応している" do
+      expect(described_class.notification_enableds).to eq({ "off" => false, "on" => true })
     end
   end
 end

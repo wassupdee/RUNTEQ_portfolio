@@ -12,3 +12,29 @@ ja:
         within_one_year: １年前
         within_three_years: ３年前
         more_than_three_years: ３年より前
+  activerecord:
+    attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        line_user_id: "LINE ID"
+        notification_enabled: "通知設定"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+              too_long: "255文字以内で入力してください"
+            email:
+              blank: "メールアドレスを入力してください"
+              taken: "このメールアドレスはすでに存在します"
+            password:
+              too_short: "パスワードは３文字以上で設定してください"
+            password_confirmation:
+              blank: "確認用のパスワードを入力してください"
+              confirmation: "パスワードと一致しません"
+            notification_enabled:
+              blank: "通知を設定してください"

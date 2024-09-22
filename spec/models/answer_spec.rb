@@ -14,9 +14,16 @@ RSpec.describe Answer, type: :model do
   end
 
   describe "バリデーションチェック" do
-    it "valueがユニークであること" do
-      create(:answer, question:, value: "unique_value")
-      duplicated_answer = build(:answer, question:, value: "unique_value")
+    it "valueがユニークであれば登録できる" do
+      create(:answer, question:, value: "value_1")
+      different_answer = build(:answer, question:, value: "value_2")
+
+      expect(different_answer).to be_valid
+    end
+
+    it "valueが重複するとエラーが起きる" do
+      create(:answer, question:, value: "same_value")
+      duplicated_answer = build(:answer, question:, value: "same_value")
 
       expect(duplicated_answer).to be_invalid
     end
