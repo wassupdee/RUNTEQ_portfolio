@@ -121,7 +121,7 @@ RSpec.describe Profile, type: :model do
 
     context "ransack" do
       it "検索のための属性を定義する" do
-        expect(described_class.ransackable_attributes).to eq(["name", "furigana", "line_name"])
+        expect(described_class.ransackable_attributes).to eq(%w[name furigana line_name])
       end
     end
   end
