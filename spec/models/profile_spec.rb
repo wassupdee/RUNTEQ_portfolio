@@ -122,4 +122,10 @@ RSpec.describe Profile, type: :model do
       end
     end
   end
+
+  describe "enumチェック" do
+    it "last_contactedにenumが付いている" do
+      expect(described_class.last_contacteds).to eq({"within_one_month" => 0, "within_one_year" => 1, "within_three_years" => 2, "more_than_three_years" => 3 })
+    end
+  end
 end
