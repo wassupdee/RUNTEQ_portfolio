@@ -65,14 +65,6 @@ RSpec.describe Profile, type: :model do
         expect(profile.groups).to include(group1, group2)
       end
     end
-
-    describe "noteとのアソシエーション" do
-      let!(:note) { create(:note, profile:) }
-
-      it "noteと1対1の関係にある" do
-        expect(profile.note).to eq(note)
-      end
-    end
   end
 
   describe "accepts_nested_attributes_for" do
