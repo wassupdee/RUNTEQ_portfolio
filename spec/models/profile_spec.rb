@@ -93,12 +93,12 @@ RSpec.describe Profile, type: :model do
   describe "ロジックチェック" do
     context "誕生日のチェック" do
       it "誕生日の月が今月か判定する（同月の場合）" do
-        birthday = create(:event, date: Date.new(2000, Date.today.month, 13), profile:)
+        create(:event, date: Date.new(2000, Date.today.month, 13), profile:)
         expect(profile.birthdays_this_month).to be_truthy
       end
 
       it "誕生日の月が今月か判定する（違う月の場合）" do
-        birthday = create(:event, date: Date.new(2000, Date.today.next_month.month, 13), profile:)
+        create(:event, date: Date.new(2000, Date.today.next_month.month, 13), profile:)
         expect(profile.birthdays_this_month).to be_falsey
       end
     end
@@ -106,15 +106,15 @@ RSpec.describe Profile, type: :model do
     context "大切な日のチェック" do
       it "大切な日の月が今月か判定する（同月の場合）" do
         # 大切な日は２つ目のレコードのため、１つ目のレコード（誕生日）を作成する
-        birthday = create(:event, date: Date.new(2000, Date.today.month, 13), profile:)
-        special_day = create(:event, date: Date.new(2019, Date.today.month, 13), profile:)
+        create(:event, date: Date.new(2000, Date.today.month, 13), profile:)
+        create(:event, date: Date.new(2019, Date.today.month, 13), profile:)
         expect(profile.special_days_this_month).to be_truthy
       end
 
       it "大切な日の月が今月か判定する（同月の場合）" do
         # 大切な日は２つ目のレコードのため、１つ目のレコード（誕生日）を作成する
-        birthday = create(:event, date: Date.new(2000, Date.today.month, 13), profile:)
-        special_day = create(:event, date: Date.new(2019, Date.today.next_month.month, 13), profile:)
+        create(:event, date: Date.new(2000, Date.today.month, 13), profile:)
+        create(:event, date: Date.new(2019, Date.today.next_month.month, 13), profile:)
         expect(profile.special_days_this_month).to be_falsey
       end
     end
