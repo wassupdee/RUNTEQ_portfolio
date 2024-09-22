@@ -23,7 +23,7 @@ RSpec.describe Event, type: :model do
       event = create(:event, profile:, date: DateTime.now)
       jst = event.utc_today_to_jst
 
-      expect(jst.change(sec: 0)).to eq((utc + 9.hours).change(sec:0))
+      expect(jst.change(sec: 0)).to eq((utc + 9.hours).change(sec: 0))
     end
 
     it "特定の日付の「年」を今年に変更する" do
@@ -67,7 +67,7 @@ RSpec.describe Event, type: :model do
 
   describe "enumチェック" do
     it "boolean型のnotification_enabledが、off/onに対応している" do
-      expect(described_class.notification_enableds).to eq({"off" => false, "on" => true})
+      expect(described_class.notification_enableds).to eq({ "off" => false, "on" => true })
     end
   end
 end
