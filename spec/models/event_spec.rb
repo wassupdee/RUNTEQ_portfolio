@@ -51,7 +51,9 @@ RSpec.describe Event, type: :model do
 
       expect(event.scheduled_to_notify_today?).to eq(true)
     end
+  end
 
+  describe "バリデーションチェック" do
     it "1profileあたりの登録できるイベント数を2つまでに制限する" do
       create(:event, profile:)
       create(:event, profile:)
