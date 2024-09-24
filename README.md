@@ -95,11 +95,12 @@ https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/
 | - | - |
 | フロントエンド | TailwindCSS<br>daisyUI<br>JavaScript<br>Hotwire |
 | バックエンド | Ruby 3.2.3<br>Ruby on Rails 7.1.3.4|
-| インフラ | アプリケーションサーバー：Heroku<br>ファイルサーバー:Amazon S3 |
+| インフラ | Heroku<br>Amazon S3 |
 | データベース | MySQL |
 | API | OpenAI API<br>LINE Messaging API<br>LINE Login API |
 | CI | GitHubActions |
 | 開発環境 | Docker |
+| テスト | RSpec<br>Capybara<br>rubocop |
 
 ## 画面遷移図
 Figma：https://www.figma.com/design/lFd2OYHDfzMORIIZEBwt0Q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%E3%80%80%E6%B8%85%E6%9B%B8?node-id=38-1881&t=8kibtZcWwFSQPAt8-0
