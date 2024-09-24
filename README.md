@@ -91,28 +91,15 @@ https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/
 
 ## 使用技術
 
-## 機能の実装方針
-
-- AIによるメッセージ提案
-  - ChatGPT API
-
-- 会員登録・ログイン
-  - sorcery
-
-- LINE通知
-  - LINE Messaging API
-
-- 誕生日カレンダー
-  - simple_calendar　または
-  - Google Calender API
-
-- 提案メッセージをLINEへ送信
-  - LINE Messaging API
-
-- LINEログイン
-  - OAuth
-  - OpenIDConnect
-
+| カテゴリー | 仕様技術 |
+| - | - |
+| フロントエンド | TailwindCSS<br>daisyUI<br>JavaScript<br>Hotwire |
+| バックエンド | Ruby 3.2.3<br>Ruby on Rails 7.1.3.4|
+| インフラ | アプリケーションサーバー：Heroku<br>ファイルサーバー:Amazon S3 |
+| データベース | MySQL |
+| API | OpenAI API<br>LINE Messaging API<br>LINE Login API |
+| CI | GitHubActions |
+| 開発環境 | Docker |
 
 ## 画面遷移図
 Figma：https://www.figma.com/design/lFd2OYHDfzMORIIZEBwt0Q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%E3%80%80%E6%B8%85%E6%9B%B8?node-id=38-1881&t=8kibtZcWwFSQPAt8-0
