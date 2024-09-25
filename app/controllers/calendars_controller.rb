@@ -4,11 +4,9 @@ class CalendarsController < ApplicationController
   def index
     events = current_user.profiles.flat_map(&:events)
 
-    @events_this_year = events.map do |event|
-      if event.date.present?
+    @events_this_year = events.select{ |event| event.date.present? }.map do |event|
         event.date = event.date.change(year: @year)
         event
-      end
     end
   end
 
