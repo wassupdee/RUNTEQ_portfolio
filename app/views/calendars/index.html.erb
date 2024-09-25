@@ -1,0 +1,15 @@
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
+
+<!--
+<%= month_calendar(events: @events, attribute: :date) do |date, events_on_day| %>
+  <%= date %>
+
+  <% events_on_day.each do |event| %>
+    <div>
+      <%= event.profile.name%>の<%= event.name %>
+    </div>
+  <% end %>
+<% end %>
+-->
