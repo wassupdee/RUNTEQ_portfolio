@@ -7,6 +7,8 @@
 }
 
 .simple-calendar {
+  width: 90%;
+
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
@@ -17,6 +19,7 @@
     max-width: 100%;
     width: 100%;
     min-width: 1000px;
+    table-layout: fixed;
   }
 
   tr {
@@ -32,6 +35,7 @@
     border-top: 0px none rgb(51, 51, 51);
     box-sizing: border-box;
     text-align: left;
+    width: 100%;
   }
 
   td {
@@ -52,6 +56,7 @@
     border-left-color: rgb(221, 221, 221);
     border-left-style: solid;
     border-left-width: 1px;
+    width: 100%;
   }
 
   .calendar-heading {
