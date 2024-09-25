@@ -9,6 +9,7 @@
     <div class="font-bold space-x-8 mr-10 hidden md:block">
       <%= link_to "AIメッセージ作成", introduction_path(1) %>
       <%= link_to "連絡帳", profiles_path %>
+      <%= link_to "カレンダー", calendars_path %>
       <%= link_to how_to_use_path do %>
         使い方
         <i class="fa-regular fa-circle-question"></i>
@@ -31,6 +32,7 @@
           <!-- Sidebar content here -->
           <div><%= link_to "AIメッセージ作成", introduction_path(1) %></div>
           <div><%= link_to "連絡帳", profiles_path %></div>
+          <div><%= link_to "カレンダー", calendars_path %></div>
           <div class="divider divider-neutral"></div>
           <div>
             <%= link_to how_to_use_path do %>
