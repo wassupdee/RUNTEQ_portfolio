@@ -1,3 +1,11 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+}
+
 .simple-calendar {
   table {
     -webkit-border-horizontal-spacing: 0px;
@@ -8,6 +16,7 @@
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
+    min-width: 1000px;
   }
 
   tr {
@@ -28,7 +37,7 @@
   td {
     padding: 6px;
     vertical-align: top;
-    width: 14%;
+    width: fit-content;
 
     border: 1px solid #ddd;
     border-top-color: rgb(221, 221, 221);
@@ -45,8 +54,19 @@
     border-left-width: 1px;
   }
 
+  .calendar-heading {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .calendar-title {
+    font-size: 60px;
+  }
   .calendar-heading nav {
+    font-size: 20px;
     display: inline-block;
+    margin-bottom: 20px;
   }
 
   .day {

@@ -1,13 +1,15 @@
-<%= month_calendar(events: @events_this_year, attribute: :date) do |date, events_on_calendar| %>
-  <%= date.day %>
+<div class="table-container">
+  <%= month_calendar(events: @events_this_year, attribute: :date) do |date, events_on_calendar| %>
+    <%= date.day %>
 
-  <% events_on_calendar.each do |event| %>
-    <div>
-      <% if event.name == "誕生日" %>
-        <%= event.profile.name%>の<%= event.name %><i class="fa-solid fa-cake-candles"></i>
-      <% else %>
-        <%= event.profile.name%>の<%= event.name %><i class="fa-solid fa-calendar-check"></i>
-      <% end %>
-    </div>
+    <% events_on_calendar.each do |event| %>
+      <div>
+        <% if event.name == "誕生日" %>
+          <%= event.profile.name%>の<%= event.name %><i class="fa-solid fa-cake-candles"></i>
+        <% else %>
+          <%= event.profile.name%>の<%= event.name %><i class="fa-solid fa-calendar-check"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
