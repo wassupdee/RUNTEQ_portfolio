@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :set_q, only: %i[index]
   def new
     @profile = Profile.new
     @profile.events.build(name: "誕生日")
@@ -10,9 +11,6 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @q = current_user.profiles.ransack(params[:q])
-    @q.combinator = "or"
-    @q.sorts = "name asc" if @q.sorts.empty?
     @profiles = @q.result(distinct: true).includes(:events)
 
     @profiles_birthdays_this_month = current_user.profiles.select(&:birthdays_this_month)
@@ -69,5 +67,11 @@ class ProfilesController < ApplicationController
       end
       format.turbo_stream
     end
+  end
+
+  def set_q
+    @q = current_user.profiles.ransack(params[:q])
+    @q.combinator = "or"
+    @q.sorts = "name asc" if @q.sorts.empty?
   end
 end
