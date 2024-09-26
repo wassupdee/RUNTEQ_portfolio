@@ -71,10 +71,10 @@
               <tr>
                   <th scope="col" class="px-1 py-3 w-32">
                       <i class="fa-solid fa-check fa-sm"></i>
-                      最後に連絡した日
+                      <%= sort_link(@q, :last_contacted, "最後に連絡した日") %>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                      名前
+                      <%= sort_link(@q, :name, "名前") %>
                   </th>
                   <th scope="col" class="px-6 py-3">
                       メール
