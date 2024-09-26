@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Question, type: :model do
-  let(:question) { create(:question) }
+  let!(:question) { create(:question) }
   describe "アソシエーションチェック" do
     it "answersと1対多の関係にある" do
       answer1 = create(:answer, question:)
