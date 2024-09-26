@@ -25,6 +25,6 @@ class Profile < ApplicationRecord
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[name furigana line_name]
+    %w[name furigana line_name last_contacted]
   end
 end
