@@ -1,11 +1,11 @@
 require "rails_helper"
 
 RSpec.describe Profile, type: :model do
-  let(:user) { create(:user) }
-  let(:profile) { create(:profile, user:) }
-  let(:valid_image) { fixture_file_upload("valid_image.jpg") }
-  let(:large_image) { fixture_file_upload("large_image.jpg") }
-  let(:invalide_content_type) { fixture_file_upload("invalid_content_type.xlsx") }
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user:) }
+  let!(:valid_image) { fixture_file_upload("valid_image.jpg") }
+  let!(:large_image) { fixture_file_upload("large_image.jpg") }
+  let!(:invalide_content_type) { fixture_file_upload("invalid_content_type.xlsx") }
 
   describe "アソシエーションチェック" do
     describe "userとのアソシエーション" do

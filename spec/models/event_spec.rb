@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Event, type: :model do
-  let(:user) { create(:user) }
-  let(:profile) { create(:profile, user:) }
-  let(:event) { create(:event, profile:) }
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user:) }
+  let!(:event) { create(:event, profile:) }
 
   describe "アソシエーションチェック" do
     describe "profileとのアソシエーション" do

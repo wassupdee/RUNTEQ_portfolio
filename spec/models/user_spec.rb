@@ -72,7 +72,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "アソシエーションチェック" do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
 
     describe "profilesとのアソシエーション" do
       let!(:profile1) { create(:profile, user:) }
@@ -133,7 +133,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "accepts_nested_attributes_for" do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
 
     it "userモデルが更新される際、ネストされたauthenticationsの属性も保存する" do
       authentication_attributes = {
