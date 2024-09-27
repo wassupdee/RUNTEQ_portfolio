@@ -98,6 +98,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_27_013330) do
     t.datetime "updated_at", null: false
     t.integer "last_contacted"
     t.text "note"
+    t.bigint "group_id", null: false
+    t.index ["group_id"], name: "index_profiles_on_group_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
