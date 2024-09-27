@@ -1,7 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_many :groups_profiles, dependent: :destroy
-  has_many :groups, through: :groups_profiles
+  belongs_to :group
   has_many :albums, dependent: :destroy
   has_many :events, dependent: :destroy
 
