@@ -22,9 +22,9 @@ class GroupsController < ApplicationController
     @group = current_user.groups.find(params[:id])
   end
 
-
   def update
     @group = current_user.groups.find(params[:id])
+
     if @group.update(group_params)
       flash[:success] = "グループを更新しました"
       redirect_to groups_path
