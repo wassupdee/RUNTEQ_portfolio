@@ -1,0 +1,6 @@
+<%= form_with model: group do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
