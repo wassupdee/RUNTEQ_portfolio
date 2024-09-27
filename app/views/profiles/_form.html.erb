@@ -42,6 +42,10 @@
             <% end %>
           <% end %>
 
+          <%= profile_form.fields_for :group do |group_form| %>
+            <%= group_form.select :id, Group.pluck(:name, :id) %>
+          <% end %>
+
           <div class="mb-4">
             <div class="flex mb-1 items-center">
               <i class="fa-solid fa-phone fa-sm"></i>
