@@ -42,7 +42,7 @@
             <% end %>
           <% end %>
 
-          <%= profile_form.fields_for :group do |group_form| %>
+          <%= profile_form.fields_for :group, profile.group do |group_form| %>
             <%= group_form.select :id, Group.pluck(:name, :id) %>
           <% end %>
 
