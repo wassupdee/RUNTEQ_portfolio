@@ -35,7 +35,8 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user.profiles.find(params[:id])
-    if @profile.update(profile_params)
+    @profile.group = Group.find(profile_params[:group][:id])
+    if @profile.update(profile_params.except(:group))
       update_success
     else
       flash[:danger] = "連絡先を更新できませんでした"
