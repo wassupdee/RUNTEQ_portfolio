@@ -6,10 +6,10 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.new(group_params)
     if @group.save
-      flash[:success] = "アルバムを登録しました"
+      flash[:success] = "グループを登録しました"
       redirect_to groups_path
     else
-      flash[:danger] = "連絡先を登録できませんでした"
+      flash[:danger] = "グループを登録できませんでした"
       render :new, status: :unprocessable_entity
     end
   end
@@ -26,10 +26,10 @@ class GroupsController < ApplicationController
   def update
     @group = current_user.groups.find(params[:id])
     if @group.update(group_params)
-      flash[:success] = "アルバムを更新しました"
+      flash[:success] = "グループを更新しました"
       redirect_to groups_path
     else
-      flash[:danger] = "アルバムを更新できませんでした"
+      flash[:danger] = "グループを更新できませんでした"
       render :edit, status: :unprocessable_entity
     end
   end
