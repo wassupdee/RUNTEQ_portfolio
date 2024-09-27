@@ -1,5 +1,8 @@
 class RemoveGroupIdFromProfiles < ActiveRecord::Migration[7.1]
   def change
-    remove_column :profiles, :group_id
-  end
+    if column_exists?(:profiles, :group_id)
+      remove_column :profiles, :group_id
+    else
+      puts "group_id column does not exist, skipping removal."
+    end
 end
