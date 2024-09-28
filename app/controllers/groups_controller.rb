@@ -24,10 +24,9 @@ class GroupsController < ApplicationController
   def update
     @group = current_user.groups.find(params[:id])
     if @group.update(group_params)
-      flash[:success] = "グループを更新しました"
+      flash.now[:success] = "グループを更新しました"
     else
-      flash[:danger] = "グループを更新できませんでした"
-      render :edit, status: :unprocessable_entity
+      flash.now[:danger] = "グループを更新できませんでした"
     end
   end
 

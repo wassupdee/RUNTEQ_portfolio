@@ -1,5 +1,6 @@
 <% if @group.errors.any? %>
   <%= turbo_stream.replace "group_form_#{@group.id}", partial: "form", locals: { group: @group, group_form_id: "group_form_#{@group.id}" } %>
+  <%= turbo_stream.replace "flash_message", partial: "shared/flash_message" %>
 <% else %>
   <%= turbo_stream.replace "flash_message", partial: "shared/flash_message" %>
   <%= turbo_stream.replace dom_id(@group), partial: "group", locals: { group: @group } %>
