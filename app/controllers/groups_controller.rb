@@ -5,13 +5,12 @@ class GroupsController < ApplicationController
 
   def create
     @group = current_user.groups.new(group_params)
-    @group.save
-    # if @group.save
-    #   flash[:success] = "グループを登録しました"
-    # else
-    #   flash[:danger] = "グループを登録できませんでした"
-    #   render :new, status: :unprocessable_entity
-    # end
+    if @group.save
+      flash[:success] = "グループを登録しました"
+    else
+      flash[:danger] = "グループを登録できませんでした"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def index
