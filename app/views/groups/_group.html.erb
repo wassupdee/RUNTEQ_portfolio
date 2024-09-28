@@ -1,5 +1,5 @@
 <div id="<%= dom_id group %>">
   <%= group.name %>
-  <%= link_to "編集", edit_group_path(group) %>
+  <%= link_to "編集", edit_group_path(group), data: { turbo_stream: true}  %>
   <%= link_to "削除", group_path(group), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
 </div>
