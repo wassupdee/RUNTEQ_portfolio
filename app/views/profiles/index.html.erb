@@ -63,10 +63,17 @@
                 </div>
               <% end %>
           </div>
-          <div class="flex justify-center px-4 py-2">
-            <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
-              <button>連絡先を作成</button>
-            <% end %>
+          <div id="button" class="flex">
+            <div class="flex justify-center px-4 py-2">
+              <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
+                <button>連絡先を作成</button>
+              <% end %>
+            </div>
+            <div class="flex justify-center px-4 py-2">
+              <%= link_to groups_path, class: "btn bg-almond text-black border-none hover:bg-yellow-500" do %>
+                <button>グループを作成</button>
+              <% end %>
+            </div>
           </div>
       </div>
       <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -95,6 +102,12 @@
                     <div class="flex items-center space-x-2">
                       <i class="fa-solid fa-calendar-check"></i>
                       <div>大切な日</div>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-user-group"></i>
+                      <div>グループ</div>
                     </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
@@ -133,6 +146,9 @@
                 </td>
                 <td class="px-6 py-4 font-semibold">
                     <%= l profile.events.last.date if profile.events.last&.date.present? %>
+                </td>
+                <td class="px-6 py-4 font-semibold">
+                    <%= profile.group.name if profile.group.present? %>
                 </td>
                 <td class="px-6 py-4 font-semibold">
                   <div class="flex justify-around">
@@ -209,28 +225,42 @@
     <div class="w-11/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
       <div class="flex items-center justify-center flex-column flex-wrap md:flex-row md:space-y-0 py-2 bg-white">
           <div class="relative">
-              <%= search_form_for @q, url: profiles_path, class: "flex items-center space-x-2" do |f| %>
-                <div>
-                  <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-32 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+              <%= search_form_for @q, url: profiles_path do |f| %>
+                <div id="search_field" class="flex space-x-2 w-full mb-2">
+                  <div>
+                    <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-32 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  </div>
+                  <div>
+                    <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-32 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  </div>
                 </div>
-                <div>
-                  <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-32 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
-                </div>
-                <div>
-                  <button type="submit" class="p-2.5 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
-                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                      </svg>
-                  </button>
+                <div id="select_and_button" class="flex justify-between space-x-2 w-full">
+                  <div class="flex-grow">
+                    <%= f.select :group_id_eq, options_from_collection_for_select(current_user.groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border w-full border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  </div>
+                  <div>
+                    <button type="submit" class="p-2.5 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </button>
+                  </div>
                 </div>
               <% end %>
           </div>
       </div>
 
-      <div class="flex justify-center px-4 py-2">
-        <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
-          <button>連絡先を作成</button>
-        <% end %>
+      <div id="button" class="flex justify-center">
+        <div class="flex justify-center px-4 py-2">
+          <%= link_to new_profile_path, class: "btn bg-golden text-black border-none hover:bg-yellow-500" do %>
+            <button>連絡先を作成</button>
+          <% end %>
+        </div>
+        <div class="flex justify-center px-4 py-2">
+          <%= link_to groups_path, class: "btn bg-almond text-black border-none hover:bg-yellow-500" do %>
+            <button>グループを作成</button>
+          <% end %>
+        </div>
       </div>
 
       <div id="sort" class="text-center m-4">
@@ -272,6 +302,10 @@
                         <div class="font-normal text-gray-500">
                           <i class="fa-solid fa-check fa-sm"></i>
                           <%= profile.last_contacted_i18n%>
+                        </div>
+                        <div class="font-normal text-gray-500">
+                          <i class="fa-solid fa-user-group"></i>
+                          <%= profile.group&.name %>
                         </div>
                     </div>
                 </th>
