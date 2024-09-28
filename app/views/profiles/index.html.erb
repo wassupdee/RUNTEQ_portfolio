@@ -52,6 +52,9 @@
                   <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
+                  <%= f.select :group_id_eq, options_from_collection_for_select(current_user.groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                </div>
+                <div>
                   <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
                       <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
