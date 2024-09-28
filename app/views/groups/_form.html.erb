@@ -2,7 +2,7 @@
   <%= form_with model: group, id: group_form_id do |f| %>
     <%= render "shared/error_messages", model: f.object %>
     <div class="flex justify-between">
-      <%= f.text_field :name, placeholder: "グループ名", class: "flex-grow block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-32 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+      <%= f.text_field :name, placeholder: "新しいグループ名", class: "flex-grow block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-32 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
       <%= f.submit "保存", class: "btn bg-golden text-black border-none hover:bg-yellow-500 mx-2" %>
     </div>
   <% end %>
