@@ -43,16 +43,6 @@
           <% end %>
 
           <div class="mb-4">
-            <%= profile_form.fields_for :group, profile.group do |group_form| %>
-              <div class="flex mb-1 items-center">
-                <i class="fa-solid fa-user-group fa-sm"></i>
-                <%= group_form.label :id, "グループ名", class: "block font-medium text-black mx-1" %>
-              </div>
-              <%= group_form.select :id, Group.pluck(:name, :id), {include_blank: "", selected: profile.group_id } , class: "w-full rounded p-2 bg-white border border-gray-400" %>
-            <% end %>
-          </div>
-
-          <div class="mb-4">
             <div class="flex mb-1 items-center">
               <i class="fa-solid fa-phone fa-sm"></i>
               <%= profile_form.label :phone, '電話番号', class: "block font-medium text-black mx-1" %>
@@ -90,6 +80,16 @@
               <%= profile_form.label :last_contacted, '最後に連絡した日', class: "block font-medium text-black mx-1" %>
             </div>
             <%= profile_form.select :last_contacted, Profile.last_contacteds_i18n.map { |key, value| [value, key] },  { include_blank: true }, class: "w-full rounded p-2 bg-white border border-gray-400" %>
+          </div>
+
+          <div class="mb-4">
+            <%= profile_form.fields_for :group, profile.group do |group_form| %>
+              <div class="flex mb-1 items-center">
+                <i class="fa-solid fa-user-group fa-sm"></i>
+                <%= group_form.label :id, "グループ名", class: "block font-medium text-black mx-1" %>
+              </div>
+              <%= group_form.select :id, Group.pluck(:name, :id), {include_blank: "", selected: profile.group_id } , class: "w-full rounded p-2 bg-white border border-gray-400" %>
+            <% end %>
           </div>
 
           <div class="mb-4">
