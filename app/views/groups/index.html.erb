@@ -1,11 +1,9 @@
 <%= render "form", group: @group%>
 
 <div id="groups">
-  <% @groups.each do |g| %>
-    <% if g.persisted?%>
-      <%= g.name %>
-      <%= link_to "編集", edit_group_path(g) %>
-      <%= link_to "削除", group_path(g), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } %>
+  <% @groups.each do |group| %>
+    <% if group.persisted?%>
+      <%= render group %>
     <% end %>
   <% end %>
 </div>
