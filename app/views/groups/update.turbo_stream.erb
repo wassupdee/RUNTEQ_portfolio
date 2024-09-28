@@ -1,0 +1,5 @@
+<% if @group.errors.any? %>
+  <%= turbo_stream.replace "group_form_#{@group.id}", partial: "form", locals: { group: @group, group_form_id: "group_form_#{@group.id}" } %>
+<% else %>
+  <%= turbo_stream.replace dom_id(@group), partial: "group", locals: { group: @group } %>
+<% end %>
