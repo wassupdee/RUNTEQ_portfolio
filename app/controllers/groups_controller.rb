@@ -1,20 +1,15 @@
 class GroupsController < ApplicationController
-  def new
-    @group = current_user.groups.new
-  end
-
   def create
     @group = current_user.groups.new(group_params)
     if @group.save
-      flash[:success] = "グループを登録しました"
-      redirect_to groups_path
+      flash.now[:success] = "グループを登録しました"
     else
-      flash[:danger] = "グループを登録できませんでした"
-      render :new, status: :unprocessable_entity
+      flash.now[:danger] = "グループを登録できませんでした"
     end
   end
 
   def index
+    @group = current_user.groups.new
     @groups = current_user.groups
   end
 
@@ -24,20 +19,17 @@ class GroupsController < ApplicationController
 
   def update
     @group = current_user.groups.find(params[:id])
-
     if @group.update(group_params)
-      flash[:success] = "グループを更新しました"
-      redirect_to groups_path
+      flash.now[:success] = "グループを更新しました"
     else
-      flash[:danger] = "グループを更新できませんでした"
-      render :edit, status: :unprocessable_entity
+      flash.now[:danger] = "グループを更新できませんでした"
     end
   end
 
   def destroy
     @group = current_user.groups.find(params[:id])
     @group.destroy!
-    redirect_to groups_path
+    flash.now[:success] = "グループを削除しました"
   end
 
   private
