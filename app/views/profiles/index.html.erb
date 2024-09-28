@@ -105,6 +105,12 @@
                     </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
+                    <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-user-group"></i>
+                      <div>グループ</div>
+                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3">
                   </th>
               </tr>
           </thead>
@@ -140,6 +146,9 @@
                 </td>
                 <td class="px-6 py-4 font-semibold">
                     <%= l profile.events.last.date if profile.events.last&.date.present? %>
+                </td>
+                <td class="px-6 py-4 font-semibold">
+                    <%= profile.group.name if profile.group.present? %>
                 </td>
                 <td class="px-6 py-4 font-semibold">
                   <div class="flex justify-around">
