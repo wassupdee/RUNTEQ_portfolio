@@ -35,6 +35,7 @@ class GroupsController < ApplicationController
   def destroy
     @group = current_user.groups.find(params[:id])
     @group.destroy!
+    flash[:success] = "グループを削除しました"
   end
 
   private
