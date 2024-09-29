@@ -9,7 +9,7 @@
       <div>
         <h1 class="text-3xl font-bold pt-10 md:pt-0 pb-10">連絡先フォーム</h1>
       </div>
-      <div>
+      <div data-controller="previews">
         <%= form_with model: profile, data: { turbo: false } do |profile_form| %>
           <%= render 'shared/error_messages', model: profile_form.object %>
 
@@ -100,12 +100,14 @@
             <%= profile_form.text_area :note, class: "w-full rounded p-2 bg-white border border-gray-400" %>
           </div>
 
+          <div data-previews-target="previewContainer" class="flex justify-center space-x-4 mb-4" ></div>
+
           <div class="mb-4">
             <div class="flex mb-1 items-center">
               <i class="fa-regular fa-image fa-sm"></i>
               <%= profile_form.label :avatar, 'プロフィール画像', class: "block font-medium text-black mx-1" %>
             </div>
-            <%= profile_form.file_field :avatar, class: "rounded p-2" %>
+            <%= profile_form.file_field :avatar, data: { previews_target: "input", action: "change->previews#preview" }, class: "rounded p-2" %>
           </div>
 
           <div class="flex justify-center mb-20 md:mb-0">
