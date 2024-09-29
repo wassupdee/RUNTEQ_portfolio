@@ -104,3 +104,17 @@
 
   .has-events {}
 }
+
+#pc-table {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+#mobile-table {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: table;
+  }
+}
