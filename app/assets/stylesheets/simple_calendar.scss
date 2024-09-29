@@ -18,7 +18,6 @@
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
-    min-width: 1000px;
     table-layout: fixed;
   }
 
@@ -104,4 +103,18 @@
   .current-month {}
 
   .has-events {}
+}
+
+#pc-table {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+#mobile-table {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: table;
+  }
 }
