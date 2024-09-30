@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = @q.result(distinct: true).includes(:events, :group)
+    @profiles = @q.result(distinct: true).includes(:events, :group).with_attached_avatar
     @groups = current_user.groups
 
     profiles_with_events = current_user.profiles.includes(:events)
