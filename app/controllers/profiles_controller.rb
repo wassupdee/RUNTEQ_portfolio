@@ -23,14 +23,14 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_user.profiles.new(profile_params.except(:group))
-    @profile.group = Group.find(profile_params[:group][:id])
+    @profile.group = profile_params[:group][:id].present? ? Group.find(profile_params[:group][:id]) : nil
     profile_save
   end
 
   def edit; end
 
   def update
-    @profile.group = Group.find(profile_params[:group][:id])
+    @profile.group = profile_params[:group][:id].present? ? Group.find(profile_params[:group][:id]) : nil
     if @profile.update(profile_params.except(:group))
       update_success
     else
