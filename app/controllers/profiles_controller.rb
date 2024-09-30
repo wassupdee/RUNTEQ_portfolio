@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = @q.result(distinct: true).includes(:events)
+    @profiles = @q.result(distinct: true).includes(:events, :group)
     profiles_with_events = current_user.profiles.includes(:events)
 
     @profiles_birthdays_this_month = profiles_with_events.select(&:birthdays_this_month)
