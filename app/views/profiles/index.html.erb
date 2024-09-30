@@ -52,7 +52,7 @@
                   <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
-                  <%= f.select :group_id_eq, options_from_collection_for_select(current_user.groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
                   <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
