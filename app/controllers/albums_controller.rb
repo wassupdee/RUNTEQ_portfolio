@@ -53,6 +53,6 @@ class AlbumsController < ApplicationController
   end
 
   def set_album
-    @album = @profile.albums.find(params[:id])
+    @album = @profile.albums.includes(images_attachments: :blob).find(params[:id])
   end
 end
