@@ -9,26 +9,28 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = current_user.profiles.includes(:events).find(params[:id])
+    @profile = current_user.profiles.includes(:events, :group).find(params[:id])
   end
 
   def index
-    @profiles = @q.result(distinct: true).includes(:events)
+    @profiles = @q.result(distinct: true).includes(:events, :group).with_attached_avatar
+    @groups = current_user.groups
 
-    @profiles_birthdays_this_month = current_user.profiles.select(&:birthdays_this_month)
-    @profiles_special_day_this_month = current_user.profiles.select(&:special_days_this_month)
+    profiles_with_events = current_user.profiles.includes(:events)
+    @profiles_birthdays_this_month = profiles_with_events.select(&:birthdays_this_month)
+    @profiles_special_day_this_month = profiles_with_events.select(&:special_days_this_month)
   end
 
   def create
     @profile = current_user.profiles.new(profile_params.except(:group))
-    @profile.group = Group.find(profile_params[:group][:id])
+    @profile.group = profile_params[:group][:id].present? ? Group.find(profile_params[:group][:id]) : nil
     profile_save
   end
 
   def edit; end
 
   def update
-    @profile.group = Group.find(profile_params[:group][:id])
+    @profile.group = profile_params[:group][:id].present? ? Group.find(profile_params[:group][:id]) : nil
     if @profile.update(profile_params.except(:group))
       update_success
     else
