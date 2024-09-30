@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = current_user.profiles.includes(:events).find(params[:id])
+    @profile = current_user.profiles.includes(:events, :group).find(params[:id])
   end
 
   def index
