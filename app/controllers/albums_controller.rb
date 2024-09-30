@@ -9,7 +9,7 @@ class AlbumsController < ApplicationController
   def show; end
 
   def index
-    @albums = @profile.albums.order(created_at: :desc)
+    @albums = @profile.albums.includes(images_attachments: :blob).order(created_at: :desc)
   end
 
   def create
