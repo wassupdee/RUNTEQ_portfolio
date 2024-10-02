@@ -1,0 +1,13 @@
+<div class="flex flex-col items-center">
+  <div class="text-center md:text-xl border rounded-3xl border-slate-100 p-8 md:p-10 mb-20 md:mb-10 mt-5 md:mt-10 bg-opacity-10 shadow-2xl max-w-full">
+      <h1 class="text-3xl font-bold pt-10 md:pt-0 pb-10"><i class="fa-solid fa-user-group"></i>グループリスト</h1>
+    <%= render "form", group: @group, group_form_id: "group_form" %>
+    <div id="groups">
+      <% @groups.each do |group| %>
+        <% if group.persisted?%>
+          <%= render group %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

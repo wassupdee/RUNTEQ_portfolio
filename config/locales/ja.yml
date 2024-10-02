@@ -31,6 +31,8 @@ ja:
         password_confirmation: "確認用パスワード"
         line_user_id: "LINE ID"
         notification_enabled: "通知設定"
+      group:
+        name: "グループ名"
     errors:
       models:
         user:
@@ -48,3 +50,7 @@ ja:
               confirmation: "パスワードと一致しません"
             notification_enabled:
               blank: "通知を設定してください"
+        group:
+          attributes:
+            name:
+              blank: "を入力してください"

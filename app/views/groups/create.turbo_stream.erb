@@ -1,0 +1,9 @@
+<% if @group.errors.any? %>
+  <%= turbo_stream.replace "group_form", partial: "form", locals: { group: current_user.groups.new, group_form_id: "group_form" } %>
+  <%= turbo_stream.replace "error_message", partial: "shared/error_messages", locals: { model: @group } %>
+  <%= turbo_stream.replace "flash_message", partial: "shared/flash_message" %>
+<% else %>
+  <%= turbo_stream.replace "group_form", partial: "form", locals: { group: current_user.groups.new, group_form_id: "group_form" } %>
+  <%= turbo_stream.replace "flash_message", partial: "shared/flash_message" %>
+  <%= turbo_stream.append "groups", partial: "group", locals: { group: @group } %>
+<% end %>

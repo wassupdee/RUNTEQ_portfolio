@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BannerController from "./banner_controller"
+application.register("banner", BannerController)
+
 import ClipboardController from "./clipboard_controller"
 application.register("clipboard", ClipboardController)
 

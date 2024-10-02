@@ -1,7 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_many :groups_profiles, dependent: :destroy
-  has_many :groups, through: :groups_profiles
+  belongs_to :group, optional: true
   has_many :albums, dependent: :destroy
   has_many :events, dependent: :destroy
 
@@ -25,6 +24,10 @@ class Profile < ApplicationRecord
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[name furigana line_name]
+    %w[name furigana line_name last_contacted]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    ["group"]
   end
 end

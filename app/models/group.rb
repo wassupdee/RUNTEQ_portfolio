@@ -1,5 +1,10 @@
 class Group < ApplicationRecord
   belongs_to :user
-  has_many :groups_profiles, dependent: :destroy
-  has_many :profiles, through: :groups_profiles
+  has_many :profiles, dependent: :destroy
+
+  validates :name, presence: true
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id name]
+  end
 end

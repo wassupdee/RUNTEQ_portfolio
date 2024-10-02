@@ -18,9 +18,9 @@
         <% end %>
       </div>
       <div id="grid" class="h-2/3 grid grid-cols-1 md:grid-cols-3 gap-4 w-full p-5 overflow-auto">
-        <% @album.images.each do |image| %>
+        <% @album.images.with_all_variant_records.each do |image| %>
           <div class="h-fit rounded-lg shadow">
-            <%= image_tag image.variant(resize_to_fit: [300, 300]), class: "object-cover rounded-lg" %>
+            <%= image_tag image.variant(resize_to_fill: [400, 300]), class: "object-cover rounded-lg" %>
           </div>
         <% end %>
       </div>
