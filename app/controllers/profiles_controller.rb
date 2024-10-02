@@ -44,7 +44,12 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to profiles_path, status: :see_other }
-      format.turbo_stream { render turbo_stream: turbo_stream.remove("profile_#{@profile.id}") }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove("profile_pc_#{@profile.id}"),
+          turbo_stream.remove("profile_mobile_#{@profile.id}")
+        ]
+      end
     end
   end
 
