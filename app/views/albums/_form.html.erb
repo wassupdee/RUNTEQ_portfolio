@@ -42,7 +42,7 @@
           <!--DBに保存済みの写真を表示する-->
           <div class="flex justify-center space-x-4 mb-4">
             <% if album.images.attached? && album.persisted? %>
-              <% album.images.with_all_variant_records.each do |image| %>
+              <% album.images.each do |image| %>
                 <div id="<%= "#{dom_id(album)}-#{image.id}" %>">
                   <% if image.persisted? %>
                     <div class="flex flex-col text-center">
