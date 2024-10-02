@@ -42,32 +42,20 @@ RSpec.describe Profile, type: :model do
       end
     end
 
-    # describe "groups_profilesとのアソシエーション" do
-    #   let!(:group1) { create(:group, user:) }
-    #   let!(:group2) { create(:group, user:) }
-    #   let!(:groups_profiles1) { create(:groups_profile, profile:, group: group1) }
-    #   let!(:groups_profiles2) { create(:groups_profile, profile:, group: group2) }
+    describe "groupsとのアソシエーション" do
+      let!(:group) { create(:group, user:) }
+      let!(:profile1) { create(:profile, group:, user:) }
+      let!(:profile2) { create(:profile, user:) }
 
-    #   it "groups_profilesと1対多の関係にある" do
-    #     expect(profile.groups_profiles).to include(groups_profiles1, groups_profiles2)
-    #   end
+      it "groupと1対多の関係にある" do
+        expect(profile1.group).to eq(group)
+      end
 
-    #   it "関連するgroups_profilesがあっても、profileを削除でき、groups_profilesも削除される" do
-    #     expect { profile.destroy }.to change { Profile.count }.by(-1)
-    #     expect(GroupsProfile.where(id: [groups_profiles1.id, groups_profiles2.id])).to be_empty
-    #   end
-    # end
-
-    # describe "groupsとのアソシエーション" do
-    #   let!(:group1) { create(:group, user:) }
-    #   let!(:group2) { create(:group, user:) }
-    #   let!(:groups_profiles1) { create(:groups_profile, profile:, group: group1) }
-    #   let!(:groups_profiles2) { create(:groups_profile, profile:, group: group2) }
-
-    #   it "groupsと1対多の関係にある" do
-    #     expect(profile.groups).to include(group1, group2)
-    #   end
-    # end
+      it "groupとアソシエーションせずともprofileレコードを作成できる" do
+        expect(profile2.group).to be_nil
+        expect(profile2).to be_valid
+      end
+    end
   end
 
   describe "accepts_nested_attributes_for" do
@@ -122,6 +110,10 @@ RSpec.describe Profile, type: :model do
     context "ransack" do
       it "検索のための属性を定義する" do
         expect(described_class.ransackable_attributes).to eq(%w[name furigana line_name last_contacted])
+      end
+
+      it "検索のためのアソシエーション先のモデルを定義する" do
+        expect(described_class.ransackable_associations).to eq(%w[group])
       end
     end
   end
