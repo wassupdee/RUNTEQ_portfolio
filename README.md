@@ -2,7 +2,7 @@
 [![Image from Gyazo](https://i.gyazo.com/6487a840df319e7e2f0d433572850d02.jpg)](https://gyazo.com/6487a840df319e7e2f0d433572850d02)
 
 ## アプリのURL
-https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/
+https://stay-friends-app.com
 
 ## サービス概要
 このアプリは、しばらく連絡を取らずに疎遠になってしまった「むかし仲が良かった友だち」と、再びつながることをサポートするサービスです。  
