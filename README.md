@@ -1,5 +1,6 @@
 # Stay Friends
-[![Image from Gyazo](https://i.gyazo.com/67584d8585937fa658248b72c2b8ebba.jpg)](https://gyazo.com/67584d8585937fa658248b72c2b8ebba)
+[![Image from Gyazo](https://i.gyazo.com/6487a840df319e7e2f0d433572850d02.jpg)](https://gyazo.com/6487a840df319e7e2f0d433572850d02)
+
 ## アプリのURL
 https://powerful-sands-04341-a27c5520cc0b.herokuapp.com/
 
