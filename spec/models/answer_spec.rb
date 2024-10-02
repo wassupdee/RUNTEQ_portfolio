@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Answer, type: :model do
-  let!(:user) { create(:user) }
-  let!(:question) { create(:question) }
-  let!(:answer) { create(:answer, question:) }
+  let(:user) { create(:user) }
+  let(:question) { create(:question) }
+  let(:answer) { create(:answer, question:) }
 
   describe "アソシエーションチェック" do
     describe "questionとのアソシエーション" do
