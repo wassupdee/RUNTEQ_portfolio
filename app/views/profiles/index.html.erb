@@ -116,7 +116,7 @@
           </thead>
           <tbody>
             <% @profiles.each do |profile| %>
-              <tr id="profile_<%= profile.id %>" class="bg-white border-b hover:bg-gray-50">
+              <tr id="profile_pc_<%= profile.id %>" class="bg-white border-b hover:bg-gray-50">
                 <td class="font-semibold">
                     <div class="flex justify-center items-center">
                         <%= form_with model: profile, data: { controller: "form" } do |f|%>
@@ -271,7 +271,7 @@
       <table class="w-full text-sm text-left rtl:text-right text-gray-500">
           <tbody>
             <% @profiles.each do |profile| %>
-              <tr class="bg-white border-b hover:bg-gray-50 ">
+              <tr id="profile_mobile_<%= profile.id %>" class="bg-white border-b hover:bg-gray-50">
                 <th scope="row" class="flex items-center p-1 text-gray-900">
                     <div id="avatar" class="w-50 h-50">
                       <% if profile.avatar.attached? %>
