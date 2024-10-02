@@ -1,273 +1,66 @@
 <div id="ai" class="flex flex-col items-center">
   <div>
-    <h1 class="w-full font-bold text-2xl p-10">メイン機能①　AIによるメッセージ提案</h1>
-    <div class="carousel carousel-center rounded-box max-w-md space-x-4 p-4">
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">3つの質問に答えるだけで・・・<br>　</h2>
-          <div id="ai-question" class="relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-            <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-            <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-            <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-              <a href="https://gyazo.com/0df6a54f3e60ceab5f6c4aceb0647302"><img src="https://i.gyazo.com/0df6a54f3e60ceab5f6c4aceb0647302.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-            </div>
-          </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">AIが「久しぶりに友だちに送る<br>最適なメッセージ」を提案します！</h2>
-          <div id="ai-message" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-            <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-            <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-            <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-              <a href="https://gyazo.com/9e61174af5f2e7a5be05a0c71df88d27"><img src="https://i.gyazo.com/9e61174af5f2e7a5be05a0c71df88d27.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-            </div>
-          </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">提案されたメッセージは<br>自分好みに編集できるよ！</h2>
-          <div id="ai-message-edit" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-            <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-            <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-            <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-              <a href="https://gyazo.com/5e3e4acda8c81a07d94d4598ec4fb99e"><img src="https://i.gyazo.com/5e3e4acda8c81a07d94d4598ec4fb99e.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-            </div>
-          </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">提案されたメッセージは<br>ワンクリックでコピーできるよ！</h2>
-          <div id="ai-message-copy" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-            <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-            <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-            <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-            <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-              <a href="https://gyazo.com/4f6a5ba18395f87ba2bac133ba5297f2"><img src="https://i.gyazo.com/4f6a5ba18395f87ba2bac133ba5297f2.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <h1 class="w-full font-bold text-xl md:text-2xl p-10 text-center">メイン機能①　AIによるメッセージ提案</h1>
+    <div class="carousel carousel-center rounded-box w-[330px] md:w-auto max-w-md space-x-4 p-4">
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '3つの質問に答えるだけで・・・', title_line2: '　', id: 'ai-question', image_url: 'https://i.gyazo.com/0df6a54f3e60ceab5f6c4aceb0647302.png' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: 'AIが「久しぶりに友だちに送る', title_line2: '最適なメッセージ」を提案します！', id: 'ai-message', image_url: 'https://i.gyazo.com/9e61174af5f2e7a5be05a0c71df88d27.png' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '提案されたメッセージは', title_line2: '自分好みに編集できるよ！', id: 'ai-message-edit', image_url: 'https://i.gyazo.com/5e3e4acda8c81a07d94d4598ec4fb99e.gif' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '提案されたメッセージは', title_line2: 'ワンクリックでコピーできるよ！', id: 'ai-message-copy', image_url: 'https://i.gyazo.com/4f6a5ba18395f87ba2bac133ba5297f2.gif' } %>
     </div>
   </div>
 </div>
 
 <div id="notification" class="flex flex-col items-center">
   <div>
-    <h1 class="w-full font-bold text-2xl p-10">メイン機能②　LINEへの通知機能</h1>
-    <div class="carousel carousel-center rounded-box max-w-md space-x-4 p-4">
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">友だちの誕生日を登録すると<br>LINEにリマインド通知が届くよ！</h2>
-        <div id="line-notification" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/c1f058c7252b1be24cc45e45544b30ab"><img src="https://i.gyazo.com/c1f058c7252b1be24cc45e45544b30ab.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">友だちの誕生日を登録すると<br>LINEにリマインド通知が届くよ！</h2>
-        <div id="line-notification" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/9e1a6a86a2080cd635cdc62862706b13"><img src="https://i.gyazo.com/9e1a6a86a2080cd635cdc62862706b13.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">個別の通知はマイページから<br>一括でOFFにできるよ！</h2>
-        <div id="mypage-notification" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/0fec8e352137184983b324b4236b5bb9"><img src="https://i.gyazo.com/0fec8e352137184983b324b4236b5bb9.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
+    <h1 class="w-full font-bold text-xl md:text-2xl p-10 text-center">メイン機能②　LINEへの通知機能</h1>
+    <div class="carousel carousel-center rounded-box w-[330px] md:w-auto max-w-md space-x-4 p-4">
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '友だちの誕生日を登録すると', title_line2: 'LINEにリマインド通知が届くよ！', id: 'line-notification', image_url: 'https://i.gyazo.com/c1f058c7252b1be24cc45e45544b30ab.gif' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '友だちの誕生日を登録すると', title_line2: 'LINEにリマインド通知が届くよ！', id: 'line-notification', image_url: 'https://i.gyazo.com/9e1a6a86a2080cd635cdc62862706b13.png' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '個別の通知はマイページから', title_line2: '一括でOFFにできるよ！', id: 'mypage-notification', image_url: 'https://i.gyazo.com/0fec8e352137184983b324b4236b5bb9.gif' } %>
     </div>
   </div>
 </div>
 
 <div id="profiles" class="flex flex-col items-center">
   <div>
-    <h1 class="w-full font-bold text-2xl p-10">メイン機能③　連絡帳</h1>
-    <div class="carousel carousel-center rounded-box max-w-md space-x-4 p-4">
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">友だちの連絡先を<br>一覧で管理できるよ！</h2>
-        <div id="profiles-index-mobile" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/878eba96ee6a2812542cb5cf949aafb6"><img src="https://i.gyazo.com/878eba96ee6a2812542cb5cf949aafb6.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">今月誕生日の友だちを<br>バナーでお知らせするよ！</h2>
-        <div id="banner" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/fc45b3a7df6f491bb3d55cd9817386d0"><img src="https://i.gyazo.com/fc45b3a7df6f491bb3d55cd9817386d0.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">名前で検索すれば<br>友だちを簡単に見つけられるよ！</h2>
-        <div id="profiles-index-search" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/bd453d018d247ac4d2450078af3bb19a"><img src="https://i.gyazo.com/bd453d018d247ac4d2450078af3bb19a.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">名前や最後に連絡した日で<br>ソートできるよ！</h2>
-        <div id="sort" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/28665ed181ca49dbd82d4e19e8eb1e2f"><img src="https://i.gyazo.com/28665ed181ca49dbd82d4e19e8eb1e2f.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">グループを作成できるよ！<br>　</h2>
-        <div id="group-create" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/67fa07e80238a69efe1c8fd7e29b7c77"><img src="https://i.gyazo.com/67fa07e80238a69efe1c8fd7e29b7c77.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">グループでフィルターをかけれるよ！<br>　</h2>
-        <div id="group-filtering" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/eab3db973298f8d1c8dd267a01579422"><img src="https://i.gyazo.com/eab3db973298f8d1c8dd267a01579422.gif" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
+    <h1 class="w-full font-bold text-xl md:text-2xl p-10 text-center">メイン機能③　連絡帳</h1>
+    <div class="carousel carousel-center rounded-box w-[330px] md:w-auto max-w-md space-x-4 p-4">
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '友だちの連絡先を', title_line2: '一覧で管理できるよ！', id: 'profiles-index-mobile', image_url: 'https://i.gyazo.com/878eba96ee6a2812542cb5cf949aafb6.png' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '今月誕生日の友だちを', title_line2: 'バナーでお知らせするよ！', id: 'banner', image_url: 'https://i.gyazo.com/fc45b3a7df6f491bb3d55cd9817386d0.png' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '名前で検索すれば', title_line2: '友だちを簡単に見つけられるよ！', id: 'profiles-index-search', image_url: 'https://i.gyazo.com/bd453d018d247ac4d2450078af3bb19a.gif' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '名前や最後に連絡した日で', title_line2: 'ソートできるよ！', id: 'sort', image_url: 'https://i.gyazo.com/28665ed181ca49dbd82d4e19e8eb1e2f.gif' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: 'グループを作成できるよ！', title_line2: '　', id: 'group-create', image_url: 'https://i.gyazo.com/67fa07e80238a69efe1c8fd7e29b7c77.gif' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: 'グループでフィルターをかけれるよ！', title_line2: '　', id: 'group-filtering', image_url: 'https://i.gyazo.com/eab3db973298f8d1c8dd267a01579422.gif' } %>
     </div>
   </div>
 </div>
 
-
 <div id="album" class="flex flex-col items-center">
   <div>
-    <h1 class="w-full font-bold text-2xl p-10">メイン機能④　アルバム</h1>
-    <div class="carousel carousel-center rounded-box max-w-md space-x-4 p-4">
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">友だちとの思い出を<br>アルバムに保存できるよ！</h2>
-        <div id="calendar" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/25d1fdd20ee5d07a51f95ffe4a3db93b"><img src="https://i.gyazo.com/25d1fdd20ee5d07a51f95ffe4a3db93b.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">写真と日記を<br>アルバムに保存できるよ！</h2>
-        <div id="calendar" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/8dc63b7989659f9bd042794108504224"><img src="https://i.gyazo.com/8dc63b7989659f9bd042794108504224.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
+    <h1 class="w-full font-bold text-xl md:text-2xl p-10 text-center">メイン機能④　アルバム</h1>
+    <div class="carousel carousel-center rounded-box w-[330px] md:w-auto max-w-md space-x-4 p-4">
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '友だちとの思い出を', title_line2: 'アルバムに保存できるよ！', id: 'calendar', image_url: 'https://i.gyazo.com/25d1fdd20ee5d07a51f95ffe4a3db93b.png' } %>
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '写真と日記を', title_line2: 'アルバムに保存できるよ！', id: 'calendar', image_url: 'https://i.gyazo.com/8dc63b7989659f9bd042794108504224.png' } %>
     </div>
   </div>
 </div>
 
 <div id="calendar" class="flex flex-col items-center">
   <div>
-    <h1 class="w-full font-bold text-2xl p-10">メイン機能⑤　カレンダー</h1>
-    <div class="carousel carousel-center rounded-box max-w-md space-x-4 p-4">
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">登録した友だちの誕生日を<br>カレンダー形式で見れるよ！</h2>
-        <div id="calendar" class="mb-20 relative border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-          <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-          <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-          <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-          <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-            <a href="https://gyazo.com/599ff27249c3bd7c28a48a334b0ab865"><img src="https://i.gyazo.com/599ff27249c3bd7c28a48a334b0ab865.png" class="w-[272px] h-[572px]" alt="Image from Gyazo"/></a>
-          </div>
-        </div>
-      </div>
+    <h1 class="w-full font-bold text-xl md:text-2xl p-10 text-center">メイン機能⑤　カレンダー</h1>
+    <div class="carousel carousel-center rounded-box w-[330px] md:w-auto max-w-md space-x-4 p-4">
+      <%= render partial: 'carousel_item_mobile', locals: { title_line1: '登録した友だちの誕生日を', title_line2: 'カレンダー形式で見れるよ！', id: 'calendar', image_url: 'https://i.gyazo.com/599ff27249c3bd7c28a48a334b0ab865.png' } %>
     </div>
   </div>
 </div>
 
-<div id="notification" class="flex flex-col items-center">
+<div id="notification" class="flex flex-col items-center mb-20 md:mb-0">
   <div>
-    <h1 class="w-full font-bold text-2xl p-10">その他　レスポンシブデザイン</h1>
+    <h1 class="w-full font-bold text-xl md:text-2xl p-10 text-center">その他　レスポンシブデザイン</h1>
     <div class="carousel carousel-center rounded-box max-w-md space-x-4 p-4">
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">パソコンでも使いやすいデザインだよ！</h2>
-          <div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[250px] md:max-w-[400px]">
-              <div class="rounded-lg overflow-hidden h-[156px] md:h-[235px] bg-white dark:bg-gray-800">
-                <a href="https://gyazo.com/8e7edbda0191abc0d0ba3150bff8dcf1"><img src="https://i.gyazo.com/8e7edbda0191abc0d0ba3150bff8dcf1.png" alt="Image from Gyazo" class="w-[400px]"/></a>
-              </div>
-          </div>
-          <div class="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
-              <div class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
-          </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">　</h2>
-          <div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[250px] md:max-w-[400px]">
-              <div class="rounded-lg overflow-hidden h-[156px] md:h-[235px] bg-white dark:bg-gray-800">
-                <a href="https://gyazo.com/84f5936d87b9d701babca798a3cb69fb"><img src="https://i.gyazo.com/84f5936d87b9d701babca798a3cb69fb.jpg" alt="Image from Gyazo" width="1702.6666666666667"/></a>
-              </div>
-          </div>
-          <div class="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
-              <div class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
-          </div>
-      </div>
-      <div class="carousel-item flex-col items-center">
-          <h2 class="text-xl mb-4">　</h2>
-          <div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[250px] md:max-w-[400px]">
-              <div class="rounded-lg overflow-hidden h-[156px] md:h-[235px] bg-white dark:bg-gray-800">
-              <a href="https://gyazo.com/6e9109353981a83615b519878fd72eb7"><img src="https://i.gyazo.com/6e9109353981a83615b519878fd72eb7.png" alt="Image from Gyazo" class="w-[400px]"/></a>    </div>
-          </div>
-          <div class="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
-              <div class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
-          </div>
-      </div>
+      <%= render partial: 'carousel_item_pc', locals: { title: 'パソコンでも使いやすいデザインだよ！', image_url: 'https://i.gyazo.com/8e7edbda0191abc0d0ba3150bff8dcf1.png', img_class: 'w-[400px]' } %>
+      <%= render partial: 'carousel_item_pc', locals: { title: '　', image_url: 'https://i.gyazo.com/84f5936d87b9d701babca798a3cb69fb.jpg', img_class: 'w-[400px]' } %>
+      <%= render partial: 'carousel_item_pc', locals: { title: '　', image_url: 'https://i.gyazo.com/6e9109353981a83615b519878fd72eb7.png', img_class: 'w-[400px]' } %>
     </div>
   </div>
 </div>
