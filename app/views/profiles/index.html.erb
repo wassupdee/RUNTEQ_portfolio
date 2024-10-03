@@ -112,6 +112,10 @@
                   </th>
                   <th scope="col" class="px-6 py-3">
                   </th>
+                  <th scope="col" class="px-6 py-3">
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                  </th>
               </tr>
           </thead>
           <tbody>
@@ -150,24 +154,26 @@
                 <td class="px-6 py-4 font-semibold">
                     <%= profile.group.name if profile.group.present? %>
                 </td>
-                <td class="px-6 py-4 font-semibold">
-                  <div class="flex justify-around">
-                    <div>
-                      <%= link_to profile_path(profile) do %>
-                        <i class="fa-solid fa-circle-info fa-lg"></i>
-                      <% end %>
-                    </div>
+                <td class="text-center">
+                  <div>
+                    <%= link_to profile_path(profile) do %>
+                      <i class="fa-solid fa-circle-info fa-lg"></i>
+                    <% end %>
+                  </div>
+                </td>
+                <td class="text-center">
                     <div>
                       <%= link_to edit_profile_path(profile) do %>
                         <i class="fa-solid fa-pen-to-square fa-lg"></i>
                       <% end %>
                     </div>
+                </td>
+                <td class="text-center">
                     <div>
                       <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
                         <i class="fa-solid fa-trash fa-lg"></i>
                       <% end %>
                     </div>
-                  </div>
                 </td>
               </tr>
             <% end %>
