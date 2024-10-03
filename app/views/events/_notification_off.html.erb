@@ -1,10 +1,10 @@
-<div class="w-full text-black text-sm md:text-2xl">
+<div class="w-full text-black md:text-base lg:text-2xl">
   <%= form_with model: @form, url: update_all_profile_events_path, method: :patch, data: { turbo: false } do |f| %>
     <fieldset disabled="disabled">
       <%= render 'shared/error_messages', model: f.object %>
 
       <%= f.fields_for :events do |i| %>
-        <div class="grid grid-cols-2 md:grid-cols-3 items-center gap-1 mb-4 text-center">
+        <div class="grid grid-cols-2 lg:grid-cols-3 items-center gap-1 mb-4 text-center">
           <div>
             <%= "#{i.object.name}の" %>
           </div>
@@ -12,7 +12,7 @@
             <%= i.select :notification_timing, [0,1,3,7,14,30,60], selected: i.object.notification_timing, class: "text-black w-full" %>
             <p>日前に</p>
           </div>
-          <div class="flex items-center space-x-1 col-span-2 col-start-2 md:col-span-1">
+          <div class="flex items-center space-x-1 col-span-2 col-start-2 lg:col-span-1">
             <p>通知</p>
             <%= i.select :notification_enabled, ["しない"], class: "p-0" %>
           </div>
@@ -29,9 +29,9 @@
     </fieldset>
   <% end %>
 </div>
-<div class="flex justify-center mt-10 text-sm md:text-xl">
+<div class="flex justify-center mt-10 text-sm lg:text-xl">
   <div class="text-center text-red-500">
-    <p>※マイページの通知設定がOFFになっているため、変更できません</p>
+    <p>※マイページの通知設定がOFFのため、<br class="md:hidden">変更できません</p>
     マイページは<%= link_to "こちら", edit_user_path(@profile.user), class: "underline underline-offset-1" %>
   </div>
 </div>
