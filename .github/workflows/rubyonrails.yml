@@ -68,7 +68,7 @@ jobs:
           bundle exec rails db:migrate RAILS_ENV=test
 
       - name: Run rspec
-        run: bundle exec rspec spec/models
+        run: bundle exec rspec
 
   lint:
     runs-on: ubuntu-latest
