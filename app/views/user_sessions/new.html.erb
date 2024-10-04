@@ -20,8 +20,8 @@
     <%= image_tag "btn_login_base.png", class:"w-32 h-auto mt-6"%>
   <% end %>
 
-  <div class="mt-6">
-    <%= link_to '新規登録', new_user_path, class:"link" %>｜
-    <%= link_to 'パスワードをお忘れの方はこちら', new_password_reset_path, class:"link" %>
+  <div class="mt-6 space-x-5 flex">
+    <%= link_to '新規登録', new_user_path, class:"link" %>
+    <%= link_to 'パスワードを忘れましたか？', new_password_reset_path, class:"link" %>
   </div>
 </div>
