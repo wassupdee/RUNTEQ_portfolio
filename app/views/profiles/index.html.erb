@@ -288,29 +288,31 @@
                     <div>
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-regular fa-envelope fa-sm"></i>
-                          <p><%= profile.email %></p>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-phone fa-sm"></i>
-                          <%= profile.phone %>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-cake-candles"></i>
-                          <%= l profile.events.first.date if profile.events.first&.date.present? %>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-calendar-check"></i>
-                          <%= l profile.events.last.date if profile.events.last&.date.present? %>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-check fa-sm"></i>
-                          <%= profile.last_contacted_i18n%>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-user-group"></i>
-                          <%= profile.group&.name %>
+                        <div id="detail" class="space-y-1">
+                          <div class="font-normal text-gray-500">
+                            <i class="fa-regular fa-envelope fa-sm"></i>
+                            <p><%= profile.email %></p>
+                          </div>
+                          <div class="font-normal text-gray-500">
+                            <i class="fa-solid fa-phone fa-sm"></i>
+                            <%= profile.phone %>
+                          </div>
+                          <div class="font-normal text-gray-500">
+                            <i class="fa-solid fa-cake-candles"></i>
+                            <%= l profile.events.first.date if profile.events.first&.date.present? %>
+                          </div>
+                          <div class="font-normal text-gray-500">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <%= l profile.events.last.date if profile.events.last&.date.present? %>
+                          </div>
+                          <div class="font-normal text-gray-500">
+                            <i class="fa-solid fa-check fa-sm"></i>
+                            <%= profile.last_contacted_i18n%>
+                          </div>
+                          <div class="font-normal text-gray-500">
+                            <i class="fa-solid fa-user-group"></i>
+                            <%= profile.group&.name %>
+                          </div>
                         </div>
                     </div>
                 </th>
