@@ -46,6 +46,6 @@ crumb :question_3 do |question|
 end
 
 crumb :ai_message do |question|
-  link "<span class='font-bold text-lg'>AI提案文</span>".html_safe, ai_message_path
+  link "<span class='font-bold md:text-lg'>AI提案文</span>".html_safe, ai_message_path
   parent :question_3, question
 end
