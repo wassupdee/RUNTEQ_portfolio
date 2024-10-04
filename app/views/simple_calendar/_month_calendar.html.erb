@@ -3,9 +3,9 @@
     <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
 
     <nav class="space-x-5">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn bg-almond text-black border-none hover:bg-yellow-600" %>
-      <%= link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view, class: "btn bg-yellow-500 text-black border-none hover:bg-yellow-600" %>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn bg-almond text-black border-none hover:bg-yellow-600" %>
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn bg-almond text-black border-none hover:bg-orange-500" %>
+      <%= link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view, class: "btn bg-sandy-brown text-black border-none hover:bg-orange-500" %>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn bg-almond text-black border-none hover:bg-orange-500" %>
     </nav>
   </div>
 
