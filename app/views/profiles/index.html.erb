@@ -104,12 +104,6 @@
                       <div>大切な日</div>
                     </div>
                   </th>
-                  <th scope="col" class="px-1 py-3">
-                    <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-user-group"></i>
-                      <div>グループ</div>
-                    </div>
-                  </th>
                   <th scope="col" class="px-6 py-3">
                   </th>
                   <th scope="col" class="px-6 py-3">
@@ -134,9 +128,10 @@
                     <% else %>
                       <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
                     <% end %>
-                    <div class="ps-3">
+                    <div class="ps-3 flex-grow">
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
+                        <div class="mt-1 font-normal"><i class="fa-solid fa-user-group fa-sm"></i><%= profile.group.name if profile.group.present? %></div>
                     </div>
                 </th>
                 <td class="px-6 py-4 font-semibold">
@@ -150,9 +145,6 @@
                 </td>
                 <td class="px-6 py-4 font-semibold">
                     <%= l profile.events.last.date if profile.events.last&.date.present? %>
-                </td>
-                <td class="px-6 py-4 font-semibold">
-                    <%= profile.group.name if profile.group.present? %>
                 </td>
                 <td class="text-center">
                   <div>
