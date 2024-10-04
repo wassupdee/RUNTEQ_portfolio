@@ -1,7 +1,7 @@
 <% content_for(:tab_title, "連絡帳") %>
 
 <!---PC画面用--->
-<div class="hidden sm:block">
+<div class="hidden xl:block">
   <div id="sticky-banner-pc" data-controller="banner" data-banner-target="banner" tabindex="-1" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
       <div class="flex items-center mx-auto">
           <p class="flex items-center text-sm">
@@ -46,13 +46,13 @@
           <div class="relative">
               <%= search_form_for @q, url: profiles_path, class: "flex items-center space-x-2" do |f| %>
                 <div>
-                  <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
-                  <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
-                  <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
                   <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
@@ -83,28 +83,28 @@
                       <i class="fa-solid fa-check fa-sm"></i>
                       <%= sort_link(@q, :last_contacted, "最後に連絡した日", class: "link") %>
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                       <%= sort_link(@q, :name, "名前", class: "link") %>
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                       メール
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                       電話番号
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                     <div class="flex items-center space-x-2">
                       <i class="fa-solid fa-cake-candles"></i>
                       <div>誕生日</div>
                     </div>
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                     <div class="flex items-center space-x-2">
                       <i class="fa-solid fa-calendar-check"></i>
                       <div>大切な日</div>
                     </div>
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                     <div class="flex items-center space-x-2">
                     <i class="fa-solid fa-user-group"></i>
                       <div>グループ</div>
@@ -184,8 +184,21 @@
 </div>
 
 <!---スマホ画面用--->
-<div class="md:hidden mb-20">
-  <div id="sticky-banner-mb" tabindex="-1" data-controller="banner" data-banner-target="banner" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 md:hidden <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
+<%# <table class="table">
+  <thead>
+    <tr>
+      <th>見出し</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p>あああああああああああ</p></td>
+    </tr>
+  </tbody>
+</table> %>
+
+<div class="xl:hidden mb-20 flex flex-col items-center">
+  <div id="sticky-banner-mb" tabindex="-1" data-controller="banner" data-banner-target="banner" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 xl:hidden <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
       <div class="flex items-center mx-auto">
         <p class="flex items-center text-sm">
           <div class="flex flex-col h-full">
@@ -227,7 +240,7 @@
 
 
 
-  <div class="relative overflow-x-auto sm:rounded-lg flex justify-center pb-4">
+  <div class="relative md:w-1/2 overflow-x-auto sm:rounded-lg flex justify-center pb-4">
     <div class="w-11/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
       <div class="flex items-center justify-center flex-column flex-wrap md:flex-row md:space-y-0 py-2 bg-white">
           <div class="relative">
@@ -274,12 +287,12 @@
         <%= sort_link(@q, :name, "名前", class: "link") %>
       </div>
 
-      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+      <table class="w-full max-w-full text-sm text-left rtl:text-right text-gray-500">
           <tbody>
             <% @profiles.each do |profile| %>
               <tr id="profile_mobile_<%= profile.id %>" class="bg-white border-b hover:bg-gray-50">
                 <th scope="row" class="flex items-center p-1 text-gray-900">
-                    <div id="avatar" class="w-50 h-50">
+                    <div id="avatar" class="w-50 h-50 min-w-[50px] min-h-[50px] mx-1 md:mx-5">
                       <% if profile.avatar.attached? %>
                         <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
                       <% else %>
@@ -291,7 +304,7 @@
                         <div class="text-lg font-semibold"><%= profile.name %></div>
                         <div class="font-normal text-gray-500">
                           <i class="fa-regular fa-envelope fa-sm"></i>
-                          <%= profile.email %>
+                          <p><%= profile.email %></p>
                         </div>
                         <div class="font-normal text-gray-500">
                           <i class="fa-solid fa-phone fa-sm"></i>
@@ -315,8 +328,8 @@
                         </div>
                     </div>
                 </th>
-                <td class="px-1 font-semibold">
-                  <div class="flex justify-center space-x-2">
+                <td class="pr-2 lg:px-3 font-semibold">
+                  <div class="flex justify-center space-x-4 md:min-w-[80px] lg:min-w-[110px]">
                     <div>
                       <%= link_to profile_path(profile) do %>
                         <i class="fa-solid fa-circle-info fa-lg"></i>
