@@ -183,6 +183,7 @@
   </div>
 </div>
 
+<!---スマホ画面用--->
 <div class="xl:hidden mb-20 flex flex-col items-center">
   <div id="sticky-banner-mb" tabindex="-1" data-controller="banner" data-banner-target="banner" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 xl:hidden <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
       <div class="flex items-center mx-auto">
@@ -226,7 +227,7 @@
 
 
 
-  <div class="relative md:w-1/2 overflow-x-auto sm:rounded-lg flex justify-center pb-4">
+  <div class="relative w-full overflow-x-auto sm:rounded-lg flex justify-center pb-4">
     <div class="w-11/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
       <div class="flex items-center justify-center flex-column flex-wrap md:flex-row md:space-y-0 py-2 bg-white">
           <div class="relative">
@@ -277,25 +278,25 @@
           <tbody>
             <% @profiles.each do |profile| %>
               <tr id="profile_mobile_<%= profile.id %>" class="bg-white border-b hover:bg-gray-50">
-                <th scope="row" class="flex items-center p-1 text-gray-900">
-                    <div id="avatar" class="w-50 h-50 min-w-[50px] min-h-[50px] mx-1 md:mx-5">
+                <td scope="row" class="flex items-center p-1 text-gray-900">
+                    <div id="avatar" class="w-50 h-50 min-w-[50px] min-h-[50px] mx-1 md:ml-10">
                       <% if profile.avatar.attached? %>
                         <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
                       <% else %>
                         <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
                       <% end %>
                     </div>
-                    <div>
+                    <div id="detail" class="flex-grow max-w-[220px] sm:max-w-full md:mx-10">
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
                         <div id="detail" class="space-y-1">
                           <div class="font-normal text-gray-500">
                             <i class="fa-regular fa-envelope fa-sm"></i>
-                            <p><%= profile.email %></p>
+                            <p class="truncate ..."><%= profile.email %></p>
                           </div>
                           <div class="font-normal text-gray-500">
                             <i class="fa-solid fa-phone fa-sm"></i>
-                            <%= profile.phone %>
+                            <p class="truncate ..."><%= profile.phone %></p>
                           </div>
                           <div class="font-normal text-gray-500">
                             <i class="fa-solid fa-cake-candles"></i>
@@ -307,17 +308,17 @@
                           </div>
                           <div class="font-normal text-gray-500">
                             <i class="fa-solid fa-check fa-sm"></i>
-                            <%= profile.last_contacted_i18n%>
+                            <p class="truncate ..."><%= profile.last_contacted_i18n%></p>
                           </div>
                           <div class="font-normal text-gray-500">
                             <i class="fa-solid fa-user-group"></i>
-                            <%= profile.group&.name %>
+                            <p class="truncate ..."><%= profile.group&.name %></p>
                           </div>
                         </div>
                     </div>
-                </th>
-                <td class="pr-2 lg:px-3 font-semibold">
-                  <div class="flex justify-center space-x-4 md:min-w-[80px] lg:min-w-[110px]">
+                </td>
+                <td class="pr-5 md:pr-2 lg:px-3 font-semibold">
+                  <div class="flex justify-center items-center space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row md:min-w-[80px] lg:min-w-[110px]">
                     <div>
                       <%= link_to profile_path(profile) do %>
                         <i class="fa-solid fa-circle-info fa-lg"></i>
