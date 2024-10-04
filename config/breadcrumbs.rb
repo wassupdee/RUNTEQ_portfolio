@@ -2,6 +2,15 @@ crumb :root do
   link "<span class='link'>Top</span>".html_safe, root_path
 end
 
+crumb :introduction do |id|
+  if current_page?(introduction_path(1))
+    link "<span class='font-bold text-lg'>イントロ</span>".html_safe, introduction_path(1)
+  else
+    link "<span class='link'>イントロ</span>".html_safe, introduction_path(1)
+  end
+  parent :root
+end
+
 crumb :question_1 do |question|
   current_question_id = params[:id].to_i
   if question.number == current_question_id
@@ -9,7 +18,7 @@ crumb :question_1 do |question|
   else
     link "<span class='link'>質問#{question.number}</span>".html_safe, question_path(question.number)
   end
-  parent :root
+  parent :introduction
 end
 
 crumb :question_2 do |question|
