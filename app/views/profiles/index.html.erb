@@ -282,29 +282,29 @@
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
                         <div id="detail" class="space-y-1">
-                          <div class="font-normal text-gray-500">
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
                             <i class="fa-regular fa-envelope fa-sm"></i>
-                            <p class="truncate ..."><%= profile.email %></p>
+                            <p class="truncate ..."><%= profile.email.present? ? profile.email : "　" %></p>
                           </div>
-                          <div class="font-normal text-gray-500">
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
                             <i class="fa-solid fa-phone fa-sm"></i>
-                            <p class="truncate ..."><%= profile.phone %></p>
+                            <p class="truncate ..."><%= profile.phone.present? ? profile.phone : "　" %></p>
                           </div>
-                          <div class="font-normal text-gray-500">
-                            <i class="fa-solid fa-cake-candles"></i>
-                            <%= l profile.events.first.date if profile.events.first&.date.present? %>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-cake-candles fa-sm"></i>
+                            <p><%= profile.events.first&.date.present? ? l(profile.events.first.date) : "　" %></p>
                           </div>
-                          <div class="font-normal text-gray-500">
-                            <i class="fa-solid fa-calendar-check"></i>
-                            <%= l profile.events.last.date if profile.events.last&.date.present? %>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-calendar-check fa-sm"></i>
+                            <p><%= profile.events.last&.date.present? ? l(profile.events.last.date) : "　" %></p>
                           </div>
-                          <div class="font-normal text-gray-500">
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
                             <i class="fa-solid fa-check fa-sm"></i>
-                            <p class="truncate ..."><%= profile.last_contacted_i18n%></p>
+                            <p class="truncate ..."><%= profile.last_contacted_i18n.present? ? profile.last_contacted_i18n : "　" %></p>
                           </div>
-                          <div class="font-normal text-gray-500">
-                            <i class="fa-solid fa-user-group"></i>
-                            <p class="truncate ..."><%= profile.group&.name %></p>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-user-group fa-sm"></i>
+                            <p class="truncate ..."><%= profile.group&.name.present? ? profile.group.name : "　" %></p>
                           </div>
                         </div>
                     </div>
