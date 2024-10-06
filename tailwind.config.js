@@ -15,7 +15,8 @@ module.exports = {
         'almond': '#FFEBCD',
         'cream-pink': '#FFF1ED',
         'button-gray': '#6B6B6B',
-        'sandy-brown': '#F4A460'
+        'sandy-brown': '#F4A460',
+        'dark-salmon': '#cc5246'
       }
     }
   },
