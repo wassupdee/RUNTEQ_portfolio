@@ -24,7 +24,7 @@ jobs:
       chrome:
         image: seleniarm/standalone-chromium:latest
         ports:
-          - 4444:4444
+          - 4445:4445
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
