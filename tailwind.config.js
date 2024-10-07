@@ -14,7 +14,9 @@ module.exports = {
         'ivory-white': '#FFFFF7',
         'almond': '#FFEBCD',
         'cream-pink': '#FFF1ED',
-        'button-gray': '#6B6B6B'
+        'button-gray': '#6B6B6B',
+        'sandy-brown': '#F4A460',
+        'dark-salmon': '#cc5246'
       }
     }
   },

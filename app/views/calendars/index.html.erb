@@ -3,14 +3,25 @@
     <%= date.day %>
 
     <% events_on_calendar.each do |event| %>
-      <div>
+      <div class="md:hidden xl:block">
         <% if event.name == "誕生日" %>
           <%= link_to profile_path(event.profile) do %>
-            <%= event.profile.name%>の<%= event.name %><i class="fa-solid fa-cake-candles"></i>
+            <%= event.profile.name%>の<%= event.name %><i class="fa-solid fa-cake-candles"></i></div>
           <% end %>
         <% else %>
           <%= link_to profile_path(event.profile) do %>
             <%= event.profile.name%>の<%= event.name %><i class="fa-solid fa-calendar-check"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="hidden md:block xl:hidden">
+        <% if event.name == "誕生日" %>
+          <%= link_to profile_path(event.profile) do %>
+            <%= event.profile.name%><i class="fa-solid fa-cake-candles mx-2"></i></div>
+          <% end %>
+        <% else %>
+          <%= link_to profile_path(event.profile) do %>
+            <%= event.profile.name%><i class="fa-solid fa-calendar-check mx-2"></i>
           <% end %>
         <% end %>
       </div>

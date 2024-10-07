@@ -1,7 +1,7 @@
 <% content_for(:tab_title, "連絡帳") %>
 
 <!---PC画面用--->
-<div class="hidden sm:block">
+<div class="hidden xl:block">
   <div id="sticky-banner-pc" data-controller="banner" data-banner-target="banner" tabindex="-1" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
       <div class="flex items-center mx-auto">
           <p class="flex items-center text-sm">
@@ -46,13 +46,13 @@
           <div class="relative">
               <%= search_form_for @q, url: profiles_path, class: "flex items-center space-x-2" do |f| %>
                 <div>
-                  <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  <%= f.search_field :name_cont, placeholder: "名前", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
-                  <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  <%= f.search_field :furigana_cont, placeholder: "ふりがな", class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
-                  <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
+                  <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name, @q.group_id_eq), {include_blank: "グループ名"}, class: "block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-60 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" %>
                 </div>
                 <div>
                   <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-gray-600 rounded-lg border border-gray-600 hover:bg-gray-700">
@@ -83,32 +83,30 @@
                       <i class="fa-solid fa-check fa-sm"></i>
                       <%= sort_link(@q, :last_contacted, "最後に連絡した日", class: "link") %>
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3 pl-8">
                       <%= sort_link(@q, :name, "名前", class: "link") %>
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                       メール
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                       電話番号
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                     <div class="flex items-center space-x-2">
                       <i class="fa-solid fa-cake-candles"></i>
                       <div>誕生日</div>
                     </div>
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-1 py-3">
                     <div class="flex items-center space-x-2">
                       <i class="fa-solid fa-calendar-check"></i>
                       <div>大切な日</div>
                     </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-user-group"></i>
-                      <div>グループ</div>
-                    </div>
+                  </th>
+                  <th scope="col" class="px-6 py-3">
                   </th>
                   <th scope="col" class="px-6 py-3">
                   </th>
@@ -130,9 +128,10 @@
                     <% else %>
                       <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
                     <% end %>
-                    <div class="ps-3">
+                    <div class="ps-3 flex-grow">
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
+                        <div class="mt-1 font-normal"><i class="fa-solid fa-user-group fa-sm"></i><%= profile.group.name if profile.group.present? %></div>
                     </div>
                 </th>
                 <td class="px-6 py-4 font-semibold">
@@ -147,27 +146,26 @@
                 <td class="px-6 py-4 font-semibold">
                     <%= l profile.events.last.date if profile.events.last&.date.present? %>
                 </td>
-                <td class="px-6 py-4 font-semibold">
-                    <%= profile.group.name if profile.group.present? %>
+                <td class="text-center">
+                  <div>
+                    <%= link_to profile_path(profile) do %>
+                      <i class="fa-solid fa-circle-info fa-lg"></i>
+                    <% end %>
+                  </div>
                 </td>
-                <td class="px-6 py-4 font-semibold">
-                  <div class="flex justify-around">
-                    <div>
-                      <%= link_to profile_path(profile) do %>
-                        <i class="fa-solid fa-circle-info fa-lg"></i>
-                      <% end %>
-                    </div>
+                <td class="text-center">
                     <div>
                       <%= link_to edit_profile_path(profile) do %>
                         <i class="fa-solid fa-pen-to-square fa-lg"></i>
                       <% end %>
                     </div>
+                </td>
+                <td class="text-center">
                     <div>
                       <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
                         <i class="fa-solid fa-trash fa-lg"></i>
                       <% end %>
                     </div>
-                  </div>
                 </td>
               </tr>
             <% end %>
@@ -178,8 +176,8 @@
 </div>
 
 <!---スマホ画面用--->
-<div class="md:hidden mb-20">
-  <div id="sticky-banner-mb" tabindex="-1" data-controller="banner" data-banner-target="banner" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 md:hidden <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
+<div class="xl:hidden mb-20 flex flex-col items-center">
+  <div id="sticky-banner-mb" tabindex="-1" data-controller="banner" data-banner-target="banner" class="start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-50 xl:hidden <%= "hidden" if @profiles_birthdays_this_month.empty? && @profiles_special_day_this_month.empty? %>">
       <div class="flex items-center mx-auto">
         <p class="flex items-center text-sm">
           <div class="flex flex-col h-full">
@@ -221,7 +219,7 @@
 
 
 
-  <div class="relative overflow-x-auto sm:rounded-lg flex justify-center pb-4">
+  <div class="relative w-full overflow-x-auto sm:rounded-lg flex justify-center pb-4">
     <div class="w-11/12 shadow-lg border rounded-3xl border-slate-100 mt-8">
       <div class="flex items-center justify-center flex-column flex-wrap md:flex-row md:space-y-0 py-2 bg-white">
           <div class="relative">
@@ -264,53 +262,55 @@
       </div>
 
       <div id="sort" class="text-center m-4">
-        <%= sort_link(@q, :last_contacted, "最後に連絡した日", class: "link") %>
+        <%= sort_link(@q, :last_contacted, "最後に連絡した日", class: "link mr-6") %>
         <%= sort_link(@q, :name, "名前", class: "link") %>
       </div>
 
-      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+      <table class="w-full max-w-full text-sm text-left rtl:text-right text-gray-500">
           <tbody>
             <% @profiles.each do |profile| %>
               <tr id="profile_mobile_<%= profile.id %>" class="bg-white border-b hover:bg-gray-50">
-                <th scope="row" class="flex items-center p-1 text-gray-900">
-                    <div id="avatar" class="w-50 h-50">
+                <td scope="row" class="flex items-center p-1 text-gray-900">
+                    <div id="avatar" class="w-50 h-50 min-w-[50px] min-h-[50px] mx-1 md:ml-10">
                       <% if profile.avatar.attached? %>
                         <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
                       <% else %>
                         <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
                       <% end %>
                     </div>
-                    <div>
+                    <div id="detail" class="flex-grow max-w-[220px] sm:max-w-full md:mx-10">
                         <div class="font-normal text-gray-500"><%= profile.furigana %></div>
                         <div class="text-lg font-semibold"><%= profile.name %></div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-regular fa-envelope fa-sm"></i>
-                          <%= profile.email %>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-phone fa-sm"></i>
-                          <%= profile.phone %>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-cake-candles"></i>
-                          <%= l profile.events.first.date if profile.events.first&.date.present? %>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-calendar-check"></i>
-                          <%= l profile.events.last.date if profile.events.last&.date.present? %>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-check fa-sm"></i>
-                          <%= profile.last_contacted_i18n%>
-                        </div>
-                        <div class="font-normal text-gray-500">
-                          <i class="fa-solid fa-user-group"></i>
-                          <%= profile.group&.name %>
+                        <div id="detail" class="space-y-1">
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-regular fa-envelope fa-sm"></i>
+                            <p class="truncate ..."><%= profile.email.present? ? profile.email : "　" %></p>
+                          </div>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-phone fa-sm"></i>
+                            <p class="truncate ..."><%= profile.phone.present? ? profile.phone : "　" %></p>
+                          </div>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-cake-candles fa-sm"></i>
+                            <p><%= profile.events.first&.date.present? ? l(profile.events.first.date) : "　" %></p>
+                          </div>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-calendar-check fa-sm"></i>
+                            <p><%= profile.events.last&.date.present? ? l(profile.events.last.date) : "　" %></p>
+                          </div>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-check fa-sm"></i>
+                            <p class="truncate ..."><%= profile.last_contacted_i18n.present? ? profile.last_contacted_i18n : "　" %></p>
+                          </div>
+                          <div class="font-normal text-gray-500 flex items-center space-x-2">
+                            <i class="fa-solid fa-user-group fa-sm"></i>
+                            <p class="truncate ..."><%= profile.group&.name.present? ? profile.group.name : "　" %></p>
+                          </div>
                         </div>
                     </div>
-                </th>
-                <td class="px-1 font-semibold">
-                  <div class="flex justify-center space-x-2">
+                </td>
+                <td class="pr-5 md:pr-2 lg:px-3 font-semibold">
+                  <div class="flex justify-center items-center space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row md:min-w-[80px] lg:min-w-[110px]">
                     <div>
                       <%= link_to profile_path(profile) do %>
                         <i class="fa-solid fa-circle-info fa-lg"></i>

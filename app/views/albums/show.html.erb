@@ -9,7 +9,7 @@
         <div class="text-3xl text-center w-full"><%= @album.title %></div>
         <div class="text-center w-full"><%= @album.date %></div>
       </div>
-      <div id="icon" class="flex justify-center space-x-2">
+      <div id="icon" class="flex justify-center space-x-5">
         <%= link_to edit_profile_album_path(@profile, @album) do %>
           <i class="fa-solid fa-pen-to-square fa-lg"></i>
         <% end %>
@@ -20,7 +20,7 @@
       <div id="grid" class="h-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 w-full p-5 overflow-auto">
         <% @album.images.with_all_variant_records.each do |image| %>
           <div class="h-fit rounded-lg shadow">
-            <%= image_tag image.variant(resize_to_fill: [400, 300]), class: "object-cover rounded-lg" %>
+            <%= image_tag image.variant(resize_to_fill: [550, 300]), class: "object-cover rounded-lg" %>
           </div>
         <% end %>
       </div>

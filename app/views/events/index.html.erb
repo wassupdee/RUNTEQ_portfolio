@@ -11,13 +11,13 @@
       <% else %>
         <%= render "notification_on" %>
       <% end %>
-      <div id="notice" class="flex flex-col items-center mt-10 md:text-xl text-sm">
-        <p>※LINE通知機能を使うためには、LINE友達登録が必要です。</p>
+      <div id="notice" class="flex flex-col items-center mt-10 lg:text-xl text-sm">
         <div>
-          友達登録は
+          <p>※通知機能は、</p>
           <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
-            こちらから
+            LINE友達登録
           <% end %>
+          が必要です。
         </div>
       </div>
     </div>
