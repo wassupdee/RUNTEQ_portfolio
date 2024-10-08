@@ -128,7 +128,7 @@
 |ソーシャルログイン|使い方説明||
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|LINEアカウントを使った<br>ログインができます。|使い方ページを設けて、<br>初めての方でも分かりやすいように<br>しています。||
+|LINEアカウントを使った<br>ログインができます。|使い方ページを設けて、<br>初めての方にも<br>分かりやすくしています。||
 
 |レスポンシブデザイン|
 |:-------------|
