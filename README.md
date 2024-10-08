@@ -120,7 +120,7 @@
 
 |グループ作成|フィルタリング|バナー|
 |:-------------|:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/b4558007d9435eacbd068e55ee028616.gif)](https://gyazo.com/b4558007d9435eacbd068e55ee028616)|[![Image from Gyazo](https://i.gyazo.com/9585bbe3c8069505e1d560d6c2d6b070.gif)](https://gyazo.com/9585bbe3c8069505e1d560d6c2d6b070)|[![Image from Gyazo](https://i.gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197.gif)](https://gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197)|
+|[![Image from Gyazo](https://i.gyazo.com/b4558007d9435eacbd068e55ee028616.gif)](https://gyazo.com/b4558007d9435eacbd068e55ee028616)|[![Image from Gyazo](https://i.gyazo.com/7e6aeec6bb56c189703916b358f66a77.gif)](https://gyazo.com/7e6aeec6bb56c189703916b358f66a77)|[![Image from Gyazo](https://i.gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197.gif)](https://gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197)|
 |グループを作成し、<br>友だちを振り分けられます。|グループでフィルタリングを<br>かけることができます。|今月が誕生日・大切な日の<br>友だちをバナーで表示します。|
 
 ### その他
