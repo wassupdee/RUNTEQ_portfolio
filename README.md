@@ -91,39 +91,39 @@
 
 |AIメッセージ提案||
 |:-------------|:-------------|
-|||
+|[![Image from Gyazo](https://i.gyazo.com/23efeddbd6f4faf137e6580c28c4f16f.gif)](https://gyazo.com/23efeddbd6f4faf137e6580c28c4f16f)|[![Image from Gyazo](https://i.gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0.gif)](https://gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0)|
 |AI質問１，２，３→提案まで|編集＆コピペ|
 
 
-|LINE通知設定|LINE通知|
+|誕生日・大切な日の登録|LINE通知設定|
 |:-------------|:-------------|
+|[![Image from Gyazo](https://i.gyazo.com/478a9bcd7614658f71580d78c5e21db5.gif)](https://gyazo.com/478a9bcd7614658f71580d78c5e21db5)|[![Image from Gyazo](https://i.gyazo.com/b2e9bc771913850f280c3e245c141a2b.gif)](https://gyazo.com/b2e9bc771913850f280c3e245c141a2b)|
 |||
-|通知設定画面|LINE通知画面|
 
-|マイページからON,OFF||
+|LINE通知|マイページからON,OFF|
 |:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/6a20e5e31b2a9bc31efdd1731cf77880.gif)](https://gyazo.com/6a20e5e31b2a9bc31efdd1731cf77880)||
+|[![Image from Gyazo](https://i.gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c.png)](https://gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c)|[![Image from Gyazo](https://i.gyazo.com/71ae8a60327e33452f47b9d2e5db45fc.gif)](https://gyazo.com/71ae8a60327e33452f47b9d2e5db45fc)|
 |||
 
 |アルバム|カレンダー|
 |:-------------|:-------------|
-|||
+|[![Image from Gyazo](https://i.gyazo.com/70e522197a7ac76552ddf59da08beb1c.gif)](https://gyazo.com/70e522197a7ac76552ddf59da08beb1c)|[![Image from Gyazo](https://i.gyazo.com/db789967a78aa9d0457f2022d4f94529.gif)](https://gyazo.com/db789967a78aa9d0457f2022d4f94529)|
 |アルバム作成→フォーム→アルバム一覧|カレンダースクロール、次月|
 
-|連絡帳|バナー|
+|連絡帳一覧|バナー|
 |:-------------|:-------------|
-|||
+|[![Image from Gyazo](https://i.gyazo.com/35142445cd6d47c807bcd050c8fa65d2.gif)](https://gyazo.com/35142445cd6d47c807bcd050c8fa65d2)|[![Image from Gyazo](https://i.gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197.gif)](https://gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197)|
 |スクロール（バナーなし）|バナーをなぞる|
 
 
 |検索|ソート|
 |:-------------|:-------------|
-|||
+|[![Image from Gyazo](https://i.gyazo.com/0dc4eaa0b1cb70ebaa9b240ef6aa032e.gif)](https://gyazo.com/0dc4eaa0b1cb70ebaa9b240ef6aa032e)|[![Image from Gyazo](https://i.gyazo.com/f69d243ed92c1e7c2564d7ecefe98705.gif)](https://gyazo.com/f69d243ed92c1e7c2564d7ecefe98705)|
 |検索|ソート|
 
 |グループ作成|フィルタリング|
 |:-------------|:-------------|
-|||
+|[![Image from Gyazo](https://i.gyazo.com/207c9f3160cf0349f3b27198c4ab6968.gif)](https://gyazo.com/207c9f3160cf0349f3b27198c4ab6968)|[![Image from Gyazo](https://i.gyazo.com/9585bbe3c8069505e1d560d6c2d6b070.gif)](https://gyazo.com/9585bbe3c8069505e1d560d6c2d6b070)|
 |作成フォーム、非同期|フィルタリング|
 
 
