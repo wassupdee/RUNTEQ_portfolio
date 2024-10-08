@@ -93,13 +93,13 @@
 |AIメッセージ提案|メッセージの編集・コピー機能||
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/23efeddbd6f4faf137e6580c28c4f16f.gif)](https://gyazo.com/23efeddbd6f4faf137e6580c28c4f16f)|[![Image from Gyazo](https://i.gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0.gif)](https://gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|3つの質問に答えるだけで、<br>AIがユーザーに最適なメッセージを提案します。|提案されたメッセージは、<br>ユーザーのお好みに<br>編集できます。<br><br>ワンクリックでコピーできるので、<br>後は貼り付けるだけで<br>メッセージを送れます。||
+|3つの質問に答えるだけで、<br>AIがユーザーに最適なメッセージを提案します。|提案されたメッセージは、<br>ユーザーのお好みに<br>編集できます。<br><br>ワンクリックで<br>コピーできるので、<br>後は貼り付けるだけで<br>メッセージを送れます。||
 
 ### LINE通知
 |誕生日・大切な日の登録|LINE通知設定||
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/478a9bcd7614658f71580d78c5e21db5.gif)](https://gyazo.com/478a9bcd7614658f71580d78c5e21db5)|[![Image from Gyazo](https://i.gyazo.com/b2e9bc771913850f280c3e245c141a2b.gif)](https://gyazo.com/b2e9bc771913850f280c3e245c141a2b)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|友だちの誕生日・大切な日を<br>登録できます。<br><br>「大切な日」はお好みの名称<br>（例：卒業日）に<br>変更ができます。|誕生日・大切な日ごとに、<br>LINE通知を受けたいタイミング（0～60日前）を<br>設定できます。||
+|友だちの誕生日・大切な日を<br>登録できます。<br><br>「大切な日」はお好みの名称<br>（例：卒業記念日）に<br>変更ができます。|誕生日・大切な日ごとに、<br>LINE通知を受けたいタイミング（0～60日前）を<br>設定できます。||
 
 |LINE通知|LINE通知を一括ON・OFF||
 |:-------------|:-------------|:-------------|
