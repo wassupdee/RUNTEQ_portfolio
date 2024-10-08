@@ -368,6 +368,8 @@ GEM
       ffi (~> 1.12)
       logger
     rubyzip (2.3.2)
+    scout_apm (5.4.0)
+      parser
     selenium-webdriver (4.22.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -460,6 +462,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   ruby-openai
+  scout_apm
   selenium-webdriver
   simple_calendar
   sorcery
