@@ -99,18 +99,18 @@
 |誕生日・大切な日の登録|LINE通知設定||
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/478a9bcd7614658f71580d78c5e21db5.gif)](https://gyazo.com/478a9bcd7614658f71580d78c5e21db5)|[![Image from Gyazo](https://i.gyazo.com/b2e9bc771913850f280c3e245c141a2b.gif)](https://gyazo.com/b2e9bc771913850f280c3e245c141a2b)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|友だちの誕生日・大切な日を登録できます。<br>「大切な日」はお好みの名称（例：卒業記念日）に変更ができます。|誕生日・大切な日ごとに、<br>LINE通知を受けたいタイミング（0~60日前）を設定できます。||
+|友だちの誕生日・大切な日を登録できます。<br>「大切な日」はお好みの名称（例：卒業記念日）に<br>変更ができます。|誕生日・大切な日ごとに、<br>LINE通知を受けたいタイミング（0~60日前）を<br>設定できます。||
 
 |LINE通知|LINE通知を一括ON・OFF||
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c.png)](https://gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c)|[![Image from Gyazo](https://i.gyazo.com/71ae8a60327e33452f47b9d2e5db45fc.gif)](https://gyazo.com/71ae8a60327e33452f47b9d2e5db45fc)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|設定したタイミングでLINE通知を受けとることができます。|友だちごとに設定した通知は、マイページから一括でON・OFF設定できます。||
+|設定したタイミングでLINE通知を受けとることができます。|友だちごとに設定した通知は、<br>マイページから一括でON・OFF設定できます。||
 
 ### アルバム・カレンダー
 |アルバム|カレンダー||
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/70e522197a7ac76552ddf59da08beb1c.gif)](https://gyazo.com/70e522197a7ac76552ddf59da08beb1c)|[![Image from Gyazo](https://i.gyazo.com/db789967a78aa9d0457f2022d4f94529.gif)](https://gyazo.com/db789967a78aa9d0457f2022d4f94529)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|友だちとの思い出を写真とメモで記録できます。|登録した誕生日・大切な日は、カレンダー形式で見ることができます。|
+|友だちとの思い出を写真とメモで記録できます。|登録した誕生日・大切な日は、<br>カレンダー形式で見ることができます。|
 
 ### 連絡帳
 |連絡帳一覧|検索|ソート|
