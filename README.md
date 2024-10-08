@@ -93,7 +93,7 @@
 |AIメッセージ提案|メッセージの編集・コピー機能||
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/23efeddbd6f4faf137e6580c28c4f16f.gif)](https://gyazo.com/23efeddbd6f4faf137e6580c28c4f16f)|[![Image from Gyazo](https://i.gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0.gif)](https://gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|3つの質問に答えるだけで、<br>AIがユーザーに最適なメッセージを提案します。|提案されたメッセージは、<br>ユーザーのお好みに編集できます。<br><br>また、ワンクリックでコピーでき、<br>貼り付けるだけで<br>メッセージを送れます。||
+|3つの質問に答えるだけで、<br>AIがユーザーに最適なメッセージを提案します。|提案されたメッセージは、<br>ユーザーのお好みに<br>編集できます。<br><br>ワンクリックでコピーできるので、<br>後は貼り付けるだけで<br>メッセージを送れます。||
 
 ### LINE通知
 |誕生日・大切な日の登録|LINE通知設定||
