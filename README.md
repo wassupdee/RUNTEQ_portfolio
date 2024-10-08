@@ -1,8 +1,5 @@
-# 🤝 Stay Friends
-[![Image from Gyazo](https://i.gyazo.com/6487a840df319e7e2f0d433572850d02.jpg)](https://gyazo.com/6487a840df319e7e2f0d433572850d02)
-
-## 🤝 アプリのURL
-https://stay-friends-app.com
+## 🤝 サービス名
+### [Stay Friends](https://stay-friends-app.com)
 
 ## 🤝 サービス概要
 このアプリは、しばらく連絡を取らずに疎遠になってしまった「むかし仲が良かった友だち」と、再びつながることをサポートするサービスです。  
