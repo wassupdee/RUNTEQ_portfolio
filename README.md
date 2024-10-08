@@ -92,13 +92,13 @@
 |AIメッセージ提案|メッセージの編集・コピー機能|
 |:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/23efeddbd6f4faf137e6580c28c4f16f.gif)](https://gyazo.com/23efeddbd6f4faf137e6580c28c4f16f)|[![Image from Gyazo](https://i.gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0.gif)](https://gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0)|
-|3つの簡単な質問に答えるだけで、AIがユーザーに最適なメッセージを提案します。|提案されたメッセージは、ユーザーのお好みに編集できます。また、ワンクリックでコピーできるので、後は張り付けるだけで友だちにメッセージを送ることができます|
+|3つの簡単な質問に答えるだけで、<br>AIがユーザーに最適なメッセージを提案します。|提案されたメッセージは、ユーザーのお好みに編集できます。<br>また、ワンクリックでコピーできるので、<br>後は貼り付けて送信するだけでメッセージを送れます。|
 
 
 |誕生日・大切な日の登録|LINE通知設定|
 |:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/478a9bcd7614658f71580d78c5e21db5.gif)](https://gyazo.com/478a9bcd7614658f71580d78c5e21db5)|[![Image from Gyazo](https://i.gyazo.com/b2e9bc771913850f280c3e245c141a2b.gif)](https://gyazo.com/b2e9bc771913850f280c3e245c141a2b)|
-|友だちの誕生日・大切な日を登録することができます。「大切な日」はお好みの名称（例：卒業記念日など）に変更ができます。|誕生日・大切な日ごとに、LINE通知を受けたいタイミング（0~60日前）を設定できます。|
+|友だちの誕生日・大切な日を登録できます。<br>「大切な日」はお好みの名称（例：卒業記念日）に変更ができます。|誕生日・大切な日ごとに、<br>LINE通知を受けたいタイミング（0~60日前）を設定できます。|
 
 |LINE通知|LINE通知を一括ON・OFF|
 |:-------------|:-------------|
@@ -119,18 +119,24 @@
 |検索|ソート|
 |:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/0dc4eaa0b1cb70ebaa9b240ef6aa032e.gif)](https://gyazo.com/0dc4eaa0b1cb70ebaa9b240ef6aa032e)|[![Image from Gyazo](https://i.gyazo.com/f69d243ed92c1e7c2564d7ecefe98705.gif)](https://gyazo.com/f69d243ed92c1e7c2564d7ecefe98705)|
-|名前・ふりがなで友だちを検索できます。|名前・最後に連絡した日で、昇順・降順のソートを掛けることができます。|
+|名前・ふりがなで友だちを検索できます。|名前・最後に連絡した日で、<br>昇順・降順のソートを掛けることができます。|
 
 |グループ作成|フィルタリング|
 |:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/b4558007d9435eacbd068e55ee028616.gif)](https://gyazo.com/b4558007d9435eacbd068e55ee028616)|[![Image from Gyazo](https://i.gyazo.com/9585bbe3c8069505e1d560d6c2d6b070.gif)](https://gyazo.com/9585bbe3c8069505e1d560d6c2d6b070)|
 |グループを作成し、友だちを振り分けることができます。|グループでフィルタリングをかけることができます。|
 
+|ソーシャルログイン|使い方説明|
+|:-------------|:-------------|
+|[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|
+|LINEアカウントを使ったログインができます。|使い方ページを設けて、初めての方でも分かりやすいようにしています。|
 
-
-- ログイン
-- レスポンシブデザイン
-
+|レスポンシブデザイン|
+|:-------------|
+|[![Image from Gyazo](https://i.gyazo.com/c6bb0e4e5d99a32df241a679787b7fc3.png)](https://gyazo.com/c6bb0e4e5d99a32df241a679787b7fc3)|
+|[![Image from Gyazo](https://i.gyazo.com/904d0c6edb8900b0c284c2237e5adbce.jpg)](https://gyazo.com/904d0c6edb8900b0c284c2237e5adbce)|
+|[![Image from Gyazo](https://i.gyazo.com/aafa91495a3e587fd5a6e6912f3125c8.png)](https://gyazo.com/aafa91495a3e587fd5a6e6912f3125c8)|
+|PC、タブレットユーザーにも見やすいデザインにしています。|
 
 ## 🤝 使用技術
 
