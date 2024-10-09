@@ -80,10 +80,10 @@
 ## 🤝 機能一覧
 ### AIメッセージ
 
-|AIメッセージ提案|メッセージの編集・コピー機能||
+|AIメッセージ提案|メッセージの編集・コピー機能|パンくずリスト|
 |:-------------|:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/23efeddbd6f4faf137e6580c28c4f16f.gif)](https://gyazo.com/23efeddbd6f4faf137e6580c28c4f16f)|[![Image from Gyazo](https://i.gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0.gif)](https://gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|3つの質問に答えるだけで、<br>ユーザーに最適なメッセージを<br>提案します。|提案されたメッセージは、<br>ユーザーのお好みに<br>編集できます。<br><br>ワンクリックで<br>コピーできるので、<br>後は貼り付けるだけで<br>メッセージを送れます。||
+|[![Image from Gyazo](https://i.gyazo.com/23efeddbd6f4faf137e6580c28c4f16f.gif)](https://gyazo.com/23efeddbd6f4faf137e6580c28c4f16f)|[![Image from Gyazo](https://i.gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0.gif)](https://gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0)|[![Image from Gyazo](https://i.gyazo.com/6c413fbc25a2313a4a3085e866cc5d5d.gif)](https://gyazo.com/6c413fbc25a2313a4a3085e866cc5d5d)|
+|3つの質問に答えるだけで、<br>ユーザーに最適なメッセージを<br>提案します。|提案されたメッセージは、<br>ユーザーのお好みに<br>編集できます。<br><br>ワンクリックで<br>コピーできるので、<br>後は貼り付けるだけで<br>メッセージを送れます。|パンくずリストで、<br>ユーザーをナビゲートします。|
 
 ### LINE通知
 |誕生日・大切な日の登録|LINE通知設定||
@@ -117,7 +117,7 @@
 
 |ソーシャルログイン|使い方説明|ファイルプレビュー|
 |:-------------|:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/32c2f02e086222d035c01c3f69e7b43e.gif)](https://gyazo.com/32c2f02e086222d035c01c3f69e7b43e)|
+|[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/f9351697eda6e81c0215ada4c493f080.gif)](https://gyazo.com/f9351697eda6e81c0215ada4c493f080)|
 |LINEアカウントを使った<br>ログインができます。|使い方ページを設けて、<br>初めての方にも<br>分かりやすくしています。|選択した画像はプレビューで<br>確認できます。|
 
 |レスポンシブデザイン|
