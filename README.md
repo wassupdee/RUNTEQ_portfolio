@@ -1,8 +1,10 @@
 ## 🤝 サービス名
 ### [Stay Friends](https://stay-friends-app.com)
+<br>
 
 ## 🤝 サービス概要
 疎遠になってしまった「むかし仲が良かった友だち」と、再びつながることをサポートするサービスです。  
+<br>
 
 ## 🤝 このサービスへの思い・作りたい理由
 私は、高校・大学で海外留学を経験し、その時に様々な国籍の友だちができました。  
@@ -11,6 +13,8 @@
 また、地元を離れて就職した為、社会に出てからは、地元の友だちとも連絡を取り合う頻度は少なくなりました。
 
 せっかくできた友だちとの関係が切れてしまうのは本当に残念なことだと感じ、「人生の節目を超えて、友人関係が続く社会をつくりたい！」と思い、このサービスを企画・開発しました。
+
+<br>
 
 ## 🤝 ユーザー層について
 - 進学や就職で地元を離れている人
@@ -21,6 +25,8 @@
 
 また、社会人3～10年目は、結婚や出産等で新しい人生のフェーズに入る人が多い年齢です。  
 家族と過ごす時間が増えることで、友だちと過ごす機会も減りやすい為、ターゲットユーザーとしました。
+
+<br>
 
 ## 🤝 提供する主なサービス
 
@@ -45,6 +51,7 @@
 
 アルバムを残し、友だちとの思い出を振り返ることで、絆が深まります。
 
+<br>
 
 ## 🤝 ユーザーの獲得について
 
@@ -52,6 +59,7 @@
 - Qiita記事作成
 - RUNTEQスクール生への発信
 
+<br>
 
 ## 🤝 サービスの差別化ポイント
 
@@ -77,6 +85,8 @@
 - 誕生日・大切な日をカレンダーやバナーで確認できる点
 - PCでも見やすいレスポンシブデザインとなっている点
 
+<br>
+
 ## 🤝 機能一覧
 ### AIメッセージ
 
@@ -84,6 +94,7 @@
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/23efeddbd6f4faf137e6580c28c4f16f.gif)](https://gyazo.com/23efeddbd6f4faf137e6580c28c4f16f)|[![Image from Gyazo](https://i.gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0.gif)](https://gyazo.com/34b5982f8c824fd7f88354e53ed3e8f0)|[![Image from Gyazo](https://i.gyazo.com/6c413fbc25a2313a4a3085e866cc5d5d.gif)](https://gyazo.com/6c413fbc25a2313a4a3085e866cc5d5d)|
 |3つの質問に答えるだけで、<br>ユーザーに最適なメッセージを<br>提案します。|提案されたメッセージは、<br>ユーザーのお好みに<br>編集できます。<br><br>ワンクリックで<br>コピーできるので、<br>後は貼り付けるだけで<br>メッセージを送れます。|パンくずリストで、<br>ユーザーをナビゲートします。|
+<br>
 
 ### LINE通知
 |誕生日・大切な日の登録|LINE通知設定||
@@ -95,12 +106,14 @@
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c.png)](https://gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c)|[![Image from Gyazo](https://i.gyazo.com/71ae8a60327e33452f47b9d2e5db45fc.gif)](https://gyazo.com/71ae8a60327e33452f47b9d2e5db45fc)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
 |設定したタイミングで<br>LINE通知を受けとることが<br>できます。|友だちごとに設定した通知は、<br>マイページから一括で<br>ON・OFF設定できます。||
+<br>
 
 ### アルバム・カレンダー
 |アルバム|ファイルプレビュー|カレンダー|
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/70e522197a7ac76552ddf59da08beb1c.gif)](https://gyazo.com/70e522197a7ac76552ddf59da08beb1c)|[![Image from Gyazo](https://i.gyazo.com/f9351697eda6e81c0215ada4c493f080.gif)](https://gyazo.com/f9351697eda6e81c0215ada4c493f080)|[![Image from Gyazo](https://i.gyazo.com/db789967a78aa9d0457f2022d4f94529.gif)](https://gyazo.com/db789967a78aa9d0457f2022d4f94529)|
 |友だちとの思い出を<br>写真とメモで記録できます。|選択した画像はプレビューで<br>確認できます。|登録した誕生日・大切な日は、<br>カレンダー形式で<br>見ることができます。|
+<br>
 
 ### 連絡帳
 |連絡帳一覧|検索|ソート|
@@ -112,9 +125,9 @@
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/b4558007d9435eacbd068e55ee028616.gif)](https://gyazo.com/b4558007d9435eacbd068e55ee028616)|[![Image from Gyazo](https://i.gyazo.com/7e6aeec6bb56c189703916b358f66a77.gif)](https://gyazo.com/7e6aeec6bb56c189703916b358f66a77)|[![Image from Gyazo](https://i.gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197.gif)](https://gyazo.com/85a1d2efc93a11fe0de59b0ab1be1197)|
 |グループを作成し、<br>友だちを振り分けられます。|グループでフィルタリングを<br>かけることができます。|今月が誕生日・大切な日の<br>友だちをバナーで表示します。|
+<br>
 
 ### その他
-
 |ソーシャルログイン|使い方説明|ナビゲーションタブ|
 |:-------------|:-------------|:-------------|
 |[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/a6f4d345ab9a4b74908d1158eff6ee88.gif)](https://gyazo.com/a6f4d345ab9a4b74908d1158eff6ee88)|
@@ -126,6 +139,7 @@
 |[![Image from Gyazo](https://i.gyazo.com/904d0c6edb8900b0c284c2237e5adbce.jpg)](https://gyazo.com/904d0c6edb8900b0c284c2237e5adbce)|
 |[![Image from Gyazo](https://i.gyazo.com/aafa91495a3e587fd5a6e6912f3125c8.png)](https://gyazo.com/aafa91495a3e587fd5a6e6912f3125c8)|
 |PC、タブレットユーザーにも見やすいデザインにしています。|
+<br>
 
 ### 機能リスト
 #### 基本
@@ -166,6 +180,7 @@
 #### カレンダー
 - カレンダー表示
 
+<br>
 
 ## 🤝 使用技術
 
@@ -180,8 +195,12 @@
 | 開発環境 | Docker |
 | テスト | RSpec<br>Capybara<br>Rubocop |
 
+<br>
+
 ## 🤝 画面遷移図
 Figma：https://www.figma.com/design/lFd2OYHDfzMORIIZEBwt0Q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%E3%80%80%E6%B8%85%E6%9B%B8?node-id=38-1881&t=8kibtZcWwFSQPAt8-0
+
+<br>
 
 ## 🤝 ER図
 dbdiagram.io: https://dbdiagram.io/d/668898e59939893dae2eedaf
