@@ -97,10 +97,10 @@
 |設定したタイミングで<br>LINE通知を受けとることが<br>できます。|友だちごとに設定した通知は、<br>マイページから一括で<br>ON・OFF設定できます。||
 
 ### アルバム・カレンダー
-|アルバム|カレンダー||
+|アルバム|ファイルプレビュー|カレンダー|
 |:-------------|:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/70e522197a7ac76552ddf59da08beb1c.gif)](https://gyazo.com/70e522197a7ac76552ddf59da08beb1c)|[![Image from Gyazo](https://i.gyazo.com/db789967a78aa9d0457f2022d4f94529.gif)](https://gyazo.com/db789967a78aa9d0457f2022d4f94529)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|友だちとの思い出を<br>写真とメモで記録できます。|登録した誕生日・大切な日は、<br>カレンダー形式で<br>見ることができます。|
+|[![Image from Gyazo](https://i.gyazo.com/70e522197a7ac76552ddf59da08beb1c.gif)](https://gyazo.com/70e522197a7ac76552ddf59da08beb1c)|[![Image from Gyazo](https://i.gyazo.com/f9351697eda6e81c0215ada4c493f080.gif)](https://gyazo.com/f9351697eda6e81c0215ada4c493f080)|[![Image from Gyazo](https://i.gyazo.com/db789967a78aa9d0457f2022d4f94529.gif)](https://gyazo.com/db789967a78aa9d0457f2022d4f94529)|
+|友だちとの思い出を<br>写真とメモで記録できます。|選択した画像はプレビューで<br>確認できます。|登録した誕生日・大切な日は、<br>カレンダー形式で<br>見ることができます。|
 
 ### 連絡帳
 |連絡帳一覧|検索|ソート|
@@ -115,10 +115,10 @@
 
 ### その他
 
-|ソーシャルログイン|使い方説明|ファイルプレビュー|
+|ソーシャルログイン|使い方説明||
 |:-------------|:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/f9351697eda6e81c0215ada4c493f080.gif)](https://gyazo.com/f9351697eda6e81c0215ada4c493f080)|
-|LINEアカウントを使った<br>ログインができます。|使い方ページを設けて、<br>初めての方にも<br>分かりやすくしています。|選択した画像はプレビューで<br>確認できます。|
+|[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
+|LINEアカウントを使った<br>ログインができます。|使い方ページを設けて、<br>初めての方にも<br>分かりやすくしています。||
 
 |レスポンシブデザイン|
 |:-------------|
