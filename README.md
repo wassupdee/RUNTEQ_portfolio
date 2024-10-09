@@ -1,13 +1,13 @@
-## 🤝 サービス名
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> サービス名
 ### [Stay Friends](https://stay-friends-app.com)
 <br>
 
-## 🤝 サービス概要
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> サービス概要
 疎遠になってしまった「むかし仲が良かった友だち」と、再びつながることをサポートするサービスです。  
 
 <br>
 
-## 🤝 このサービスへの思い・作りたい理由
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> このサービスへの思い・作りたい理由
 &ensp;私は、高校・大学で海外留学を経験し、その時に様々な国籍の友だちができました。  
 しかし、帰国後時間が経つにつれ、連絡を取り合うことも少なくなり、いつの間にか疎遠になってしまいました。
 
@@ -17,7 +17,7 @@
 
 <br>
 
-## 🤝 ユーザー層について
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> ユーザー層について
 - 進学や就職で地元を離れている人
 - 社会人3～10年目の人
 
@@ -29,7 +29,7 @@
 
 <br>
 
-## 🤝 提供する主なサービス
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> 提供する主なサービス
 
 ### ① ３つの質問に答えるだけで、友だちに送る最適なメッセージを提案します。
 
@@ -58,7 +58,7 @@
 
 <br>
 
-## 🤝 ユーザーの獲得について
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> ユーザーの獲得について
 
 - SNSでの情報拡散
 - Qiita記事作成
@@ -66,7 +66,7 @@
 
 <br>
 
-## 🤝 サービスの差別化ポイント
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> サービスの差別化ポイント
 
 &ensp;当アプリの機能を個別にもつサービスは他にも存在しますが、
 それらを組み合わせ、「疎遠になった友だちとの連絡を再開し、つながりを支える」ことに特化したサービスは他にないと考えます。
@@ -96,7 +96,7 @@
 
 <br>
 
-## 🤝 機能一覧
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> 機能一覧
 ### AIメッセージ
 
 |AIメッセージ提案|メッセージの編集・コピー機能|パンくずリスト|
@@ -191,7 +191,7 @@
 
 <br>
 
-## 🤝 使用技術
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> 使用技術
 
 | カテゴリー | 仕様技術 |
 | - | - |
@@ -206,11 +206,11 @@
 
 <br>
 
-## 🤝 画面遷移図
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> 画面遷移図
 Figma：https://www.figma.com/design/lFd2OYHDfzMORIIZEBwt0Q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%E3%80%80%E6%B8%85%E6%9B%B8?node-id=38-1881&t=8kibtZcWwFSQPAt8-0
 
 <br>
 
-## 🤝 ER図
+## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> ER図
 dbdiagram.io: https://dbdiagram.io/d/668898e59939893dae2eedaf
 [![Image from Gyazo](https://i.gyazo.com/549519edc9f3e7a57d8872ed98b7dcae.png)](https://gyazo.com/549519edc9f3e7a57d8872ed98b7dcae)
