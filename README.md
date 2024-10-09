@@ -185,4 +185,4 @@ Figma：https://www.figma.com/design/lFd2OYHDfzMORIIZEBwt0Q/%E7%94%BB%E9%9D%A2%E
 
 ## 🤝 ER図
 dbdiagram.io: https://dbdiagram.io/d/668898e59939893dae2eedaf
-[![Image from Gyazo](https://i.gyazo.com/9ea06d5a1b6e6836988e595c65f2978b.png)](https://gyazo.com/9ea06d5a1b6e6836988e595c65f2978b)
+[![Image from Gyazo](https://i.gyazo.com/549519edc9f3e7a57d8872ed98b7dcae.png)](https://gyazo.com/549519edc9f3e7a57d8872ed98b7dcae)
