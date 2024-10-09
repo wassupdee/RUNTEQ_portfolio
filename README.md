@@ -114,7 +114,7 @@
 
 |LINE通知|LINE通知を一括ON・OFF||
 |:-------------|:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c.png)](https://gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c)|[![Image from Gyazo](https://i.gyazo.com/71ae8a60327e33452f47b9d2e5db45fc.gif)](https://gyazo.com/71ae8a60327e33452f47b9d2e5db45fc)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
+|[![Image from Gyazo](https://i.gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c.png)](https://gyazo.com/a16f3ffb5c5682f7723c69c8e392f83c)|[![Image from Gyazo](https://i.gyazo.com/71ae8a60327e33452f47b9d2e5db45fc.gif)](https://gyazo.com/71ae8a60327e33452f47b9d2e5db45fc)|[![Image from Gyazo](https://i.gyazo.com/67c3634ddd2cdcc9bc5111e669404014.gif)](https://gyazo.com/67c3634ddd2cdcc9bc5111e669404014)|
 |設定したタイミングで<br>LINE通知を受けとることが<br>できます。|友だちごとに設定した通知は、<br>マイページから一括で<br>ON・OFF設定できます。||
 <br>
 
