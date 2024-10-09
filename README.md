@@ -1,3 +1,4 @@
+[![Image from Gyazo](https://i.gyazo.com/0f9c3d5e83c04d505ab54b8931d46d2a.png)](https://gyazo.com/0f9c3d5e83c04d505ab54b8931d46d2a)
 ## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> サービス名
 ### [Stay Friends](https://stay-friends-app.com)
 <br>
