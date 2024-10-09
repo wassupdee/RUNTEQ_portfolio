@@ -115,10 +115,10 @@
 
 ### その他
 
-|ソーシャルログイン|使い方説明||
+|ソーシャルログイン|使い方説明|ナビゲーションタブ|
 |:-------------|:-------------|:-------------|
-|[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/6f559dfde633ec149569007010272270.png)](https://gyazo.com/6f559dfde633ec149569007010272270)|
-|LINEアカウントを使った<br>ログインができます。|使い方ページを設けて、<br>初めての方にも<br>分かりやすくしています。||
+|[![Image from Gyazo](https://i.gyazo.com/84740b1d899c3e29d0ed147878417d6a.gif)](https://gyazo.com/84740b1d899c3e29d0ed147878417d6a)|[![Image from Gyazo](https://i.gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b.gif)](https://gyazo.com/a7569eb1cdbae0e3d3eedd98d0e3921b)|[![Image from Gyazo](https://i.gyazo.com/a6f4d345ab9a4b74908d1158eff6ee88.gif)](https://gyazo.com/a6f4d345ab9a4b74908d1158eff6ee88)|
+|LINEアカウントを使った<br>ログインができます。|使い方ページを設けて、<br>初めての方にも<br>分かりやすくしています。|現在のページをハイライトし、<br>ユーザーをナビゲートします。|
 
 |レスポンシブデザイン|
 |:-------------|
@@ -153,7 +153,7 @@
 - バナー表示
 - グループ作成・編集・削除
 - グループ一覧
-- サイドバー・タブ
+- ナビゲーションバー・タブ
 
 #### アルバム
 - アルバム作成・編集・削除
