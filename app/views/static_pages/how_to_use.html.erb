@@ -149,8 +149,10 @@
       <h1 class="font-bold text-lg text-dark-salmon">その他</h1>
       <h1 class="font-bold text-3xl text-dark-salmon">レスポンシブデザイン</h1>
     </div>
-    <div class="grid grid-cols-4">
-      <%= render partial: "carousel_item_mobile", locals: { title_line1: "登録した友だちの誕生日を", title_line2: "カレンダー形式で見れるよ！", id: "calendar", image_url: "https://i.gyazo.com/599ff27249c3bd7c28a48a334b0ab865.png" } %>
+    <div class="grid grid-cols-4 ml-10">
+      <%= render partial: "carousel_item_pc", locals: { title: "パソコンでも使いやすいデザインだよ！", image_url: "https://i.gyazo.com/8e7edbda0191abc0d0ba3150bff8dcf1.png", img_class: "w-[400px]" } %>
+      <%= render partial: "carousel_item_pc", locals: { title: "　", image_url: "https://i.gyazo.com/84f5936d87b9d701babca798a3cb69fb.jpg", img_class: "w-[400px]" } %>
+      <%= render partial: "carousel_item_pc", locals: { title: "　", image_url: "https://i.gyazo.com/6e9109353981a83615b519878fd72eb7.png", img_class: "w-[400px]" } %>
     </div>
   </div>
 </div>
