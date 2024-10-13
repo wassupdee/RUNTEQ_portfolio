@@ -194,7 +194,7 @@
 
 ## <img src="https://i.gyazo.com/1b6e026710ecc8bbd8b00b7a49e3279b.png" width="30px"> 使用技術
 
-| カテゴリー | 仕様技術 |
+| カテゴリー | 使用技術 |
 | - | - |
 | フロントエンド | TailwindCSS<br>daisyUI<br>JavaScript<br>Hotwire |
 | バックエンド | Ruby 3.2.3<br>Ruby on Rails 7.1.3.4|
