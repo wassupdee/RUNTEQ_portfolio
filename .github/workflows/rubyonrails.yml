@@ -49,7 +49,6 @@ jobs:
 
       - name: Install Chrome
         uses: browser-actions/setup-chrome@v1
-        run: chrome --version
 
       - name: Bundler and gem install
         run: |
