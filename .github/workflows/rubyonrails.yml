@@ -21,10 +21,10 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
-      # chrome:
-      #   image: seleniarm/standalone-chromium:latest
-      #   ports:
-      #     - 4445:4445
+      chrome:
+        image: seleniarm/standalone-chromium:latest
+        ports:
+          - 4445:4444
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -47,10 +47,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libvips
 
-      - name: Install Chrome
+      - name: Set up Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          install-chromedriver: true
+          chrome-version: 120
+          install-dependencies: true
 
       - name: Bundler and gem install
         run: |
