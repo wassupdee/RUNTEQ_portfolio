@@ -47,12 +47,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libvips
 
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 120
-          install-dependencies: true
-
       - name: Bundler and gem install
         run: |
           gem install bundler
