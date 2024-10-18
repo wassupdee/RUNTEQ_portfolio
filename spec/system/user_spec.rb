@@ -140,6 +140,17 @@ RSpec.describe "UserSessions", type: :system do
           expect(page).to have_content "OFF"
         end
       end
+
+      context "名前が空欄" do
+        it "ユーザーの編集が失敗する" do
+          visit edit_user_path(user)
+          fill_in "名前", with: ""
+          select "OFF", from: "LINE通知"
+          click_button "更新"
+          expect(page).to have_current_path(user_path(user))
+          expect(page).to have_content "更新に失敗しました"
+        end
+      end
     end
   end
 end
