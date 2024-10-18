@@ -18,6 +18,19 @@ RSpec.describe "UserSessions", type: :system do
           expect(page).to have_current_path(root_path)
         end
       end
+
+      context "メールアドレスが未入力" do
+        it "ユーザーの新規作成が失敗する" do
+          visit new_user_path
+          fill_in "名前", with: "テスト"
+          fill_in "メールアドレス", with: ""
+          fill_in "パスワード", with: "password"
+          fill_in "パスワード再入力", with: "password"
+          click_button "登録"
+          expect(page).to have_content "ユーザー登録に失敗しました"
+          expect(page).to have_current_path(new_user_path)
+        end
+      end
     end
   end
 end
