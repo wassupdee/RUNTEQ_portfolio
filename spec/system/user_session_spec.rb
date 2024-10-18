@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "UserSessions", type: :system do
+  include LoginMacros
   let(:user) { create(:user) }
 
   describe "ログイン" do
@@ -35,6 +36,17 @@ RSpec.describe "UserSessions", type: :system do
           expect(page).to have_content "メールアドレスまたはパスワードが正しくありません"
           expect(page).to have_current_path(login_path)
         end
+      end
+    end
+  end
+
+  describe "ログアウト" do
+    context 'ログアウトボタンをクリック' do
+      it 'ログアウト処理が成功する' do
+        login_as(user)
+        click_link "ログアウト", match: :first
+        expect(page).to have_content "ログアウトしました"
+        expect(page).to have_current_path(root_path)
       end
     end
   end
