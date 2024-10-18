@@ -151,12 +151,20 @@ RSpec.describe "UserSessions", type: :system do
           expect(page).to have_content "更新に失敗しました"
         end
       end
+    end
 
-      context "リンクの遷移" do
+    describe "リンクの遷移" do
+      context "ユーザー編集ページ" do
         it "パスワードリセットページへの遷移" do
           visit edit_user_path(user)
           click_link "こちら"
           expect(page).to have_current_path(new_password_reset_path)
+        end
+
+        it "LINE友達登録ページへの遷移" do
+          visit edit_user_path(user)
+          click_link "LINE友達登録"
+          expect(page).to have_current_path(line_qr_code_path)
         end
       end
     end
