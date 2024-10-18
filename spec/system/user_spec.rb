@@ -124,4 +124,22 @@ RSpec.describe "UserSessions", type: :system do
       end
     end
   end
+
+  describe "ログイン後" do
+    before { login_as(user) }
+
+    describe "ユーザー編集" do
+      context "フォームの入力値が正常" do
+        it "ユーザーの編集が成功する" do
+          visit edit_user_path(user)
+          fill_in "名前", with: "new_user_name"
+          select "OFF", from: "LINE通知"
+          click_button "更新"
+          expect(page).to have_current_path(user_path(user))
+          expect(page).to have_content "new_user_name"
+          expect(page).to have_content "OFF"
+        end
+      end
+    end
+  end
 end
