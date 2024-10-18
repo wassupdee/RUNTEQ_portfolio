@@ -114,5 +114,14 @@ RSpec.describe "UserSessions", type: :system do
         end
       end
     end
+
+    describe "マイページ" do
+      context "ログインしていない状態" do
+        it "マイページへのアクセスが失敗する" do
+          visit user_path(user)
+          expect(page).to have_current_path(login_path)
+        end
+      end
+    end
   end
 end
