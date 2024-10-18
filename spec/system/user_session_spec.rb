@@ -15,16 +15,16 @@ RSpec.describe "UserSessions", type: :system do
           expect(page).to have_current_path(root_path)
         end
       end
-      # context "メールアドレスが未入力" do
-      #   it "ログイン処理が失敗する" do
-      #     visit login_path
-      #     fill_in "Email", with: "
-      #     fill_in "Password", with: "password"
-      #     click_button "Login"
-      #     expect(page).to have_content "Login failed"
-      #     expect(current_path).to eq login_path
-      #   end
-      # end
+      context "メールアドレスが未入力" do
+        it "ログイン処理が失敗する" do
+          visit login_path
+          fill_in "メールアドレス", with: ""
+          fill_in "パスワード", with: "password"
+          click_button "ログイン"
+          expect(page).to have_content "メールアドレスまたはパスワードが正しくありません"
+          expect(page).to have_current_path(login_path)
+        end
+      end
 
       # context "パスワードが未入力" do
       #   it "ログイン処理が失敗する" do
