@@ -19,6 +19,19 @@ RSpec.describe "UserSessions", type: :system do
         end
       end
 
+      context "名前が256文字以上" do
+        it "ユーザーの新規作成が失敗する" do
+          visit new_user_path
+          fill_in "名前", with: "テ" * 256
+          fill_in "メールアドレス", with: "email@example.com"
+          fill_in "パスワード", with: "password"
+          fill_in "パスワード再入力", with: "password"
+          click_button "登録"
+          expect(page).to have_content "ユーザー登録に失敗しました"
+          expect(page).to have_current_path(new_user_path)
+        end
+      end
+
       context "メールアドレスが未入力" do
         it "ユーザーの新規作成が失敗する" do
           visit new_user_path
@@ -62,13 +75,13 @@ RSpec.describe "UserSessions", type: :system do
         end
       end
 
-      context "名前が256文字以上" do
+      context "パスワードが空欄" do
         it "ユーザーの新規作成が失敗する" do
           visit new_user_path
-          fill_in "名前", with: "テ" * 256
+          fill_in "名前", with: "テスト"
           fill_in "メールアドレス", with: "email@example.com"
-          fill_in "パスワード", with: "password"
-          fill_in "パスワード再入力", with: "password"
+          fill_in "パスワード", with: ""
+          fill_in "パスワード再入力", with: ""
           click_button "登録"
           expect(page).to have_content "ユーザー登録に失敗しました"
           expect(page).to have_current_path(new_user_path)
