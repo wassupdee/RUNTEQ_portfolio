@@ -36,20 +36,17 @@ RSpec.describe "top_page", type: :system do
         expect(page).to have_current_path(login_path)
       end
     end
+  end
 
-  #     context "連絡帳ボタンをクリック" do
-  #       it "連絡帳ページに遷移する" do
-  #         visit root_path
-  #         click_link "ともだち帳をひらく"
-  #         expect(page).to have_current_path(login_path)
-  #       end
-  #     end
-  #   end
-  # end
+  describe "ログイン後" do
+    before { login_as(user) }
 
-  # describe "ログイン後" do
-  #   before { login_as(user) }
-  # end
-
+    context "連絡帳ボタンをクリック" do
+      it "連絡帳一覧ページに遷移する" do
+        visit root_path
+        click_link "ともだち帳をひらく"
+        expect(page).to have_current_path(profiles_path)
+      end
+    end
   end
 end
