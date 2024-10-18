@@ -13,6 +13,14 @@ RSpec.describe "top_page", type: :system do
       expect(page).to have_content "これからも、ずっと"
     end
 
+    it "サブメッセージが表示されること" do
+      visit root_path
+      expect(page).to have_content "昔のともだちに、連絡を取ってみませんか？"
+      expect(page).to have_content "３つの質問に答えるだけで、"
+      expect(page).to have_content "ともだちの大切な日が近づくと"
+      expect(page).to have_content "LINE通知を受け取れます"
+    end
+
   #   describe "ページ遷移確認" do
   #     context "AIメッセージ作成ボタンをクリック" do
   #       it "AIメッセージページに遷移する" do
