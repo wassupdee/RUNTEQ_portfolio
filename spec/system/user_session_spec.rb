@@ -41,8 +41,8 @@ RSpec.describe "UserSessions", type: :system do
   end
 
   describe "ログアウト" do
-    context 'ログアウトボタンをクリック' do
-      it 'ログアウト処理が成功する' do
+    context "ログアウトボタンをクリック" do
+      it "ログアウト処理が成功する" do
         login_as(user)
         click_link "ログアウト", match: :first
         expect(page).to have_content "ログアウトしました"
