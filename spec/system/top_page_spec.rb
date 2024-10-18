@@ -21,6 +21,14 @@ RSpec.describe "top_page", type: :system do
       expect(page).to have_content "LINE通知を受け取れます"
     end
 
+    context "AIメッセージ作成ボタンをクリック" do
+      it "AIメッセージページに遷移する" do
+        visit root_path
+        click_button "メッセージを作成する"
+        expect(page).to have_current_path(introduction_path(1))
+      end
+    end
+
   #   describe "ページ遷移確認" do
   #     context "AIメッセージ作成ボタンをクリック" do
   #       it "AIメッセージページに遷移する" do
