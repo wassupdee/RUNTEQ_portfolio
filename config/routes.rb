@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   get 'ai_message', to: 'openai_api#show'
 
   get 'line_qr_code', to: 'static_pages#line_qr_code'
-  get 'line_policy', to: 'static_pages#line_policy'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
   get 'terms', to: 'static_pages#terms'
   get 'how_to_use', to: 'static_pages#how_to_use'

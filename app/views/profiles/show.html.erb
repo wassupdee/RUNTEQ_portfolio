@@ -6,10 +6,10 @@
   <%= render "shared/top_tab", profile: @profile%>
 
   <div id="right-section" class="h-full w-full flex md:items-center justify-center">
-    <div id="card" class="md:flex md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl w-2/3 mb-20 md:mb-0">
+    <div id="card" class="md:flex md:border md:rounded-3xl md:border-slate-100 md:bg-opacity-10 md:shadow-2xl w-fit min-w-80 md:min-w-96 mb-20 md:mb-0">
       <div id ="profile" class="flex flex-col flex-grow items-left justify-center md:mt-5">
         <div class="md:flex md:mb-16 justify-center">
-          <div id="name" class="flex items-center ">
+          <div id="name" class="flex items-center justify-center">
             <div id="avatar" class="mt-7">
               <% if @profile.avatar.attached? %>
                 <%= image_tag @profile.avatar.variant(resize_to_limit: [200, 200]), class: "w-20 h-auto" %>
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div id="info" class="flex md:px-44 py-4 md:py-2">
+        <div id="info" class="flex px-5 py-4 md:py-2">
           <div>
             <div class="my-3 text-left">
               <i class="fa-solid fa-cake-candles fa-lg mr-2"></i>

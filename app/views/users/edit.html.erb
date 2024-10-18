@@ -29,13 +29,12 @@
         <% end %>
       </div>
       <div id="notice" class="flex flex-col items-center mt-6 text-center">
-        <p>※LINE通知機能を使うためには、</p>
-        <p>LINE友達登録が必要です。</p>
         <div>
-          友達登録は
+          <p>※通知機能は、</p>
           <%= link_to line_qr_code_path, class:"underline underline-offset-1"	do %>
-            こちらから
+            LINE友達登録
           <% end %>
+          が必要です。
         </div>
       </div>
     </div>

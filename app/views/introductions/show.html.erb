@@ -1,7 +1,7 @@
 <% content_for(:tab_title, "AIメッセージ") %>
 
 <div class="flex flex-col items-center">
-  <div class="text-center text-lg md:text-2xl font-medium border rounded-3xl border-slate-100	p-8 md:p-10 md:mt-10 bg-opacity-10 shadow-2xl">
+  <div class="text-center text-lg md:text-xl font-medium border rounded-3xl border-slate-100	p-8 md:p-10 md:mt-10 bg-opacity-10 shadow-2xl">
     <p class="mb-10 md:mb-10">むかし、仲が良かったともだち。</p>
     <p class="mb-2 md:mb-3">でも、卒業し、</p>
     <p class="mb-10 md:mb-10">仕事も忙しくなり、</p>
@@ -14,9 +14,9 @@
     <p class="mb-2 md:mb-3">あなたの大切なともだちに、</p>
     <p>メッセージを送りましょう。</p>
   </div>
-  <div class="text-center mb-20 md:mb-0 mt-4 md:mt-10 flex justify-center">
+  <div class="text-center md:mb-0 mt-4 md:mt-10 flex justify-center">
     <%= link_to question_path(1) do %>
       <button class="btn bg-golden text-black border-none hover:bg-yellow-500">質問にすすむ</button>
     <% end %>
-  </div>
+    <% breadcrumb :introduction, params[:id] %>
 </div>
