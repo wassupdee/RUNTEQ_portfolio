@@ -31,6 +31,23 @@ RSpec.describe "UserSessions", type: :system do
           expect(page).to have_current_path(new_user_path)
         end
       end
+
+      context "登録済のメールアドレスを使用" do
+        it "ユーザーの新規作成が失敗する" do
+          existed_user = create(:user)
+          visit new_user_path
+          fill_in "名前", with: "テスト"
+          fill_in "メールアドレス", with: existed_user.email
+          fill_in "パスワード", with: "password"
+          fill_in "パスワード再入力", with: "password"
+          click_button "登録"
+          expect(page).to have_content "このメールアドレスはすでに存在します"
+          expect(page).to have_content "ユーザー登録に失敗しました"
+          expect(page).to have_current_path(new_user_path)
+          expect(page).to have_field "名前", with: "テスト"
+          expect(page).to have_field "メールアドレス", with: existed_user.email
+        end
+      end
     end
   end
 end
