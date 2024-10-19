@@ -45,6 +45,7 @@ RSpec.describe "UserSessions", type: :system do
       it "ログアウト処理が成功する" do
         login_as(user)
         visit root_path
+        page.driver.browser.manage.window.resize_to(1024, 900)
         expect(page).to have_content("ログアウト")
         click_link "ログアウト", match: :first
         expect(page).to have_content "ログアウトしました"

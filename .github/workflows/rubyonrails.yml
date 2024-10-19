@@ -78,6 +78,13 @@ jobs:
       - name: Run rspec
         run: bundle exec rspec
 
+      - name: Archive Capybara screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capybara-screenshots
+          path: tmp/capybara
+
   lint:
     runs-on: ubuntu-latest
     steps:
