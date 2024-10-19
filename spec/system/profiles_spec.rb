@@ -183,7 +183,20 @@ RSpec.describe "profiles", type: :system do
           fill_in "名前", with: "佐藤"
           find("button[type='submit']").click
           end
+          expect(page).to have_current_path(profiles_path)
+          expect(page).to have_content("佐藤")
+          expect(page).not_to have_content("山田")
+        end
+
+        it "ふりがなで検索ができる" do
+          create_profile_1
+          create_profile_2
+          visit profiles_path
           page.driver.browser.manage.window.resize_to(1280, 900)
+          within("#pc-profiles") do
+          fill_in "ふりがな", with: "サトウ"
+          find("button[type='submit']").click
+          end
           expect(page).to have_current_path(profiles_path)
           expect(page).to have_content("佐藤")
           expect(page).not_to have_content("山田")
