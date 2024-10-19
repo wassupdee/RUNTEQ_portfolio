@@ -93,6 +93,16 @@ RSpec.describe "login_header", type: :system do
         end
       end
 
+      context "ログアウトリンクをクリック" do
+        it "ログアウト処理が成功する" do
+          within("#mobile-nav") do
+            click_link "ログアウト"
+          end
+          expect(page).to have_current_path(root_path)
+          expect(page).to have_content("ログイン")
+        end
+      end
+
       context "利用規約ボタンをクリック" do
         it "利用規約ページに遷移する" do
           within("#mobile-nav") do
