@@ -26,12 +26,14 @@ RSpec.describe "before_login_header", type: :system do
         end
       end
 
-#       context "連絡帳リンクをクリック" do
-#         it "連絡帳ページに遷移する" do
-#           click_link "連絡帳"
-#           expect(page).to have_current_path(profiles_path)
-#         end
-#       end
+      context "連絡帳リンクをクリック" do
+        it "ログイン画面に遷移する" do
+          within("#pc-nav") do
+            click_link "連絡帳"
+          end
+          expect(page).to have_current_path(login_path)
+        end
+      end
 
 #       context "ログインリンクをクリック" do
 #         it "ログインページに遷移する" do
