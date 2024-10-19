@@ -115,6 +115,15 @@ RSpec.describe "before_login_header", type: :system do
           expect(page).to have_current_path(new_user_path)
         end
       end
+
+      context "利用規約ボタンをクリック" do
+        it "利用規約ページに遷移する" do
+          within("#mobile-nav") do
+            click_link "利用規約"
+          end
+          expect(page).to have_current_path(terms_path)
+        end
+      end
     end
   end
 end
