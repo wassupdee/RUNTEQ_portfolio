@@ -210,6 +210,18 @@ RSpec.describe "profiles", type: :system do
           expect(page).not_to have_content("山田")
         end
       end
+
+      describe "バナー" do
+        it "今月イベントをもつprofilesの名前が表示されること" do
+          create_profile_one
+          create_profile_two
+          visit profiles_path
+          page.driver.browser.manage.window.resize_to(1280, 900)
+          within("#sticky-banner-pc") do
+            expect(page).to have_content("佐藤")
+          end
+        end
+      end
     end
   end
 
@@ -417,6 +429,19 @@ RSpec.describe "profiles", type: :system do
           expect(page).not_to have_content("山田")
         end
       end
+
+      describe "バナー" do
+        it "今月イベントをもつprofilesの名前が表示されること" do
+          create_profile_one
+          create_profile_two
+          visit profiles_path
+          page.driver.browser.manage.window.resize_to(1279, 900)
+          within("#sticky-banner-mb") do
+            expect(page).to have_content("佐藤")
+          end
+        end
+      end
+
     end
   end
 end
