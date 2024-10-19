@@ -174,11 +174,13 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先一覧" do
       describe "検索" do
-        it "名前で検索ができる" do
+        before do
           create_profile_1
           create_profile_2
           visit profiles_path
           page.driver.browser.manage.window.resize_to(1280, 900)
+        end
+        it "名前で検索ができる" do
           within("#pc-profiles") do
             fill_in "名前", with: "佐藤"
             find("button[type='submit']").click
@@ -189,10 +191,6 @@ RSpec.describe "profiles", type: :system do
         end
 
         it "ふりがなで検索ができる" do
-          create_profile_1
-          create_profile_2
-          visit profiles_path
-          page.driver.browser.manage.window.resize_to(1280, 900)
           within("#pc-profiles") do
             fill_in "ふりがな", with: "サトウ"
             find("button[type='submit']").click
@@ -203,10 +201,6 @@ RSpec.describe "profiles", type: :system do
         end
 
         it "グループでフィルタリングができる" do
-          create_profile_1
-          create_profile_2
-          visit profiles_path
-          page.driver.browser.manage.window.resize_to(1280, 900)
           within("#pc-profiles") do
             select "グループ2", from: "q_group_id_eq"
             find("button[type='submit']").click
