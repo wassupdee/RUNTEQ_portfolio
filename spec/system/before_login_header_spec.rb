@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "before_login_header", type: :system do
   let(:user) { create(:user) }
 
-  describe "ログイン前" do
+  describe "PC・スマホ画面共通" do
     describe "ページ遷移確認" do
       context "アプリ名をクリック" do
         it "rootページに遷移する" do
@@ -12,13 +12,20 @@ RSpec.describe "before_login_header", type: :system do
           expect(page).to have_current_path(root_path)
         end
       end
+    end
+  end
 
-#       context "AIメッセージ作成リンクをクリック" do
-#         it "AIメッセージページに遷移する" do
-#           click_link "AIメッセージ作成"
-#           expect(page).to have_current_path(introduction_path(1))
-#         end
-#       end
+  describe "PC画面" do
+    describe "ページ遷移確認" do
+      context "AIメッセージ作成リンクをクリック" do
+        it "AIメッセージページに遷移する" do
+          visit root_path
+          within("#pc-nav") do
+            click_link "AIメッセージ作成"
+          end
+          expect(page).to have_current_path(introduction_path(1))
+        end
+      end
 
 #       context "連絡帳リンクをクリック" do
 #         it "連絡帳ページに遷移する" do
