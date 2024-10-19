@@ -35,9 +35,9 @@ module CreateProfileMacros
     end
     fill_in "名前", with: "佐藤一郎"
     fill_in "フリガナ", with: "サトウイチロウ"
-    fill_in "誕生日", with: "01-15-1990"
+    fill_in "誕生日", with: "#{Date.today.month}-15-1990"
     fill_in "大切な日", with: "入社記念日"
-    find_all("input[type='date']")[1].set("5-10-2015")
+    find_all("input[type='date']")[1].set("3-10-2015")
     fill_in "電話番号", with: "090-1234-5678"
     fill_in "メールアドレス", with: "ichiro.sato@example.com"
     fill_in "住所", with: "大阪府大阪市北区梅田1-1-1"
