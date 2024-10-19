@@ -6,7 +6,7 @@
         <span class="text-lg md:text-4xl">Stay Friends</span><span class="text-xs md:text-xl"> ～友だちと再びつながるアプリ～</span>
       <% end %>
     </div>
-    <div class="font-bold space-x-5 mr-5 hidden lg:block md:text-sm lg:text-md xl:text-base">
+    <div id="pc-nav" class="font-bold space-x-5 mr-5 hidden lg:block md:text-sm lg:text-md xl:text-base">
       <%= link_to "AIメッセージ作成", introduction_path(1) %>
       <%= link_to "連絡帳", profiles_path %>
       <%= link_to how_to_use_path do %>
@@ -18,11 +18,11 @@
         <button class="btn bg-ivory-white text-black border-none hover:bg-peach-red <%= "hover:bg-slate-300" if current_page?(root_path) %>">新規登録</button>
       <% end %>
     </div>
-    <div class="navbar-end drawer-end w-fit lg:hidden">
+    <div id="mobile-nav" class="navbar-end drawer-end w-fit lg:hidden">
       <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content">
         <!-- Page content here -->
-        <label for="my-drawer-4" class="drawer-button btn btn-ghost">
+        <label id="open-drawer" for="my-drawer-4" class="drawer-button btn btn-ghost">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" /></svg>  
         </label>
       </div>
