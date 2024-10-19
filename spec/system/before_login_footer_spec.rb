@@ -2,9 +2,13 @@ require "rails_helper"
 
 RSpec.describe "before_login_header", type: :system do
   let(:user) { create(:user) }
-  before { visit root_path }
 
   describe "PC画面" do
+    before do
+      visit root_path
+      page.driver.browser.manage.window.resize_to(768, 900)
+    end
+
     describe "ページ遷移確認" do
       context "利用規約ボタンをクリック" do
         it "利用規約ページに遷移する" do
