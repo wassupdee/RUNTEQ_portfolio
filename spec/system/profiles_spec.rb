@@ -6,9 +6,7 @@ RSpec.describe "profiles", type: :system do
   let(:user) { create(:user) }
 
   before { login_as(user) }
-  after { page.save_screenshot }
   describe "PC画面" do
-
     describe "連絡先作成" do
       before do
         visit profiles_path
