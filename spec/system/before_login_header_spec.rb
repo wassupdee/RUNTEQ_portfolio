@@ -133,6 +133,15 @@ RSpec.describe "before_login_header", type: :system do
           expect(page).to have_current_path(privacy_policy_path)
         end
       end
+
+      context "お問い合わせボタンをクリック" do
+        it "お問い合わせページに遷移する" do
+          within("#mobile-nav") do
+            click_link "お問い合わせ"
+          end
+          expect(page).to have_current_path("https://docs.google.com/forms/d/e/1FAIpQLScyntUUOKze4OmcuIShk5VLcZu-8JEHIAqB6GCKeti32fG6vg/viewform")
+        end
+      end
     end
   end
 end
