@@ -1,14 +1,17 @@
-# require "rails_helper"
+require "rails_helper"
 
-# RSpec.describe "before_login_header", type: :system do
-#   describe "ログイン前" do
-#     describe "ページ遷移確認" do
-#       context "アプリ名をクリック" do
-#         it "rootページに遷移する" do
-#           click_link "Reconnect　～ともだちと再びつながるアプリ～"
-#           expect(page).to have_current_path(root_path)
-#         end
-#       end
+RSpec.describe "before_login_header", type: :system do
+  let(:user) { create(:user) }
+
+  describe "ログイン前" do
+    describe "ページ遷移確認" do
+      context "アプリ名をクリック" do
+        it "rootページに遷移する" do
+          visit root_path
+          click_link "Stay Friends ～友だちと再びつながるアプリ～"
+          expect(page).to have_current_path(root_path)
+        end
+      end
 
 #       context "AIメッセージ作成リンクをクリック" do
 #         it "AIメッセージページに遷移する" do
@@ -37,6 +40,6 @@
 #           expect(page).to have_current_path(new_user_path)
 #         end
 #       end
-#     end
-#   end
-# end
+    end
+  end
+end
