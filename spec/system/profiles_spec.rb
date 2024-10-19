@@ -6,7 +6,7 @@ RSpec.describe "profiles", type: :system do
   let(:user) { create(:user) }
 
   before { login_as(user) }
-
+  after { page.save_screenshot }
   describe "PC画面" do
 
     describe "連絡先作成" do
@@ -22,9 +22,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "山田太郎"
           fill_in "フリガナ", with: "ヤマダタロウ"
-          fill_in "誕生日", with: "2000-2-3"
+          fill_in "誕生日", with: "02-03-2003"
           fill_in "大切な日", with: "卒業記念日"
-          find_all("input[type='date']")[1].set("2020-10-25")
+          find_all("input[type='date']")[1].set("2-5-2020")
           fill_in "電話番号", with: "000-0000-0000"
           fill_in "メールアドレス", with: "email@example.com"
           fill_in "住所", with: "東京都新宿区西新宿2-8-1"
@@ -45,9 +45,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "山田太郎"
           fill_in "フリガナ", with: "ヤマダタロウ"
-          fill_in "誕生日", with: "2000-2-3"
+          fill_in "誕生日", with: "02-03-2003"
           fill_in "大切な日", with: "卒業記念日"
-          find_all("input[type='date']")[1].set("2020-10-25")
+          find_all("input[type='date']")[1].set("2-5-2020")
           fill_in "電話番号", with: "000-0000-0000"
           fill_in "メールアドレス", with: "email@example.com"
           fill_in "住所", with: "東京都新宿区西新宿2-8-1"
@@ -67,9 +67,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "山田太郎"
           fill_in "フリガナ", with: "ヤマダタロウ"
-          fill_in "誕生日", with: "2000-2-3"
+          fill_in "誕生日", with: "02-03-2003"
           fill_in "大切な日", with: "卒業記念日"
-          find_all("input[type='date']")[1].set("2020-10-25")
+          find_all("input[type='date']")[1].set("2-5-2020")
           fill_in "電話番号", with: "000-0000-0000"
           fill_in "メールアドレス", with: "email@example.com"
           fill_in "住所", with: "東京都新宿区西新宿2-8-1"
@@ -97,9 +97,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "鈴木次郎"
           fill_in "フリガナ", with: "スズキジロウ"
-          fill_in "誕生日", with: "1997-2-3"
+          fill_in "誕生日", with: "02-03-2001"
           fill_in "卒業記念日", with: "優勝記念日"
-          find_all("input[type='date']")[1].set("2010-10-25")
+          find_all("input[type='date']")[1].set("2-5-2019")
           fill_in "電話番号", with: "111-1111-1111"
           fill_in "メールアドレス", with: "email_2@example.com"
           fill_in "住所", with: "大阪府大阪市北区梅田3-1-1"
@@ -120,9 +120,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "鈴木次郎"
           fill_in "フリガナ", with: "スズキジロウ"
-          fill_in "誕生日", with: "1997-2-3"
+          fill_in "誕生日", with: "02-03-2001"
           fill_in "卒業記念日", with: "優勝記念日"
-          find_all("input[type='date']")[1].set("2010-10-25")
+          find_all("input[type='date']")[1].set("2-5-2019")
           fill_in "電話番号", with: "111-1111-1111"
           fill_in "メールアドレス", with: "email_2@example.com"
           fill_in "住所", with: "大阪府大阪市北区梅田3-1-1"
@@ -142,9 +142,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "鈴木次郎"
           fill_in "フリガナ", with: "スズキジロウ"
-          fill_in "誕生日", with: "1997-2-3"
+          fill_in "誕生日", with: "02-03-2001"
           fill_in "卒業記念日", with: "優勝記念日"
-          find_all("input[type='date']")[1].set("2010-10-25")
+          find_all("input[type='date']")[1].set("2-5-2019")
           fill_in "電話番号", with: "111-1111-1111"
           fill_in "メールアドレス", with: "email_2@example.com"
           fill_in "住所", with: "大阪府大阪市北区梅田3-1-1"
@@ -189,9 +189,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "山田太郎"
           fill_in "フリガナ", with: "ヤマダタロウ"
-          fill_in "誕生日", with: "2000-2-3"
+          fill_in "誕生日", with: "02-03-2003"
           fill_in "大切な日", with: "卒業記念日"
-          find_all("input[type='date']")[1].set("2020-10-25")
+          find_all("input[type='date']")[1].set("2-5-2020")
           fill_in "電話番号", with: "000-0000-0000"
           fill_in "メールアドレス", with: "email@example.com"
           fill_in "住所", with: "東京都新宿区西新宿2-8-1"
@@ -212,9 +212,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "山田太郎"
           fill_in "フリガナ", with: "ヤマダタロウ"
-          fill_in "誕生日", with: "2000-2-3"
+          fill_in "誕生日", with: "02-03-2003"
           fill_in "大切な日", with: "卒業記念日"
-          find_all("input[type='date']")[1].set("2020-10-25")
+          find_all("input[type='date']")[1].set("2-5-2020")
           fill_in "電話番号", with: "000-0000-0000"
           fill_in "メールアドレス", with: "email@example.com"
           fill_in "住所", with: "東京都新宿区西新宿2-8-1"
@@ -234,9 +234,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "山田太郎"
           fill_in "フリガナ", with: "ヤマダタロウ"
-          fill_in "誕生日", with: "2000-2-3"
+          fill_in "誕生日", with: "02-03-2003"
           fill_in "大切な日", with: "卒業記念日"
-          find_all("input[type='date']")[1].set("2020-10-25")
+          find_all("input[type='date']")[1].set("2-5-2020")
           fill_in "電話番号", with: "000-0000-0000"
           fill_in "メールアドレス", with: "email@example.com"
           fill_in "住所", with: "東京都新宿区西新宿2-8-1"
@@ -264,9 +264,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "鈴木次郎"
           fill_in "フリガナ", with: "スズキジロウ"
-          fill_in "誕生日", with: "1997-2-3"
+          fill_in "誕生日", with: "02-03-2001"
           fill_in "卒業記念日", with: "優勝記念日"
-          find_all("input[type='date']")[1].set("2010-10-25")
+          find_all("input[type='date']")[1].set("2-5-2019")
           fill_in "電話番号", with: "111-1111-1111"
           fill_in "メールアドレス", with: "email_2@example.com"
           fill_in "住所", with: "大阪府大阪市北区梅田3-1-1"
@@ -287,9 +287,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "鈴木次郎"
           fill_in "フリガナ", with: "スズキジロウ"
-          fill_in "誕生日", with: "1997-2-3"
+          fill_in "誕生日", with: "02-03-2001"
           fill_in "卒業記念日", with: "優勝記念日"
-          find_all("input[type='date']")[1].set("2010-10-25")
+          find_all("input[type='date']")[1].set("2-5-2019")
           fill_in "電話番号", with: "111-1111-1111"
           fill_in "メールアドレス", with: "email_2@example.com"
           fill_in "住所", with: "大阪府大阪市北区梅田3-1-1"
@@ -309,9 +309,9 @@ RSpec.describe "profiles", type: :system do
           end
           fill_in "名前", with: "鈴木次郎"
           fill_in "フリガナ", with: "スズキジロウ"
-          fill_in "誕生日", with: "1997-2-3"
+          fill_in "誕生日", with: "02-03-2001"
           fill_in "卒業記念日", with: "優勝記念日"
-          find_all("input[type='date']")[1].set("2010-10-25")
+          find_all("input[type='date']")[1].set("2-5-2019")
           fill_in "電話番号", with: "111-1111-1111"
           fill_in "メールアドレス", with: "email_2@example.com"
           fill_in "住所", with: "大阪府大阪市北区梅田3-1-1"
