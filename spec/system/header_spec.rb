@@ -18,6 +18,10 @@ RSpec.describe "header", type: :system do
   end
 
   describe "PC画面" do
+    before do
+      page.driver.browser.manage.window.resize_to(1024, 900)
+    end
+
     describe "ページ遷移確認" do
       context "AIメッセージ作成リンクをクリック" do
         it "AIメッセージページに遷移する" do
