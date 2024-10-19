@@ -212,13 +212,22 @@ RSpec.describe "profiles", type: :system do
       end
 
       describe "バナー" do
-        it "今月イベントをもつprofilesの名前が表示されること" do
+        before do
           create_profile_one
           create_profile_two
           visit profiles_path
           page.driver.browser.manage.window.resize_to(1280, 900)
+        end
+
+        it "今月イベントをもつprofilesの名前が表示されること" do
           within("#sticky-banner-pc") do
             expect(page).to have_content("佐藤")
+          end
+        end
+        it "バナーを削除できること" do
+          within("#sticky-banner-pc") do
+            find("#close-banner-btn-pc").click
+            expect(page).not_to have_css("#sticky-banner-pc")
           end
         end
       end
@@ -431,13 +440,23 @@ RSpec.describe "profiles", type: :system do
       end
 
       describe "バナー" do
-        it "今月イベントをもつprofilesの名前が表示されること" do
+        before do
           create_profile_one
           create_profile_two
           visit profiles_path
           page.driver.browser.manage.window.resize_to(1279, 900)
+        end
+
+        it "今月イベントをもつprofilesの名前が表示されること" do
           within("#sticky-banner-mb") do
             expect(page).to have_content("佐藤")
+          end
+        end
+
+        it "バナーを削除できること" do
+          within("#sticky-banner-mb") do
+            find("#close-banner-btn-mb").click
+            expect(page).not_to have_css("#sticky-banner-mb")
           end
         end
       end
