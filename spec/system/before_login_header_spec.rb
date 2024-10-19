@@ -35,6 +35,15 @@ RSpec.describe "before_login_header", type: :system do
         end
       end
 
+      context "使い方リンクをクリック" do
+        it "使い方ページに遷移する" do
+          within("#pc-nav") do
+            click_link "使い方"
+          end
+          expect(page).to have_current_path(how_to_use_path)
+        end
+      end
+
 #       context "ログインリンクをクリック" do
 #         it "ログインページに遷移する" do
 #           click_link "ログイン"
