@@ -45,6 +45,7 @@ RSpec.describe "UserSessions", type: :system do
       it "ログアウト処理が成功する" do
         login_as(user)
         visit root_path
+        expect(page).to have_content("ログアウト")
         click_link "ログアウト", match: :first
         expect(page).to have_content "ログアウトしました"
         expect(page).to have_current_path(root_path)
