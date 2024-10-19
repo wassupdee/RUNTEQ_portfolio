@@ -12,7 +12,7 @@ module CreateProfileMacros
     find_all("input[type='date']")[1].set("2020-10-25")
     fill_in "電話番号", with: "000-0000-0000"
     fill_in "メールアドレス", with: "email@example.com"
-    fill_in "住所", with: ""
+    fill_in "住所", with: "東京都新宿区西新宿2-8-1"
     fill_in "LINEの名前", with: "やまだ"
     select "１年前", from: "最後に連絡した日"
     fill_in "メモ", with: "メモテスト"
