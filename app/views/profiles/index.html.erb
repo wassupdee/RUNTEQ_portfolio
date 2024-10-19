@@ -148,21 +148,21 @@
                 </td>
                 <td class="text-center">
                   <div>
-                    <%= link_to profile_path(profile) do %>
+                    <%= link_to profile_path(profile), id: "pc-profile-#{profile.id}" do %>
                       <i class="fa-solid fa-circle-info fa-lg"></i>
                     <% end %>
                   </div>
                 </td>
                 <td class="text-center">
                     <div>
-                      <%= link_to edit_profile_path(profile) do %>
+                      <%= link_to edit_profile_path(profile), id: "pc-edit-profile-#{profile.id}" do %>
                         <i class="fa-solid fa-pen-to-square fa-lg"></i>
                       <% end %>
                     </div>
                 </td>
                 <td class="text-center">
                     <div>
-                      <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+                      <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete }, id: "pc-delete-profile-#{profile.id}" do %>
                         <i class="fa-solid fa-trash fa-lg"></i>
                       <% end %>
                     </div>
@@ -312,17 +312,17 @@
                 <td class="pr-5 md:pr-2 lg:px-3 font-semibold">
                   <div class="flex justify-center items-center space-y-4 md:space-y-0 md:space-x-4 flex-col md:flex-row md:min-w-[80px] lg:min-w-[110px]">
                     <div>
-                      <%= link_to profile_path(profile) do %>
+                      <%= link_to profile_path(profile), id: "mobile-profile-#{profile.id}" do %>
                         <i class="fa-solid fa-circle-info fa-lg"></i>
                       <% end %>
                     </div>
                     <div>
-                      <%= link_to edit_profile_path(profile) do %>
+                      <%= link_to edit_profile_path(profile), id: "mobile-edit-profile-#{profile.id}" do %>
                         <i class="fa-solid fa-pen-to-square fa-lg"></i>
                       <% end %>
                     </div>
                     <div>
-                      <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+                      <%= link_to profile_path(profile), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete }, id: "mobile-delete-profile-#{profile.id}" do %>
                         <i class="fa-solid fa-trash fa-lg"></i>
                       <% end %>
                     </div>
