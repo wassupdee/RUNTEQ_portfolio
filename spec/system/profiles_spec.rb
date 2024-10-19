@@ -173,13 +173,25 @@ RSpec.describe "profiles", type: :system do
     end
 
     describe "連絡先一覧" do
-      describe "検索" do
-        before do
-          create_profile_one
-          create_profile_two
-          visit profiles_path
-          page.driver.browser.manage.window.resize_to(1280, 900)
+      before do
+        create_profile_one
+        create_profile_two
+        visit profiles_path
+        page.driver.browser.manage.window.resize_to(1280, 900)
+      end
+
+      describe "連絡先" do
+        it "作成した連絡先が一覧に表示されること" do
+          within("#pc-profiles") do
+            within("table") do
+              expect(page).to have_content("山田太郎")
+              expect(page).to have_content("佐藤一郎")
+            end
+          end
         end
+      end
+
+      describe "検索" do
         it "名前で検索ができる" do
           within("#pc-profiles") do
             fill_in "名前", with: "佐藤"
@@ -212,13 +224,6 @@ RSpec.describe "profiles", type: :system do
       end
 
       describe "バナー" do
-        before do
-          create_profile_one
-          create_profile_two
-          visit profiles_path
-          page.driver.browser.manage.window.resize_to(1280, 900)
-        end
-
         it "今月イベントをもつprofilesの名前が表示されること" do
           within("#sticky-banner-pc") do
             expect(page).to have_content("佐藤")
@@ -401,13 +406,26 @@ RSpec.describe "profiles", type: :system do
     end
 
     describe "連絡先一覧" do
-      describe "検索" do
-        before do
-          create_profile_one
-          create_profile_two
-          visit profiles_path
-          page.driver.browser.manage.window.resize_to(1279, 900)
+      before do
+        create_profile_one
+        create_profile_two
+        visit profiles_path
+        page.driver.browser.manage.window.resize_to(1279, 900)
+      end
+
+      describe "連絡先" do
+        it "作成した連絡先が一覧に表示されること" do
+          within("#mobile-profiles") do
+            within("table") do
+              expect(page).to have_content("山田太郎")
+              expect(page).to have_content("佐藤一郎")
+            end
+          end
         end
+      end
+
+      describe "検索" do
+
         it "名前で検索ができる" do
           within("#mobile-profiles") do
             fill_in "名前", with: "佐藤"
@@ -440,13 +458,6 @@ RSpec.describe "profiles", type: :system do
       end
 
       describe "バナー" do
-        before do
-          create_profile_one
-          create_profile_two
-          visit profiles_path
-          page.driver.browser.manage.window.resize_to(1279, 900)
-        end
-
         it "今月イベントをもつprofilesの名前が表示されること" do
           within("#sticky-banner-mb") do
             expect(page).to have_content("佐藤")
@@ -460,7 +471,6 @@ RSpec.describe "profiles", type: :system do
           end
         end
       end
-
     end
   end
 end
