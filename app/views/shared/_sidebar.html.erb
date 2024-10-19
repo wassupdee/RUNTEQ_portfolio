@@ -1,7 +1,7 @@
 <aside id="default-sidebar" class="w-64 h-full transition-transform -translate-x-full sm:translate-x-0 hidden md:block" aria-label="Sidebar">
   <div class="h-full px-4  overflow-y-auto bg-stone-200 text-gray-900">
       <div class="flex items-center justify-center mt-4 mb-20">
-        <% if profile.avatar.attached? && profile.avatar.content_type.in?(%w[image/jpeg image/png]) %>
+        <% if profile.avatar.persisted? && profile.avatar.attached? && profile.avatar.content_type.in?(%w[image/jpeg image/png]) %>
           <%= image_tag profile.avatar.variant(resize_to_limit: [50, 50]) %>
         <% else %>
           <%= image_tag "default_avatar.png", style: "width: 50px; height: 50px;" %>
