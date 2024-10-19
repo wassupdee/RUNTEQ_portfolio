@@ -46,6 +46,15 @@ RSpec.describe "login_header", type: :system do
         end
       end
 
+      context "マイページリンクをクリック" do
+        it "マイページに遷移する" do
+          within("#pc-nav") do
+            click_link "マイページ"
+          end
+          expect(page).to have_current_path(user_path(user))
+        end
+      end
+
       context "ログアウトリンクをクリック" do
         it "ログアウト処理が成功する" do
           page.driver.browser.manage.window.resize_to(1024, 900)
@@ -90,6 +99,15 @@ RSpec.describe "login_header", type: :system do
             click_link "使い方"
           end
           expect(page).to have_current_path(how_to_use_path)
+        end
+      end
+
+      context "マイページリンクをクリック" do
+        it "マイページに遷移する" do
+          within("#mobile-nav") do
+            click_link "マイページ"
+          end
+          expect(page).to have_current_path(user_path(user))
         end
       end
 
