@@ -70,7 +70,6 @@ RSpec.describe "header", type: :system do
 
       context "ログアウトリンクをクリック" do
         it "ログアウト処理が成功する" do
-          page.driver.browser.manage.window.resize_to(1024, 900)
           within("#pc-nav") do
             click_link "ログアウト"
           end

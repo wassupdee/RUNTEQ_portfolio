@@ -1,7 +1,10 @@
 require "rails_helper"
 
-RSpec.describe "before_login_footer", type: :system do
+RSpec.describe "before_login_header", type: :system do
+  include LoginMacros
   let(:user) { create(:user) }
+
+  before { login_as(user) }
 
   describe "PC画面" do
     before do
@@ -56,11 +59,20 @@ RSpec.describe "before_login_footer", type: :system do
       end
 
       context "連絡帳リンクをクリック" do
-        it "ログイン画面に遷移する" do
+        it "連絡帳一覧ページに遷移する" do
           within("#mobile-footer") do
             click_link "連絡帳"
           end
-          expect(page).to have_current_path(login_path)
+          expect(page).to have_current_path(profiles_path)
+        end
+      end
+
+      context "マイページリンクをクリック" do
+        it "マイページに遷移する" do
+          within("#mobile-footer") do
+            click_link "マイページ"
+          end
+          expect(page).to have_current_path(user_path(user))
         end
       end
 
@@ -73,21 +85,13 @@ RSpec.describe "before_login_footer", type: :system do
         end
       end
 
-      context "ログインリンクをクリック" do
-        it "ログイン画面に遷移する" do
+      context "ログアウトリンクをクリック" do
+        it "ログアウト処理が成功する" do
           within("#mobile-footer") do
-            click_link "ログイン"
+            click_link "ログアウト"
           end
-          expect(page).to have_current_path(login_path)
-        end
-      end
-
-      context "新規登録ボタンをクリック" do
-        it "新規登録ページに遷移する" do
-          within("#mobile-footer") do
-            click_link "新規登録"
-          end
-          expect(page).to have_current_path(new_user_path)
+          expect(page).to have_current_path(root_path)
+          expect(page).to have_content("ログイン")
         end
       end
     end

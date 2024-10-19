@@ -1,50 +1,50 @@
 <!---スマホ画面用のフッター--->
-<footer class="fixed bottom-0 flex items-center justify-center h-12 bg-zinc-600 w-full md:hidden">
+<footer id="mobile-footer" class="fixed bottom-0 flex items-center justify-center h-12 bg-zinc-600 w-full md:hidden">
   <div class="flex justify-around text-white text-xs w-full">
     <div class="flex flex-col justify-center text-center">
       <div>
         <%= link_to introduction_path(1) do %>
           <i class="fa-regular fa-message fa-lg"></i>
+          <p>AIメッセージ</p>
         <% end %>
       </div>
-      <div>AIメッセージ</div>
     </div>
     <div class="flex flex-col justify-center text-center">
       <div>
         <%= link_to profiles_path do %>
           <i class="fa-regular fa-address-book fa-lg"></i>
+          <p>連絡帳</p>
         <% end %>
       </div>
-      <div>連絡帳</div>
     </div>
     <div class="flex flex-col justify-center text-center">
       <div>
         <%= link_to user_path(current_user) do %>
           <i class="fa-regular fa-user fa-lg"></i>
+          <p>マイページ</p>
         <% end %>
       </div>
-      <div>マイページ</div>
     </div>
     <div class="flex flex-col justify-center text-center">
       <%= link_to how_to_use_path do %>
         <i class="fa-regular fa-circle-question fa-lg"></i>
+        <p>使い方</p>
       <% end %>
-      <div>使い方</div>
     </div>
     <div class="flex flex-col justify-center text-center">
       <div>
         <%= link_to logout_path, data: { turbo_method: :delete } do %>
           <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
+          <p>ログアウト</p>
         <% end %>
       </div>
-      <div>ログアウト</div>
     </div>
   </div>
 </footer>
 
 
 <!---PC画面用のフッター--->
-<footer class="bottom-0 bg-cream-pink <%= "bg-gray-950 text-white" if current_page?(root_path) %> w-full left-0 hidden md:block min-h-10">
+<footer id="pc-footer" class="bottom-0 bg-cream-pink <%= "bg-gray-950 text-white" if current_page?(root_path) %> w-full left-0 hidden md:block min-h-10">
   <div class="flex justify-center items-center space-x-20 h-full">
     <%= link_to "利用規約", terms_path %>
     <%= link_to "プライバシーポリシー", privacy_policy_path %>
