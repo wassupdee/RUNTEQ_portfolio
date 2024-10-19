@@ -425,7 +425,6 @@ RSpec.describe "profiles", type: :system do
       end
 
       describe "検索" do
-
         it "名前で検索ができる" do
           within("#mobile-profiles") do
             fill_in "名前", with: "佐藤"
