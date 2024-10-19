@@ -8,14 +8,15 @@ RSpec.describe "profiles", type: :system do
   before { login_as(user) }
 
   describe "PC画面" do
-    before do
-      page.driver.browser.manage.window.resize_to(1280, 900)
-    end
 
     describe "連絡先作成" do
+      before do
+        visit profiles_path
+        page.driver.browser.manage.window.resize_to(1280, 900)
+      end
+
       context "フォームの入力値が正常" do
         it "連絡先の新規作成が成功する" do
-          visit profiles_path
           within("#pc-profiles") do
             click_button "連絡先を作成"
           end
@@ -39,7 +40,6 @@ RSpec.describe "profiles", type: :system do
 
       context "プロフィール画像がpng, jpeg以外のファイル形式の場合" do
         it "連絡先の新規作成が失敗する" do
-          visit profiles_path
           within("#pc-profiles") do
             click_button "連絡先を作成"
           end
@@ -62,7 +62,6 @@ RSpec.describe "profiles", type: :system do
 
       context "プロフィール画像が1MB以上の場合" do
         it "連絡先の新規作成が失敗する" do
-          visit profiles_path
           within("#pc-profiles") do
             click_button "連絡先を作成"
           end
@@ -85,10 +84,14 @@ RSpec.describe "profiles", type: :system do
     end
 
     describe "連絡先編集" do
+      before do
+        create_profile
+        visit profiles_path
+        page.driver.browser.manage.window.resize_to(1280, 900)
+      end
+
       context "フォームの入力値が正常" do
         it "連絡先の更新が成功する" do
-          create_profile
-          visit profiles_path
           within("#pc-profiles") do
             find("#pc-edit-profile-#{Profile.last.id}").click
           end
@@ -112,8 +115,6 @@ RSpec.describe "profiles", type: :system do
 
       context "プロフィール画像がpng, jpeg以外のファイル形式の場合" do
         it "連絡先の更新が失敗する" do
-          create_profile
-          visit profiles_path
           within("#pc-profiles") do
             find("#pc-edit-profile-#{Profile.last.id}").click
           end
@@ -136,8 +137,6 @@ RSpec.describe "profiles", type: :system do
 
       context "プロフィール画像が1MB以上の場合" do
         it "連絡先の更新が失敗する" do
-          create_profile
-          visit profiles_path
           within("#pc-profiles") do
             find("#pc-edit-profile-#{Profile.last.id}").click
           end
@@ -160,9 +159,13 @@ RSpec.describe "profiles", type: :system do
     end
 
     describe "連絡先削除" do
-      it "連絡先の削除が成功する" do
+      before do
         create_profile
         visit profiles_path
+        page.driver.browser.manage.window.resize_to(1280, 900)
+      end
+
+      it "連絡先の削除が成功する" do
         within("#pc-profiles") do
           find("#pc-delete-profile-#{Profile.last.id}").click
         end
