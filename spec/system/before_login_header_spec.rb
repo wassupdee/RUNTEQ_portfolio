@@ -63,4 +63,22 @@ RSpec.describe "before_login_header", type: :system do
       end
     end
   end
+
+  describe "スマホ画面" do
+    before do
+      page.driver.browser.manage.window.resize_to(1023, 900)
+      find("#open-drawer").click
+    end
+
+    describe "ページ遷移確認" do
+      context "AIメッセージ作成リンクをクリック" do
+        it "AIメッセージページに遷移する" do
+          within("#mobile-nav") do
+            click_link "AIメッセージ作成"
+          end
+          expect(page).to have_current_path(introduction_path(1))
+        end
+      end
+    end
+  end
 end
