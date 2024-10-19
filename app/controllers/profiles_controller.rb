@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
-    @profile.group = profile_params[:group][:id].present? ? Group.find(profile_params[:group][:id]) : nil
+    update_group
     if @profile.update(profile_params.except(:group))
       update_success
     else
@@ -57,6 +57,12 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:avatar, :name, :furigana, :phone, :email, :line_name, :address, :last_contacted, :note, group: %i[id], events_attributes: %i[name date id])
+  end
+
+  def update_group
+    return if @profile.group.nil?
+
+    @profile.group = profile_params[:group].present? ? Group.find(profile_params[:group][:id]) : nil
   end
 
   def update_success
