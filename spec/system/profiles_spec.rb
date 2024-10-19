@@ -83,7 +83,7 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先編集" do
       before do
-        create_profile
+        create_profile_1
         visit profiles_path
         page.driver.browser.manage.window.resize_to(1280, 900)
       end
@@ -158,7 +158,7 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先削除" do
       before do
-        create_profile
+        create_profile_1
         visit profiles_path
         page.driver.browser.manage.window.resize_to(1280, 900)
       end
@@ -169,6 +169,25 @@ RSpec.describe "profiles", type: :system do
         end
         expect(page.accept_confirm).to eq "本当に削除しますか？"
         expect(page).not_to have_css("#pc-profile-#{Profile.last.id}")
+      end
+    end
+
+    describe "連絡先一覧" do
+      describe "検索" do
+        it "名前で検索ができる" do
+          create_profile_1
+          create_profile_2
+          visit profiles_path
+          page.driver.browser.manage.window.resize_to(1280, 900)
+          within("#pc-profiles") do
+          fill_in "名前", with: "佐藤"
+          find("button[type='submit']").click
+          end
+          page.driver.browser.manage.window.resize_to(1280, 900)
+          expect(page).to have_current_path(profiles_path)
+          expect(page).to have_content("佐藤")
+          expect(page).not_to have_content("山田")
+        end
       end
     end
   end
@@ -250,7 +269,7 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先編集" do
       before do
-        create_profile
+        create_profile_1
         visit profiles_path
         page.driver.browser.manage.window.resize_to(1279, 900)
       end
