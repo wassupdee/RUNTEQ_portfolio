@@ -363,6 +363,22 @@ RSpec.describe "profiles", type: :system do
       end
     end
 
+    describe "連絡先削除" do
+      before do
+        create_profile_1
+        visit profiles_path
+        page.driver.browser.manage.window.resize_to(1279, 900)
+      end
+
+      it "連絡先の削除が成功する" do
+        within("#mobile-profiles") do
+          find("#mobile-delete-profile-#{Profile.last.id}").click
+        end
+        expect(page.accept_confirm).to eq "本当に削除しますか？"
+        expect(page).not_to have_css("#mobile-profile-#{Profile.last.id}")
+      end
+    end
+
     describe "連絡先一覧" do
       describe "検索" do
         before do
