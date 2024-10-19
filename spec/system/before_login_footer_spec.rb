@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "before_login_header", type: :system do
+RSpec.describe "before_login_footer", type: :system do
   let(:user) { create(:user) }
 
   describe "PC画面" do
