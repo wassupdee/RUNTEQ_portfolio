@@ -53,12 +53,14 @@ RSpec.describe "before_login_header", type: :system do
         end
       end
 
-#       context "新規登録ボタンをクリック" do
-#         it "新規登録ページに遷移する" do
-#           click_link "新規登録"
-#           expect(page).to have_current_path(new_user_path)
-#         end
-#       end
+      context "新規登録ボタンをクリック" do
+        it "新規登録ページに遷移する" do
+          within("#pc-nav") do
+            click_link "新規登録"
+          end
+          expect(page).to have_current_path(new_user_path)
+        end
+      end
     end
   end
 end
