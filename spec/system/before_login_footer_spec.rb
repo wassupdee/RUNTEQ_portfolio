@@ -38,4 +38,58 @@ RSpec.describe "before_login_header", type: :system do
       end
     end
   end
+
+  describe "スマホ画面" do
+    before do
+      visit root_path
+      page.driver.browser.manage.window.resize_to(767, 900)
+    end
+
+    describe "ページ遷移確認" do
+      context "AIメッセージ作成リンクをクリック" do
+        it "AIメッセージページに遷移する" do
+          within("#mobile-footer") do
+            click_link "AIメッセージ"
+          end
+          expect(page).to have_current_path(introduction_path(1))
+        end
+      end
+
+      context "連絡帳リンクをクリック" do
+        it "ログイン画面に遷移する" do
+          within("#mobile-footer") do
+            click_link "連絡帳"
+          end
+          expect(page).to have_current_path(login_path)
+        end
+      end
+
+      context "使い方リンクをクリック" do
+        it "使い方ページに遷移する" do
+          within("#mobile-footer") do
+            click_link "使い方"
+          end
+          expect(page).to have_current_path(how_to_use_path)
+        end
+      end
+
+      context "ログインリンクをクリック" do
+        it "ログイン画面に遷移する" do
+          within("#mobile-footer") do
+            click_link "ログイン"
+          end
+          expect(page).to have_current_path(login_path)
+        end
+      end
+
+      context "新規登録ボタンをクリック" do
+        it "新規登録ページに遷移する" do
+          within("#mobile-footer") do
+            click_link "新規登録"
+          end
+          expect(page).to have_current_path(new_user_path)
+        end
+      end
+    end
+  end
 end
