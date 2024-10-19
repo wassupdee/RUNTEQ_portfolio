@@ -79,6 +79,14 @@ RSpec.describe "before_login_header", type: :system do
           expect(page).to have_current_path(introduction_path(1))
         end
       end
+      context "連絡帳リンクをクリック" do
+        it "ログイン画面に遷移する" do
+          within("#mobile-nav") do
+            click_link "連絡帳"
+          end
+          expect(page).to have_current_path(login_path)
+        end
+      end
     end
   end
 end
