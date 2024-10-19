@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "login_header", type: :system do
+RSpec.describe "header", type: :system do
   include LoginMacros
   let(:user) { create(:user) }
 
@@ -34,6 +34,15 @@ RSpec.describe "login_header", type: :system do
             click_link "連絡帳"
           end
           expect(page).to have_current_path(profiles_path)
+        end
+      end
+
+      context "カレンダーリンクをクリック" do
+        it "カレンダー画面に遷移する" do
+          within("#pc-nav") do
+            click_link "カレンダー"
+          end
+          expect(page).to have_current_path(calendars_path)
         end
       end
 
@@ -90,6 +99,15 @@ RSpec.describe "login_header", type: :system do
             click_link "連絡帳"
           end
           expect(page).to have_current_path(profiles_path)
+        end
+      end
+
+      context "カレンダーリンクをクリック" do
+        it "カレンダー画面に遷移する" do
+          within("#mobile-nav") do
+            click_link "カレンダー"
+          end
+          expect(page).to have_current_path(calendars_path)
         end
       end
 
