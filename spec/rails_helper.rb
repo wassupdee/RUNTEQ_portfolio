@@ -94,7 +94,7 @@ RSpec.configure do |config|
   end
 
   # テスト実行前に前回テストのscreenshotを削除する
-  config.before(:all) do
-    FileUtils.rm_rf(Dir[Rails.root.join("tmp", "capybara", "*")], secure: true)
-  end
+  # config.before(:all) do
+  #   FileUtils.rm_rf(Dir[Rails.root.join("tmp", "capybara", "*")], secure: true)
+  # end
 end
