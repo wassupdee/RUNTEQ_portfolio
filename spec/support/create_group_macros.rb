@@ -1,5 +1,5 @@
 module CreateGroupMacros
-  def create_group_1
+  def create_group_one
     visit profiles_path
     page.driver.browser.manage.window.resize_to(1280, 900)
     within("#pc-profiles") do
@@ -10,7 +10,7 @@ module CreateGroupMacros
     expect(page).to have_content("グループ1")
   end
 
-  def create_group_2
+  def create_group_two
     visit profiles_path
     within("#pc-profiles") do
       click_button "グループを作成"

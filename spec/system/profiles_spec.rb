@@ -83,7 +83,7 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先編集" do
       before do
-        create_profile_1
+        create_profile_one
         visit profiles_path
         page.driver.browser.manage.window.resize_to(1280, 900)
       end
@@ -158,7 +158,7 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先削除" do
       before do
-        create_profile_1
+        create_profile_one
         visit profiles_path
         page.driver.browser.manage.window.resize_to(1280, 900)
       end
@@ -175,8 +175,8 @@ RSpec.describe "profiles", type: :system do
     describe "連絡先一覧" do
       describe "検索" do
         before do
-          create_profile_1
-          create_profile_2
+          create_profile_one
+          create_profile_two
           visit profiles_path
           page.driver.browser.manage.window.resize_to(1280, 900)
         end
@@ -290,7 +290,7 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先編集" do
       before do
-        create_profile_1
+        create_profile_one
         visit profiles_path
         page.driver.browser.manage.window.resize_to(1279, 900)
       end
@@ -365,7 +365,7 @@ RSpec.describe "profiles", type: :system do
 
     describe "連絡先削除" do
       before do
-        create_profile_1
+        create_profile_one
         visit profiles_path
         page.driver.browser.manage.window.resize_to(1279, 900)
       end
@@ -382,8 +382,8 @@ RSpec.describe "profiles", type: :system do
     describe "連絡先一覧" do
       describe "検索" do
         before do
-          create_profile_1
-          create_profile_2
+          create_profile_one
+          create_profile_two
           visit profiles_path
           page.driver.browser.manage.window.resize_to(1279, 900)
         end

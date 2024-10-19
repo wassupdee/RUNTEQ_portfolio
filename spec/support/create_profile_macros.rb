@@ -1,8 +1,8 @@
 module CreateProfileMacros
   include CreateGroupMacros
 
-  def create_profile_1
-    create_group_1
+  def create_profile_one
+    create_group_one
     visit profiles_path
     page.driver.browser.manage.window.resize_to(1280, 900)
     within("#pc-profiles") do
@@ -26,8 +26,8 @@ module CreateProfileMacros
     expect(page).to have_current_path(profile_path(Profile.last))
   end
 
-  def create_profile_2
-    create_group_2
+  def create_profile_two
+    create_group_two
     visit profiles_path
     page.driver.browser.manage.window.resize_to(1280, 900)
     within("#pc-profiles") do
