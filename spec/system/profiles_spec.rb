@@ -158,6 +158,18 @@ RSpec.describe "profiles", type: :system do
         end
       end
     end
+
+    describe "連絡先削除" do
+      it "連絡先の削除が成功する" do
+        create_profile
+        visit profiles_path
+        within("#pc-profiles") do
+          find("#pc-delete-profile-#{Profile.last.id}").click
+        end
+        expect(page.accept_confirm).to eq "本当に削除しますか？"
+        expect(page).not_to have_css("#pc-profile-#{Profile.last.id}")
+      end
+    end
   end
 
   describe "スマホ画面" do
