@@ -176,9 +176,70 @@ RSpec.describe "profiles", type: :system do
         find("#album-#{Profile.last.albums.last.id}").click
         expect(page).to have_current_path(profile_album_path(Profile.last, Profile.last.albums.last))
       end
+
       it "編集アイコンをクリックすると、編集ページに遷移する" do
         find("#edit-album-#{Profile.last.albums.last.id}").click
         expect(page).to have_current_path(edit_profile_album_path(Profile.last, Profile.last.albums.last))
+      end
+
+      it "サイドバーにプロフィールの画像と名前が表示される" do
+        within("#default-sidebar") do
+          expect(page).to have_content("山田太郎")
+          expect(page).to have_css("img[src*='valid_image.jpg']")
+        end
+      end
+
+      it "サイドバーからプロフィール詳細に遷移できること" do
+        within("#default-sidebar") do
+          click_link "基本情報"
+        end
+        expect(page).to have_current_path(profile_path(Profile.last))
+      end
+
+      it "サイドバーからアルバム一覧に遷移できること" do
+        within("#default-sidebar") do
+          click_link "アルバム"
+        end
+        expect(page).to have_current_path(profile_albums_path(Profile.last))
+      end
+
+      it "サイドバーから通知設定に遷移できること" do
+        within("#default-sidebar") do
+          click_link "通知設定"
+        end
+        expect(page).to have_current_path(profile_events_path(Profile.last))
+      end
+
+      it "サイドバーから連絡先一覧に遷移できること" do
+        within("#default-sidebar") do
+          click_link "連絡先一覧"
+        end
+        expect(page).to have_current_path(profiles_path)
+      end
+
+      describe "スマホ画面" do
+        before { page.driver.browser.manage.window.resize_to(767, 900) }
+
+        it "トップタブからプロフィール詳細に遷移できること" do
+          within("#top-tab") do
+            click_link "基本情報"
+          end
+          expect(page).to have_current_path(profile_path(Profile.last))
+        end
+
+        it "トップタブからアルバム一覧に遷移できること" do
+          within("#top-tab") do
+            click_link "アルバム"
+          end
+          expect(page).to have_current_path(profile_albums_path(Profile.last))
+        end
+
+        it "トップタブから通知設定に遷移できること" do
+          within("#top-tab") do
+            click_link "通知設定"
+          end
+          expect(page).to have_current_path(profile_events_path(Profile.last))
+        end
       end
     end
 
