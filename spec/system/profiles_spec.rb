@@ -255,6 +255,13 @@ RSpec.describe "profiles", type: :system do
       end
 
       describe "画面遷移" do
+        it "サイドバーにプロフィールの画像と名前が表示される" do
+          within("#default-sidebar") do
+            expect(page).to have_content("山田太郎")
+            expect(page).to have_css("img[src*='valid_image.jpg']")
+          end
+        end
+
         it "サイドバーからプロフィール詳細に遷移できること" do
           within("#default-sidebar") do
             click_link "基本情報"
