@@ -10,10 +10,10 @@
         <div class="text-center w-full"><%= @album.date %></div>
       </div>
       <div id="icon" class="flex justify-center space-x-5">
-        <%= link_to edit_profile_album_path(@profile, @album) do %>
+        <%= link_to edit_profile_album_path(@profile, @album), id: "edit-album-#{@album.id}" do %>
           <i class="fa-solid fa-pen-to-square fa-lg"></i>
         <% end %>
-        <%= link_to profile_album_path(@profile, @album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+        <%= link_to profile_album_path(@profile, @album), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' }, id: "delete-album-#{@album.id}" do %>
           <i class="fa-solid fa-trash fa-lg"></i>
         <% end %>
       </div>
