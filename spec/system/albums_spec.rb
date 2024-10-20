@@ -137,4 +137,19 @@ RSpec.describe "profiles", type: :system do
       end
     end
   end
+
+  describe "アルバム削除" do
+    before do
+      login_as(user)
+      create_profile_one
+      create_album
+      visit profile_album_path(Profile.last, Profile.last.albums.last)
+    end
+
+    it "アルバム詳細ページでアルバムを削除できる" do
+      find("#delete-album-#{Album.last.id}").click
+      expect(page.accept_confirm).to eq "削除しますか？"
+      expect(page).not_to have_css("#album-#{Album.last.id}")
+    end
+  end
 end
