@@ -31,5 +31,13 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
 
+Metrics/AbcSize:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Exclude:
+    - "spec/**/*"
+
 Style/BlockComments:
   Enabled: false
