@@ -138,6 +138,30 @@ RSpec.describe "profiles", type: :system do
     end
   end
 
+  describe "アルバム詳細" do
+    before do
+      login_as(user)
+      create_profile_one
+      create_album
+      visit profile_album_path(Profile.last, Profile.last.albums.last)
+    end
+
+    describe "画面遷移" do
+      it "編集アイコンをクリックすると、編集ページに遷移する" do
+        find("#edit-album-#{Profile.last.albums.last.id}").click
+        expect(page).to have_current_path(edit_profile_album_path(Profile.last, Profile.last.albums.last))
+      end
+    end
+
+    describe "表示" do
+      it "アルバム詳細情報が表示されている" do
+        expect(page).to have_content("海外旅行")
+        expect(page).to have_content("楽しかった！")
+        expect(page).to have_css("img[src*='valid_image.jpg']")
+      end
+    end
+  end
+
   describe "アルバム削除" do
     before do
       login_as(user)
