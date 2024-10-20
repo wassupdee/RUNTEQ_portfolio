@@ -129,7 +129,7 @@ RSpec.describe "profiles", type: :system do
         fill_in "ノート", with: "また行きたい"
         attach_file "album_images", [
           Rails.root.join("spec/fixtures/files/valid_image.jpg"),
-          Rails.root.join("spec/fixtures/files/valid_image.jpg"),
+          Rails.root.join("spec/fixtures/files/valid_image.jpg")
         ], multiple: true
         click_button "保存する"
         expect(page).to have_content "更新に失敗しました"
