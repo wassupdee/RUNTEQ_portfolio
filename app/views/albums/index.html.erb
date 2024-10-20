@@ -16,10 +16,10 @@
               <div class="flex justify-between">
                 <div><%= album.date %></div>
                 <div class="flex justify-end space-x-3 md:space-x-5">
-                  <%= link_to profile_album_path(@profile, album) do %>
+                  <%= link_to profile_album_path(@profile, album), id: "album-#{album.id}" do %>
                     <i class="fa-solid fa-circle-info fa-lg"></i>
                   <% end %>
-                  <%= link_to edit_profile_album_path(@profile, album) do %>
+                  <%= link_to edit_profile_album_path(@profile, album), id: "edit-album-#{album.id}" do %>
                     <i class="fa-solid fa-pen-to-square fa-lg"></i>
                   <% end %>
                 </div>
