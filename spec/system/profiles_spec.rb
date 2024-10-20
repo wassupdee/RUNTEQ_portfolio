@@ -535,21 +535,21 @@ RSpec.describe "profiles", type: :system do
       end
 
       describe "画面遷移" do
-        it "トップバーからプロフィール詳細に遷移できること" do
+        it "トップタブからプロフィール詳細に遷移できること" do
           within("#top-tab") do
             click_link "基本情報"
           end
           expect(page).to have_current_path(profile_path(Profile.last))
         end
 
-        it "トップバーからアルバム一覧に遷移できること" do
+        it "トップタブからアルバム一覧に遷移できること" do
           within("#top-tab") do
             click_link "アルバム"
           end
           expect(page).to have_current_path(profile_albums_path(Profile.last))
         end
 
-        it "トップバーから通知設定に遷移できること" do
+        it "トップタブから通知設定に遷移できること" do
           within("#top-tab") do
             click_link "通知設定"
           end
