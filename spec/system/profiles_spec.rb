@@ -247,6 +247,44 @@ RSpec.describe "profiles", type: :system do
         end
       end
     end
+
+    describe "連絡先詳細" do
+      before do
+        create_profile_one
+        visit profile_path(Profile.last)
+        page.driver.browser.manage.window.resize_to(768, 900)
+      end
+
+      describe "画面遷移" do
+        it "サイドバーからプロフィール詳細に遷移できること" do
+          within("#default-sidebar") do
+            click_link "基本情報"
+          end
+          expect(page).to have_current_path(profile_path(Profile.last))
+        end
+
+        it "サイドバーからアルバム一覧に遷移できること" do
+          within("#default-sidebar") do
+            click_link "アルバム"
+          end
+          expect(page).to have_current_path(profile_albums_path(Profile.last))
+        end
+
+        it "サイドバーから通知設定に遷移できること" do
+          within("#default-sidebar") do
+            click_link "通知設定"
+          end
+          expect(page).to have_current_path(profile_events_path(Profile.last))
+        end
+
+        it "サイドバーから連絡先一覧に遷移できること" do
+          within("#default-sidebar") do
+            click_link "連絡先一覧"
+          end
+          expect(page).to have_current_path(profiles_path)
+        end
+      end
+    end
   end
 
   describe "スマホ画面" do
@@ -479,6 +517,37 @@ RSpec.describe "profiles", type: :system do
             find("#close-banner-btn-mb").click
             expect(page).not_to have_css("#sticky-banner-mb")
           end
+        end
+      end
+    end
+
+    describe "連絡先詳細" do
+      before do
+        create_profile_one
+        visit profile_path(Profile.last)
+        page.driver.browser.manage.window.resize_to(767, 900)
+      end
+
+      describe "画面遷移" do
+        it "トップバーからプロフィール詳細に遷移できること" do
+          within("#top-tab") do
+            click_link "基本情報"
+          end
+          expect(page).to have_current_path(profile_path(Profile.last))
+        end
+
+        it "トップバーからアルバム一覧に遷移できること" do
+          within("#top-tab") do
+            click_link "アルバム"
+          end
+          expect(page).to have_current_path(profile_albums_path(Profile.last))
+        end
+
+        it "トップバーから通知設定に遷移できること" do
+          within("#top-tab") do
+            click_link "通知設定"
+          end
+          expect(page).to have_current_path(profile_events_path(Profile.last))
         end
       end
     end
