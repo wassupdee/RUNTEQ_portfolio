@@ -198,7 +198,6 @@ RSpec.describe "profiles", type: :system do
           expect(page).to have_content("１ヵ月以内")
           expect(Profile.last.last_contacted).to eq("within_one_month")
         end
-
       end
 
       describe "検索" do
