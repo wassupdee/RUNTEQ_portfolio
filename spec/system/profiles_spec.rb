@@ -33,6 +33,7 @@ RSpec.describe "profiles", type: :system do
           click_button "登録する"
           expect(page).to have_content "連絡先を登録しました"
           expect(page).to have_current_path(profile_path(Profile.last))
+          expect(page).to have_content("山田太郎")
         end
       end
 
@@ -275,6 +276,7 @@ RSpec.describe "profiles", type: :system do
           click_button "登録する"
           expect(page).to have_content "連絡先を登録しました"
           expect(page).to have_current_path(profile_path(Profile.last))
+          expect(page).to have_content("山田太郎")
         end
       end
 
