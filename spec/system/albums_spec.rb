@@ -78,7 +78,7 @@ RSpec.describe "profiles", type: :system do
     before do
       login_as(user)
       create_profile_one
-      create_album
+      create_album_one
       visit profile_albums_path(Profile.last)
     end
 
@@ -142,7 +142,7 @@ RSpec.describe "profiles", type: :system do
     before do
       login_as(user)
       create_profile_one
-      create_album
+      create_album_one
       visit profile_album_path(Profile.last, Profile.last.albums.last)
     end
 
@@ -162,11 +162,39 @@ RSpec.describe "profiles", type: :system do
     end
   end
 
+  describe "アルバム一覧" do
+    before do
+      login_as(user)
+      create_profile_one
+      create_album_one
+      create_album_two
+      visit profile_albums_path(Profile.last)
+    end
+
+    describe "画面遷移" do
+      it "詳細アイコンをクリックすると、詳細ページに遷移する" do
+        find("#album-#{Profile.last.albums.last.id}").click
+        expect(page).to have_current_path(profile_album_path(Profile.last, Profile.last.albums.last))
+      end
+      it "編集アイコンをクリックすると、編集ページに遷移する" do
+        find("#edit-album-#{Profile.last.albums.last.id}").click
+        expect(page).to have_current_path(edit_profile_album_path(Profile.last, Profile.last.albums.last))
+      end
+    end
+
+    describe "表示" do
+      it "作成されたアルバムが表示される" do
+        expect(page).to have_content("海外旅行")
+        expect(page).to have_content("祭り")
+      end
+    end
+  end
+
   describe "アルバム削除" do
     before do
       login_as(user)
       create_profile_one
-      create_album
+      create_album_one
       visit profile_album_path(Profile.last, Profile.last.albums.last)
     end
 
