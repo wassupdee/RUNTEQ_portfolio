@@ -189,6 +189,15 @@ RSpec.describe "profiles", type: :system do
             end
           end
         end
+
+        it "「最後に連絡した日」を一覧から変更できること" do
+          within("#pc-profiles") do
+            select "１ヵ月以内", from: "profile_last_contacted", match: :first
+          end
+          expect(page).to have_content("１ヵ月以内")
+          expect(Profile.last.last_contacted).to eq("within_one_month")
+        end
+
       end
 
       describe "検索" do
