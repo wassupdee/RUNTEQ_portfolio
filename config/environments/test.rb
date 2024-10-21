@@ -61,4 +61,10 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # メーラーが作成するURLのホスト名を設定
+  config.action_mailer.default_url_options = { host: "#{IPSocket.getaddress(Socket.gethostname)}:4444" }
+
+  # メールを実際に送信するかどうかを指定
+  config.action_mailer.perform_deliveries = true
 end

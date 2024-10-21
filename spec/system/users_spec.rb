@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "UserSessions", type: :system do
+RSpec.describe "users", type: :system do
   include LoginMacros
   let(:user) { create(:user) }
 
@@ -101,7 +101,7 @@ RSpec.describe "UserSessions", type: :system do
         end
       end
 
-      context "パスワードとパスワードリセットが一致しない" do
+      context "パスワードと確認用パスワードが一致しない" do
         it "ユーザーの新規作成が失敗する" do
           visit new_user_path
           fill_in "名前", with: "テスト"
@@ -111,6 +111,126 @@ RSpec.describe "UserSessions", type: :system do
           click_button "登録"
           expect(page).to have_content "ユーザー登録に失敗しました"
           expect(page).to have_current_path(new_user_path)
+        end
+      end
+    end
+
+    describe "パスワードリセット" do
+      context "正常な入力値" do
+        it "パスワードを変更できる" do
+          visit login_path
+          click_link "パスワードを忘れましたか？"
+          fill_in "email", with: user.email
+          click_button "申請"
+          sleep 1
+
+          # 送信されたメールを取得
+          email = ActionMailer::Base.deliveries.last
+
+          # メール本文からURLを抽出（正規表現でhrefのリンクを取得）
+          require "base64"
+          email_body = email.html_part.body.decoded
+          reset_url = email_body.match(/href="([^"]+)"/)[1]
+
+          # パスワードリセットフォームに遷移
+          visit reset_url
+          fill_in "新しいパスワード", with: "new_password"
+          fill_in "パスワード再入力", with: "new_password"
+          click_button "変更"
+          expect(page).to have_content "パスワードがリセットされました"
+          expect(page).to have_current_path(login_path)
+        end
+      end
+
+      context "未登録のメールアドレス" do
+        it "パスワードを変更できない" do
+          visit login_path
+          click_link "パスワードを忘れましたか？"
+          fill_in "email", with: "unregistered@example.com"
+          click_button "申請"
+          sleep 1
+
+          expect(page).to have_content("パスワードリセットのメールを送信しました")
+
+          # 送信されたメールを取得
+          email = ActionMailer::Base.deliveries.last
+          expect(email).to eq nil
+        end
+      end
+
+      context "パスワードが2文字以下" do
+        it "パスワードを変更できない" do
+          visit login_path
+          click_link "パスワードを忘れましたか？"
+          fill_in "email", with: user.email
+          click_button "申請"
+          sleep 1
+
+          # 送信されたメールを取得
+          email = ActionMailer::Base.deliveries.last
+
+          # メール本文からURLを抽出（正規表現でhrefのリンクを取得）
+          require "base64"
+          email_body = email.html_part.body.decoded
+          reset_url = email_body.match(/href="([^"]+)"/)[1]
+
+          # パスワードリセットフォームに遷移
+          visit reset_url
+          fill_in "新しいパスワード", with: "ab"
+          fill_in "パスワード再入力", with: "ab"
+          click_button "変更"
+          expect(page).to have_content "パスワードリセットに失敗しました"
+          expect(page).to have_current_path(reset_url)
+        end
+      end
+
+      context "確認用パスワードが空欄" do
+        it "パスワードを変更できない" do
+          visit login_path
+          click_link "パスワードを忘れましたか？"
+          fill_in "email", with: user.email
+          click_button "申請"
+          sleep 1
+          # 送信されたメールを取得
+          email = ActionMailer::Base.deliveries.last
+
+          # メール本文からURLを抽出（正規表現でhrefのリンクを取得）
+          require "base64"
+          email_body = email.html_part.body.decoded
+          reset_url = email_body.match(/href="([^"]+)"/)[1]
+
+          # パスワードリセットフォームに遷移
+          visit reset_url
+          fill_in "新しいパスワード", with: "new_password"
+          fill_in "パスワード再入力", with: ""
+          click_button "変更"
+          expect(page).to have_content "パスワードリセットに失敗しました"
+          expect(page).to have_current_path(reset_url)
+        end
+      end
+
+      context "パスワードと確認用パスワードが一致しない" do
+        it "パスワードを変更できない" do
+          visit login_path
+          click_link "パスワードを忘れましたか？"
+          fill_in "email", with: user.email
+          click_button "申請"
+          sleep 1
+          # 送信されたメールを取得
+          email = ActionMailer::Base.deliveries.last
+
+          # メール本文からURLを抽出（正規表現でhrefのリンクを取得）
+          require "base64"
+          email_body = email.html_part.body.decoded
+          reset_url = email_body.match(/href="([^"]+)"/)[1]
+
+          # パスワードリセットフォームに遷移
+          visit reset_url
+          fill_in "新しいパスワード", with: "new_password_1"
+          fill_in "パスワード再入力", with: "new_password_2"
+          click_button "変更"
+          expect(page).to have_content "パスワードリセットに失敗しました"
+          expect(page).to have_current_path(reset_url)
         end
       end
     end
