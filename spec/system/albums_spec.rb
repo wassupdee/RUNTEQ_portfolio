@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "profiles", type: :system do
+RSpec.describe "albums", type: :system do
   include LoginMacros
   include CreateProfileMacros
   include CreateAlbumMacros
