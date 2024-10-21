@@ -61,7 +61,14 @@ RSpec.describe "notifications", type: :system do
   end
 
   describe "リンク先への遷移" do
+    before do
+      login_as(user)
+      create_profile_one
+      visit profile_events_path(Profile.last)
+    end
+
     context "PC画面" do
+      before { page.driver.browser.manage.window.resize_to(768, 900) }
       it "サイドバーにプロフィールの画像と名前が表示される" do
         within("#default-sidebar") do
           expect(page).to have_content("山田太郎")
@@ -97,8 +104,14 @@ RSpec.describe "notifications", type: :system do
         expect(page).to have_current_path(profiles_path)
       end
 
+      it "LINE友達登録ページへの遷移ができること" do
+        click_link "LINE友達登録"
+        expect(page).to have_current_path(line_qr_code_path)
+      end
     end
+
     context "スマホ画面" do
+      before { page.driver.browser.manage.window.resize_to(767, 900) }
       it "トップタブからプロフィール詳細に遷移できること" do
         within("#top-tab") do
           click_link "基本情報"
@@ -120,6 +133,10 @@ RSpec.describe "notifications", type: :system do
         expect(page).to have_current_path(profile_events_path(Profile.last))
       end
 
+      it "LINE友達登録ページへの遷移ができること" do
+        click_link "LINE友達登録"
+        expect(page).to have_current_path(line_qr_code_path)
+      end
     end
   end
 end
