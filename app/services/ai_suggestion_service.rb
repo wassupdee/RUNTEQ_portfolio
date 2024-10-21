@@ -1,12 +1,11 @@
 class AiSuggestionService
-  def initialize(client, session)
-    @openai = client
+  def initialize(session)
     @session = session
   end
 
   # レスポンスを返すメソッド
   def suggest
-    response = @openai.chat(
+    response = openai_client.chat(
       parameters: {
         model: "gpt-4o-mini",
         messages: set_prompt
@@ -69,5 +68,9 @@ class AiSuggestionService
 
   def format_answer_content(answer)
     answer.is_a?(Array) ? answer.join(", ") : answer.to_s
+  end
+
+  def openai_client
+    OpenAI::Client.new
   end
 end
