@@ -49,13 +49,13 @@ RSpec.describe "line_setting_page", type: :system do
         this_month = Date.today.month
 
         if birthday_month < this_month
-          (birthday_month + 12 - this_month).times { click_link "次月"}
+          (birthday_month + 12 - this_month).times { click_link "次月" }
           within("#pc-table") do
             click_link "山田太郎の誕生日"
           end
           expect(page).to have_current_path(profile_path(Profile.last))
         elsif birthday_month > this_month
-          (birthday_month - this_month).times { click_link "次月"}
+          (birthday_month - this_month).times { click_link "次月" }
           within("#pc-table") do
             click_link "山田太郎の誕生日"
           end
@@ -71,13 +71,13 @@ RSpec.describe "line_setting_page", type: :system do
         this_month = Date.today.month
 
         if important_day_month < this_month
-          (important_day_month + 12 - this_month).times { click_link "次月"}
+          (important_day_month + 12 - this_month).times { click_link "次月" }
           within("#pc-table") do
             click_link "山田太郎の卒業記念日"
           end
           expect(page).to have_current_path(profile_path(Profile.last))
         elsif important_day_month > this_month
-          (important_day_month - this_month).times { click_link "次月"}
+          (important_day_month - this_month).times { click_link "次月" }
           within("#pc-table") do
             click_link "山田太郎の卒業記念日"
           end
@@ -99,13 +99,13 @@ RSpec.describe "line_setting_page", type: :system do
         this_month = Date.today.month
 
         if birthday_month < this_month
-          (birthday_month + 12 - this_month).times { click_link "次月"}
+          (birthday_month + 12 - this_month).times { click_link "次月" }
           within("#mobile-table") do
             click_link "山田太郎の誕生日"
           end
           expect(page).to have_current_path(profile_path(Profile.last))
         elsif birthday_month > this_month
-          (birthday_month - this_month).times { click_link "次月"}
+          (birthday_month - this_month).times { click_link "次月" }
           within("#mobile-table") do
             click_link "山田太郎の誕生日"
           end
@@ -121,13 +121,13 @@ RSpec.describe "line_setting_page", type: :system do
         this_month = Date.today.month
 
         if important_day_month < this_month
-          (important_day_month + 12 - this_month).times { click_link "次月"}
+          (important_day_month + 12 - this_month).times { click_link "次月" }
           within("#mobile-table") do
             click_link "山田太郎の卒業記念日"
           end
           expect(page).to have_current_path(profile_path(Profile.last))
         elsif important_day_month > this_month
-          (important_day_month - this_month).times { click_link "次月"}
+          (important_day_month - this_month).times { click_link "次月" }
           within("#mobile-table") do
             click_link "山田太郎の卒業記念日"
           end
