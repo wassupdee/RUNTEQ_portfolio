@@ -20,20 +20,20 @@ RSpec.describe "line_setting_page", type: :system do
       context "次月ボタンをクリックすると" do
         it "次月のカレンダーが表示される" do
           click_link "次月"
-          unless Date.today.year == 12
-            expect(page).to have_content("#{Date.today.month + 1}月 #{Date.today.year}")
-          else
+          if Date.today.year == 12
             expect(page).to have_content("1月 #{Date.today.year + 1}")
+          else
+            expect(page).to have_content("#{Date.today.month + 1}月 #{Date.today.year}")
           end
         end
       end
       context "前月ボタンをクリックすると" do
         it "前月のカレンダーが表示される" do
           click_link "前月"
-          unless Date.today.year == 1
-            expect(page).to have_content("#{Date.today.month - 1}月 #{Date.today.year}")
-          else
+          if Date.today.year == 1
             expect(page).to have_content("12月 #{Date.today.year - 1}")
+          else
+            expect(page).to have_content("#{Date.today.month - 1}月 #{Date.today.year}")
           end
         end
       end
