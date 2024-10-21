@@ -4,7 +4,7 @@
       <%= render 'shared/error_messages', model: f.object %>
 
       <%= f.fields_for :events do |i| %>
-        <div class="grid grid-cols-2 lg:grid-cols-3 items-center gap-1 mb-4 text-center">
+        <div class="grid grid-cols-2 lg:grid-cols-3 items-center gap-1 mb-4 text-center" data-index="<%= i.index %>">
           <div>
             <%= "#{i.object.name}の" %>
           </div>
