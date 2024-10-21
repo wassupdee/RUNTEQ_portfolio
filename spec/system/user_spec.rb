@@ -101,7 +101,7 @@ RSpec.describe "UserSessions", type: :system do
         end
       end
 
-      context "パスワードとパスワードリセットが一致しない" do
+      context "パスワードと確認用パスワードが一致しない" do
         it "ユーザーの新規作成が失敗する" do
           visit new_user_path
           fill_in "名前", with: "テスト"
