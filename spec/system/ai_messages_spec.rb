@@ -46,37 +46,177 @@ RSpec.describe "ai_messages", type: :system do
     end
   end
 
-  context "質問1の回答が未選択の場合" do
-    it "質問2に遷移できない" do
-      visit introduction_path(1)
-      click_button "質問にすすむ"
-      click_button "次へ"
-      expect(page).to have_current_path(question_path(1))
+  context "回答未選択" do
+    context "質問1の回答が未選択の場合" do
+      it "質問2に遷移できない" do
+        visit introduction_path(1)
+        click_button "質問にすすむ"
+        click_button "次へ"
+        expect(page).to have_current_path(question_path(1))
+      end
+    end
+
+    context "質問2の回答が未選択の場合" do
+      it "質問3に遷移できない" do
+        visit introduction_path(1)
+        click_button "質問にすすむ"
+        choose "answer[question1]_friend"
+        click_button "次へ"
+        click_button "次へ"
+        alert = page.driver.browser.switch_to.alert
+        expect(alert.text).to eq("少なくとも1つ選択してください。")
+      end
+    end
+
+    context "質問3の回答が未選択の場合" do
+      it "AIメッセージ提案ページに遷移できない" do
+        visit introduction_path(1)
+        click_button "質問にすすむ"
+        choose "answer[question1]_friend"
+        click_button "次へ"
+        check "answer[question2]_life"
+        click_button "次へ"
+        click_button "次へ"
+        expect(page).to have_current_path(question_path(3))
+      end
     end
   end
 
-  context "質問2の回答が未選択の場合" do
-    it "質問3に遷移できない" do
-      visit introduction_path(1)
-      click_button "質問にすすむ"
-      choose "answer[question1]_friend"
-      click_button "次へ"
-      click_button "次へ"
-      alert = page.driver.browser.switch_to.alert
-      expect(alert.text).to eq("少なくとも1つ選択してください。")
-    end
-  end
+  describe "パンくず" do
+    context "イントロページ上" do
+      before { visit introduction_path(1) }
 
-  context "質問3の回答が未選択の場合" do
-    it "AIメッセージ提案ページに遷移できない" do
-      visit introduction_path(1)
-      click_button "質問にすすむ"
-      choose "answer[question1]_friend"
-      click_button "次へ"
-      check "answer[question2]_life"
-      click_button "次へ"
-      click_button "次へ"
-      expect(page).to have_current_path(question_path(3))
+      it "Topとイントロが表示される" do
+        within(".breadcrumbs") do
+          expect(page).to have_content("Top")
+          expect(page).to have_content("イントロ")
+        end
+      end
+
+      it "Topページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "Top"
+        end
+        expect(page).to have_current_path(root_path)
+      end
+    end
+
+    context "質問1ページ上" do
+      before do
+        visit introduction_path(1)
+        click_button "質問にすすむ"
+        choose "answer[question1]_friend"
+      end
+
+      it "Top、イントロ、質問1が表示される" do
+        within(".breadcrumbs") do
+          expect(page).to have_content("Top")
+          expect(page).to have_content("イントロ")
+          expect(page).to have_content("質問1")
+        end
+      end
+
+      it "Topページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "Top"
+        end
+        expect(page).to have_current_path(root_path)
+      end
+
+      it "イントロページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "イントロ"
+        end
+        expect(page).to have_current_path(introduction_path(1))
+      end
+    end
+
+    context "質問2ページ上" do
+      before do
+        visit introduction_path(1)
+        click_button "質問にすすむ"
+        choose "answer[question1]_friend"
+        click_button "次へ"
+      end
+
+      it "Top、イントロ、質問1、質問2が表示される" do
+        within(".breadcrumbs") do
+          expect(page).to have_content("Top")
+          expect(page).to have_content("イントロ")
+          expect(page).to have_content("質問1")
+          expect(page).to have_content("質問2")
+        end
+      end
+
+      it "Topページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "Top"
+        end
+        expect(page).to have_current_path(root_path)
+      end
+
+      it "イントロページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "イントロ"
+        end
+        expect(page).to have_current_path(introduction_path(1))
+      end
+
+      it "質問1ページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "質問1"
+        end
+        expect(page).to have_current_path(question_path(1))
+      end
+    end
+
+    context "質問3ページ上" do
+      before do
+        visit introduction_path(1)
+        click_button "質問にすすむ"
+        choose "answer[question1]_friend"
+        click_button "次へ"
+        check "answer[question2]_life"
+        click_button "次へ"
+      end
+
+      it "Top、イントロ、質問1、質問2、質問3が表示される" do
+        within(".breadcrumbs") do
+          expect(page).to have_content("Top")
+          expect(page).to have_content("イントロ")
+          expect(page).to have_content("質問1")
+          expect(page).to have_content("質問2")
+          expect(page).to have_content("質問3")
+        end
+      end
+
+      it "Topページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "Top"
+        end
+        expect(page).to have_current_path(root_path)
+      end
+
+      it "イントロページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "イントロ"
+        end
+        expect(page).to have_current_path(introduction_path(1))
+      end
+
+      it "質問1ページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "質問1"
+        end
+        expect(page).to have_current_path(question_path(1))
+      end
+
+      it "質問2ページに遷移できる" do
+        within(".breadcrumbs") do
+          click_link "質問2"
+        end
+        expect(page).to have_current_path(question_path(2))
+      end
     end
   end
 end
