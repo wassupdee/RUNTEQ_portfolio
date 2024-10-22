@@ -103,6 +103,9 @@ group :development, :test do
   # To find bug
   gem 'pry-rails'
   gem 'pry-byebug'
+
+  # Analyse RSpec coverage
+  gem 'simplecov'
 end
 
 group :development do
