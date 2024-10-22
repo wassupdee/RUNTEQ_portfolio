@@ -1,10 +1,10 @@
 <div id="<%= dom_id group %>" class="flex justify-between my-2">
   <div class="font-bold"><%= group.name %></div>
   <div class="px-2">
-    <%= link_to edit_group_path(group), data: { turbo_stream: true}  do %>
+    <%= link_to edit_group_path(group), data: { turbo_stream: true}, id: "edit-group-#{group.id}"  do %>
       <i class="fa-solid fa-pen-to-square"></i>
     <% end %>
-    <%= link_to  group_path(group), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete } do %>
+    <%= link_to  group_path(group), data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete }, id: "delete-group-#{group.id}" do %>
       <i class="fa-solid fa-trash"></i>
     <% end %>
   </div>
