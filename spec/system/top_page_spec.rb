@@ -34,7 +34,7 @@ RSpec.describe "top_page", type: :system do
     context "使い方リンクをクリック" do
       it "使い方ページに遷移する" do
         visit root_path
-        within('.grid') do
+        within(".grid") do
           click_link "使い方"
         end
         expect(page).to have_current_path(how_to_use_path)
