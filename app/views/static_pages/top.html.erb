@@ -1,5 +1,40 @@
 <% content_for(:tab_title, "Stay Friends") %>
 
+<div class="min-h-screen bg-ivory-white bg-cover flex flex-col md:flex-row">
+  <div id="left-side" class="md:w-1/2 flex items-center flex-col mt-32 ml-8">
+    <div>
+      <%= image_tag("ogp.png") %>
+    </div>
+    <div id="buttons" class="flex space-x-10">
+      <div id="button-1" class="space-y-2">
+        <div class="flex justify-center">
+          <%= link_to introduction_path(1) do %>
+            <button class="btn bg-golden text-black border-none hover:bg-yellow-500 shadow-2xl">メッセージを作成する</button>
+          <% end %>
+        </div>
+        <div class="w-fit p-2 rounded-xl text-center">
+          <p class="text-base md:text-lg lg:text-sm text-black md:text-shadow-white mb-2 md:mb-0">３つの質問に答えるだけで、</p>
+          <p class="text-base md:text-lg lg:text-sm text-black md:text-shadow-white">最適なメッセージを提案します</p>
+        </div>      </div>
+      <div id="button-2" class="space-y-2">
+        <div id="right-button" class="flex justify-center">
+          <%= link_to profiles_path do %>
+            <button class="btn bg-peach-red text-black border-none hover:bg-red-500 shadow-2xl">ともだち帳をひらく</button>
+          <% end %>
+        </div>
+        <div class="w-fit p-2 rounded-xl text-center">
+          <p class="text-base md:text-lg lg:text-sm text-black md:text-shadow-white">ともだちの大切な日が近づくと</p>
+          <p class="text-base md:text-lg lg:text-sm text-black md:text-shadow-white">LINE通知を受け取れます</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="right-side" class="md:w-1/2 flex flex-col items-center mt-64">
+    <%= image_tag("kids.jpg", class: "w-[500px] shadow-2xl") %>
+  </div>
+</div>
+
+<!--
 <div class="min-h-screen bg-[url('top_second_bg.jpg')] bg-cover flex flex-col md:flex-row">
   <div id="left-side" class="md:w-1/2 flex items-center flex-col mt-32 md:mt-40">
     <div id="left-text" class="text-white text-center">
@@ -34,3 +69,4 @@
     </div>
   </div>
 </div>
+-->
