@@ -1,36 +1,48 @@
 <% content_for(:tab_title, "Stay Friends") %>
 
-<div class="min-h-screen bg-[url('top_second_bg.jpg')] bg-cover flex flex-col md:flex-row">
-  <div id="left-side" class="md:w-1/2 flex items-center flex-col mt-32 md:mt-40">
-    <div id="left-text" class="text-white text-center">
-      <h1 class="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-shadow-gray-md mb-3 md:mb-10">また、つながろう。</h1>
-      <h1 class="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-shadow-gray-md mb-6 md:mb-12">私の大切なともだちと</h1>
+<div class="bg-ivory h-full bg-cover flex flex-col items-center lg:flex-row lg:items-start">
+  <div id="left-side" class="lg:w-1/2 flex items-center flex-col lg:mt-12 lg:ml-8">
+    <div>
+      <%= image_tag("ogp.png", class: "w-[550px] sm:w-[600px] md:w-[600px] lg:w-auto") %>
     </div>
-    <div class="bg-white bg-opacity-20 w-fit p-2 rounded-xl text-center">
-      <p class="text-base md:text-lg lg:text-2xl font-medium text-black md:text-shadow-white mb-2">昔のともだちに、連絡を取ってみませんか？</p>
-      <p class="text-base md:text-lg lg:text-2xl font-medium text-black md:text-shadow-white mb-2 md:mb-0">３つの質問に答えるだけで、</p>
-      <p class="text-base md:text-lg lg:text-2xl font-medium text-black md:text-shadow-white">最適なメッセージを提案します</p>
+    <div id="buttons" class="flex space-x-2 sm:space-x-10 mt-4 sm:mt-0">
+      <div id="button-1" class="space-y-2">
+        <div class="flex justify-center">
+          <%= link_to introduction_path(1) do %>
+            <button class="btn bg-golden text-black border-none hover:bg-yellow-500 shadow-2xl text-xs">メッセージを作成する</button>
+          <% end %>
+        </div>
+        <div class="w-fit sm:p-2 rounded-xl text-center">
+          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">３つの質問に答えるだけで、</p>
+          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">友だちに送る<br class="sm:hidden">最適なメッセージを提案します。</p>
+        </div>
+      </div>
+      <div id="button-2" class="space-y-2">
+        <div id="right-button" class="flex justify-center">
+          <%= link_to profiles_path do %>
+            <button class="btn bg-peach-red text-black border-none hover:bg-red-500 shadow-2xl">連絡帳をひらく</button>
+          <% end %>
+        </div>
+        <div class="w-fit sm:p-2 rounded-xl text-center">
+          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">友だちの大切な日を登録すると</p>
+          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">LINEでリマインド通知を<br class="sm:hidden">受け取れます。</p>
+        </div>
+      </div>
     </div>
-    <div id="left-button" class="flex justify-center mt-6">
-      <%= link_to introduction_path(1) do %>
-        <button class="btn bg-golden text-black border-none hover:bg-yellow-500 shadow-2xl">メッセージを作成する</button>
+    <div id="how_to_use_1" class="mt-20 hidden lg:block">
+      <%= link_to how_to_use_path do %>
+        使い方
+        <i class="fa-regular fa-circle-question"></i>
       <% end %>
     </div>
   </div>
-  <div id="right-side" class="md:w-1/2 flex flex-col items-center justify-end mb-32 mt-20 md:mt-20">
-    <div id="right-text" class="text-white text-center">
-      <h1 class="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-shadow-gray-lg mb-3 md:mb-10">つながりつづけよう。</h1>
-      <h1 class="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-shadow-gray-lg mb-6 md:mb-12">これからも、ずっと</h1>
-    </div>
-    <div class="bg-white bg-opacity-20 w-fit p-2 rounded-xl text-center">
-      <p class="text-base md:text-lg lg:text-2xl font-medium text-black md:text-shadow-white mb-2">ともだちの大切な日が近づくと</p>
-      <p class="text-base md:text-lg lg:text-2xl font-medium text-black md:text-shadow-white">LINE通知を受け取れます</p>
-    </div>
-    <div id="right-button" class="flex justify-center mt-6">
-      <%= link_to profiles_path do %>
-        <button class="btn bg-peach-red text-black border-none hover:bg-red-500 shadow-2xl">ともだち帳をひらく</button>
+  <div id="right-side" class="md:w-1/2 flex flex-col items-center mt-10 sm:mt-4 md:mt-4 lg:mt-48">
+    <%= image_tag("kids.jpg", class: "w-[240px] sm:w-[280px] md:w-[300px] lg:w-[480px] xl:w-[520px] shadow-2xl") %>
+    <div id="how_to_use_2" class="md:mt-4 hidden md:block lg:hidden">
+      <%= link_to how_to_use_path do %>
+        使い方
+        <i class="fa-regular fa-circle-question"></i>
       <% end %>
-    </div>
     </div>
   </div>
 </div>

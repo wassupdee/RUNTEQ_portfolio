@@ -12,6 +12,7 @@ module.exports = {
         'peach-red': '#ff6f61',
         'peach-light': '#FFCFC4',
         'ivory-white': '#FFFFF7',
+        'ivory': '#FFFFF0',
         'almond': '#FFEBCD',
         'cream-pink': '#FFF1ED',
         'button-gray': '#6B6B6B',

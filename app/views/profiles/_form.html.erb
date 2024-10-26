@@ -35,7 +35,7 @@
               <% else %>
                 <div class="flex mb-1 items-center">
                   <i class="fa-solid fa-calendar-check fa-sm"></i>
-                  <%= event_form.text_field :name, placeholder: event.name, size: event.name.length, class: "block font-medium rounded pl-1 pr-7 mx-1 text-black bg-white border border-gray-400 " %>
+                  <%= event_form.text_field :name, placeholder: event.name, size: event.name.length, class: "block font-medium rounded pl-1 pr-7 mx-1 text-black bg-white border border-gray-400 w-full" %>
                 </div>
                 <%= event_form.date_field :date, class: "block font-medium mb-5 bg-button-gray text-white border border-gray-400 rounded" %>
               <% end %>
