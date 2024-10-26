@@ -5,20 +5,14 @@ RSpec.describe "top_page", type: :system do
   let(:user) { create(:user) }
 
   describe "ログイン前" do
-    it "メインメッセージが表示されること" do
-      visit root_path
-      expect(page).to have_content "また、つながろう。"
-      expect(page).to have_content "私の大切なともだちと"
-      expect(page).to have_content "つながりつづけよう。"
-      expect(page).to have_content "これからも、ずっと"
-    end
-
     it "サブメッセージが表示されること" do
       visit root_path
-      expect(page).to have_content "昔のともだちに、連絡を取ってみませんか？"
       expect(page).to have_content "３つの質問に答えるだけで、"
-      expect(page).to have_content "ともだちの大切な日が近づくと"
-      expect(page).to have_content "LINE通知を受け取れます"
+      expect(page).to have_content "友だちに送る"
+      expect(page).to have_content "最適なメッセージを提案します。"
+      expect(page).to have_content "友だちの大切な日を登録すると"
+      expect(page).to have_content "LINEでリマインド通知を"
+      expect(page).to have_content "受け取れます。"
     end
 
     context "AIメッセージ作成ボタンをクリック" do
@@ -32,7 +26,7 @@ RSpec.describe "top_page", type: :system do
     context "連絡帳ボタンをクリック" do
       it "ログインページに遷移する" do
         visit root_path
-        click_link "ともだち帳をひらく"
+        click_link "連絡帳をひらく"
         expect(page).to have_current_path(login_path)
       end
     end
@@ -44,7 +38,7 @@ RSpec.describe "top_page", type: :system do
     context "連絡帳ボタンをクリック" do
       it "連絡帳一覧ページに遷移する" do
         visit root_path
-        click_link "ともだち帳をひらく"
+        click_link "連絡帳をひらく"
         expect(page).to have_current_path(profiles_path)
       end
     end
