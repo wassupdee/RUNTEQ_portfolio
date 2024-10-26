@@ -40,28 +40,36 @@
 <div class="grid grid-cols-1 md:grid-cols-2 h-full items-center">
   <div class="flex flex-col justify-center">
     <%= image_tag("ogp.png") %>
-    <div id="buttons" class="flex justify-center space-x-2 md:space-x-14 mt-4 sm:mt-0">
-      <div id="button-1" class="space-y-2">
-        <div class="flex justify-center">
-          <%= link_to introduction_path(1) do %>
-            <button class="btn bg-golden text-black border-none hover:bg-yellow-500 shadow-2xl text-xs">メッセージを作成する</button>
-          <% end %>
+    <div class="flex flex-col items-center">
+      <div id="buttons" class="flex justify-center space-x-2 md:space-x-14 mt-4 sm:mt-0">
+        <div id="button-1" class="space-y-2">
+          <div class="flex justify-center">
+            <%= link_to introduction_path(1) do %>
+              <button class="btn bg-golden text-black border-none hover:bg-yellow-500 shadow-2xl text-xs">メッセージを作成する</button>
+            <% end %>
+          </div>
+          <div class="w-fit sm:p-2 rounded-xl text-center">
+            <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">３つの質問に答えるだけで、</p>
+            <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">友だちに送る<br class="sm:hidden">最適なメッセージを提案します。</p>
+          </div>
         </div>
-        <div class="w-fit sm:p-2 rounded-xl text-center">
-          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">３つの質問に答えるだけで、</p>
-          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">友だちに送る<br class="sm:hidden">最適なメッセージを提案します。</p>
+        <div id="button-2" class="space-y-2">
+          <div id="right-button" class="flex justify-center">
+            <%= link_to profiles_path do %>
+              <button class="btn bg-peach-red text-black border-none hover:bg-red-500 shadow-2xl">連絡帳をひらく</button>
+            <% end %>
+          </div>
+          <div class="w-fit sm:p-2 rounded-xl text-center">
+            <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">友だちの大切な日を登録すると</p>
+            <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">LINEでリマインド通知を<br class="sm:hidden">受け取れます。</p>
+          </div>
         </div>
       </div>
-      <div id="button-2" class="space-y-2">
-        <div id="right-button" class="flex justify-center">
-          <%= link_to profiles_path do %>
-            <button class="btn bg-peach-red text-black border-none hover:bg-red-500 shadow-2xl">連絡帳をひらく</button>
-          <% end %>
-        </div>
-        <div class="w-fit sm:p-2 rounded-xl text-center">
-          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">友だちの大切な日を登録すると</p>
-          <p class="text-xs sm:text-sm md:text-sm lg:text-sm text-black md:text-shadow-white">LINEでリマインド通知を<br class="sm:hidden">受け取れます。</p>
-        </div>
+      <div class="mt-10">
+        <%= link_to how_to_use_path do %>
+          使い方
+          <i class="fa-regular fa-circle-question"></i>
+        <% end %>
       </div>
     </div>
   </div>
