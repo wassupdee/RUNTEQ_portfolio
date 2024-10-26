@@ -37,9 +37,15 @@
 </div>
 -->
 
-<div class="bg-ivory h-full bg-cover flex flex-col items-center md:flex-row lg:items-start">
+<div class="grid grid-cols-2">
+  <%= image_tag("ogp.png") %>
+  <%= image_tag("kids.jpg", class: "shadow-2xl") %>
+</div>
+
+<!--
+<div class="bg-ivory h-full bg-cover flex flex-col items-center md:flex-row">
   <div id="left-side" class="lg:w-1/2 flex items-center flex-col lg:mt-12 lg:ml-8">
-    <div>
+    <div class="max-w-full">
       <%= image_tag("ogp.png", style: "width: 90%;") %>
     </div>
     <div id="buttons" class="flex space-x-2 sm:space-x-10 mt-4 sm:mt-0">
@@ -83,3 +89,4 @@
     </div>
   </div>
 </div>
+-->
