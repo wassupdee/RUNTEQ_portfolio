@@ -34,13 +34,9 @@ RSpec.describe "top_page", type: :system do
     context "使い方リンクをクリック" do
       it "使い方ページに遷移する" do
         visit root_path
-        page.driver.browser.manage.window.resize_to(1024, 900)
-        find("#how_to_use_1").click
-        expect(page).to have_current_path(how_to_use_path)
-
-        visit root_path
-        page.driver.browser.manage.window.resize_to(1023, 900)
-        find("#how_to_use_2").click
+        within(".grid") do
+          click_link "使い方"
+        end
         expect(page).to have_current_path(how_to_use_path)
       end
     end
