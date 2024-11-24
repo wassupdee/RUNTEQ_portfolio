@@ -25,6 +25,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <script src="https://kit.fontawesome.com/ba69a80073.js" crossorigin="anonymous" defer></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PG3QKNL1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-8PG3QKNL1X');
+    </script>
   </head>
 
   <body class="flex flex-col h-screen bg-ivory-white text-black relative">
