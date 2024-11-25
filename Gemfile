@@ -106,6 +106,9 @@ group :development, :test do
 
   # Analyse RSpec coverage
   gem 'simplecov'
+
+  # Security check
+  gem 'brakeman'
 end
 
 group :development do
